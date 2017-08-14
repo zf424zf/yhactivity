@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $moduleRef = new \ReflectionClass(\App\Http\Api\Module::class);
+
+     var_dump(in_array(1,$moduleRef->getConstants()));
+//    return view('welcome');
 });
