@@ -6,7 +6,7 @@
  * Time: 21:26
  */
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 
 use App\Http\Api\PhotoChild;

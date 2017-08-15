@@ -9,9 +9,10 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\CommentRequest;
+use App\Http\Request\CommentGetRequest;
+use App\Http\Request\CommentRequest;
 use App\Http\Service\Message;
-
+use App\Http\Service\Service;
 class MessageController extends Controller
 {
     public function submit(CommentRequest $request)
@@ -21,5 +22,11 @@ class MessageController extends Controller
             $request->get('content'),
             $request->get('channel')
         );
+    }
+
+    public function messageList(CommentGetRequest $request)
+    {
+        $data = (new Message())->getMessage($request->get('msgId', ''));
+        return api_response(Service::SUCCESS, $data);
     }
 }

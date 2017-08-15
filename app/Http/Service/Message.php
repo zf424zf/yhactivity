@@ -29,4 +29,12 @@ class Message
         }
         api_exception(Service::MSG_SAVE_ERR);
     }
+
+    public function getMessage($msgId = ''){
+        $model = CommentModel::with('users')->orderBy('id','desc');
+        if(!empty($msgId)){
+            $model->where('id','>',$msgId);
+        }
+        return $model->take(10)->get();
+    }
 }

@@ -16,8 +16,9 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-    Route::group(['prefix' => 'comment','namespace'=>'App\Http\Controllers'], function () {
+    Route::group(['prefix' => 'comment'], function () {
         Route::post('submit', 'MessageController@submit');
+        Route::get('msgList','MessageController@messageList');
 });
 Route::group(['prefix' => 'like','namespace'=>'App\Http\Controllers'], function () {
     Route::post('/', 'LikeController@like');

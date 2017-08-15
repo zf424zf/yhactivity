@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 use Illuminate\Http\Request as IlluminateRequest;
 use Illuminate\Container\Container;
@@ -31,7 +31,6 @@ abstract class ApiRequest extends IlluminateRequest implements ValidatesWhenReso
     protected function getValidatorInstance()
     {
         $factory = $this->container->make(ValidationFactory::class);
-
         if (method_exists($this, 'validator')) {
             return $this->container->call([$this, 'validator'], compact('factory'));
         }

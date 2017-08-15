@@ -6,7 +6,7 @@
  * Time: 20:59
  */
 
-namespace App\Http\Requests;
+namespace App\Http\Request;
 
 
 use App\Http\Service\Service;
@@ -22,7 +22,7 @@ class CommentRequest extends ApiRequest
             'uid.integer' => Service::UID_TYPE_ERR,
             'channel.required'=>Service::MSG_CHANNEL_REQUIRED,
             'content.required'=>Service::MSG_CONTENT_REQUIRED,
-            'content.size'=>Service::MSG_CONTENT_SIZE_ERROR
+            'content.max'=>Service::MSG_CONTENT_SIZE_ERROR
         ];
     }
 
@@ -32,7 +32,7 @@ class CommentRequest extends ApiRequest
         return [
             'uid'=>'required|integer',
             'channel'=>'required',
-            'content'=>'required|size:256'
+            'content'=>'required|max:256'
         ];
     }
 }

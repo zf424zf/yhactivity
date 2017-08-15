@@ -7,7 +7,7 @@
  */
 
 use App\Exceptions\ApiException;
-use App\Http\Services\Service;
+use App\Http\Service\Service;
 
 if (!function_exists('setting')) {
     /**

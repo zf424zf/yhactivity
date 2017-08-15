@@ -12,4 +12,5 @@ namespace App\Http\Models;
 class UserModel extends BaseModel
 {
     protected $table = 'users';
+    protected $hidden = ['id'];
 }

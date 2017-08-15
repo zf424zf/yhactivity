@@ -9,7 +9,7 @@
 namespace App\Http\Controllers;
 
 
-use App\Http\Requests\LikeRequest;
+use App\Http\Request\LikeRequest;
 use App\Http\Service\Like;
 
 class LikeController extends Controller
