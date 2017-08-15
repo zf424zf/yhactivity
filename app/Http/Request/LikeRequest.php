@@ -24,8 +24,8 @@ class LikeRequest extends ApiRequest
     public function messages()
     {
         return [
-            'uid.required'=>Service::LK_UID_REQUIRED,
-            'uid.integer' => Service::LK_UID_TYPE_ERR,
+            'uid.required'=>Service::UID_REQUIRED,
+            'uid.integer' => Service::UID_TYPE_ERR,
             'module.required'=>Service::LK_MODULE_REQUIRED,
             'module.in' => Service::LK_MODULE_VALUE_ERR,
             'child.required'=>Service::LK_CHILD_REQUIRED,

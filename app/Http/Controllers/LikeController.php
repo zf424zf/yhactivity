@@ -15,6 +15,13 @@ use App\Http\Service\Like;
 class LikeController extends Controller
 {
     public function like(LikeRequest $request){
-        $likeService = new Like();
+        return (
+            new Like())
+            ->pointLike(
+                $request->get('uid'),
+                $request->get('module'),
+                $request->get('child'),
+                $request->get('target')
+                );
     }
 }
