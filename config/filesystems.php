@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('FILESYSTEM_DRIVER', 'local'),
+    'default' => 'oss',
 
     /*
     |--------------------------------------------------------------------------
@@ -56,11 +56,11 @@ return [
         ],
         'oss' => [
             'driver'     => 'oss',
+            'path'       => 'yh-activity',
             'access_id'  => env('OSS_ACCESS_ID'),
             'access_key' => env('OSS_ACCESS_SECRET'),
             'bucket'     => env('OSS_BUCKET'),
             'endpoint'   => 'oss-cn-beijing.aliyuncs.com',
-            'maxsize'    => 2,//单位M
             'domain'     => '//' . env('OSS_DOMAIN') . '/',
             'mimes'      => 'png,jpg,jpeg,gif,bmp,svg,webp,rar,zip,tar,gz,7z,bz2,doc,docx,xls,xlsx,ppt,pptx,pdf,txt,xml',
         ],

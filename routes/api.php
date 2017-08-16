@@ -23,3 +23,4 @@ use Illuminate\Http\Request;
 Route::group(['prefix' => 'like','namespace'=>'App\Http\Controllers'], function () {
     Route::post('/', 'LikeController@like');
 });
+Route::post('upload', 'UploadController@upload');

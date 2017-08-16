@@ -9,10 +9,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Service\Upload;
+
 class UploadController extends Controller
 {
     public function upload()
     {
-        
+       return (new Upload())->upload(\Request::get('uid'));
     }
 }
