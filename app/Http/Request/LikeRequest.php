@@ -31,7 +31,6 @@ class LikeRequest extends ApiRequest
             'child.required'=>Service::LK_CHILD_REQUIRED,
             'child.in' => Service::LK_CHILD_VALUE_ERR,
             'target.required'=>Service::LK_TARGET_REQUIRED,
-            'target.exists'=>Service::LK_TARGET_VALUE_ERR
 
         ];
         // TODO: Implement messages() method.
@@ -44,8 +43,8 @@ class LikeRequest extends ApiRequest
         return [
             'uid'=>'required|integer',
             'module'=>'required|in:'.implode(',',$moduleRef->getConstants()),
-            'child' =>'required|in'.implode(',',$childRef->getConstants()),
-            'target'=>'required|exists:like,target_id'
+            'child' =>'required|in:'.implode(',',$childRef->getConstants()),
+            'target'=>'required'
         ];
         // TODO: Implement rules() method.
     }

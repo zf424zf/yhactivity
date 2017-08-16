@@ -22,6 +22,7 @@ abstract class Service
     const LK_TARGET_REQUIRED = 1007;//目标必须
     const LK_TARGET_VALUE_ERR = 1008;//目标值错误
     const LK_USER_HAS_BEEN_LIKE = 1009;//该用户已经赞过
+    const LK_FILE_NOT_FOUND = 1010;//点赞的文件不存在
 
     const MSG_USER_NOT_FOUND = 2001;//用户不存在或者未登录，不能发表留言
     const MSG_SAVE_ERR = 2002;//留言失败
@@ -29,6 +30,10 @@ abstract class Service
     const MSG_CONTENT_SIZE_ERROR = 2004;//留言字数必须少于256个字
     const MSG_CHANNEL_REQUIRED = 2005;//直播频道必须指定
 
+    const IMAGE_MODULE_REQUIRED  = 3001;
+    const IMAGE_MODULE_VALUE_ERR = 3002;
+    const IMAGE_PATH_REQUIRED = 3003;
+    const IMAGE_INFO_MUST_JSON =  3004;
 
     const SYSTEM_ERROR = 9999;//系统错误
     /**

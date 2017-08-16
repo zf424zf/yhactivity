@@ -37,7 +37,8 @@ class Upload
         $content = file_get_contents(self::$file);
         $fileName = self::getFileName();
          \Storage::put(self::getFileDir() . $fileName, $content);
-         return api_response(Service::SUCCESS,['path'=>$fileName]);
+         $path =config('filesystems.disks.oss.domain') . self::getPathByFileName($fileName);
+         return api_response(Service::SUCCESS,['path'=>$path]);
     }
 
     /**
@@ -55,8 +56,23 @@ class Upload
      */
     private Static function getFileDir()
     {
-        $path = trim(config('filesystems.disks.oss.path'), '/yh-activity/');
+        $path = trim(config('filesystems.disks.oss.path'), '/');
         $dir = date('/Y/m/d/');
         return $path  . $dir;
+    }
+
+    /**
+     * @param $fileName
+     * @return string
+     * 根据附件名称获取附件的存储路径
+     */
+    public static function getPathByFileName($fileName)
+    {
+        $path = trim(config('filesystems.disks.oss.path'), '/');
+        $year = substr($fileName, 0, 4);
+        $month = substr($fileName, 4, 2);
+        $day = substr($fileName, 6, 2);
+        $path = $path . '/' . $year . '/' . $month . '/' . $day . '/' . $fileName;
+        return $path;
     }
 }

@@ -20,7 +20,13 @@ use Illuminate\Http\Request;
         Route::post('submit', 'MessageController@submit');
         Route::get('msgList','MessageController@messageList');
 });
-Route::group(['prefix' => 'like','namespace'=>'App\Http\Controllers'], function () {
+Route::group(['prefix' => 'like'], function () {
     Route::post('/', 'LikeController@like');
 });
+Route::group(['prefix' => 'image'], function () {
+    Route::post('/add', 'ImageController@add');
+});
 Route::post('upload', 'UploadController@upload');
+Route::get('/',function(){
+    $model =  \App\Http\Models\VideoModel::class;
+});

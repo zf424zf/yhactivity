@@ -12,5 +12,5 @@ namespace App\Http\Models;
 
 class LikeModel extends BaseModel
 {
-
+    protected $table = 'like';
 }
