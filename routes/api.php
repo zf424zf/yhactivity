@@ -26,6 +26,11 @@ Route::group(['prefix' => 'like'], function () {
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
 });
+Route::group(['prefix' => 'video'], function () {
+    Route::post('/add', 'VideoController@addVideo');
+
+});
+Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');
 Route::get('/',function(){
     $model =  \App\Http\Models\VideoModel::class;

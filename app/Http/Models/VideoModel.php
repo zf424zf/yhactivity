@@ -12,6 +12,7 @@ namespace App\Http\Models;
 class VideoModel extends BaseModel
 {
     protected $table = 'video';
+
     public function users(){
         return $this->hasOne('App\Http\Models\UserModel','uid','uid');
     }

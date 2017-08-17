@@ -35,6 +35,11 @@ abstract class Service
     const IMAGE_PATH_REQUIRED = 3003;
     const IMAGE_INFO_MUST_JSON =  3004;
 
+    const VIDEO_MODULE_REQUIRED  = 3101;
+    const VIDEO_MODULE_VALUE_ERR = 3102;
+    const VIDEO_PATH_REQUIRED = 3103;
+    const VIDEO_INFO_MUST_JSON =  3104;
+
     const SYSTEM_ERROR = 9999;//系统错误
     /**
      * @param $code
