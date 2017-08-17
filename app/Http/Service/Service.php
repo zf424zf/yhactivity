@@ -30,15 +30,21 @@ abstract class Service
     const MSG_CONTENT_SIZE_ERROR = 2004;//留言字数必须少于256个字
     const MSG_CHANNEL_REQUIRED = 2005;//直播频道必须指定
 
-    const IMAGE_MODULE_REQUIRED  = 3001;
-    const IMAGE_MODULE_VALUE_ERR = 3002;
-    const IMAGE_PATH_REQUIRED = 3003;
-    const IMAGE_INFO_MUST_JSON =  3004;
+    const IMAGE_MODULE_REQUIRED  = 3001;//图片module必须存在
+    const IMAGE_MODULE_VALUE_ERR = 3002;//图片module值错误
+    const IMAGE_PATH_REQUIRED = 3003;//图片路径必须存在
+    const IMAGE_INFO_MUST_JSON =  3004;//图片信息必须为json格式
 
-    const VIDEO_MODULE_REQUIRED  = 3101;
-    const VIDEO_MODULE_VALUE_ERR = 3102;
-    const VIDEO_PATH_REQUIRED = 3103;
-    const VIDEO_INFO_MUST_JSON =  3104;
+    const VIDEO_MODULE_REQUIRED  = 3101;//视频module必须存在
+    const VIDEO_MODULE_VALUE_ERR = 3102;//视频module值错误
+    const VIDEO_PATH_REQUIRED = 3103;//视频路径必须存在
+    const VIDEO_INFO_MUST_JSON =  3104;//视频信息必须为json格式
+
+    const LIST_MODULE_REQUIRED = 3201;//module必须存在
+    const LIST_MODULE_VALUE_ERR = 3202;//module值错误
+    const LIST_CHILD_VALUE_ERR = 3203;//child值错误
+    const LIST_SORT_VALUE_ERR = 3204;//排序字段值错误
+    const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
     const SYSTEM_ERROR = 9999;//系统错误
     /**

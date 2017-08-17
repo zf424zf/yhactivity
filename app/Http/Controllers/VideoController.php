@@ -24,12 +24,5 @@ class VideoController extends Controller
         );
     }
 
-    public function getList()
-    {
-        return $data = (new Video())->videoList(
-            \Request::get('module'),
-            'like',
-            'desc',
-            1,1);
-    }
+
 }

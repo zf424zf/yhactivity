@@ -32,6 +32,7 @@ Route::group(['prefix' => 'video'], function () {
 });
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');
-Route::get('/',function(){
+Route::get('wall','ListController@getList');
+Route::get('',function(){
     $model =  \App\Http\Models\VideoModel::class;
 });
