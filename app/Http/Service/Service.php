@@ -30,15 +30,29 @@ abstract class Service
     const MSG_CONTENT_SIZE_ERROR = 2004;//留言字数必须少于256个字
     const MSG_CHANNEL_REQUIRED = 2005;//直播频道必须指定
 
-    const IMAGE_MODULE_REQUIRED  = 3001;//图片module必须存在
+    const IMAGE_MODULE_REQUIRED = 3001;//图片module必须存在
     const IMAGE_MODULE_VALUE_ERR = 3002;//图片module值错误
     const IMAGE_PATH_REQUIRED = 3003;//图片路径必须存在
-    const IMAGE_INFO_MUST_JSON =  3004;//图片信息必须为json格式
+    const IMAGE_INFO_MUST_JSON = 3004;//图片信息必须为json格式
+    const IMAGE_LEFT_PIC_NOT_FOUND = 3005;//找不到挑战图片
+    const IMAGE_TYPE_REQUIRED = 3006;//图片类型必须上传
+    const IMAGE_TYPE_VALUE_ERR = 3007;//图片类型只能是0或者1
+    const IMAGE_ORIGIN_REQUIRED = 3008;//上传右边图片时关联id必须存在
+    const IMAGE_LABEL_SIZE_ERR = 3009;//LABEL长度不能超过10个字
+    const IMAGE_ORIGIN_LABEL_SIZE_ERR = 3010;//originLABEL长度不能超过10个字
+    const IMAGE_NOT_FOUND = 3011;//图片不存在
+    const IMAGE_ID_REQUIRED = 3012;//图片id必须
+    const IMAGE_ID_NOT_FOUND = 3013;//图片id不存在
+    const IMAGE_ID_VALUE_ERR = 3014;//图片id值错误
+    const IMAGE_UID_NOT_FOUND = 3015;//用户不存在
+    const IMAGE_UID_VALUE_ERR = 3016;//用户值错误
 
-    const VIDEO_MODULE_REQUIRED  = 3101;//视频module必须存在
+
+    const VIDEO_MODULE_REQUIRED = 3101;//视频module必须存在
     const VIDEO_MODULE_VALUE_ERR = 3102;//视频module值错误
     const VIDEO_PATH_REQUIRED = 3103;//视频路径必须存在
-    const VIDEO_INFO_MUST_JSON =  3104;//视频信息必须为json格式
+    const VIDEO_INFO_MUST_JSON = 3104;//视频信息必须为json格式
+    const VIDEO_NOT_FOUND = 3105;//视频不存在
 
     const LIST_MODULE_REQUIRED = 3201;//module必须存在
     const LIST_MODULE_VALUE_ERR = 3202;//module值错误
@@ -47,6 +61,7 @@ abstract class Service
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
     const SYSTEM_ERROR = 9999;//系统错误
+
     /**
      * @param $code
      * @return string

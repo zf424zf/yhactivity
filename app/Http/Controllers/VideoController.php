@@ -9,6 +9,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Request\VideoInfoRequest;
 use App\Http\Request\VideoRequest;
 use App\Http\Service\Video;
 
@@ -24,5 +25,10 @@ class VideoController extends Controller
         );
     }
 
-
+    public function info(VideoInfoRequest $request){
+        return (new Video())->info(
+            $request->get('id'),
+            $request->get('uid')
+        );
+    }
 }

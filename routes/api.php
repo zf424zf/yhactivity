@@ -25,10 +25,11 @@ Route::group(['prefix' => 'like'], function () {
 });
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
+    Route::get('/info', 'ImageController@info');
 });
 Route::group(['prefix' => 'video'], function () {
     Route::post('/add', 'VideoController@addVideo');
-
+    Route::get('/info', 'VideoController@info');
 });
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');

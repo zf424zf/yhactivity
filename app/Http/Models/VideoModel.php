@@ -16,4 +16,9 @@ class VideoModel extends BaseModel
     public function users(){
         return $this->hasOne('App\Http\Models\UserModel','uid','uid');
     }
+
+    public function question(){
+        return $this->hasOne('App\Http\Models\QuestionModel','id','qid');
+    }
+
 }

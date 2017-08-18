@@ -10,6 +10,8 @@ namespace App\Http\Service;
 
 
 
+use App\Http\Api\Module;
+use App\Http\Models\LikeModel;
 use App\Http\Models\VideoModel;
 
 class Video
@@ -27,5 +29,24 @@ class Video
         return $model->with('users')->first();
     }
 
+    public function info($id,$uid){
+        $canLike = 0;
+        $data = VideoModel::where('id',$id)->with(['users','question'])->first();
+        if(!$data){
+            api_exception(Service::VIDEO_NOT_FOUND);
+        }
+        if(!empty($uid)){
+            $likeCount = LikeModel::where('uid',$uid)
+                ->where('module',Module::VIDEO_MODULE)
+                ->where('child',$data->module)
+                ->where('target',$data->id)
+                ->count();
+            if($likeCount < 5){
+                $canLike = 1;
+            }
+        }
+        $data->canLike = $canLike;
+        return $data;
+    }
 
 }
