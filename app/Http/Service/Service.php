@@ -53,6 +53,12 @@ abstract class Service
     const VIDEO_PATH_REQUIRED = 3103;//视频路径必须存在
     const VIDEO_INFO_MUST_JSON = 3104;//视频信息必须为json格式
     const VIDEO_NOT_FOUND = 3105;//视频不存在
+    const VIDEO_ID_REQUIRED = 3106;//视频id必须
+    const VIDEO_ID_VALUE_ERR = 3107;//视频id类型错误
+    const VIDEO_ID_NOT_FOUND = 3108;//视频id不存在
+    const VIDEO_UID_NOT_FOUND = 3109;//用户不存在
+    const VIDEO_UID_VALUE_ERR = 3110;//用户值错误
+
 
     const LIST_MODULE_REQUIRED = 3201;//module必须存在
     const LIST_MODULE_VALUE_ERR = 3202;//module值错误

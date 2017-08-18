@@ -9,16 +9,27 @@
 namespace App\Http\Request;
 
 
+use App\Http\Service\Service;
+
 class VideoInfoRequest extends ApiRequest
 {
 
     public function messages()
     {
-        return [];
+        return [
+            'id.required'=>Service::VIDEO_ID_REQUIRED,
+            'id.integer'=>Service::VIDEO_ID_VALUE_ERR,
+            'id.exists'=>Service::VIDEO_ID_NOT_FOUND,
+            'uid.integer'=>Service::VIDEO_UID_VALUE_ERR,
+            'uid.exists'=>Service::VIDEO_UID_NOT_FOUND
+        ];
     }
 
     public function rules()
     {
-        return [];
+        return [
+            'id'=>'required|integer|exists:video,id',
+            'uid'=>'integer|exists:users,id'
+        ];
     }
 }
