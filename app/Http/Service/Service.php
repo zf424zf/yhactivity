@@ -66,6 +66,8 @@ abstract class Service
     const LIST_SORT_VALUE_ERR = 3204;//排序字段值错误
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
+    const PAGE_VALUE_ERR = 9001;//分页参数错误
+    const PAGE_SIZE_VALUE_ERR = 9002;//每页显示条数参数错误
     const SYSTEM_ERROR = 9999;//系统错误
 
     /**

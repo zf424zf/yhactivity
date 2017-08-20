@@ -15,9 +15,9 @@ use App\Http\Models\LikeModel;
 
 class Image
 {
-    public function addImage($uid, $module, $path, $type, $info = '', $originId=0, $label = '', $originLabel = '')
+    public function addImage($uid, $module, $path, $type, $info = '', $originId = 0, $label = '', $originLabel = '')
     {
-        if($type == 1) {
+        if ($type == 1) {
             if (!empty($originId)) {
                 //查找左图
                 $left = ImageModel::where('id', $originId)->where('type', 0)->first();
@@ -42,26 +42,36 @@ class Image
         $model->origin = $type == 0 ? 0 : $originId;
         $model->label = $label;
         $model->save();
-        return ImageModel::where('id',$model->id)->with(['users','originInfo'])->first();
+        return ImageModel::where('id', $model->id)->with(['users', 'originInfo'])->first();
     }
 
-    public function imageInfo($id,$uid){
+    public function imageInfo($id, $uid)
+    {
         $canLike = 0;
-        $data = ImageModel::where('id',$id)->with(['users','originInfo'])->first();
-       if(!$data){
-           api_exception(Service::IMAGE_NOT_FOUND);
-       }
-       if(!empty($uid)){
-           $likeCount = LikeModel::where('uid',$uid)
-               ->where('module',Module::PHOTO_MODULE)
-               ->where('child',$data->module)
-               ->where('target',$data->id)
-               ->count();
-           if($likeCount < 5){
-               $canLike = 1;
-           }
-       }
-       $data->canLike = $canLike;
-       return $data;
+        $data = ImageModel::where('id', $id)->with(['users', 'originInfo'])->first();
+        if (!$data) {
+            api_exception(Service::IMAGE_NOT_FOUND);
+        }
+        if (!empty($uid)) {
+            $likeCount = LikeModel::where('uid', $uid)
+                ->where('module', Module::PHOTO_MODULE)
+                ->where('child', $data->module)
+                ->where('target', $data->id)
+                ->count();
+            if ($likeCount < 5) {
+                $canLike = 1;
+            }
+        }
+        $data->canLike = $canLike;
+        return $data;
+    }
+
+    public function challengeList($module, $page, $pagesize)
+    {
+        $data = ImageModel::with('users')->where('type', 0)
+            ->where('module', $module)
+            ->skip(($page - 1) * $pagesize)
+            ->take($pagesize)->get();
+        return $data;
     }
 }

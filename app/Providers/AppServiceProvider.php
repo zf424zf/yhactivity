@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
+use App\Http\Services\Settings;
 use Illuminate\Support\ServiceProvider;
-
+use App\Util\Validator as ExtendValidator;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -14,6 +15,15 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        app()->singleton('setting', function ($app) {
+            return new Settings();
+        });
+
+        //重置校验类库为自定义扩展
+        app('validator')->resolver(function ($translator, $data, $rules, $messages) {
+            $instance = new ExtendValidator($translator, $data, $rules, $messages);
+            return $instance;
+        });
     }
 
     /**

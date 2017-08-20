@@ -26,6 +26,9 @@ Route::group(['prefix' => 'like'], function () {
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
     Route::get('/info', 'ImageController@info');
+    Route::get('/challengeList', 'ImageController@challengeList');
+
+
 });
 Route::group(['prefix' => 'video'], function () {
     Route::post('/add', 'VideoController@addVideo');
