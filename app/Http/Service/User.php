@@ -23,11 +23,13 @@ class User
         $user = UserModel::where('openid', $userinfo['openId'])->first();
         if (!$user) {
             $unionid = isset($userinfo['unionId']) && $userinfo['unionId'] ? $userinfo['unionId'] : '';
-            $user = new UserModel();
-            $user->openid = $userinfo['openId'];
-            $user->unionid = $unionid;
-            $user->nickname = $userinfo['nickName'];
-            $user->profile = $userinfo;
+            $userData = [
+                'openid'   => $userinfo['openId'],
+                'unionid'  => $unionid,
+                'nickname' => $userinfo['nickName'],
+                'profile'  => json_encode($userinfo),
+            ];
+            $user = new UserModel($userData);
             $user->save();
         }
         return $user;
