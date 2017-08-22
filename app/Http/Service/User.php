@@ -24,7 +24,7 @@ class User
         if (!$user) {
             $userData = [
                 'openid'   => $userinfo['openId'],
-                'unionid'  => isset($userinfo['unionId']) ? $userinfo['unionId'] : null,
+                'unionid'  => isset($userinfo['unionId']) ? $userinfo['unionId'] : '',
                 'nickname' => $userinfo['nickName'],
                 'profile'  => $userinfo,
             ];
