@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Service\Service;
-use App\Http\Services\WxApp;
+use App\Http\Service\WxApp;
 use App\Http\Request\User\TicketRequest;
 use App\Http\Request\User\WxLoginRequest;
 
