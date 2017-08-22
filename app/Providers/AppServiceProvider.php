@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Http\Service\User;
 use App\Http\Services\Settings;
 use Illuminate\Support\ServiceProvider;
 use App\Util\Validator as ExtendValidator;
@@ -23,6 +24,10 @@ class AppServiceProvider extends ServiceProvider
         app('validator')->resolver(function ($translator, $data, $rules, $messages) {
             $instance = new ExtendValidator($translator, $data, $rules, $messages);
             return $instance;
+        });
+
+        app()->singleton('user', function ($app) {
+            return new User();
         });
     }
 
