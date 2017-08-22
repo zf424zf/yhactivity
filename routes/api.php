@@ -25,8 +25,8 @@ Route::group(['prefix' => 'like'], function () {
 });
 
 Route::group(['prefix' => 'wx'], function () {
-    Route::post('/ticket', 'UserController@ticket');
-    Route::post('/wxlogin', 'UserController@wxlogin');
+    Route::get('/ticket', 'UserController@ticket');
+    Route::post('/login', 'UserController@wxlogin');
 });
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
