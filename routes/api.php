@@ -16,12 +16,17 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-    Route::group(['prefix' => 'comment'], function () {
-        Route::post('submit', 'MessageController@submit');
-        Route::get('msgList','MessageController@messageList');
+Route::group(['prefix' => 'comment'], function () {
+    Route::post('submit', 'MessageController@submit');
+    Route::get('msgList', 'MessageController@messageList');
 });
 Route::group(['prefix' => 'like'], function () {
     Route::post('/', 'LikeController@like');
+});
+
+Route::group(['prefix' => 'wx'], function () {
+    Route::post('/ticket', 'UserController@ticket');
+    Route::post('/wxlogin', 'UserController@wxlogin');
 });
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
@@ -36,7 +41,7 @@ Route::group(['prefix' => 'video'], function () {
 });
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');
-Route::get('wall','ListController@getList');
-Route::get('',function(){
-    $model =  \App\Http\Models\VideoModel::class;
+Route::get('wall', 'ListController@getList');
+Route::get('', function () {
+    $model = \App\Http\Models\VideoModel::class;
 });

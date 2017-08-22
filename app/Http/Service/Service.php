@@ -66,6 +66,10 @@ abstract class Service
     const LIST_SORT_VALUE_ERR = 3204;//排序字段值错误
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
+    const WX_CODE_NOT_EXISTS = 4001;//code必须存在
+    const WX_TICKET_NOT_EXISTS = 4002;//ticket不存在
+    const WX_DECRYPT_FAIL = 4003;//用户信息解密失败
+
     const PAGE_VALUE_ERR = 9001;//分页参数错误
     const PAGE_SIZE_VALUE_ERR = 9002;//每页显示条数参数错误
     const SYSTEM_ERROR = 9999;//系统错误
