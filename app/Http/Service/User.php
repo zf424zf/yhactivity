@@ -15,7 +15,23 @@ class User
 {
     public function info()
     {
-        
+
+    }
+
+    public function wxRegister(array $userinfo)
+    {
+        $user = UserModel::where('openid', $userinfo['openId'])->first();
+        if (!$user) {
+            $userData = [
+                'openid'   => $userinfo['openId'],
+                'unionid'  => isset($userinfo['unionId']) ? $userinfo['unionId'] : null,
+                'nickname' => $userinfo['nickName'],
+                'profile'  => $userinfo,
+            ];
+            $user = new UserModel($userData);
+            $user->save();
+        }
+        return $user;
     }
 
 }

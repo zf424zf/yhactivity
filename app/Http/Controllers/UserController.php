@@ -44,7 +44,7 @@ class UserController extends Controller
         if (!$data) {
             api_exception(Service::WX_DECRYPT_FAIL);
         }
-        $user = app('user')->wxRegister($data, app('org')->id);
+        $user = app('user')->wxRegister($data);
         return api_response(Service::SUCCESS, $user['id']);
     }
 
