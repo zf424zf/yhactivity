@@ -16,12 +16,17 @@ use Illuminate\Http\Request;
 //Route::middleware('auth:api')->get('/user', function (Request $request) {
 //    return $request->user();
 //});
-    Route::group(['prefix' => 'comment'], function () {
-        Route::post('submit', 'MessageController@submit');
-        Route::get('msgList','MessageController@messageList');
+Route::group(['prefix' => 'comment'], function () {
+    Route::post('submit', 'MessageController@submit');
+    Route::get('msgList', 'MessageController@messageList');
 });
 Route::group(['prefix' => 'like'], function () {
     Route::post('/', 'LikeController@like');
+});
+
+Route::group(['prefix' => 'wx'], function () {
+    Route::get('/ticket', 'UserController@ticket');
+    Route::post('/login', 'UserController@wxlogin');
 });
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
@@ -42,6 +47,3 @@ Route::get('luck','LuckController@luck');
 Route::get('luckList','LuckController@luckList');
 
 
-Route::get('',function(){
-    $model =  \App\Http\Models\VideoModel::class;
-});
