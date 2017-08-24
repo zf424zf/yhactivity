@@ -25,6 +25,7 @@ Route::group(['prefix' => 'like'], function () {
 });
 Route::group(['prefix' => 'image'], function () {
     Route::post('/add', 'ImageController@add');
+    Route::post('/share', 'ImageController@shareImage');
     Route::get('/info', 'ImageController@info');
     Route::get('/challengeList', 'ImageController@challengeList');
 
@@ -37,6 +38,10 @@ Route::group(['prefix' => 'video'], function () {
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');
 Route::get('wall','ListController@getList');
+Route::get('luck','LuckController@luck');
+Route::get('luckList','LuckController@luckList');
+
+
 Route::get('',function(){
     $model =  \App\Http\Models\VideoModel::class;
 });

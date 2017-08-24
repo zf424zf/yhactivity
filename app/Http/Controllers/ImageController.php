@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
 use App\Http\Request\ChallengeRequest;
 use App\Http\Request\ImageInfoRequest;
 use App\Http\Request\ImageRequest;
+use App\Http\Request\ShareImageRequest;
 use App\Http\Service\Image;
 use App\Http\Service\Service;
 
@@ -45,6 +46,16 @@ class ImageController extends Controller
         $data = (new Image())->challengeList($request->get('module'),
             $request->get('page', 1),
             $request->get('pagesize', 12));
+        return api_response(Service::SUCCESS, $data);
+    }
+
+    public function shareImage(ShareImageRequest $request)
+    {
+        $data = (new Image())->shareImage(
+            $request->get('uid'),
+            $request->get('path'),
+            $request->get('info', '')
+        );
         return api_response(Service::SUCCESS, $data);
     }
 }

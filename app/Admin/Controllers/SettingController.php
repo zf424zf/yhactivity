@@ -41,7 +41,7 @@ class SettingController extends Controller
 
             $content->header('编辑配置');
 
-            $content->body($this->form()->edit($id));
+            $content->body($this->form(1)->edit($id));
         });
     }
 
@@ -81,10 +81,14 @@ class SettingController extends Controller
      *
      * @return Form
      */
-    protected function form()
+    protected function form($isUpdate = 0)
     {
-        return Admin::form(SettingsModel::class, function (Form $form) {
-            $form->text('key', 'key')->rules('required');
+        return Admin::form(SettingsModel::class, function (Form $form) use ($isUpdate) {
+            if($isUpdate == 1){
+                $form->text('key', 'key')->readOnly()->rules('required');
+            }else{
+                $form->text('key', 'key')->rules('required');
+            }
             $form->text('value', 'value')->rules('required');
             $form->text('description', '说明');
         });
@@ -93,7 +97,7 @@ class SettingController extends Controller
     public function update($id)
     {
         app('setting')->clear();
-        return $this->form()->update($id);
+        return $this->form(1)->update($id);
     }
 
     public function destroy($id)
