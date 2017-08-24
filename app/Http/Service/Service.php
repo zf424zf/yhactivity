@@ -69,7 +69,7 @@ abstract class Service
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
     const LIKE_TODAY_CHANCE_NONE = 3301;//用户今天抽奖机会已经用完
-    
+
     const WX_CODE_NOT_EXISTS = 4001;//code必须存在
     const WX_TICKET_NOT_EXISTS = 4002;//ticket不存在
     const WX_DECRYPT_FAIL = 4003;//用户信息解密失败

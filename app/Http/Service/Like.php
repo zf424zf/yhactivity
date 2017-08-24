@@ -12,6 +12,7 @@ use App\Http\Api\Module;
 use App\Http\Models\LikeModel;
 use App\Http\Service\Service as Status;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 class Like
 {
@@ -20,6 +21,7 @@ class Like
 
     public function __construct()
     {
+        date_default_timezone_set('PRC');
         $this->startTimestamp = Carbon::now()->startOfDay()->getTimestamp();
         $this->endTimestamp = Carbon::now()->endOfDay()->getTimestamp();
     }
@@ -27,13 +29,7 @@ class Like
     public function pointLike($uid, $module, $child, $target)
     {
 
-        $likeCount = LikeModel::where('uid', $uid)
-            ->where('module', $module)
-            ->where('child', $child)
-            ->where('target_id', $target)
-            ->where('created_at', '>=', $this->startTimestamp)
-            ->where('created_at', '<=', $this->endTimestamp)
-            ->count();
+         $likeCount = $this->userLikeCount($uid,$module,$child,$target);
         if ($likeCount >= 5) {
             api_exception(Service::LK_USER_HAS_BEEN_LIKE, '一天只能点赞5次哦');
         }
@@ -47,7 +43,27 @@ class Like
         $newLike->module = $module;
         $newLike->child = $child;
         $newLike->target_id = $target;
-        $newLike->save();
+        $isSave = $newLike->save();
+        if($isSave){
+           $this->updateUserLikeCount($uid,$module,$child,$target);
+        }
         return api_response(Service::SUCCESS);
+    }
+
+    public function userLikeCount($uid, $module, $child, $target){
+        //当前用户指定图片/视频点赞数
+        $key = cache_key('user.like',$uid,$module,$child,$target);
+        $count =  Redis::get($key);
+        return empty($count) ? 0 : $count;
+    }
+
+    public function updateUserLikeCount($uid, $module, $child, $target){
+        $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
+         $key = cache_key('user.like',$uid,$module,$child,$target);
+        if(empty(Redis::get($key))){
+            Redis::setex($key,$expire,1);
+            return;
+        }
+         Redis::incr($key);
     }
 }
