@@ -32,7 +32,14 @@ class User
             $user = new UserModel($userData);
             $user->save();
         }
-        return $user;
+        $user = $user->toArray();
+        $profile = json_decode($user['profile']);
+        $data = [
+            'id'       => $user['id'],
+            'nickname' => $user['nickname'],
+            'img'      => $profile['avatarUrl']
+        ];
+        return $data;
     }
 
 }
