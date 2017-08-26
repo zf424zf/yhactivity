@@ -35,7 +35,6 @@ class User
         $user = $user->toArray();
         $profile = json_decode($user['profile']);
         $data = [
-            'id'       => $user['id'],
             'nickname' => $user['nickname'],
             'img'      => $profile['avatarUrl']
         ];
