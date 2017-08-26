@@ -36,7 +36,7 @@ class User
         $profile = json_decode($user['profile']);
         $data = [
             'nickname' => $user['nickname'],
-            'img'      => $profile['avatarUrl']
+            'img'      => $profile->avatarUrl,
         ];
         return $data;
     }
