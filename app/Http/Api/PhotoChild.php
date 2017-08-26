@@ -15,4 +15,6 @@ class PhotoChild
     const PHOTO_BS = 2;//变身擂台
     const PHOTO_ZC = 3;//最潮擂台
     const PHOTO_CH = 4;//吃货擂台
+
+    const SHARE = 9;//晒单
 }

@@ -15,11 +15,12 @@ use App\Http\Service\Service;
 
 class Module
 {
-    const PHOTO_MODULE = 1;
-    const VIDEO_MODULE = 2;
+    const PHOTO_MODULE = 1;//照片
+    const VIDEO_MODULE = 2;//视频
+    const SHARE_MODULE = 3;//晒单
 
     public static function getModuleModel($module){
-        if($module == self::PHOTO_MODULE){
+        if($module == self::PHOTO_MODULE || $module == self::SHARE_MODULE){
             return ImageModel::class;
         }else if($module == self::VIDEO_MODULE){
             return VideoModel::class;

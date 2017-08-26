@@ -3,9 +3,9 @@
 namespace App\Models;
 
 
-use Illuminate\Database\Eloquent\Model;
+use App\Http\Models\BaseModel;
 
-class Settings extends Model
+class Settings extends BaseModel
 {
 
     protected $table = 'settings';

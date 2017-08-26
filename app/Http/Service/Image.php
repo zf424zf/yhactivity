@@ -32,7 +32,9 @@ class Image
                 api_exception(Service::IMAGE_ORIGIN_REQUIRED);
             }
         }
-        $info = is_array($info) ? implode(',', $info) : $info;
+        if(!empty($info)){
+            $info = is_array($info) ? implode(',', $info) : $info;
+        }
         $model = new ImageModel();
         $model->type = $type;
         $model->uid = $uid;
@@ -43,6 +45,20 @@ class Image
         $model->label = $label;
         $model->save();
         return ImageModel::where('id', $model->id)->with(['users', 'originInfo'])->first();
+    }
+
+    /**
+     * 晒单上传
+     */
+    public function shareImage($uid,$path,$info=''){
+        $model = new ImageModel();
+        $model->type = 9;
+        $model->uid = $uid;
+        $model->module = 9;
+        $model->path = $path;
+        $model->picInfo = $info;
+        $model->save();
+        return ImageModel::where('id', $model->id)->with(['users'])->first();
     }
 
     public function imageInfo($id, $uid)

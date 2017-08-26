@@ -12,6 +12,8 @@ namespace App\Http\Service;
 abstract class Service
 {
     const SUCCESS = 0;//Success
+    const TOKENERROR = 100;//token错误，请重新登录
+    const UPLOAD_FAIL = 300;//上传失败
 
     const UID_REQUIRED = 1001;//uid必须
     const UID_TYPE_ERR = 1002;//uid类型错误
@@ -65,6 +67,8 @@ abstract class Service
     const LIST_CHILD_VALUE_ERR = 3203;//child值错误
     const LIST_SORT_VALUE_ERR = 3204;//排序字段值错误
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
+
+    const LIKE_TODAY_CHANCE_NONE = 3301;//用户今天抽奖机会已经用完
 
     const WX_CODE_NOT_EXISTS = 4001;//code必须存在
     const WX_TICKET_NOT_EXISTS = 4002;//ticket不存在
