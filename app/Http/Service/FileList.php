@@ -67,14 +67,14 @@ class FileList
                     $table t1
                 LEFT JOIN (
                     SELECT
-                        module,
-                        child,
+                        `module`,
+                        `child`,
                         target_id,
                         count(*) AS cnt
                     FROM
                         yh_like
                     WHERE
-                        module = $module" . $likeWhere . "
+                        `module` = $module" . $likeWhere . "
                     GROUP BY
                         target_id
                 ) t2 ON t1.id = t2.target_id 
@@ -113,14 +113,14 @@ class FileList
                     $table t1
                 LEFT JOIN (
                     SELECT
-                        module,
-                        child,
+                        `module`,
+                        `child`,
                         target_id,
                         count(*) AS cnt
                     FROM
                         yh_like
                     WHERE
-                        module = $module" . $likeWhere . "
+                        `module` = $module" . $likeWhere . "
                     GROUP BY
                         target_id
                 ) t2 ON t1.id = t2.target_id 
@@ -144,14 +144,14 @@ class FileList
                     $table t1
                 LEFT JOIN (
                     SELECT
-                        module,
-                        child,
+                        `module`,
+                        `child`,
                         target_id,
                         count(*) AS cnt
                     FROM
                         yh_like
                     WHERE
-                        module = $module
+                        `module` = $module
                     GROUP BY
                         target_id
                 ) t2 ON t1.id = t2.target_id 
