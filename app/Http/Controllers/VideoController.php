@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Request\VideoInfoRequest;
 use App\Http\Request\VideoRequest;
+use App\Http\Service\Service;
 use App\Http\Service\Video;
 
 class VideoController extends Controller
@@ -30,5 +31,15 @@ class VideoController extends Controller
             $request->get('id'),
             $request->get('uid')
         );
+    }
+
+    public function getQuestionList(){
+        $data = (new Video())->question();
+        return api_response(Service::SUCCESS,$data);
+    }
+
+    public function questionListView(){
+        $data = (new Video())->question();
+        return view('video.question', ['question' => $data]);
     }
 }

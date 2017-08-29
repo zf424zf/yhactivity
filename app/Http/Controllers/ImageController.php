@@ -9,12 +9,16 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Api\Module;
+use App\Http\Api\PhotoChild;
 use App\Http\Request\ChallengeRequest;
 use App\Http\Request\ImageInfoRequest;
 use App\Http\Request\ImageRequest;
 use App\Http\Request\ShareImageRequest;
+use App\Http\Service\FileList;
 use App\Http\Service\Image;
 use App\Http\Service\Service;
+use Illuminate\Support\Facades\Input;
 
 class ImageController extends Controller
 {
@@ -57,5 +61,51 @@ class ImageController extends Controller
             $request->get('info', '')
         );
         return api_response(Service::SUCCESS, $data);
+    }
+
+    public function indexView()
+    {
+        $data = (new FileList())->videoList(1, '');
+        return view('photo.index', ['data' => $data]);
+    }
+
+    public function newView()
+    {
+        $uid = 1;
+        $module = Input::get('module', Module::PHOTO_MODULE);
+        $child = Input::get('child', PhotoChild::PHOTO_BS);
+        $sort = 'new';
+        $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid);
+        return view('photo.rank_new', ['data' => $data]);
+    }
+
+    public function rankView()
+    {
+        $uid = 1;
+        $module = Input::get('module', Module::PHOTO_MODULE);
+        $child = Input::get('child', PhotoChild::PHOTO_BS);
+        $sort = 'like';
+        $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid);
+        return view('photo.rank', ['data' => $data]);
+    }
+
+    public function detailView($id)
+    {
+        $uid = 1;
+        try {
+            $data = (new Image())->imageInfo($id, $uid);
+        } catch (\Exception $e) {
+            abort(404);
+        }
+        return view('photo.detail', ['data' => $data]);
+    }
+
+    public function challengeView($module)
+    {
+        if (!in_array($module, [1, 2, 3, 4])) {
+            abort(404);
+        }
+        $data = (new Image())->challengeList($module, \Request::get('page', 1), \Request::get('pagesize', 12));
+        return view('photo.challenge', ['data' => $data, 'module' => $module]);
     }
 }

@@ -17,7 +17,7 @@ class Message
     public function submit($uid,$content,$channel){
         $user = UserModel::where('uid',$uid)->first();
         if(!isset($user)){
-            api_exception(Service::MSG_USER_NOT_FOUND,'用户不存在，不能发表留言');
+            return api_response(Service::MSG_USER_NOT_FOUND,'用户不存在，不能发表留言');
         }
         $comment = new CommentModel();
         $comment->uid = $uid;
@@ -27,7 +27,7 @@ class Message
         if($isSave){
             return api_response(Service::SUCCESS,$comment->users());
         }
-        api_exception(Service::MSG_SAVE_ERR);
+        return api_response(Service::MSG_SAVE_ERR);
     }
 
     public function getMessage($msgId = ''){

@@ -30,19 +30,17 @@ class Upload
      * @param $uid
      * @return \Illuminate\Http\JsonResponse
      */
-    public function upload($uid)
+    public function upload()
     {
-        $user = UserModel::where('uid', $uid)->first();
-        if (!$user) {
-            api_exception(Service::UID_REQUIRED);
-        }
+
         $content = file_get_contents(self::$file);
         $formatFile = base64_encode($content);
         $url = "http://m.oneniceapp.com/open/uploadpic";
-        $parma = "content=$formatFile&encode=base64&token=36d9a31df1d6721cc52715946103434a";
-        $result = $this->post($url,$parma);
-        $resultArr =  json_decode($result,true);
-        if($resultArr['code'] != 0){
+        $parma = ['content'=>$formatFile,'encode'=>'base64','token'=>'36d9a31df1d6721cc52715946103434a'];
+//        $parma = "content=$formatFile&encode=base64&token=36d9a31df1d6721cc52715946103434a";
+        $result = $this->post($url, $parma);
+        $resultArr = json_decode($result, true);
+        if ($resultArr['code'] != 0) {
             api_exception(Service::UPLOAD_FAIL);
         }
         return $result;
@@ -53,16 +51,18 @@ class Upload
     }
 
 
-    public function post($url,$data){
+    public function post($url, $data)
+    {
         $ch = curl_init();
-        curl_setopt($ch,CURLOPT_URL,$url);
-        curl_setopt($ch,CURLOPT_POST,1);
-        curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, 1);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
         curl_exec($ch);
         $result = curl_multi_getcontent($ch);
-        curl_close ($ch);
+        curl_close($ch);
         return $result;
     }
 

@@ -12,6 +12,7 @@ namespace App\Http\Service;
 
 use App\Http\Api\Module;
 use App\Http\Models\LikeModel;
+use App\Http\Models\QuestionModel;
 use App\Http\Models\VideoModel;
 
 class Video
@@ -47,6 +48,10 @@ class Video
         }
         $data->canLike = $canLike;
         return $data;
+    }
+
+    public function question(){
+        return QuestionModel::orderBy('id')->get();
     }
 
 }

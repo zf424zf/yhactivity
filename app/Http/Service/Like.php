@@ -29,7 +29,7 @@ class Like
     public function pointLike($uid, $module, $child, $target)
     {
 
-         $likeCount = $this->userLikeCount($uid,$module,$child,$target);
+         $likeCount = $this->userLikeCount($uid,$module,$target);
         if ($likeCount >= 5) {
             api_exception(Service::LK_USER_HAS_BEEN_LIKE, '一天只能点赞5次哦');
         }
@@ -45,21 +45,21 @@ class Like
         $newLike->target_id = $target;
         $isSave = $newLike->save();
         if($isSave){
-           $this->updateUserLikeCount($uid,$module,$child,$target);
+           $this->updateUserLikeCount($uid,$module,$target);
         }
         return api_response(Service::SUCCESS);
     }
 
-    public function userLikeCount($uid, $module, $child, $target){
+    public function userLikeCount($uid, $module, $target){
         //当前用户指定图片/视频点赞数
-        $key = cache_key('user.like',$uid,$module,$child,$target);
+        $key = cache_key('user.like',$uid,$module,$target);
         $count =  Redis::get($key);
         return empty($count) ? 0 : $count;
     }
 
-    public function updateUserLikeCount($uid, $module, $child, $target){
+    public function updateUserLikeCount($uid, $module,  $target){
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
-         $key = cache_key('user.like',$uid,$module,$child,$target);
+         $key = cache_key('user.like',$uid,$module,$target);
         if(empty(Redis::get($key))){
             Redis::setex($key,$expire,1);
             return;

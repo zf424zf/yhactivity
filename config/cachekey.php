@@ -10,6 +10,6 @@ return [
         'luck'=>[
             'count'=>'api:user:luck:count:%s'
         ],
-        'like'=>'api:user:like:%s:%s:%s:%s'
+        'like'=>'api:user:like:%s:%s:%s'
     ]
 ];

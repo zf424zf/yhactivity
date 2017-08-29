@@ -44,6 +44,10 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        //接口业务逻辑异常
+        if ($exception instanceof ApiException) {
+            return response()->json(['code' => $exception->getCode(), 'message' => $exception->getMessage()]);
+        }
         return parent::render($request, $exception);
     }
 

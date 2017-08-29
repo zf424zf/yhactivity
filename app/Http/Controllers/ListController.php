@@ -17,10 +17,10 @@ class ListController extends Controller
     public function getList(ListRequest $request)
     {
         return $data = (new FileList())->videoList(
-            \Request::get('module'),
-            \Request::get('child',''),
-            \Request::get('sort','like'),
-            \Request::get('order','desc'),
-            \Request::get('uid'));
+            $request->get('module'),
+            $request->get('sort'),
+            $request->get('child',''),
+            $request->get('order','desc'),
+            $request->get('uid'));
     }
 }

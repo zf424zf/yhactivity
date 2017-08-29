@@ -45,5 +45,5 @@ Route::post('upload', 'UploadController@upload');
 Route::get('wall','ListController@getList');
 Route::get('luck','LuckController@luck');
 Route::get('luckList','LuckController@luckList');
-
+Route::get('question','VideoController@getQuestionList');
 

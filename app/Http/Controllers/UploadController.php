@@ -16,6 +16,6 @@ class UploadController extends Controller
     public function upload()
     {
         //todo request文件验证
-       return (new Upload())->upload(\Request::get('uid'));
+       return (new Upload())->upload();
     }
 }

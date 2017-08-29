@@ -64,21 +64,20 @@ class Image
     public function imageInfo($id, $uid)
     {
         $canLike = 0;
-        $data = ImageModel::where('id', $id)->with(['users', 'originInfo'])->first();
+        $data = ImageModel::where('id', $id)->where('type',1)->with(['users', 'originInfo'])->first();
         if (!$data) {
             api_exception(Service::IMAGE_NOT_FOUND);
         }
         if (!empty($uid)) {
-            $likeCount = LikeModel::where('uid', $uid)
-                ->where('module', Module::PHOTO_MODULE)
-                ->where('child', $data->module)
-                ->where('target', $data->id)
-                ->count();
+            $likeCount = (new Like())->userLikeCount($uid,Module::PHOTO_MODULE,$id);
             if ($likeCount < 5) {
                 $canLike = 1;
             }
         }
+        $likeCnt = LikeModel::where('module',Module::PHOTO_MODULE)
+            ->where('target_id',$id)->count();
         $data->canLike = $canLike;
+        $data->cnt = $likeCnt;
         return $data;
     }
 
