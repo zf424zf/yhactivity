@@ -3,6 +3,8 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Session\Middleware\StartSession;
+use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class Kernel extends HttpKernel
 {
@@ -56,6 +58,7 @@ class Kernel extends HttpKernel
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
-        'vailtoken' => \App\Http\Middleware\VailToken::class
+        'vailtoken' => \App\Http\Middleware\VailToken::class,
+        'isLogin'=>\App\Http\Middleware\VailLogin::class
     ];
 }

@@ -14,6 +14,11 @@ use App\Http\Service\FileList;
 
 class ListController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isLogin');
+    }
+
     public function getList(ListRequest $request)
     {
         return $data = (new FileList())->videoList(

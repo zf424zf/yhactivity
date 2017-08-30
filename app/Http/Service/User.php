@@ -24,10 +24,10 @@ class User
         if (!$user) {
             $unionid = isset($userinfo['unionId']) && $userinfo['unionId'] ? $userinfo['unionId'] : '';
             $userData = [
-                'openid'   => $userinfo['openId'],
-                'unionid'  => $unionid,
+                'openid' => $userinfo['openId'],
+                'unionid' => $unionid,
                 'nickname' => $userinfo['nickName'],
-                'profile'  => json_encode($userinfo),
+                'profile' => json_encode($userinfo),
             ];
             $user = new UserModel($userData);
             $user->save();
@@ -36,9 +36,24 @@ class User
         $profile = json_decode($user['profile']);
         $data = [
             'nickname' => $user['nickname'],
-            'img'      => $profile->avatarUrl,
+            'img' => $profile->avatarUrl,
         ];
         return $data;
+    }
+
+    public function niceUser($uid, $nickName, $avatar)
+    {
+        session('sb',2222);
+        $user = UserModel::where('uid', $uid)->first();
+        if (!$user) {
+            $user = new UserModel();
+            $user->uid = $uid;
+            $user->headicon = $avatar;
+            $user->nickname = $nickName;
+            $user->save();
+        }
+        session('user', $user->toArray());
+        return true;
     }
 
 }

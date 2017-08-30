@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Http\Service\Service;
 use Closure;
 
 class VailLogin
@@ -15,8 +16,14 @@ class VailLogin
      */
     public function handle($request, Closure $next)
     {
-        $userInfo = $request->session()->get('userInfo');
-
+        $userInfo =session('user');
+        if(empty($userInfo)){
+            $url = urls('/mn?redirect_uri='.urls('/getNiceUser'));
+             if(redirect($url)){
+                 \Log::error(12345);
+                 return $next($request);
+             }
+        }
         return $next($request);
     }
 }

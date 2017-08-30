@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Service\Service;
+use App\Http\Service\User;
 use App\Http\Service\WxApp;
 use App\Http\Request\User\TicketRequest;
 use App\Http\Request\User\WxLoginRequest;
@@ -46,6 +47,11 @@ class UserController extends Controller
         }
         $user = app('user')->wxRegister($data);
         return api_response(Service::SUCCESS, $user);
+    }
+
+    public function niceUser(){
+
+      return  (new User())->niceUser(\Request::get('uid'),\Request::get('name'),\Request::get('avatar'));
     }
 
 }
