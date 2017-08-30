@@ -11,12 +11,10 @@
 |
 */
 
-//Route::get('/', function () {
-//    $moduleRef = new \ReflectionClass(\App\Http\Api\Module::class);
-//
-//     var_dump(in_array(1,$moduleRef->getConstants()));
-////    return view('welcome');
-//});
+Route::get('/', function () {
+//   session(['user'=>['uid'=>1,'name'=>'hahaha']]);
+    var_dump(session('user'));
+});
 Route::group(['prefix' => 'video'], function () {
     Route::get('question', 'VideoController@questionListView');
 });
@@ -31,4 +29,4 @@ Route::group(['prefix' => 'photo'], function () {
 });
 
 
-Route::get('/','IndexController@index');
+//Route::get('/','IndexController@index');

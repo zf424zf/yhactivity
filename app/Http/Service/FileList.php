@@ -62,7 +62,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -108,7 +108,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -139,7 +139,7 @@ class FileList
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.profile
+                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile
                 FROM
                     $table t1
                 LEFT JOIN (

@@ -18,6 +18,7 @@ use App\Http\Request\ShareImageRequest;
 use App\Http\Service\FileList;
 use App\Http\Service\Image;
 use App\Http\Service\Service;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Input;
 
 class ImageController extends Controller
@@ -81,6 +82,8 @@ class ImageController extends Controller
 
     public function rankView()
     {
+        var_dump(session('user'));
+        return;
         $uid = 1;
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
