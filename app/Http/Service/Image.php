@@ -85,8 +85,7 @@ class Image
     {
         $data = ImageModel::with('users')->where('type', 0)
             ->where('module', $module)
-            ->skip(($page - 1) * $pagesize)
-            ->take($pagesize)->get();
+            ->paginate($pagesize)->toArray();
         return $data;
     }
 }
