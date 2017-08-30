@@ -20,11 +20,10 @@ class User
 
     public function wxRegister(array $userinfo)
     {
-        $user = UserModel::where('openid', $userinfo['openId'])->first();
+        $unionid = isset($userinfo['unionId']) && $userinfo['unionId'] ? $userinfo['unionId'] : '';
+        $user = UserModel::where('unionId', $unionid)->first();
         if (!$user) {
-            $unionid = isset($userinfo['unionId']) && $userinfo['unionId'] ? $userinfo['unionId'] : '';
             $userData = [
-                'openid'   => $userinfo['openId'],
                 'unionid'  => $unionid,
                 'nickname' => $userinfo['nickName'],
                 'profile'  => json_encode($userinfo),
@@ -35,6 +34,7 @@ class User
         $user = $user->toArray();
         $profile = json_decode($user['profile']);
         $data = [
+            'id'       => $user['id'],
             'nickname' => $user['nickname'],
             'img'      => $profile->avatarUrl,
         ];
