@@ -26,7 +26,7 @@ class User
             $userData = [
                 'unionid'  => $unionid,
                 'nickname' => $userinfo['nickName'],
-                'profile'  => json_encode($userinfo),
+                'profile' => json_encode($userinfo),
             ];
             $user = new UserModel($userData);
             $user->save();
@@ -36,9 +36,28 @@ class User
         $data = [
             'id'       => $user['id'],
             'nickname' => $user['nickname'],
-            'img'      => $profile->avatarUrl,
+            'img' => $profile->avatarUrl,
         ];
         return $data;
+    }
+
+    public function redirectByUser($uid, $nickName, $avatar){
+        $this->niceUser($uid, $nickName, $avatar);
+        $url = session('visit');
+        return redirect($url);
+    }
+
+    public function niceUser($uid, $nickName, $avatar)
+    {
+        $user = UserModel::where('uid', $uid)->first();
+        if (!$user) {
+            $user = new UserModel();
+            $user->uid = $uid;
+            $user->headicon = $avatar;
+            $user->nickname = $nickName;
+            $user->save();
+        }
+        session(['user'=>$user]);
     }
 
 }

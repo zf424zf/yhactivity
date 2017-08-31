@@ -89,8 +89,6 @@ class ImageController extends Controller
 
     public function rankView()
     {
-        var_dump(session('user'));
-        return;
         $uid = 1;
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
