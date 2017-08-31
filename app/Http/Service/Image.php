@@ -88,4 +88,11 @@ class Image
             ->paginate($pagesize)->toArray();
         return $data;
     }
+
+    public function challengeDetail($id)
+    {
+        $data = ImageModel::with('users')->where('type', 0)
+            ->where('id', $id)->first()->toArray();
+        return $data;
+    }
 }

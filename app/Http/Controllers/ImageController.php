@@ -11,6 +11,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Api\Module;
 use App\Http\Api\PhotoChild;
+use App\Http\Request\ChallengeDetailRequest;
 use App\Http\Request\ChallengeRequest;
 use App\Http\Request\ImageInfoRequest;
 use App\Http\Request\ImageRequest;
@@ -51,6 +52,12 @@ class ImageController extends Controller
         $data = (new Image())->challengeList($request->get('module'),
             $request->get('page', 1),
             $request->get('pagesize', 12));
+        return api_response(Service::SUCCESS, $data);
+    }
+
+    public function challengeDetail(ChallengeDetailRequest $request)
+    {
+        $data = (new Image())->challengeDetail($request->get('id'));
         return api_response(Service::SUCCESS, $data);
     }
 

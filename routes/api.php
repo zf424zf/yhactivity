@@ -33,7 +33,7 @@ Route::group(['prefix' => 'image'], function () {
     Route::post('/share', 'ImageController@shareImage');
     Route::get('/info', 'ImageController@info');
     Route::get('/challengeList', 'ImageController@challengeList');
-
+    Route::get('/challengeDetail', 'ImageController@challengeDetail');
 
 });
 Route::group(['prefix' => 'video'], function () {
