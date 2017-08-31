@@ -24,12 +24,7 @@ class User
         $user = UserModel::where('unionId', $unionid)->first();
         if (!$user) {
             $userData = [
-<<<<<<< HEAD
-                'openid' => $userinfo['openId'],
-                'unionid' => $unionid,
-=======
                 'unionid'  => $unionid,
->>>>>>> aa0f9c3d91c5e104c7cbfe866072192497bf2a87
                 'nickname' => $userinfo['nickName'],
                 'profile' => json_encode($userinfo),
             ];
@@ -46,9 +41,14 @@ class User
         return $data;
     }
 
+    public function redirectByUser($uid, $nickName, $avatar){
+        $this->niceUser($uid, $nickName, $avatar);
+        $url = session('visit');
+        return redirect($url);
+    }
+
     public function niceUser($uid, $nickName, $avatar)
     {
-        session('sb',2222);
         $user = UserModel::where('uid', $uid)->first();
         if (!$user) {
             $user = new UserModel();
@@ -57,8 +57,7 @@ class User
             $user->nickname = $nickName;
             $user->save();
         }
-        session('user', $user->toArray());
-        return true;
+        session(['user'=>$user]);
     }
 
 }

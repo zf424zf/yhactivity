@@ -14,9 +14,12 @@ use App\Http\Service\FileList;
 
 class ListController extends Controller
 {
+    public $user;
     public function __construct()
     {
         $this->middleware('isLogin');
+        $this->user = session('user');
+
     }
 
     public function getList(ListRequest $request)
