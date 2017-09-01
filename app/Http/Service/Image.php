@@ -91,7 +91,7 @@ class Image
 
     public function challengeDetail($id)
     {
-        $data = ImageModel::with('users')->where('type', 0)
+        $data = ImageModel::with('users')
             ->where('id', $id)->first()->toArray();
         return $data;
     }
