@@ -19,7 +19,7 @@ class LuckRequest extends ApiRequest
         return [
             'uid.required' => Service::UID_REQUIRED,
             'uid.integer' => Service::UID_TYPE_ERR,
-            'path.required' => Service::IMAGE_PATH_REQUIRED
+            'image_id.required' => Service::IMAGE_PATH_REQUIRED
         ];
     }
 
@@ -27,7 +27,7 @@ class LuckRequest extends ApiRequest
     {
         return [
             'uid' => 'required|integer',
-            'path' => 'required'
+            'image_id' => 'required'
         ];
     }
 }

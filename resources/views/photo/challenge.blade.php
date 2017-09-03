@@ -29,7 +29,7 @@
         </div>
         <div class="enge-list">
             <ul>
-                @foreach($data as $item)
+                @foreach($data['data'] as $item)
                     <li>
                         <p>
                             <img src="{{thumb($item['path'])}}" alt="pic" class="img">
@@ -59,7 +59,8 @@
                 resize: false
             });
             uploader.on( 'uploadSuccess', function( file,response) {
-                console.log(response);
+                var url = response.data.url;
+
             });
             uploader.on( 'uploadError', function( file,response ) {
             });

@@ -69,6 +69,15 @@ abstract class Service
     const LIST_ORDER_VALUE_ERR = 3205;//order值错误
 
     const LIKE_TODAY_CHANCE_NONE = 3301;//用户今天抽奖机会已经用完
+    const USER_NOT_WIN = 3302;//用户尚未中奖
+
+    const LUCKY_SECTION_REQUIRED = 3401;//用户抽奖名单模块名必须提供
+    const LUCKY_WIN_ID_REQUIRED = 3402;//缺少中奖id
+    const LUCKY_WIN_ID_NOT_EXIST = 3403;//中奖信息不存在
+    const LUCKY_WIN_ID_ERR = 3404;//中奖id类型错误
+    const LUCKY_CONTACT_ADDRESS_REQUIRED = 3405;//缺少联系人地址
+    const LUCKY_CONTACT_NAME_REQUIRED = 3406;//缺少联系人姓名
+    const LUCKY_CONTACT_TEL_REQUIRED = 3407;//缺少联系人电话
 
     const WX_CODE_NOT_EXISTS = 4001;//code必须存在
     const WX_TICKET_NOT_EXISTS = 4002;//ticket不存在

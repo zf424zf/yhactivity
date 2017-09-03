@@ -10,6 +10,9 @@ namespace App\Http\Service;
 
 
 use App\Http\Models\ImageModel;
+use App\Http\Models\LuckyModel;
+use App\Http\Models\SectionModel;
+use App\Http\Models\WinContact;
 use App\Http\Models\WinModel;
 use Carbon\Carbon;
 
@@ -21,6 +24,7 @@ class Luck
     private $giftChance;
     private $cupChance;
     private $cashChance;
+    public $sections;
 
     private static $prizeArr = ['1' => 'yh_cash', '2' => 'yh_cup', '3' => 'yh_gift'];
 
@@ -33,9 +37,10 @@ class Luck
         $this->giftChance = setting('yh_gift_chance', 0);
         $this->cupChance = setting('yh_cup_chance', 0);
         $this->cashChance = setting('yh_cash_chance', 0);
+//        $this->sections = SectionModel::pluck('name','id');
     }
 
-    public function getLuck($uid, $path)
+    public function getLuck($uid, $imageId)
     {
         $userLuckCountKey = cache_key('user.luck.count', $uid);
         if (!empty(cache()->get($userLuckCountKey))) {
@@ -60,7 +65,7 @@ class Luck
         }
         $model = new WinModel();
         $model->uid = $uid;
-        $model->page_url = $path;
+        $model->image_id = $imageId;
         $model->is_win = $level > 0 ? 1 : 0;
         $model->win_lv = $level;
         $isSave = $model->save();
@@ -74,7 +79,7 @@ class Luck
             \DB::table('settings')->where('key', self::$prizeArr[$level])->decrement('value');
         }
         app('setting')->clear();
-        return api_response(Service::SUCCESS, ['level' => $level]);
+        return api_response(Service::SUCCESS, ['level' => $level, 'data' => $model]);
     }
 
     public function checkLuck($level)
@@ -121,5 +126,29 @@ class Luck
             ->orderBy('id')
             ->paginate($pagesize)->toArray();
         return api_response(Service::SUCCESS, $data);
+    }
+
+    public function getLuckyBySection($section)
+    {
+        $data = LuckyModel::where('section', $section)->orderBy('id')->get()->toArray();
+        return api_response(Service::SUCCESS, $data);
+    }
+
+    public function luckContact($luckyId, $name, $tel, $address)
+    {
+        $winDate = WinModel::where('id', $luckyId)->first();
+        if (!$winDate) {
+            api_exception(Service::USER_NOT_WIN);
+        }
+        if ($winDate->is_win != 1) {
+            api_exception(Service::USER_NOT_WIN);
+        }
+        $contact = new WinContact();
+        $contact->name = $name;
+        $contact->address = $address;
+        $contact->tel = $tel;
+        $contact->win_id = $luckyId;
+        $contact->save();
+        return api_response(Service::SUCCESS);
     }
 }

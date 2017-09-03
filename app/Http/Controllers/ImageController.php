@@ -24,6 +24,12 @@ use Illuminate\Support\Facades\Input;
 
 class ImageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('isLogin');
+    }
+
     public function add(ImageRequest $request)
     {
         $data = (new Image())->addImage(
@@ -110,10 +116,34 @@ class ImageController extends Controller
 
     public function challengeView($module)
     {
+
         if (!in_array($module, [1, 2, 3, 4])) {
             abort(404);
         }
         $data = (new Image())->challengeList($module, \Request::get('page', 1), \Request::get('pagesize', 12));
         return view('photo.challenge', ['data' => $data, 'module' => $module]);
+    }
+
+    public function uploadImageView(){
+        $isUpload = \Request::get('isUpload');
+        if($isUpload == 1){
+            $path = \Request::get('path');
+            if(empty($path)){
+                abort(404);
+            }
+            return view('photo.upload_image',['path'=>$path]);
+        }else if($isUpload == 2){
+            $origin = \Request::get('origin');
+            if(empty($origin)){
+                abort(404);
+            }
+            $image = (new Image())->imageInfo($origin,session('user')['uid']);
+            if(empty($image)){
+                abort(404);
+            }
+            return view('photo.other',['image'=>$image]);
+        }else{
+            abort(404);
+        }
     }
 }

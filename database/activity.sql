@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-08-29 20:17:58
+Date: 2017-09-03 10:53:06
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -82,7 +82,7 @@ CREATE TABLE `yh_admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=144 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=223 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of yh_admin_operation_log
@@ -230,6 +230,85 @@ INSERT INTO `yh_admin_operation_log` VALUES ('140', '1', 'admin/setting', 'GET',
 INSERT INTO `yh_admin_operation_log` VALUES ('141', '1', 'admin/setting/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-08-22 08:49:49', '2017-08-22 08:49:49');
 INSERT INTO `yh_admin_operation_log` VALUES ('142', '1', 'admin/setting', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-08-22 08:49:54', '2017-08-22 08:49:54');
 INSERT INTO `yh_admin_operation_log` VALUES ('143', '1', 'admin/setting', 'GET', '127.0.0.1', '[]', '2017-08-23 03:29:57', '2017-08-23 03:29:57');
+INSERT INTO `yh_admin_operation_log` VALUES ('144', '1', 'admin', 'GET', '127.0.0.1', '[]', '2017-09-02 14:30:33', '2017-09-02 14:30:33');
+INSERT INTO `yh_admin_operation_log` VALUES ('145', '1', 'admin/setting', 'GET', '127.0.0.1', '[]', '2017-09-02 14:30:42', '2017-09-02 14:30:42');
+INSERT INTO `yh_admin_operation_log` VALUES ('146', '1', 'admin/setting/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 14:32:16', '2017-09-02 14:32:16');
+INSERT INTO `yh_admin_operation_log` VALUES ('147', '1', 'admin/setting', 'POST', '127.0.0.1', '{\"key\":\"first_week_luck\",\"value\":\"\\u95ea\\u7535\\u897f\\u5170\\u82b1;\\u5927\\u9992\\u5934\\u7cbe;skiden;\\u963f\\u8f89;\\u5927\\u7389\\u513f;\\u5927\\u51e4\\u5b50;\\u5a04\\u5bbe;\\u601d\\u5bc6\\u8fbe\",\"description\":\"\\u7b2c\\u4e00\\u5468\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/setting\"}', '2017-09-02 14:38:24', '2017-09-02 14:38:24');
+INSERT INTO `yh_admin_operation_log` VALUES ('148', '1', 'admin/setting', 'GET', '127.0.0.1', '[]', '2017-09-02 14:38:24', '2017-09-02 14:38:24');
+INSERT INTO `yh_admin_operation_log` VALUES ('149', '1', 'admin/question', 'GET', '127.0.0.1', '[]', '2017-09-02 15:00:35', '2017-09-02 15:00:35');
+INSERT INTO `yh_admin_operation_log` VALUES ('150', '1', 'admin/question/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 15:00:45', '2017-09-02 15:00:45');
+INSERT INTO `yh_admin_operation_log` VALUES ('151', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:34:29', '2017-09-02 15:34:29');
+INSERT INTO `yh_admin_operation_log` VALUES ('152', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:35:15', '2017-09-02 15:35:15');
+INSERT INTO `yh_admin_operation_log` VALUES ('153', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:14', '2017-09-02 15:36:14');
+INSERT INTO `yh_admin_operation_log` VALUES ('154', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:18', '2017-09-02 15:36:18');
+INSERT INTO `yh_admin_operation_log` VALUES ('155', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:18', '2017-09-02 15:36:18');
+INSERT INTO `yh_admin_operation_log` VALUES ('156', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:18', '2017-09-02 15:36:18');
+INSERT INTO `yh_admin_operation_log` VALUES ('157', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:18', '2017-09-02 15:36:18');
+INSERT INTO `yh_admin_operation_log` VALUES ('158', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:36:47', '2017-09-02 15:36:47');
+INSERT INTO `yh_admin_operation_log` VALUES ('159', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:38:32', '2017-09-02 15:38:32');
+INSERT INTO `yh_admin_operation_log` VALUES ('160', '1', 'admin/section/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 15:38:34', '2017-09-02 15:38:34');
+INSERT INTO `yh_admin_operation_log` VALUES ('161', '1', 'admin/section', 'POST', '127.0.0.1', '{\"name\":\"\\u5f02\\u6b21\\u5143\\u5408\\u62cd\",\"remark\":null,\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/section\"}', '2017-09-02 15:39:27', '2017-09-02 15:39:27');
+INSERT INTO `yh_admin_operation_log` VALUES ('162', '1', 'admin/section/create', 'GET', '127.0.0.1', '[]', '2017-09-02 15:39:27', '2017-09-02 15:39:27');
+INSERT INTO `yh_admin_operation_log` VALUES ('163', '1', 'admin/section/create', 'GET', '127.0.0.1', '[]', '2017-09-02 15:40:58', '2017-09-02 15:40:58');
+INSERT INTO `yh_admin_operation_log` VALUES ('164', '1', 'admin/section', 'POST', '127.0.0.1', '{\"name\":\"\\u5f02\\u6b21\\u5143\\u5408\\u62cd\",\"remark\":null,\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/section\"}', '2017-09-02 15:41:07', '2017-09-02 15:41:07');
+INSERT INTO `yh_admin_operation_log` VALUES ('165', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:41:07', '2017-09-02 15:41:07');
+INSERT INTO `yh_admin_operation_log` VALUES ('166', '1', 'admin/section/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 15:41:10', '2017-09-02 15:41:10');
+INSERT INTO `yh_admin_operation_log` VALUES ('167', '1', 'admin/section', 'POST', '127.0.0.1', '{\"name\":\"\\u771f\\u5fc3\\u8bdd\\u5927\\u6bd4\\u62fc\",\"remark\":null,\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/section\"}', '2017-09-02 15:41:19', '2017-09-02 15:41:19');
+INSERT INTO `yh_admin_operation_log` VALUES ('168', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:41:19', '2017-09-02 15:41:19');
+INSERT INTO `yh_admin_operation_log` VALUES ('169', '1', 'admin/section/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 15:41:22', '2017-09-02 15:41:22');
+INSERT INTO `yh_admin_operation_log` VALUES ('170', '1', 'admin/section', 'POST', '127.0.0.1', '{\"name\":\"\\u5927\\u5496\\u6709\\u8bdd\\u8bf4\",\"remark\":null,\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/section\"}', '2017-09-02 15:41:31', '2017-09-02 15:41:31');
+INSERT INTO `yh_admin_operation_log` VALUES ('171', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:41:31', '2017-09-02 15:41:31');
+INSERT INTO `yh_admin_operation_log` VALUES ('172', '1', 'admin/section/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-02 15:41:35', '2017-09-02 15:41:35');
+INSERT INTO `yh_admin_operation_log` VALUES ('173', '1', 'admin/section', 'POST', '127.0.0.1', '{\"name\":\"\\u9082\\u9005\\u6709\\u793c\",\"remark\":null,\"_token\":\"FWiEUUlQm8EndzThrAmPo7oJqrB29MpeYABOQb21\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/section\"}', '2017-09-02 15:41:46', '2017-09-02 15:41:46');
+INSERT INTO `yh_admin_operation_log` VALUES ('174', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-02 15:41:47', '2017-09-02 15:41:47');
+INSERT INTO `yh_admin_operation_log` VALUES ('175', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 01:48:57', '2017-09-03 01:48:57');
+INSERT INTO `yh_admin_operation_log` VALUES ('176', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 01:49:31', '2017-09-03 01:49:31');
+INSERT INTO `yh_admin_operation_log` VALUES ('177', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 01:58:30', '2017-09-03 01:58:30');
+INSERT INTO `yh_admin_operation_log` VALUES ('178', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 01:59:20', '2017-09-03 01:59:20');
+INSERT INTO `yh_admin_operation_log` VALUES ('179', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:03:28', '2017-09-03 02:03:28');
+INSERT INTO `yh_admin_operation_log` VALUES ('180', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:03:38', '2017-09-03 02:03:38');
+INSERT INTO `yh_admin_operation_log` VALUES ('181', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:04:00', '2017-09-03 02:04:00');
+INSERT INTO `yh_admin_operation_log` VALUES ('182', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:04:09', '2017-09-03 02:04:09');
+INSERT INTO `yh_admin_operation_log` VALUES ('183', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:04:34', '2017-09-03 02:04:34');
+INSERT INTO `yh_admin_operation_log` VALUES ('184', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:04:46', '2017-09-03 02:04:46');
+INSERT INTO `yh_admin_operation_log` VALUES ('185', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:05:15', '2017-09-03 02:05:15');
+INSERT INTO `yh_admin_operation_log` VALUES ('186', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"0\",\"names\":\"\\u95ea\\u7535\\u897f\\u5170\\u82b1;\\u52d2\\u5e03\\u6717\\u8a79\\u59c6\\u65af;\\u54c7\\u54c8\\u54c8;\\u8349\\u6ce5\\u9a6c;\\u76ae\\u5361\\u4e18\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:06:12', '2017-09-03 02:06:12');
+INSERT INTO `yh_admin_operation_log` VALUES ('187', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:06:13', '2017-09-03 02:06:13');
+INSERT INTO `yh_admin_operation_log` VALUES ('188', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:07:30', '2017-09-03 02:07:30');
+INSERT INTO `yh_admin_operation_log` VALUES ('189', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"0\",\"names\":\"\\u95ea\\u7535\\u897f\\u5170\\u82b1;\\u52d2\\u5e03\\u6717\\u8a79\\u59c6\\u65af;\\u54c7\\u54c8\\u54c8;\\u8349\\u6ce5\\u9a6c;\\u76ae\\u5361\\u4e18\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:07:45', '2017-09-03 02:07:45');
+INSERT INTO `yh_admin_operation_log` VALUES ('190', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:07:45', '2017-09-03 02:07:45');
+INSERT INTO `yh_admin_operation_log` VALUES ('191', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:08:01', '2017-09-03 02:08:01');
+INSERT INTO `yh_admin_operation_log` VALUES ('192', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"1\",\"names\":\"\\u95ea\\u7535\\u98ce;\\u5927\\u6811;\\u51e1\\u5361;\\u65af\\u8fbe\\u8212\\u8428\\u8fbe;\\u98ce\\u7684\\u75d5\\u8ff9;\\u4f4e\\u7aef\\u5c40\",\"title\":\"\\u7b2c\\u4e8c\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:09:13', '2017-09-03 02:09:13');
+INSERT INTO `yh_admin_operation_log` VALUES ('193', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:09:14', '2017-09-03 02:09:14');
+INSERT INTO `yh_admin_operation_log` VALUES ('194', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:12:30', '2017-09-03 02:12:30');
+INSERT INTO `yh_admin_operation_log` VALUES ('195', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:12:32', '2017-09-03 02:12:32');
+INSERT INTO `yh_admin_operation_log` VALUES ('196', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:18:09', '2017-09-03 02:18:09');
+INSERT INTO `yh_admin_operation_log` VALUES ('197', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '[]', '2017-09-03 02:18:10', '2017-09-03 02:18:10');
+INSERT INTO `yh_admin_operation_log` VALUES ('198', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"9.25-10.1\",\"names\":\"\\u95ea\\u7535\\u897f\\u5170\\u82b1;\\u52d2\\u5e03\\u6717\\u8a79\\u59c6\\u65af;\\u54c7\\u54c8\\u54c8;\\u8349\\u6ce5\\u9a6c;\\u76ae\\u5361\\u4e18\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:18:28', '2017-09-03 02:18:28');
+INSERT INTO `yh_admin_operation_log` VALUES ('199', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:18:28', '2017-09-03 02:18:28');
+INSERT INTO `yh_admin_operation_log` VALUES ('200', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:18:31', '2017-09-03 02:18:31');
+INSERT INTO `yh_admin_operation_log` VALUES ('201', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:25:22', '2017-09-03 02:25:22');
+INSERT INTO `yh_admin_operation_log` VALUES ('202', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:25:24', '2017-09-03 02:25:24');
+INSERT INTO `yh_admin_operation_log` VALUES ('203', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:25:35', '2017-09-03 02:25:35');
+INSERT INTO `yh_admin_operation_log` VALUES ('204', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"2\",\"time\":\"9.25-10.1\",\"names\":\"\\u6492\\u65e6;\\u5565\\u7684;\\u4e0a\\u4ea4\\u5927;\\u7684\\u662f\\u7ed3\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:26:02', '2017-09-03 02:26:02');
+INSERT INTO `yh_admin_operation_log` VALUES ('205', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:26:02', '2017-09-03 02:26:02');
+INSERT INTO `yh_admin_operation_log` VALUES ('206', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:26:25', '2017-09-03 02:26:25');
+INSERT INTO `yh_admin_operation_log` VALUES ('207', '1', 'admin/lucky/4/edit', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:32:06', '2017-09-03 02:32:06');
+INSERT INTO `yh_admin_operation_log` VALUES ('208', '1', 'admin/lucky/4', 'PUT', '127.0.0.1', '{\"section\":\"2\",\"time\":\"10.23-10.25\",\"names\":\"\\u6492\\u65e6;\\u5565\\u7684;\\u4e0a\\u4ea4\\u5927;\\u7684\\u662f\\u7ed3\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_method\":\"PUT\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:32:11', '2017-09-03 02:32:11');
+INSERT INTO `yh_admin_operation_log` VALUES ('209', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:32:12', '2017-09-03 02:32:12');
+INSERT INTO `yh_admin_operation_log` VALUES ('210', '1', 'admin/lucky/4', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\"}', '2017-09-03 02:32:29', '2017-09-03 02:32:29');
+INSERT INTO `yh_admin_operation_log` VALUES ('211', '1', 'admin/lucky', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:32:30', '2017-09-03 02:32:30');
+INSERT INTO `yh_admin_operation_log` VALUES ('212', '1', 'admin/lucky/3', 'DELETE', '127.0.0.1', '{\"_method\":\"delete\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\"}', '2017-09-03 02:32:33', '2017-09-03 02:32:33');
+INSERT INTO `yh_admin_operation_log` VALUES ('213', '1', 'admin/lucky', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:32:34', '2017-09-03 02:32:34');
+INSERT INTO `yh_admin_operation_log` VALUES ('214', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:32:41', '2017-09-03 02:32:41');
+INSERT INTO `yh_admin_operation_log` VALUES ('215', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"9.25-10.1\",\"names\":\"\\u795e\\u96d5\\u4fa0\\u4fa3;\\u5c04\\u96d5\\u82f1\\u96c4\\u4f20;\\u4e0d\\u60f3;\\u5f88\\u591a\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:33:37', '2017-09-03 02:33:37');
+INSERT INTO `yh_admin_operation_log` VALUES ('216', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:33:37', '2017-09-03 02:33:37');
+INSERT INTO `yh_admin_operation_log` VALUES ('217', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:33:39', '2017-09-03 02:33:39');
+INSERT INTO `yh_admin_operation_log` VALUES ('218', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"1\",\"time\":\"10.2-10.8\",\"names\":\"\\u795e\\u96d5\\u4fa0\\u4fa3;\\u5c04\\u96d5\\u82f1\\u96c4\\u4f20;\\u4e0d\\u60f3;\\u5f88\\u591a\",\"title\":\"\\u7b2c\\u4e8c\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:33:49', '2017-09-03 02:33:49');
+INSERT INTO `yh_admin_operation_log` VALUES ('219', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:33:49', '2017-09-03 02:33:49');
+INSERT INTO `yh_admin_operation_log` VALUES ('220', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:33:52', '2017-09-03 02:33:52');
+INSERT INTO `yh_admin_operation_log` VALUES ('221', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"2\",\"time\":\"9.25-10.1\",\"names\":\"\\u5f20\\u4e09;\\u674e\\u56db;\\u738b\\u4e8c;\\u5723\\u8bde;\\u5c0f\\u80d6\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:34:16', '2017-09-03 02:34:16');
+INSERT INTO `yh_admin_operation_log` VALUES ('222', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:34:16', '2017-09-03 02:34:16');
 
 -- ----------------------------
 -- Table structure for yh_admin_permissions
@@ -509,6 +588,28 @@ INSERT INTO `yh_like` VALUES ('112', '1', '1', '19', '1503913332', '1503913332',
 INSERT INTO `yh_like` VALUES ('113', '1', '1', '19', '1503913333', '1503913333', '1');
 
 -- ----------------------------
+-- Table structure for yh_lucky
+-- ----------------------------
+DROP TABLE IF EXISTS `yh_lucky`;
+CREATE TABLE `yh_lucky` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `section` varchar(255) DEFAULT NULL,
+  `time` varchar(255) DEFAULT NULL,
+  `names` varchar(255) DEFAULT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yh_lucky
+-- ----------------------------
+INSERT INTO `yh_lucky` VALUES ('5', '1', '9.25-10.1', '神雕侠侣;射雕英雄传;不想;很多', '1504406017', '1504406017', '第一期中奖名单');
+INSERT INTO `yh_lucky` VALUES ('6', '1', '10.2-10.8', '神雕侠侣;射雕英雄传;不想;很多', '1504406029', '1504406029', '第二期中奖名单');
+INSERT INTO `yh_lucky` VALUES ('7', '2', '9.25-10.1', '张三;李四;王二;圣诞;小胖', '1504406056', '1504406056', '第一期中奖名单');
+
+-- ----------------------------
 -- Table structure for yh_migrations
 -- ----------------------------
 DROP TABLE IF EXISTS `yh_migrations`;
@@ -545,6 +646,27 @@ INSERT INTO `yh_question` VALUES ('2', '你是猪吗', '1', '1503218801', '15032
 INSERT INTO `yh_question` VALUES ('3', '回就回', '0', '1503228669', '1503228669');
 
 -- ----------------------------
+-- Table structure for yh_section
+-- ----------------------------
+DROP TABLE IF EXISTS `yh_section`;
+CREATE TABLE `yh_section` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  `remark` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yh_section
+-- ----------------------------
+INSERT INTO `yh_section` VALUES ('1', '异次元合拍', '1504366867', '1504366867', null);
+INSERT INTO `yh_section` VALUES ('2', '真心话大比拼', '1504366879', '1504366879', null);
+INSERT INTO `yh_section` VALUES ('3', '大咖有话说', '1504366891', '1504366891', null);
+INSERT INTO `yh_section` VALUES ('4', '邂逅有礼', '1504366906', '1504366906', null);
+
+-- ----------------------------
 -- Table structure for yh_settings
 -- ----------------------------
 DROP TABLE IF EXISTS `yh_settings`;
@@ -556,7 +678,7 @@ CREATE TABLE `yh_settings` (
   `created_at` int(11) NOT NULL,
   `updated_at` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COMMENT='系统设置表';
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4 COMMENT='系统设置表';
 
 -- ----------------------------
 -- Records of yh_settings
@@ -567,6 +689,7 @@ INSERT INTO `yh_settings` VALUES ('11', 'yh_cash', '0', '现金红包888元', '1
 INSERT INTO `yh_settings` VALUES ('12', 'yh_gift_chance', '5', '5%的概率', '1503371564', '1503371564');
 INSERT INTO `yh_settings` VALUES ('13', 'yh_cup_chance', '3', '3%的概率', '1503371631', '1503371631');
 INSERT INTO `yh_settings` VALUES ('14', 'yh_cash_chance', '1', '1%的概率', '1503371659', '1503371659');
+INSERT INTO `yh_settings` VALUES ('15', 'first_week_luck', '闪电西兰花;大馒头精;skiden;阿辉;大玉儿;大凤子;娄宾;思密达', '第一周中奖名单', '1504363104', '1504363104');
 
 -- ----------------------------
 -- Table structure for yh_users
@@ -585,12 +708,13 @@ CREATE TABLE `yh_users` (
   `updated_at` int(11) DEFAULT NULL,
   `headicon` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_users
 -- ----------------------------
 INSERT INTO `yh_users` VALUES ('1', '1', 'asdadasds', 'asdas', null, '18705191169', '张帆', null, '1502800399', '1502800399', null);
+INSERT INTO `yh_users` VALUES ('13', 'zf_002', null, 'éªçµè¥¿å°è±2', null, null, null, null, '1504084156', '1504084156', 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/0f0bb3df9d85f191f6b0634e48efa409.jpg');
 
 -- ----------------------------
 -- Table structure for yh_video

@@ -13,4 +13,6 @@ Route::group([
     $router->get('/', 'HomeController@index');
     $router->resource('question', 'QuestionController');
     $router->resource('setting', 'SettingController');
+    $router->resource('section', 'SectionController');
+    $router->resource('lucky', 'LuckyController');
 });

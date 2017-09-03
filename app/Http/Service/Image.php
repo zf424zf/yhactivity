@@ -64,7 +64,7 @@ class Image
     public function imageInfo($id, $uid)
     {
         $canLike = 0;
-        $data = ImageModel::where('id', $id)->where('type',1)->with(['users', 'originInfo'])->first();
+        $data = ImageModel::where('id', $id)/*->where('type',1)*/->with(['users', 'originInfo'])->first();
         if (!$data) {
             api_exception(Service::IMAGE_NOT_FOUND);
         }

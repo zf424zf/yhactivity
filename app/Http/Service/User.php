@@ -43,8 +43,7 @@ class User
 
     public function redirectByUser($uid, $nickName, $avatar){
         $this->niceUser($uid, $nickName, $avatar);
-        $url = session('visit');
-        return redirect($url);
+       return  redirect()->action('IndexController@index');
     }
 
     public function niceUser($uid, $nickName, $avatar)
