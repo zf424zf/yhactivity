@@ -46,6 +46,7 @@ Route::get('wall', 'ListController@getList');
 Route::get('luck', 'LuckController@luck');
 Route::get('luckList', 'LuckController@luckList');
 Route::get('lucky', 'LuckController@sectionLucky');
+Route::post('luck/contact', 'LuckController@luckyContact');
 
 Route::get('question', 'VideoController@getQuestionList');
 
