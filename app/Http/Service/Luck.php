@@ -118,10 +118,8 @@ class Luck
         $data = ImageModel::with('users')
             ->where('type', 9)
             ->where('module', 9)
-            ->skip(($page - 1) * $pagesize)
-            ->take($pagesize)
             ->orderBy('id')
-            ->get();
-        return api_response(Service::SUCCESS,$data);
+            ->paginate($pagesize)->toArray();
+        return api_response(Service::SUCCESS, $data);
     }
 }
