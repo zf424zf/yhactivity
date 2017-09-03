@@ -49,4 +49,4 @@ Route::get('lucky', 'LuckController@sectionLucky');
 Route::post('luck/contact', 'LuckController@luckyContact');
 
 Route::get('question', 'VideoController@getQuestionList');
-
+Route::get('questionDetail', 'VideoController@questionDetail');

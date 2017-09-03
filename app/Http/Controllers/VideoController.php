@@ -22,7 +22,9 @@ class VideoController extends Controller
             $request->get('uid'),
             $request->get('module'),
             $request->get('path'),
-            $request->get('info')
+            $request->get('info'),
+            $request->get('qid'),
+            $request->get('cover')
         );
     }
 
@@ -35,6 +37,11 @@ class VideoController extends Controller
 
     public function getQuestionList(){
         $data = (new Video())->question();
+        return api_response(Service::SUCCESS,$data);
+    }
+
+    public function questionDetail(){
+        $data = (new Video())->questionDetail(request('id'));
         return api_response(Service::SUCCESS,$data);
     }
 
