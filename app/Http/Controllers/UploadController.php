@@ -13,6 +13,11 @@ use App\Http\Service\Upload;
 
 class UploadController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isLogin');
+    }
+
     public function upload()
     {
         //todo request文件验证

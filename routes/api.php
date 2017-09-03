@@ -42,8 +42,10 @@ Route::group(['prefix' => 'video'], function () {
 });
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');
-Route::get('wall','ListController@getList');
-Route::get('luck','LuckController@luck');
-Route::get('luckList','LuckController@luckList');
-Route::get('question','VideoController@getQuestionList');
+Route::get('wall', 'ListController@getList');
+Route::get('luck', 'LuckController@luck');
+Route::get('luckList', 'LuckController@luckList');
+Route::get('lucky', 'LuckController@sectionLucky');
+
+Route::get('question', 'VideoController@getQuestionList');
 

@@ -70,6 +70,8 @@ abstract class Service
 
     const LIKE_TODAY_CHANCE_NONE = 3301;//用户今天抽奖机会已经用完
 
+    const LUCKY_SECTION_REQUIRED = 3401;//用户抽奖名单模块名必须提供
+
     const WX_CODE_NOT_EXISTS = 4001;//code必须存在
     const WX_TICKET_NOT_EXISTS = 4002;//ticket不存在
     const WX_DECRYPT_FAIL = 4003;//用户信息解密失败

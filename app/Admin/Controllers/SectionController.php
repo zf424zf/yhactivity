@@ -1,15 +1,21 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: 70427
+ * Date: 2017/9/2
+ * Time: 23:15
+ */
 
 namespace App\Admin\Controllers;
+
 use App\Http\Controllers\Controller;
-use App\Http\Models\QuestionModel;
+use App\Http\Models\SectionModel;
 use Encore\Admin\Facades\Admin;
 use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
-
-class QuestionController extends Controller
+class SectionController extends Controller
 {
     use ModelForm;
 
@@ -43,7 +49,7 @@ class QuestionController extends Controller
     public function create()
     {
         return Admin::content(function (Content $content) {
-            $content->header('新增问题');
+            $content->header('新增板块');
             $content->body($this->form());
         });
     }
@@ -54,10 +60,10 @@ class QuestionController extends Controller
      */
     protected function grid()
     {
-        return Admin::grid(QuestionModel::class, function (Grid $grid) {
+        return Admin::grid(SectionModel::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
-            $grid->question('问题');
-            $grid->order('排序');
+            $grid->name('板块名');
+            $grid->remark('备注');
         });
     }
 
@@ -68,10 +74,9 @@ class QuestionController extends Controller
      */
     protected function form()
     {
-        return Admin::form(QuestionModel::class, function (Form $form) {
-            $form->text('question', '问题')->rules('required');
-            $form->text('order', '排名(可选)')->help('如果不填，则按问题填写的顺序排名');
-
+        return Admin::form(SectionModel::class, function (Form $form) {
+            $form->text('name', '板块名')->rules('required');
+            $form->text('remark', '备注(可选)');
         });
     }
 }

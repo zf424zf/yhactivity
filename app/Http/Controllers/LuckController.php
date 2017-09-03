@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Request\LuckRequest;
+use App\Http\Request\SectionLuckRequest;
 use App\Http\Service\Luck;
 
 class LuckController extends Controller
@@ -22,5 +23,9 @@ class LuckController extends Controller
     public function luckList()
     {
         return (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+    }
+
+    public function sectionLucky(SectionLuckRequest $request){
+        return (new Luck())->getLuckyBySection($request->get('section'));
     }
 }
