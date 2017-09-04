@@ -18,7 +18,7 @@ class VideoController extends Controller
 {
     public function addVideo(VideoRequest $request)
     {
-        return (new Video())->add(
+        $result = (new Video())->add(
             $request->get('uid'),
             $request->get('module'),
             $request->get('path'),
@@ -26,26 +26,31 @@ class VideoController extends Controller
             $request->get('qid'),
             $request->get('cover')
         );
+        return api_response(Service::SUCCESS, $result);
     }
 
-    public function info(VideoInfoRequest $request){
+    public function info(VideoInfoRequest $request)
+    {
         return (new Video())->info(
             $request->get('id'),
             $request->get('uid')
         );
     }
 
-    public function getQuestionList(){
+    public function getQuestionList()
+    {
         $data = (new Video())->question();
-        return api_response(Service::SUCCESS,$data);
+        return api_response(Service::SUCCESS, $data);
     }
 
-    public function questionDetail(){
+    public function questionDetail()
+    {
         $data = (new Video())->questionDetail(request('id'));
-        return api_response(Service::SUCCESS,$data);
+        return api_response(Service::SUCCESS, $data);
     }
 
-    public function questionListView(){
+    public function questionListView()
+    {
         $data = (new Video())->question();
         return view('video.question', ['question' => $data]);
     }
