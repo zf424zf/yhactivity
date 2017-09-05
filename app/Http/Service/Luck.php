@@ -131,6 +131,12 @@ class Luck
     public function getLuckyBySection($section)
     {
         $data = LuckyModel::where('section', $section)->orderBy('id')->get()->toArray();
+        foreach ($data as $key => $value) {
+            $i = 0;
+            while (!empty($v = array_splice($value['nameArr'], $i, 2))) {
+                $data[$key]['nameList'][] = $v;
+            }
+        }
         return api_response(Service::SUCCESS, $data);
     }
 

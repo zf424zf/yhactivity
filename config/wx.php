@@ -6,6 +6,6 @@
  * Time: 14:26
  */
 return [
-    'app_id'     => 'wxe0e00ed5e74706e2',
-    'app_secret' => 'c24588eb5d0149335b3ded84c2f19e55'
+    'app_id'     => 'wx9fa249ab2909a9e1',
+    'app_secret' => '318f21635c19ccf9764d1278d0b982f9'
 ];
