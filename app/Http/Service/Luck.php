@@ -44,7 +44,7 @@ class Luck
     {
         $userLuckCountKey = cache_key('user.luck.count', $uid);
         if (!empty(cache()->get($userLuckCountKey))) {
-            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
+//            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
         }
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
 
