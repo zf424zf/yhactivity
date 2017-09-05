@@ -13,16 +13,16 @@ class VailToken
 
     public function handle($request, Closure $next)
     {
-        $headers = $request->header();
-        $token = isset($headers['token']) ? $headers['token'][0] : '';;
-        if(empty($token)){
-            return state(self::TOKENNOTEXISITS);
-        }
-//        $source = isset($headers['source']) ? $headers['source'][0] : 1;
-        $check = (new User())->isValidToken($token);
-        if($check['status'] !== self::SUCCESS){
-            return $check;
-        }
+//        $headers = $request->header();
+//        $token = isset($headers['token']) ? $headers['token'][0] : '';;
+//        if(empty($token)){
+//            return state(self::TOKENNOTEXISITS);
+//        }
+////        $source = isset($headers['source']) ? $headers['source'][0] : 1;
+//        $check = (new User())->isValidToken($token);
+//        if($check['status'] !== self::SUCCESS){
+//            return $check;
+//        }
         return $next($request);
     }
 
