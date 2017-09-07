@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <img src="../images/index/begin-index.gif" alt="face" class="begin-index">
+    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">
     <div class="body-index">
         <div class="show">
             <!-- 背景 -->

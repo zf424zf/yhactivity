@@ -23,7 +23,9 @@ class VideoRequest extends ApiRequest
             'module.required' => Service::VIDEO_MODULE_REQUIRED,
             'module.in' => Service::VIDEO_MODULE_VALUE_ERR,
             'path.required' => Service::VIDEO_PATH_REQUIRED,
-            'info.json' => Service::VIDEO_INFO_MUST_JSON
+            'info.json' => Service::VIDEO_INFO_MUST_JSON,
+            'qid.required'=>Service::VIDEO_QID_REQUIRED,
+            'qid.exists'=>Service::VIDEO_QID_NOT_EXISTS
         ];
     }
 
@@ -34,7 +36,8 @@ class VideoRequest extends ApiRequest
             'uid' => 'required|integer',
             'module' => 'required|in:' . implode(',', $childRef->getConstants()),
             'path' => 'required',
-            'info' => 'json'
+            'info' => 'json',
+            'qid'  =>'required|exists:question,id'
         ];
     }
 }

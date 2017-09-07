@@ -9,10 +9,13 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Models\SectionModel;
 use App\Http\Request\LuckContactRequest;
 use App\Http\Request\LuckRequest;
 use App\Http\Request\SectionLuckRequest;
+use App\Http\Service\Image;
 use App\Http\Service\Luck;
+use App\Http\Service\Service;
 
 class LuckController extends Controller
 {
@@ -23,17 +26,43 @@ class LuckController extends Controller
 
     public function luckList()
     {
-        return (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+        $data = (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+        return api_response(Service::SUCCESS, $data);
     }
 
     public function sectionLucky(SectionLuckRequest $request)
     {
-        return (new Luck())->getLuckyBySection($request->get('section'));
+        $data =  (new Luck())->getLuckyBySection($request->get('section'));
+        return api_response(Service::SUCCESS,$data);
     }
 
     public function luckyContact(LuckContactRequest $request)
     {
         return (new Luck())->luckContact($request->get('win_id'), $request->get('name'),
             $request->get('tel'), $request->get('address'));
+    }
+
+    public function indexView()
+    {
+        return view('lucky.index');
+    }
+
+    public function shareWallView(){
+        $data =  (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+        return view('lucky.wall',['data'=>$data]);
+    }
+
+    public function shareDetailView($id){
+        $user = session('user');
+        $data = (new Image())->imageInfo($id,array_get($user,'id',''));
+        return view('lucky.detail',['data'=>$data]);
+    }
+    public function shareRankView($section){
+        $sections = SectionModel::pluck('name','id');
+         if(empty($sections)){
+             abort(404);
+         }
+         $data = (new Luck())->getLuckyBySection($section);
+         return view('lucky.rank',['data'=>$data,'sections'=>$sections,'curSection'=>$section]);
     }
 }

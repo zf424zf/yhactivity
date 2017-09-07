@@ -36,13 +36,14 @@
                             <em class="engr-info">
                                 <i>{{empty($item['label']) ? '邂逅爱聊咖' : $item['label']}}</i>
                             </em>
-                            <a href="./upload-img-a.html" class="enge-btn">
+                            <a href="{{urls('/photo/uploadImage/'.$item['module'].'?isUpload=2&origin='.$item['id'])}}" class="enge-btn">
                                 <img class="btn" src="{{staticFile('images/active/enge-btn.png')}}" alt="挑战">
                             </a>
                         </p>
                     </li>
                 @endforeach
             </ul>
+            <input id="module" type="hidden" data-module="{{$module}}">
         </div>
     </div>
     <script>
@@ -60,7 +61,8 @@
             });
             uploader.on( 'uploadSuccess', function( file,response) {
                 var url = response.data.url;
-
+                var module = $('#module').data('module');
+                window.location.href = '/photo/uploadImage/'+module+'?isUpload=1&path='+url
             });
             uploader.on( 'uploadError', function( file,response ) {
             });

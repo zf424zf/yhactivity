@@ -6,9 +6,9 @@
     <div class="bg">
         <div class="active-begin-header">
             <a href="">
-                <img src="../images/active/act-beg-hea-logo.png" alt="logo" class="active-logo">
+                <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
             </a>
-            <img src="../images/active/active-begin-bg.png" alt="bg" class="act-beg-hea-bg">
+            <img src="{{staticFile('images/active/active-begin-bg.png')}}" alt="bg" class="act-beg-hea-bg">
             <a href="javascript:;" class="act-beg-hea-link">
                 <span id="show-mask">活动说明</span>
             </a>
@@ -21,19 +21,19 @@
                 ?>
             <li>
                 <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台"></div>
-                <a href="./active-challenge.html" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
+                <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
                 <p class="act-beg-lis-tip">
                     本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
                 </p>
                 <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{staticFile('images/active/1.png')}}" alt="phone">
+						<img src="{{thumb(array_get($first->originInfo,'path'))}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{isset($first->originInfo->label) ?  $first->originInfo->label : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
                     <span class="act-lis-group-right">
-						<img src="{{staticFile('images/active/2.png')}}" alt="phone">
+						<img src="{{thumb($first->path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{empty($first->label) ? '邂逅爱聊咖' : $first->label}}</b>
 						</em>
@@ -45,13 +45,13 @@
                 </p>
                 <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{staticFile('images/active/1.png')}}" alt="phone">
+						<img src="{{thumb(array_get($end->originInfo,'path'))}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{isset($end->originInfo->label) ? $end->originInfo->label : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
                     <span class="act-lis-group-right">
-						<img src="{{staticFile('images/active/2.png')}}" alt="phone">
+						<img src="{{thumb($end->path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{isset($end->label) ? '邂逅爱聊咖' : $end->label}}</b>
 						</em>
@@ -139,4 +139,11 @@
             </ul>
         </div>
     </div>
+    <script>
+        $(function(){
+            $(document).on('click','.active-begin-more',function(){
+                location.href = '/photo/list/rank?module=1&child=1'
+            });
+        })
+    </script>
 @endsection

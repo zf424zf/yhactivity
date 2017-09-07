@@ -156,6 +156,7 @@ class FileList
                         target_id
                 ) t2 ON t1.id = t2.target_id 
                 left join yh_users t3 on t3.id = t1.uid
+                where t1.type = 1
                 ORDER BY
                     t2.cnt $order";
         $data = \DB::select($sql);
