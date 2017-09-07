@@ -46,7 +46,7 @@ class VideoController extends Controller
     public function questionDetail()
     {
         $data = (new Video())->questionDetail(request('id'));
-        return api_response(Service::SUCCESS, $data);
+        return api_response(Service::SUCCESS, $data ? $data->toArray() : []);
     }
 
     public function questionListView()

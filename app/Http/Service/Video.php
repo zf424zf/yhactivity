@@ -60,6 +60,6 @@ class Video
     public function questionDetail($id)
     {
 
-        return QuestionModel::where('id', $id)->first()->toArray();
+        return QuestionModel::where('id', $id)->first();
     }
 }
