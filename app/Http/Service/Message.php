@@ -15,7 +15,7 @@ use App\Http\Models\UserModel;
 class Message
 {
     public function submit($uid,$content,$channel){
-        $user = UserModel::where('uid',$uid)->first();
+        $user = UserModel::where('id',$uid)->first();
         if(!isset($user)){
             return api_response(Service::MSG_USER_NOT_FOUND,'用户不存在，不能发表留言');
         }
@@ -35,6 +35,6 @@ class Message
         if(!empty($msgId)){
             $model->where('id','>',$msgId);
         }
-        return $model->take(10)->get();
+        return $model->take(10)->get()->toArray();
     }
 }
