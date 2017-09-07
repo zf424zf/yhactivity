@@ -44,7 +44,7 @@ class Luck
     {
         $userLuckCountKey = cache_key('user.luck.count', $uid);
         if (!empty(cache()->get($userLuckCountKey))) {
-            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
+//            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
         }
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
 
@@ -131,7 +131,17 @@ class Luck
     public function getLuckyBySection($section)
     {
         $data = LuckyModel::where('section', $section)->orderBy('id')->get()->toArray();
+<<<<<<< HEAD
        return $data;
+=======
+        foreach ($data as $key => $value) {
+            $i = 0;
+            while (!empty($v = array_splice($value['nameArr'], $i, 2))) {
+                $data[$key]['nameList'][] = $v;
+            }
+        }
+        return api_response(Service::SUCCESS, $data);
+>>>>>>> 1c4c3d073cfb2ce96f59c6b3786d1b6e915bf980
     }
 
     public function luckContact($luckyId, $name, $tel, $address)

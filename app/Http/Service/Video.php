@@ -42,7 +42,7 @@ class Video
             $likeCount = LikeModel::where('uid', $uid)
                 ->where('module', Module::VIDEO_MODULE)
                 ->where('child', $data->module)
-                ->where('target', $data->id)
+                ->where('target_id', $data->id)
                 ->count();
             if ($likeCount < 5) {
                 $canLike = 1;
@@ -60,6 +60,6 @@ class Video
     public function questionDetail($id)
     {
 
-        return QuestionModel::where('id', $id)->first()->toArray();
+        return QuestionModel::where('id', $id)->first();
     }
 }
