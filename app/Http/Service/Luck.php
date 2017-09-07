@@ -123,14 +123,17 @@ class Luck
         $data = ImageModel::with('users')
             ->where('type', 9)
             ->where('module', 9)
-            ->orderBy('id')
+            ->orderBy('id','desc')
             ->paginate($pagesize)->toArray();
-        return api_response(Service::SUCCESS, $data);
+        return $data;
     }
 
     public function getLuckyBySection($section)
     {
         $data = LuckyModel::where('section', $section)->orderBy('id')->get()->toArray();
+<<<<<<< HEAD
+       return $data;
+=======
         foreach ($data as $key => $value) {
             $i = 0;
             while (!empty($v = array_splice($value['nameArr'], $i, 2))) {
@@ -138,6 +141,7 @@ class Luck
             }
         }
         return api_response(Service::SUCCESS, $data);
+>>>>>>> 1c4c3d073cfb2ce96f59c6b3786d1b6e915bf980
     }
 
     public function luckContact($luckyId, $name, $tel, $address)

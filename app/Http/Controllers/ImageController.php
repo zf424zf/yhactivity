@@ -33,7 +33,6 @@ class ImageController extends Controller
     public function add(ImageRequest $request)
     {
         $data = (new Image())->addImage(
-            $request->get('uid'),
             $request->get('module'),
             $request->get('path'),
             $request->get('type'),
@@ -79,7 +78,7 @@ class ImageController extends Controller
 
     public function indexView()
     {
-        $data = (new FileList())->videoList(1, '');
+         $data = (new FileList())->videoList(1, '');
         return view('photo.index', ['data' => $data]);
     }
 
@@ -124,26 +123,31 @@ class ImageController extends Controller
         return view('photo.challenge', ['data' => $data, 'module' => $module]);
     }
 
-    public function uploadImageView(){
+    public function uploadImageView($module){
         $isUpload = \Request::get('isUpload');
         if($isUpload == 1){
             $path = \Request::get('path');
             if(empty($path)){
                 abort(404);
             }
-            return view('photo.upload_image',['path'=>$path]);
+            return view('photo.upload_image',['path'=>$path,'module'=>$module]);
         }else if($isUpload == 2){
             $origin = \Request::get('origin');
             if(empty($origin)){
                 abort(404);
             }
-            $image = (new Image())->imageInfo($origin,session('user')['uid']);
+             $image = (new Image())->imageInfo($origin,session('user')['uid']);
             if(empty($image)){
                 abort(404);
             }
-            return view('photo.other',['image'=>$image]);
+            return view('photo.other',['image'=>$image,'module'=>$module]);
         }else{
             abort(404);
         }
+    }
+
+    public function uploadSuccessView($id){
+         $image = (new Image())->imageInfo($id,session('user')['id']);
+         return view('photo.upload_success',['image'=>$image]);
     }
 }

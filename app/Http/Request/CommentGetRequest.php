@@ -9,19 +9,25 @@
 namespace App\Http\Request;
 
 
+use App\Http\Service\Service;
+
 class CommentGetRequest extends ApiRequest
 {
 
     public function messages()
     {
         // TODO: Implement messages() method.
-        return [];
+        return [
+            'channel.required' => Service::LIVE_ID_REQUIRED
+        ];
     }
 
     public function rules()
     {
         // TODO: Implement rules() method.
-        return [];
+        return [
+            'channel' => 'required'
+        ];
 
     }
 }

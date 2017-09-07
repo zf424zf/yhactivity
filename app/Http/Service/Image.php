@@ -15,8 +15,12 @@ use App\Http\Models\LikeModel;
 
 class Image
 {
-    public function addImage($uid, $module, $path, $type, $info = '', $originId = 0, $label = '', $originLabel = '')
+    public function addImage( $module, $path, $type, $info = '', $originId = 0, $label = '', $originLabel = '')
     {
+        $uid = array_get(session('user'),'id');
+        if(empty($uid)){
+            api_exception(Service::TOKENERROR);
+        }
         if ($type == 1) {
             if (!empty($originId)) {
                 //查找左图
@@ -61,7 +65,7 @@ class Image
         return ImageModel::where('id', $model->id)->with(['users'])->first();
     }
 
-    public function imageInfo($id, $uid)
+    public function imageInfo($id, $uid = '')
     {
         $canLike = 0;
         $data = ImageModel::where('id', $id)/*->where('type',1)*/->with(['users', 'originInfo'])->first();

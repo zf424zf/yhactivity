@@ -36,7 +36,7 @@ class Upload
         $content = file_get_contents(self::$file);
         $formatFile = base64_encode($content);
         $url = "http://m.oneniceapp.com/open/uploadpic";
-        $parma = ['content'=>$formatFile,'encode'=>'base64','token'=>'36d9a31df1d6721cc52715946103434a'];
+        $parma = ['content' => $formatFile, 'encode' => 'base64', 'token' => '36d9a31df1d6721cc52715946103434a'];
 //        $parma = "content=$formatFile&encode=base64&token=36d9a31df1d6721cc52715946103434a";
         $result = $this->post($url, $parma);
         $resultArr = json_decode($result, true);
@@ -66,6 +66,23 @@ class Upload
         return $result;
     }
 
+    public function get($url, array $data = [])
+    {
+        $str = '?';
+        foreach ($data as $key => $item) {
+            $str .= $key . '=' . $item . '&';
+        }
+        if (!empty($data)) {
+            $url .= $str;
+        }
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_HEADER, 0);
+        $output = curl_exec($ch);
+        curl_close($ch);
+        return $output;
+    }
 
 //    /**
 //     * 获取文件名称

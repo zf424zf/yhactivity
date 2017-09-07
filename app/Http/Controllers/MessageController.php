@@ -26,7 +26,7 @@ class MessageController extends Controller
 
     public function messageList(CommentGetRequest $request)
     {
-        $data = (new Message())->getMessage($request->get('msgId', ''));
+        $data = (new Message())->getMessage($request->get('channel'),$request->get('msgId', ''));
         return api_response(Service::SUCCESS, $data);
     }
 }

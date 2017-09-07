@@ -30,8 +30,8 @@ class Message
         return api_response(Service::MSG_SAVE_ERR);
     }
 
-    public function getMessage($msgId = ''){
-        $model = CommentModel::with('users')->orderBy('id','desc');
+    public function getMessage($channel,$msgId = ''){
+        $model = CommentModel::with('users')->where('channel',$channel)->orderBy('id','asc');
         if(!empty($msgId)){
             $model->where('id','>',$msgId);
         }

@@ -60,6 +60,8 @@ abstract class Service
     const VIDEO_ID_NOT_FOUND = 3108;//视频id不存在
     const VIDEO_UID_NOT_FOUND = 3109;//用户不存在
     const VIDEO_UID_VALUE_ERR = 3110;//用户值错误
+    const VIDEO_QID_REQUIRED = 3111;//缺少qid
+    const VIDEO_QID_NOT_EXISTS = 3112;//qid不存在
 
 
     const LIST_MODULE_REQUIRED = 3201;//module必须存在
@@ -84,6 +86,8 @@ abstract class Service
     const WX_DECRYPT_FAIL = 4003;//用户信息解密失败
     const WX_ENCRYPT_DATA_NOT_EXISTS = 4004;//微信加密消息不存在
     const WX_IV_NOT_EXISTS = 4005;//解密IV不存在
+
+    const LIVE_ID_REQUIRED = 5001;//直播id必须存在
 
     const PAGE_VALUE_ERR = 9001;//分页参数错误
     const PAGE_SIZE_VALUE_ERR = 9002;//每页显示条数参数错误

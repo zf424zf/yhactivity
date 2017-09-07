@@ -5,26 +5,26 @@
 @endsection
 @section('content')
     <div class="bg">
-        <a href="">
+        <a href="{{urls('/photo')}}">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
         <div class="active-rank">
             <ul class="tab">
-                <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child'))) class="on" @endif>
-                    <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_MX}}">
-                        @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child')))
-                            <img  class="on" src="{{staticFile('images/active/h1-on.png')}}" alt="标题">
-                        @else
-                            <img class="default" src="{{staticFile('images/active/h1-default.png')}}" alt="标题">
-                        @endif
-                    </a>
-                </li>
                 <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS ) class="on" @endif>
                     <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_BS}}">
                         @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS )
                             <img class="on" src="{{staticFile('images/active/h2-on.png')}}" alt="标题">
                         @else
                             <img class="default" src="{{staticFile('images/active/h2-default.png')}}" alt="标题">
+                        @endif
+                    </a>
+                </li>
+                <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child'))) class="on" @endif>
+                    <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_MX}}">
+                        @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child')))
+                            <img  class="on" src="{{staticFile('images/active/h1-on.png')}}" alt="标题">
+                        @else
+                            <img class="default" src="{{staticFile('images/active/h1-default.png')}}" alt="标题">
                         @endif
                     </a>
                 </li>
