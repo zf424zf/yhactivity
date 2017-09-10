@@ -123,7 +123,7 @@ class Luck
         $data = ImageModel::with('users')
             ->where('type', 9)
             ->where('module', 9)
-            ->orderBy('id','desc')
+            ->orderBy('id', 'desc')
             ->paginate($pagesize)->toArray();
         return $data;
     }
