@@ -53,15 +53,13 @@ class Luck
         $userLuckCountKey = cache_key('user.luck.count', $uid);
         if (!empty(cache()->get($userLuckCountKey))) {
             api_exception(Service::LIKE_TODAY_CHANCE_NONE);
-<<<<<<< HEAD
+
         }
         $isSelf = ImageModel::where('uid',$uid)
             ->where('id',$imageId)->where('type',9)
             ->count();
         if(empty($isSelf)){
             api_exception(Service::LUCKY_WIN_ID_NOT_EXIST );
-=======
->>>>>>> b420baca037920baff9679fa037833f9f6bf758c
         }
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
 
@@ -155,11 +153,8 @@ class Luck
                 $data[$key]['nameList'][] = $v;
             }
         }
-<<<<<<< HEAD
+
         return $data;
-=======
-        return api_response(Service::SUCCESS, $data);
->>>>>>> b420baca037920baff9679fa037833f9f6bf758c
     }
 
     public function luckContact($luckyId, $name, $tel, $address)
