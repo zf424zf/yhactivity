@@ -16,7 +16,7 @@ class LiveController extends Controller
 {
     public function liveListView()
     {
-         $list = (new Live())->getLiveList();
+        return  $list = (new Live())->getLiveList();
         return view('live.index', ['list' => json_decode($list, true)]);
     }
 

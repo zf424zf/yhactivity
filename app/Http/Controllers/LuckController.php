@@ -21,7 +21,7 @@ class LuckController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin',['expect'=>['luck','luckList','sectionLucky','luckyContact']]);
+        $this->middleware('isLogin',['except'=>['luck','luckList','sectionLucky','luckyContact']]);
     }
 
     public function luck(LuckRequest $request)
