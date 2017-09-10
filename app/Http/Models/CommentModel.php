@@ -14,6 +14,6 @@ class CommentModel extends BaseModel
     protected $table = 'comment';
 
     public function users(){
-        return $this->hasOne('App\Http\Models\UserModel','uid','uid');
+        return $this->hasOne('App\Http\Models\UserModel','id','uid');
     }
 }
