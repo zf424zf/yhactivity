@@ -19,7 +19,7 @@
                 <!-- show img -->
                 <img id="upload" src="{{staticFile('images/active/demo.png')}}" alt="pic" class="select-photo-show">
             </label>
-            <input type="submit" value="" class="gift-index-submit">
+            <input type="button"  value="" class="submit gift-index-submit">
 
         </form>
         <p class="gift-index-more">
@@ -104,7 +104,10 @@
             });
             uploader.on( 'uploadSuccess', function( file,response) {
                 var url = response.data.url;
-                console.log(url);
+                var upload = $('#upload');
+                upload.data('url',url);
+                upload.attr('src',url);
+
 //                var module = $('#module').data('module');
 //                window.location.href = '/photo/uploadImage/'+module+'?isUpload=1&path='+url
             });
@@ -117,6 +120,27 @@
             });
             uploader.on( 'uploadProgress', function( file, percentage ) {
             });
+
+            $(document).on('click','.submit',function(){
+                var upload = $('#upload');
+                var path = upload.data('url');
+                if(path == '' || path == undefined){
+                    alert('您还没有上传图片');
+                    return false;
+                }
+                $.ajax({
+                    url:'/api/image/add',
+                    type:'post',
+                    data:{type:9,module:9,path:path,},
+                    success:function(ret){
+                        if(ret.data.haveChance == 1){
+                            location.href = '/lucky/prize?image_id='+ret.data.id;
+                        }else{
+                            location.href = '/lucky/wall'
+                        }
+                    }
+                })
+            })
         })
     </script>
 @endsection

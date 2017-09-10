@@ -9,10 +9,14 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Api\Module;
+use App\Http\Api\VideoChild;
 use App\Http\Request\VideoInfoRequest;
 use App\Http\Request\VideoRequest;
+use App\Http\Service\FileList;
 use App\Http\Service\Service;
 use App\Http\Service\Video;
+use Illuminate\Support\Facades\Input;
 
 class VideoController extends Controller
 {
@@ -53,5 +57,34 @@ class VideoController extends Controller
     {
         $data = (new Video())->question();
         return view('video.question', ['question' => $data]);
+    }
+
+    public function videoIndexView()
+    {
+        return view('video.index');
+    }
+
+    public function detailView($id)
+    {
+        $uid = session('user')['id'];
+         $video = (new Video())->info($id, $uid);
+        if (empty($video)) {
+            abort(404);
+        }
+        return view('video.detail', ['data' => $video]);
+    }
+
+    public function listView(){
+        $uid = session('user')['id'];
+        $child = Input::get('child',VideoChild::VIDEO_SS);
+        $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'like',$child,'desc',$uid);
+        return $data;
+    }
+
+    public function listNewView(){
+        $uid = session('user')['id'];
+        $child = Input::get('child',VideoChild::VIDEO_SS);
+        $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'new',$child,'desc',$uid);
+        return $data;
     }
 }

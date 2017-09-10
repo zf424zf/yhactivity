@@ -19,6 +19,11 @@ use App\Http\Service\Service;
 
 class LuckController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isLogin');
+    }
+
     public function luck(LuckRequest $request)
     {
         return (new Luck())->getLuck($request->get('uid'), $request->get('image_id'));
@@ -64,5 +69,12 @@ class LuckController extends Controller
          }
          $data = (new Luck())->getLuckyBySection($section);
          return view('lucky.rank',['data'=>$data,'sections'=>$sections,'curSection'=>$section]);
+    }
+
+    public function luckView(){
+        $imageId = \Request::get('image_id');
+        $uid = session('user')['id'];
+        $flag = (new Luck())->checkUserTodayLuck($uid);
+        return view('lucky.luck',['uid'=>$uid,'flag'=>$flag,'image'=>$imageId]);
     }
 }

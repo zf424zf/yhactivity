@@ -34,7 +34,7 @@ class ImageRequest extends ApiRequest
     {
         $childRef = new \ReflectionClass(PhotoChild::class);
         return [
-            'type' => 'required|in:0,1',
+            'type' => 'required|in:0,1,9',
             'module' => 'required|in:' . implode(',', $childRef->getConstants()),
             'path' => 'required',
             'info' => 'json',

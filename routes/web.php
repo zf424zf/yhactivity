@@ -12,7 +12,9 @@
 */
 
 Route::get('/haha', function () {
-//    \Request::session()->flush();
+    \Request::session()->flush();
+     $userLuckCountKey = cache_key('user.luck.count', 13);
+     return cache()->forget($userLuckCountKey);
 //    return (new \App\Http\Service\live())->getLiveList();
 });
 
@@ -21,7 +23,14 @@ Route::get('/mn', function () {
 
 });
 Route::group(['prefix' => 'video'], function () {
+    Route::get('/', 'VideoController@videoIndexView');
     Route::get('question', 'VideoController@questionListView');
+    Route::get('detail/{id}', 'VideoController@detailView');
+    Route::get('rank', 'VideoController@listView');
+    Route::get('new', 'VideoController@listNewView');
+
+
+
 });
 Route::group(['prefix' => 'photo'], function () {
     Route::get('/', 'ImageController@indexView');
@@ -37,6 +46,9 @@ Route::group(['prefix' => 'lucky'], function () {
     Route::get('/wall', 'LuckController@shareWallView');
     Route::get('/detail/{id}', 'LuckController@shareDetailView');
     Route::get('/rank/{section}', 'LuckController@shareRankView');
+    Route::get('/prize', 'LuckController@luckView');
+
+
 });
 Route::get('getNiceUser', 'UserController@niceUser');
 Route::get('/live', 'LiveController@liveListView');

@@ -9,6 +9,7 @@
 namespace App\Http\Service;
 
 
+use App\Http\Api\Module;
 use App\Http\Models\UserModel;
 
 class Upload
@@ -30,9 +31,17 @@ class Upload
      * @param $uid
      * @return \Illuminate\Http\JsonResponse
      */
-    public function upload()
+    public function upload($type = Module::PHOTO_MODULE)
     {
+        if ($type == Module::PHOTO_MODULE) {
+            return $this->uploadImage();
+        } else {
+            return $this->uploadVideo();
+        }
+    }
 
+    public function uploadImage()
+    {
         $content = file_get_contents(self::$file);
         $formatFile = base64_encode($content);
         $url = "http://m.oneniceapp.com/open/uploadpic";
@@ -44,10 +53,26 @@ class Upload
             api_exception(Service::UPLOAD_FAIL);
         }
         return $result;
-//        $fileName = self::getFileName();
-//        \Storage::put(self::getFileDir() . $fileName, $content);
-//        $path = config('filesystems.disks.oss.domain') . self::getPathByFileName($fileName);
-//        return api_response(Service::SUCCESS, ['path' => $path]);
+    }
+
+    public function uploadVideo()
+    {
+        $contents = file_get_contents(self::$file);
+        $filename = storage_path('/'.uniqid());
+        file_put_contents($filename, $contents);
+        $cfile = curl_file_create($filename, 'image/jpeg', 'test_name');
+        $params=['file'=> $cfile, 'token' => '36d9a31df1d6721cc52715946103434a'];
+        $defaults = array(
+            CURLOPT_URL => 'http://coolly-salmon.api.oneniceapp.com/Upload/uploadvideo',
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $params,
+        );
+        $ch = curl_init();
+        curl_setopt_array($ch, $defaults);
+        $res = curl_exec($ch);
+        var_dump($res);
+        exit;
+
     }
 
 

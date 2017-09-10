@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50714
 File Encoding         : 65001
 
-Date: 2017-09-03 10:53:06
+Date: 2017-09-10 19:17:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -82,7 +82,7 @@ CREATE TABLE `yh_admin_operation_log` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `admin_operation_log_user_id_index` (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=223 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=229 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- ----------------------------
 -- Records of yh_admin_operation_log
@@ -309,6 +309,12 @@ INSERT INTO `yh_admin_operation_log` VALUES ('219', '1', 'admin/lucky', 'GET', '
 INSERT INTO `yh_admin_operation_log` VALUES ('220', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 02:33:52', '2017-09-03 02:33:52');
 INSERT INTO `yh_admin_operation_log` VALUES ('221', '1', 'admin/lucky', 'POST', '127.0.0.1', '{\"section\":\"2\",\"time\":\"9.25-10.1\",\"names\":\"\\u5f20\\u4e09;\\u674e\\u56db;\\u738b\\u4e8c;\\u5723\\u8bde;\\u5c0f\\u80d6\",\"title\":\"\\u7b2c\\u4e00\\u671f\\u4e2d\\u5956\\u540d\\u5355\",\"_token\":\"1lZnLtSaz4qW843n6FpV1ikD8XpDmyznUQNVy4R2\",\"_previous_\":\"http:\\/\\/activity.dev\\/admin\\/lucky\"}', '2017-09-03 02:34:16', '2017-09-03 02:34:16');
 INSERT INTO `yh_admin_operation_log` VALUES ('222', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 02:34:16', '2017-09-03 02:34:16');
+INSERT INTO `yh_admin_operation_log` VALUES ('223', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-03 13:47:46', '2017-09-03 13:47:46');
+INSERT INTO `yh_admin_operation_log` VALUES ('224', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 13:47:56', '2017-09-03 13:47:56');
+INSERT INTO `yh_admin_operation_log` VALUES ('225', '1', 'admin/lucky', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-03 13:53:14', '2017-09-03 13:53:14');
+INSERT INTO `yh_admin_operation_log` VALUES ('226', '1', 'admin/section', 'GET', '127.0.0.1', '[]', '2017-09-05 03:05:26', '2017-09-05 03:05:26');
+INSERT INTO `yh_admin_operation_log` VALUES ('227', '1', 'admin/lucky', 'GET', '127.0.0.1', '[]', '2017-09-05 03:05:31', '2017-09-05 03:05:31');
+INSERT INTO `yh_admin_operation_log` VALUES ('228', '1', 'admin/lucky/create', 'GET', '127.0.0.1', '{\"_pjax\":\"#pjax-container\"}', '2017-09-05 03:05:48', '2017-09-05 03:05:48');
 
 -- ----------------------------
 -- Table structure for yh_admin_permissions
@@ -449,7 +455,7 @@ CREATE TABLE `yh_comment` (
   `channel` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_comment
@@ -457,6 +463,7 @@ CREATE TABLE `yh_comment` (
 INSERT INTO `yh_comment` VALUES ('1', '你好', '1', '1502807193', '1502807193', '1');
 INSERT INTO `yh_comment` VALUES ('2', '你好', '1', '1502807243', '1502807243', '1');
 INSERT INTO `yh_comment` VALUES ('3', '你好', '1', '1502807274', '1502807274', '1');
+INSERT INTO `yh_comment` VALUES ('4', '爱仕达', '1', '1502807274', '1502807274', '1');
 
 -- ----------------------------
 -- Table structure for yh_image
@@ -476,7 +483,7 @@ CREATE TABLE `yh_image` (
   PRIMARY KEY (`id`),
   KEY `uid` (`uid`) USING BTREE,
   KEY `module` (`module`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=60 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_image
@@ -497,6 +504,32 @@ INSERT INTO `yh_image` VALUES ('30', '1', '4', '1', 'http:\\/\\/img08.oneniceapp
 INSERT INTO `yh_image` VALUES ('31', '1', '4', '1', 'http:\\/\\/img08.oneniceapp.com\\/upload\\/show\\/2017\\/08\\/25\\/f46229bcd1acceb12c3b953199c46219.jpg', null, '1503652843', '1503652843', null, '0000000029');
 INSERT INTO `yh_image` VALUES ('32', '1', '4', '1', 'http:\\/\\/img08.oneniceapp.com\\/upload\\/show\\/2017\\/08\\/25\\/f46229bcd1acceb12c3b953199c46219.jpg', null, '1503652845', '1503652845', null, '0000000029');
 INSERT INTO `yh_image` VALUES ('33', '1', '1', '0', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/18/20170818060328531103.jpg', null, '1503848110', '1503848110', null, '0000000000');
+INSERT INTO `yh_image` VALUES ('34', '1', '9', '9', 'http:\\/\\/img08.oneniceapp.com\\/upload\\/show\\/2017\\/09\\/03\\/519290382200b85828b9f6075166080a.jpg', '', '1504424063', '1504424063', null, null);
+INSERT INTO `yh_image` VALUES ('35', '0', '1', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/03/3ba3ae0dd7943876419a79a39434cf80.jpg', null, '1504443714', '1504443714', '按时', '0000000000');
+INSERT INTO `yh_image` VALUES ('36', '0', '1', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/03/3ba3ae0dd7943876419a79a39434cf80.jpg', null, '1504443781', '1504443781', '卧槽', '0000000000');
+INSERT INTO `yh_image` VALUES ('37', '0', '1', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/03/32990224d6c40571ccec55cfe074809f.jpg', null, '1504443781', '1504443781', '尼玛', '0000000036');
+INSERT INTO `yh_image` VALUES ('38', '13', '1', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/03/6bf9d514af07644c9a0c8558ab8df4cb.jpg', null, '1504446323', '1504446323', '邂逅爱聊咖', '0000000000');
+INSERT INTO `yh_image` VALUES ('39', '13', '1', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/03/f3f6ae33274b48c665a17dd137273cf9.jpg', null, '1504446324', '1504446324', '邂逅爱聊咖', '0000000038');
+INSERT INTO `yh_image` VALUES ('40', '13', '1', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/03/6bf9d514af07644c9a0c8558ab8df4cb.jpg', null, '1504446374', '1504446374', '邂逅爱聊咖', '0000000000');
+INSERT INTO `yh_image` VALUES ('41', '13', '1', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/03/722a9a564474893a4359e90dd869905f.jpg', null, '1504446374', '1504446374', '邂逅爱聊咖', '0000000040');
+INSERT INTO `yh_image` VALUES ('42', '13', '4', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/04/1ad9982193520b6d5e8bafb837384bd7.jpg', null, '1504529466', '1504529466', '毛球么么哒', '0000000000');
+INSERT INTO `yh_image` VALUES ('43', '13', '4', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/04/f28c42953d177e31c96ef71cdd19a3b7.jpg', null, '1504529466', '1504529466', '么么哒毛球', '0000000042');
+INSERT INTO `yh_image` VALUES ('44', '13', '4', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/04/7d1c4e8ee0746221d864fd28975218b0.jpg', null, '1504529555', '1504529555', '我爱运动', '0000000000');
+INSERT INTO `yh_image` VALUES ('45', '13', '4', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/04/94c8f5df5af8d6b5ce5a1fb5d598160e.jpg', null, '1504529555', '1504529555', '运动爱我', '0000000044');
+INSERT INTO `yh_image` VALUES ('46', '13', '1', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/05/190ae2f39575da750a143a1a30467b90.jpg', null, '1504595560', '1504595560', '卧槽尼玛', '0000000009');
+INSERT INTO `yh_image` VALUES ('47', '13', '1', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/05/32acc0972cc9512bf89b91bb490763ba.jpg', null, '1504595614', '1504595614', '啊 有美女', '0000000009');
+INSERT INTO `yh_image` VALUES ('48', '13', '3', '0', 'http://img08.oneniceapp.com/upload/show/2017/09/05/b2ef7609942d5871d39da5e774eaa127.jpg', null, '1504617937', '1504617937', '你妈单', '0000000000');
+INSERT INTO `yh_image` VALUES ('49', '13', '3', '1', 'http://img08.oneniceapp.com/upload/show/2017/09/05/d6d90af74cbeca8481b2c6a01af9e059.jpg', null, '1504617937', '1504617937', '我爸单', '0000000048');
+INSERT INTO `yh_image` VALUES ('50', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/07/9b20b840d121a8365eb0c699690e726d.jpg', null, '1504792150', '1504792150', null, null);
+INSERT INTO `yh_image` VALUES ('51', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/08/27ce444abfaa66f6be1cc022d11a329d.jpg', null, '1504852603', '1504852603', null, null);
+INSERT INTO `yh_image` VALUES ('52', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/08/ae15228577d26d83161a9d3da47ad2ee.jpg', null, '1504853061', '1504853061', null, null);
+INSERT INTO `yh_image` VALUES ('53', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/08/0cde4e8c94fe68b99ec25a65dda8f3f3.jpg', null, '1504853124', '1504853124', null, null);
+INSERT INTO `yh_image` VALUES ('54', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/08/ccde341510e628156497a15195acf689.jpg', null, '1504853151', '1504853151', null, null);
+INSERT INTO `yh_image` VALUES ('55', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/08/d2238740c7e9dc6e23ee0dbe9019509b.jpg', null, '1504858952', '1504858952', null, null);
+INSERT INTO `yh_image` VALUES ('56', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/09/9468ef640a3e0097da9dbf8e7d96f861.jpg', null, '1504887852', '1504887852', null, null);
+INSERT INTO `yh_image` VALUES ('57', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/09/4323259a1ea2c490fcbe79aa399aa378.jpg', null, '1504922352', '1504922352', null, null);
+INSERT INTO `yh_image` VALUES ('58', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/09/abb89618f398f9f34284e8c12c93176c.jpg', null, '1504961389', '1504961389', null, null);
+INSERT INTO `yh_image` VALUES ('59', '13', '9', '9', 'http://img08.oneniceapp.com/upload/show/2017/09/09/ff29035b5c2f692544fd41aa558a7e8e.jpg', null, '1504961449', '1504961449', null, null);
 
 -- ----------------------------
 -- Table structure for yh_like
@@ -512,7 +545,7 @@ CREATE TABLE `yh_like` (
   `child` int(11) DEFAULT NULL COMMENT '子模块',
   PRIMARY KEY (`id`),
   KEY `module_target` (`module`,`child`,`target_id`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=114 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=129 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_like
@@ -586,6 +619,21 @@ INSERT INTO `yh_like` VALUES ('110', '1', '1', '19', '1503913331', '1503913331',
 INSERT INTO `yh_like` VALUES ('111', '1', '1', '19', '1503913332', '1503913332', '1');
 INSERT INTO `yh_like` VALUES ('112', '1', '1', '19', '1503913332', '1503913332', '1');
 INSERT INTO `yh_like` VALUES ('113', '1', '1', '19', '1503913333', '1503913333', '1');
+INSERT INTO `yh_like` VALUES ('114', '1', '1', '45', '1504529591', '1504529591', '4');
+INSERT INTO `yh_like` VALUES ('115', '1', '1', '45', '1504529593', '1504529593', '4');
+INSERT INTO `yh_like` VALUES ('116', '1', '1', '45', '1504529593', '1504529593', '4');
+INSERT INTO `yh_like` VALUES ('117', '1', '1', '45', '1504529593', '1504529593', '4');
+INSERT INTO `yh_like` VALUES ('118', '1', '1', '45', '1504529594', '1504529594', '4');
+INSERT INTO `yh_like` VALUES ('119', '1', '1', '46', '1504595711', '1504595711', '1');
+INSERT INTO `yh_like` VALUES ('120', '1', '1', '46', '1504595713', '1504595713', '1');
+INSERT INTO `yh_like` VALUES ('121', '1', '1', '46', '1504595714', '1504595714', '1');
+INSERT INTO `yh_like` VALUES ('122', '1', '1', '46', '1504595715', '1504595715', '1');
+INSERT INTO `yh_like` VALUES ('123', '1', '1', '46', '1504595715', '1504595715', '1');
+INSERT INTO `yh_like` VALUES ('124', '1', '1', '49', '1504617983', '1504617983', '3');
+INSERT INTO `yh_like` VALUES ('125', '1', '1', '49', '1504617984', '1504617984', '3');
+INSERT INTO `yh_like` VALUES ('126', '1', '1', '49', '1504617984', '1504617984', '3');
+INSERT INTO `yh_like` VALUES ('127', '1', '1', '49', '1504617984', '1504617984', '3');
+INSERT INTO `yh_like` VALUES ('128', '1', '1', '49', '1504617984', '1504617984', '3');
 
 -- ----------------------------
 -- Table structure for yh_lucky
@@ -683,8 +731,8 @@ CREATE TABLE `yh_settings` (
 -- ----------------------------
 -- Records of yh_settings
 -- ----------------------------
-INSERT INTO `yh_settings` VALUES ('9', 'yh_gift', '9', '雅哈咖啡四联装礼盒a', '1503369647', '1503370593');
-INSERT INTO `yh_settings` VALUES ('10', 'yh_cup', '10', '雅哈咖啡×nice定制对杯', '1503369685', '1503369685');
+INSERT INTO `yh_settings` VALUES ('9', 'yh_gift', '5', '雅哈咖啡四联装礼盒a', '1503369647', '1503370593');
+INSERT INTO `yh_settings` VALUES ('10', 'yh_cup', '6', '雅哈咖啡×nice定制对杯', '1503369685', '1503369685');
 INSERT INTO `yh_settings` VALUES ('11', 'yh_cash', '0', '现金红包888元', '1503369956', '1503369956');
 INSERT INTO `yh_settings` VALUES ('12', 'yh_gift_chance', '5', '5%的概率', '1503371564', '1503371564');
 INSERT INTO `yh_settings` VALUES ('13', 'yh_cup_chance', '3', '3%的概率', '1503371631', '1503371631');
@@ -713,8 +761,8 @@ CREATE TABLE `yh_users` (
 -- ----------------------------
 -- Records of yh_users
 -- ----------------------------
-INSERT INTO `yh_users` VALUES ('1', '1', 'asdadasds', 'asdas', null, '18705191169', '张帆', null, '1502800399', '1502800399', null);
-INSERT INTO `yh_users` VALUES ('13', 'zf_002', null, 'éªçµè¥¿å°è±2', null, null, null, null, '1504084156', '1504084156', 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/0f0bb3df9d85f191f6b0634e48efa409.jpg');
+INSERT INTO `yh_users` VALUES ('1', '1', 'asdadasds', 'asdas', null, '18705191169', '张帆', null, '1502800399', '1502800399', 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/0f0bb3df9d85f191f6b0634e48efa409.jpg');
+INSERT INTO `yh_users` VALUES ('13', 'zf_002', null, '爱仕达', null, null, null, null, '1504084156', '1504084156', 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/0f0bb3df9d85f191f6b0634e48efa409.jpg');
 
 -- ----------------------------
 -- Table structure for yh_video
@@ -729,23 +777,21 @@ CREATE TABLE `yh_video` (
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
   `qid` int(11) NOT NULL,
+  `cover` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `module` (`module`) USING BTREE
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_video
 -- ----------------------------
-INSERT INTO `yh_video` VALUES ('2', '1', '1', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/17/20170817070214296380.mp4', '[{\"type\":\"mp4\"}]', '1502953752', '1502953752', '1');
-INSERT INTO `yh_video` VALUES ('3', '1', '2', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/17/20170817070214296380.mp4', '[{\"type\":\"png\"}]', '1502953923', '1502953923', '1');
-INSERT INTO `yh_video` VALUES ('4', '1', '3', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/17/20170817070214296380.mp4', '[{\"type\":\"mp4\"}]', '1502953932', '1502953932', '1');
-INSERT INTO `yh_video` VALUES ('5', '1', '4', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/17/20170817070214296380.mp4', '[{\"type\":\"mp4\"}]', '1502953937', '1502953937', '1');
-INSERT INTO `yh_video` VALUES ('6', '1', '2', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954729', '1502954729', '1');
-INSERT INTO `yh_video` VALUES ('7', '1', '2', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954732', '1502954732', '1');
-INSERT INTO `yh_video` VALUES ('8', '1', '3', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954735', '1502954735', '1');
-INSERT INTO `yh_video` VALUES ('9', '1', '4', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954737', '1502954737', '1');
-INSERT INTO `yh_video` VALUES ('10', '1', '4', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954739', '1502954739', '1');
-INSERT INTO `yh_video` VALUES ('11', '1', '4', '//ricefur.oss-cn-beijing.aliyuncs.com/yh-activity/2017/08/16/20170816135013144219.jpg', '[{\"type\":\"mp4\"}]', '1502954740', '1502954740', '1');
+INSERT INTO `yh_video` VALUES ('13', '13', '1', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026529', '1505026529', '1', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('14', '13', '2', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026538', '1505026538', '1', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('15', '13', '3', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026542', '1505026542', '1', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('16', '13', '4', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026545', '1505026545', '1', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('17', '13', '4', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026547', '1505026547', '1', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('18', '13', '4', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026550', '1505026550', '2', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
+INSERT INTO `yh_video` VALUES ('19', '13', '2', 'http://p2.niceimg.net/upload/video/a8aafad41b21127abea3862ae0ab42b3', null, '1505026555', '1505026555', '3', 'http://video.oneniceapp.com/upload/video/a8aafad41b21127abea3862ae0ab42b3?vframe/jpg/offset/0');
 
 -- ----------------------------
 -- Table structure for yh_win
@@ -758,20 +804,35 @@ CREATE TABLE `yh_win` (
   `win_lv` int(11) NOT NULL DEFAULT '0' COMMENT '0-谢谢参与 1-1等奖....',
   `created_at` int(11) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
-  `page_url` varchar(255) NOT NULL COMMENT '晒单照片',
+  `image_id` int(11) unsigned zerofill DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=63 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=81 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of yh_win
 -- ----------------------------
-INSERT INTO `yh_win` VALUES ('53', '1', '0', '0', '1503469370', '1503469370', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('54', '2', '0', '0', '1503469381', '1503469381', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('55', '3', '0', '0', '1503469386', '1503469386', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('56', '4', '0', '0', '1503469416', '1503469416', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('57', '5', '0', '0', '1503469422', '1503469422', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('58', '6', '1', '3', '1503469427', '1503469427', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('59', '7', '0', '0', '1503469446', '1503469446', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('60', '8', '0', '0', '1503469454', '1503469454', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('61', '9', '0', '0', '1503469459', '1503469459', 'www.baidu.com');
-INSERT INTO `yh_win` VALUES ('62', '10', '1', '1', '1503469463', '1503469463', 'www.baidu.com');
+INSERT INTO `yh_win` VALUES ('78', '13', '0', '0', '1505042103', '1505042103', '00000000055');
+INSERT INTO `yh_win` VALUES ('79', '13', '0', '0', '1505042139', '1505042139', '00000000055');
+INSERT INTO `yh_win` VALUES ('80', '13', '0', '0', '1505042159', '1505042159', '00000000055');
+
+-- ----------------------------
+-- Table structure for yh_win_contact
+-- ----------------------------
+DROP TABLE IF EXISTS `yh_win_contact`;
+CREATE TABLE `yh_win_contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
+  `tel` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `win_id` int(11) NOT NULL,
+  `created_at` int(11) DEFAULT NULL,
+  `updated_at` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of yh_win_contact
+-- ----------------------------
+INSERT INTO `yh_win_contact` VALUES ('1', 'zhangfan', '18705191169', '南京', '63', '1504426075', '1504426075');
+INSERT INTO `yh_win_contact` VALUES ('2', 'fanfan', '18705191169', 'asda', '73', '1504924732', '1504924732');
+INSERT INTO `yh_win_contact` VALUES ('3', '阿毛猪', '1888888888', '天师哈啥', '75', '1504961422', '1504961422');

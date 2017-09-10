@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','选择问题')
 @section('resource')
 @endsection
 @section('content')
@@ -8,46 +8,35 @@
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
             </a>
-            <img src="{{staticFile('images/active/live-list-top.png')}}" alt="bg" class="act-beg-hea-bg">
+            <img src="{{staticFile('images/active/world-index-bg.png')}}" alt="bg" class="world-index-bg">
             <a href="javascript:;" class="act-beg-hea-link">
                 <span id="show-mask">活动说明</span>
             </a>
         </div>
-        <!-- live-list -->
-        <ul class="live-list">
-            <!-- live-list-on-btn ### 正在直播-->
-            <!-- live-list-back-btn ### 查看回放-->
-            <!-- live-list-begin-btn ### 即将开始-->
-            @foreach($list['data'] as $item)
-            <li>
-                <img src="{{staticFile('images/active/live-list-logo.png')}}" alt="logo" class="live-list-logo">
-                <img src="{{thumb($item['kol_user_avatar'])}}" alt="pic" class="live-list-user">
-                <p class="live-list-con">
-					<span class="title">
-						{{$item['auth']}}
-					</span>
-                    <span class="name">
-						{{$item['kol_user_name']}}
-					</span>
-                    <span class="bardian">
-						{{$item['title']}}
-					</span>
-                    <span class="time">
-						{{$item['date']}}
-					</span>
-                    <a href="{{urls('/live/'.$item['id'])}}" class="btn">
-                        @if($item['status'] == 'living')
-                            <img src="{{staticFile('images/active/live-list-on-btn.png')}}" alt="正在直播">
-                        @elseif($item['status'] == 'ready')
-                            <img src="{{staticFile('images/active/live-list-begin-btn.png')}}" alt="即将开始">
-                        @else
-                            <img src="{{staticFile('images/active/live-list-back-btn.png')}}" alt="查看回放">
-                        @endif
-                    </a>
-                </p>
-            </li>
-                @endforeach
-        </ul>
+        <div class="world-video">
+            <video src="{{staticFile('videos/test.ogg')}}" class="video" autoplay="autoplay">
+                您的浏览器版本过低
+            </video>
+            <a href="" class="btn prev"><img src="{{staticFile('images/active/world-video-prev.png')}}" alt="上一个视屏"></a>
+            <a href="" class="btn next"><img src="{{staticFile('images/active/world-video-next.png')}}" alt="下一个视屏"></a>
+{{--            <a href="" class="play"><img src="{{staticFile('images/active/world-video-play.png')}}" alt="下一个视屏"></a>--}}
+            <p class="user">
+                <span class="user-pic"><img src="{{staticFile('images/active/user.png')}}" alt="user-pic"></span>
+                <span class="user-name">
+					我是用户ID
+				</span>
+            </p>
+            <p class="info">
+                <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip">
+                <span class="text">
+					<b>如果你非要参加前任的结婚宴，你会穿什么颜色的衣服？</b>
+				</span>
+            </p>
+        </div>
+        <p class="world-video-next">
+            <a href="./select-question.html" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
+            <a href="./world-rank.html" class="btn"><img src="{{staticFile('images/active/world-video-hot.png')}}" alt=""></a>
+        </p>
     </div>
     <!-- mask -->
     <div class="active-translate-mask-bg">&nbsp;</div>
@@ -121,15 +110,22 @@
         </div>
     </div>
     <script type="text/javascript">
-        $(function () {
+        $(function(){
             // 活动说明遮罩层
-            $("#show-mask").on('tap', function () {
+            $("#show-mask").on('tap',function(){
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             });
-            $('.active-translate-mask-bg').on('tap', function () {
+            $('.active-translate-mask-bg').on('tap',function(){
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            })
+            $(document).on('click','.video',function(){
+               var isPause = $(this).attr('paused');
+               if(isPause){
+                   $(this)[0].play();
+               }else{
+                   $(this)[0].pause();
+               }
             })
         })
     </script>
-
 @endsection

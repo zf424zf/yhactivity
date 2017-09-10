@@ -30,10 +30,10 @@
         </div>
         <!-- live-on -->
         <div  class="live-on-con">
-            <div id="a1" class="live-on-video"></div>
-            {{--<video src="http:\/\/media.oneniceapp.com\/recordings\/z1.nicelive.177364134137430639\/177364134137430639.m3u8" class="live-on-video">--}}
-            {{--你的浏览器版本太低\(^o^)/~--}}
-            {{--</video>--}}
+            {{--<div id="a1" class="live-on-videos"></div>--}}
+            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">
+            你的浏览器版本太低\(^o^)/~
+            </video>
         </div>
         <div class="live-on-comment-list">
             <img src="{{staticFile('images/active/like-live-on.png')}}" alt="like" class="like-live-on">
@@ -53,15 +53,15 @@
             </form>
         </div>
     </div>
-    <script type="text/javascript" src="{{staticFile('/js/ckplayer/ckplayer.js')}}" charset="utf-8"></script>
-    <script type="text/javascript">
-        var flashvars={
-            f:'{{$data['rtmp']}}',
-            c:0,
-            p:1
-        };
+    {{--<script type="text/javascript" src="{{staticFile('/js/ckplayer/ckplayer.js')}}" charset="utf-8"></script>--}}
+    {{--<script type="text/javascript">--}}
+        {{--var flashvars={--}}
+            {{--f:'{{$data['rtmp']}}',--}}
+            {{--c:0,--}}
+            {{--p:1--}}
+        {{--};--}}
 
-        var param = {bgcolor:'#fff',allowFullScreen:false,wmode:'transparent'};
-        CKobject.embedSWF('{{staticFile('js/ckplayer/ckplayer.swf')}}','a1','ckplayer_a1',330,330,flashvars,param);
-    </script>
+        {{--var param = {bgcolor:'#fff',allowFullScreen:false,wmode:'transparent'};--}}
+        {{--CKobject.embedSWF('{{staticFile('js/ckplayer/ckplayer.swf')}}','a1','ckplayer_a1',330,330,flashvars,param);--}}
+    {{--</script>--}}
 @endsection

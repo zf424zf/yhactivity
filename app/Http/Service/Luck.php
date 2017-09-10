@@ -40,11 +40,25 @@ class Luck
 //        $this->sections = SectionModel::pluck('name','id');
     }
 
+    public function checkUserTodayLuck($uid){
+         $userLuckCountKey = cache_key('user.luck.count', $uid);
+        if (!empty(cache()->get($userLuckCountKey))) {
+            return false;
+        }
+        return true;
+    }
+
     public function getLuck($uid, $imageId)
     {
         $userLuckCountKey = cache_key('user.luck.count', $uid);
         if (!empty(cache()->get($userLuckCountKey))) {
-//            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
+            api_exception(Service::LIKE_TODAY_CHANCE_NONE);
+        }
+        $isSelf = ImageModel::where('uid',$uid)
+            ->where('id',$imageId)->where('type',9)
+            ->count();
+        if(empty($isSelf)){
+            api_exception(Service::LUCKY_WIN_ID_NOT_EXIST );
         }
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
 
@@ -131,17 +145,14 @@ class Luck
     public function getLuckyBySection($section)
     {
         $data = LuckyModel::where('section', $section)->orderBy('id')->get()->toArray();
-<<<<<<< HEAD
-       return $data;
-=======
+
         foreach ($data as $key => $value) {
             $i = 0;
             while (!empty($v = array_splice($value['nameArr'], $i, 2))) {
                 $data[$key]['nameList'][] = $v;
             }
         }
-        return api_response(Service::SUCCESS, $data);
->>>>>>> 1c4c3d073cfb2ce96f59c6b3786d1b6e915bf980
+        return $data;
     }
 
     public function luckContact($luckyId, $name, $tel, $address)

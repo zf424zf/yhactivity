@@ -48,7 +48,15 @@ class Image
         $model->origin = $type == 0 ? 0 : $originId;
         $model->label = $label;
         $model->save();
-        return ImageModel::where('id', $model->id)->with(['users', 'originInfo'])->first();
+        $data = ImageModel::where('id', $model->id)->with(['users', 'originInfo'])->first();
+        if($type == 9){
+            $haveChance = (new Luck())->checkUserTodayLuck($uid);
+            if(empty($haveChance)){
+                $data->haveChance = 0;
+            }
+            $data->haveChance = 1;
+        }
+        return $data;
     }
 
     /**
