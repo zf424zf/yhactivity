@@ -17,7 +17,7 @@ class UploadController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin');
+
     }
 
     public function upload()

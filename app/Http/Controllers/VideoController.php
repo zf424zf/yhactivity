@@ -20,6 +20,11 @@ use Illuminate\Support\Facades\Input;
 
 class VideoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isLogin',['expect'=>['addVideo','info','getQuestionList','questionDetail']]);
+    }
+
     public function addVideo(VideoRequest $request)
     {
         $result = (new Video())->add(
