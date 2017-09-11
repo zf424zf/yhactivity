@@ -58,20 +58,18 @@ class Upload
     public function uploadVideo()
     {
         $contents = file_get_contents(self::$file);
-        $filename = storage_path('/'.uniqid());
+        $filename = storage_path('/' . uniqid());
         file_put_contents($filename, $contents);
         $cfile = curl_file_create($filename, 'image/jpeg', 'test_name');
-        $params=['file'=> $cfile, 'token' => '36d9a31df1d6721cc52715946103434a'];
-        $defaults = array(
-            CURLOPT_URL => 'http://coolly-salmon.api.oneniceapp.com/Upload/uploadvideo',
-            CURLOPT_POST => true,
+        $params = ['file' => $cfile, 'token' => '36d9a31df1d6721cc52715946103434a'];
+        $defaults = [
+            CURLOPT_URL        => 'http://coolly-salmon.api.oneniceapp.com/Upload/uploadvideo',
+            CURLOPT_POST       => true,
             CURLOPT_POSTFIELDS => $params,
-        );
+        ];
         $ch = curl_init();
         curl_setopt_array($ch, $defaults);
-        $res = curl_exec($ch);
-        return $res;
-
+        curl_exec($ch);
     }
 
 
@@ -83,7 +81,7 @@ class Upload
         curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
         curl_setopt($ch, CURLOPT_TIMEOUT, 60);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:'));
+        curl_setopt($ch, CURLOPT_HTTPHEADER, ['Expect:']);
         curl_exec($ch);
         $result = curl_multi_getcontent($ch);
         curl_close($ch);
