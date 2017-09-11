@@ -29,6 +29,7 @@ class VideoController extends Controller
     {
         $result = (new Video())->add(
             $request->get('uid'),
+            $request->get('nice_uid'),
             $request->get('module'),
             $request->get('path'),
             $request->get('info'),

@@ -18,7 +18,8 @@ class VideoRequest extends ApiRequest
     public function messages()
     {
         return [
-            'uid.required' => Service::UID_REQUIRED,
+            'uid.required_without' => Service::UID_REQUIRED,
+            'nice_uid.required_without'=>Service::NICE_USER_REQUIRED,
             'uid.integer' => Service::UID_TYPE_ERR,
             'module.required' => Service::VIDEO_MODULE_REQUIRED,
             'module.in' => Service::VIDEO_MODULE_VALUE_ERR,
@@ -33,7 +34,8 @@ class VideoRequest extends ApiRequest
     {
         $childRef = new \ReflectionClass(VideoChild::class);
         return [
-            'uid' => 'required|integer',
+            'uid' => 'required_without:nice_uid|integer',
+            'nice_uid'=>'required_without:uid',
             'module' => 'required|in:' . implode(',', $childRef->getConstants()),
             'path' => 'required',
             'info' => 'json',

@@ -12,13 +12,20 @@ namespace App\Http\Service;
 use App\Http\Api\Module;
 use App\Http\Models\LikeModel;
 use App\Http\Models\QuestionModel;
+use App\Http\Models\UserModel;
 use App\Http\Models\VideoModel;
 
 class Video
 {
 
-    public function add($uid, $module, $path, $info, $qid, $cover)
+    public function add($uid,$niceUid, $module, $path, $info, $qid, $cover)
     {
+        if(!empty($niceUid)){
+            $user = UserModel::where('uid',$niceUid)->first();
+            if($user){
+                $uid = $user->id;
+            }
+        }
         $info = is_array($info) ? implode(',', $info) : $info;
         $model = new VideoModel();
         $model->uid = $uid;

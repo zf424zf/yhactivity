@@ -25,6 +25,7 @@ abstract class Service
     const LK_TARGET_VALUE_ERR = 1008;//目标值错误
     const LK_USER_HAS_BEEN_LIKE = 1009;//该用户已经赞过
     const LK_FILE_NOT_FOUND = 1010;//点赞的文件不存在
+    const NICE_USER_REQUIRED = 1011;//nice用户id必填
 
     const MSG_USER_NOT_FOUND = 2001;//用户不存在或者未登录，不能发表留言
     const MSG_SAVE_ERR = 2002;//留言失败

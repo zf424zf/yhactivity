@@ -40,6 +40,6 @@
             <a href="" class="index-link index-link-3">&nbsp;</a>
             <a href="" class="index-link index-link-4">&nbsp;</a>
         </div>
-        <p class="copy">本次活动所有解释权归雅哈咖啡所有</p>
+        {{--<p class="copy">本次活动所有解释权归雅哈咖啡所有</p>--}}
     </div>
 @endsection
