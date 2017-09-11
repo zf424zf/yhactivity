@@ -252,8 +252,10 @@
             });
             //mask
             $('.gift-translate-mask-bg').on('tap', function () {
-                $(".gift-translate-mask-bg,.gift-translate-mask").removeClass('on');
-                return false;
+                if($('.gift-translate-mask3').hasClass('on')){
+                    $(".gift-translate-mask-bg,.gift-translate-mask3").removeClass('on');
+                    return false;
+                }
             });
         })
     </script>

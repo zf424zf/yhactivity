@@ -50,3 +50,5 @@ Route::post('luck/contact', 'LuckController@luckyContact');
 
 Route::get('question', 'VideoController@getQuestionList');
 Route::get('questionDetail', 'VideoController@questionDetail');
+
+Route::delete('file/del','UploadController@removeFile');

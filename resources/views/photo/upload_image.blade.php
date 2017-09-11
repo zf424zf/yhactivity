@@ -104,12 +104,12 @@
                 if($.trim(rightLabel) == ''){
                     rightLabel = defaultLabel;
                 }
-                if(leftUrl == ''){
+                if(leftUrl == ''||leftUrl == undefined){
                     alert('请选择挑战图片再上传');
                     $(this).css('display','');
                     return false;
                 }
-                if(rightUrl == ''){
+                if(rightUrl == '' || rightUrl == undefined){
                     alert('请上传图片进行挑战');
                     $(this).css('display','');
                     return false;

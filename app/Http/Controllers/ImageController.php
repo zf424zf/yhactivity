@@ -27,8 +27,8 @@ class ImageController extends Controller
 
     public function __construct()
     {
-        $this->middleware('isLogin',['except'=>['add','info','challengeList',
-            'challengeDetail','shareImage','rankView','newView','detailView']]);
+        $this->middleware('isLogin', ['except' => ['add', 'info', 'challengeList',
+            'challengeDetail', 'shareImage', 'rankView', 'newView', 'detailView']]);
     }
 
     public function add(ImageRequest $request)
@@ -79,13 +79,14 @@ class ImageController extends Controller
 
     public function indexView()
     {
-         $data = (new FileList())->videoList(1, '');
+        $data = (new FileList())->videoList(1, '');
         return view('photo.index', ['data' => $data]);
     }
 
     public function newView()
     {
-        $uid = 1;
+        $user = session('user');
+        $uid = $user['id'];
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
         $sort = 'new';
@@ -95,7 +96,8 @@ class ImageController extends Controller
 
     public function rankView()
     {
-        $uid = 1;
+        $user = session('user');
+        $uid = $user['id'];
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
         $sort = 'like';
@@ -105,7 +107,8 @@ class ImageController extends Controller
 
     public function detailView($id)
     {
-        $uid = 1;
+        $user = session('user');
+        $uid = $user['id'];
         try {
             $data = (new Image())->imageInfo($id, $uid);
         } catch (\Exception $e) {
@@ -124,31 +127,35 @@ class ImageController extends Controller
         return view('photo.challenge', ['data' => $data, 'module' => $module]);
     }
 
-    public function uploadImageView($module){
+    public function uploadImageView($module)
+    {
         $isUpload = \Request::get('isUpload');
-        if($isUpload == 1){
+        if ($isUpload == 1) {
             $path = \Request::get('path');
-            if(empty($path)){
+            if (empty($path)) {
                 abort(404);
             }
-            return view('photo.upload_image',['path'=>$path,'module'=>$module]);
-        }else if($isUpload == 2){
+            return view('photo.upload_image', ['path' => $path, 'module' => $module]);
+        } else if ($isUpload == 2) {
             $origin = \Request::get('origin');
-            if(empty($origin)){
+            if (empty($origin)) {
                 abort(404);
             }
-             $image = (new Image())->imageInfo($origin,session('user')['uid']);
-            if(empty($image)){
+            $image = (new Image())->imageInfo($origin, session('user')['uid']);
+            if (empty($image)) {
                 abort(404);
             }
-            return view('photo.other',['image'=>$image,'module'=>$module]);
-        }else{
+            return view('photo.other', ['image' => $image, 'module' => $module]);
+        } else {
             abort(404);
         }
     }
 
-    public function uploadSuccessView($id){
-         $image = (new Image())->imageInfo($id,session('user')['id']);
-         return view('photo.upload_success',['image'=>$image]);
+    public function uploadSuccessView($id)
+    {
+        $user = session('user');
+        $uid = $user['id'];
+        $image = (new Image())->imageInfo($id, session('user')['id']);
+        return view('photo.upload_success', ['image' => $image, 'uid' => $uid]);
     }
 }

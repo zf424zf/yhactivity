@@ -10,7 +10,10 @@ namespace App\Http\Service;
 
 
 use App\Http\Api\Module;
+use App\Http\Models\ImageModel;
+use App\Http\Models\LikeModel;
 use App\Http\Models\UserModel;
+use App\Http\Models\VideoModel;
 
 class Upload
 {
@@ -24,6 +27,23 @@ class Upload
     {
         self::$file = current(\Request::file());
     }
+
+    public function remove($uid, $module, $target)
+    {
+        if ($module == Module::PHOTO_MODULE) {
+            $model = ImageModel::where('uid',$uid)->where('id',$target)->first();
+        } else if ($module == Module::VIDEO_MODULE) {
+            $model = VideoModel::where('uid',$uid)->where('id',$target)->first();
+        } else {
+            api_exception(Service::MODULE_ERROR);
+        }
+        if(empty($model)){
+            return false;
+        }
+        LikeModel::where('module',$module)->where('target_id',$target)->delete();
+        return $model->delete();
+    }
+
 
     /**
      * 图片上传接口
@@ -63,8 +83,8 @@ class Upload
         $cfile = curl_file_create($filename, 'image/jpeg', 'test_name');
         $params = ['file' => $cfile, 'token' => '36d9a31df1d6721cc52715946103434a'];
         $defaults = [
-            CURLOPT_URL        => 'http://coolly-salmon.api.oneniceapp.com/Upload/uploadvideo',
-            CURLOPT_POST       => true,
+            CURLOPT_URL => 'http://coolly-salmon.api.oneniceapp.com/Upload/uploadvideo',
+            CURLOPT_POST => true,
             CURLOPT_POSTFIELDS => $params,
         ];
         $ch = curl_init();

@@ -14,6 +14,8 @@ abstract class Service
     const SUCCESS = 0;//Success
     const TOKENERROR = 100;//token错误，请重新登录
     const UPLOAD_FAIL = 300;//上传失败
+    const MODULE_ERROR = 400;//模块错误
+    const REMOVE_DELETE = 500;//文件删除失败
 
     const UID_REQUIRED = 1001;//uid必须
     const UID_TYPE_ERR = 1002;//uid类型错误

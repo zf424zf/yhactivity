@@ -95,7 +95,7 @@
                 if($.trim(rightLabel) == ''){
                     rightLabel = defaultLabel;
                 }
-                if(rightUrl == ''){
+                if(rightUrl == '' || rightUrl == undefined){
                     alert('请上传图片进行挑战');
                     $(this).css('display','');
                     return false;
