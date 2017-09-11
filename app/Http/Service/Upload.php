@@ -70,8 +70,7 @@ class Upload
         $ch = curl_init();
         curl_setopt_array($ch, $defaults);
         $res = curl_exec($ch);
-        var_dump($res);
-        exit;
+        return $res;
 
     }
 
