@@ -15,12 +15,12 @@ use App\Http\Models\LikeModel;
 
 class Image
 {
-    public function addImage( $module, $path, $type, $info = '', $originId = 0, $label = '', $originLabel = '')
+    public function addImage($uid, $module, $path, $type, $info = '', $originId = 0, $label = '', $originLabel = '')
     {
-        $uid = array_get(session('user'),'id');
-        if(empty($uid)){
-            api_exception(Service::TOKENERROR);
-        }
+//        $uid = array_get(session('user'),'id');
+//        if(empty($uid)){
+//            api_exception(Service::TOKENERROR);
+//        }
         if ($type == 1) {
             if (!empty($originId)) {
                 //查找左图

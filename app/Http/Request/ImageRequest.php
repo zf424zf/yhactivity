@@ -18,6 +18,8 @@ class ImageRequest extends ApiRequest
     public function messages()
     {
         return [
+            'uid.required'=>Service::UID_REQUIRED,
+            'uid.integer'=>Service::UID_TYPE_ERR,
             'type.required'=>Service::IMAGE_TYPE_REQUIRED,
             'type.in'=>Service::IMAGE_TYPE_VALUE_ERR,
             'module.required' => Service::IMAGE_MODULE_REQUIRED,
@@ -34,6 +36,7 @@ class ImageRequest extends ApiRequest
     {
         $childRef = new \ReflectionClass(PhotoChild::class);
         return [
+            'uid'=>'required|integer',
             'type' => 'required|in:0,1,9',
             'module' => 'required|in:' . implode(',', $childRef->getConstants()),
             'path' => 'required',
