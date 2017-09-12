@@ -14,7 +14,13 @@ use App\Http\Service\Message;
 
 class LiveController extends Controller
 {
-    public function liveListView($id)
+    public function liveListView()
+    {
+        return  $list = (new Live())->getLiveList();
+        return view('live.index', ['list' => json_decode($list, true)]);
+    }
+
+    public function listLive($id)
     {
         return $list = (new Live())->liveList($id);
     }

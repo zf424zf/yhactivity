@@ -24,7 +24,7 @@ Route::group(['prefix' => 'like'], function () {
     Route::post('/', 'LikeController@like');
 });
 Route::group(['prefix' => 'live'], function () {
-    Route::get('/{id}', 'LiveController@liveListView');
+    Route::get('/{id}', 'LiveController@listLive');
 });
 
 Route::group(['prefix' => 'wx'], function () {
