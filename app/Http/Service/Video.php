@@ -35,7 +35,7 @@ class Video
         $model->qid = $qid;
         $model->cover = $cover;
         $model->save();
-        return $model->with('users')->first();
+        return $model->toArray();
     }
 
     public function info($id, $uid)

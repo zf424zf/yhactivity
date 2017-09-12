@@ -34,7 +34,7 @@ class WxLoginRequest extends ApiRequest
     {
         return [
             'encrypted_data.required' => Service::WX_ENCRYPT_DATA_NOT_EXISTS,
-            'encrypted_data.iv'       => Service::WX_IV_NOT_EXISTS,
+            'iv.required'       => Service::WX_IV_NOT_EXISTS,
         ];
     }
 }
