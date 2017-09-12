@@ -34,6 +34,7 @@ class ImageController extends Controller
     public function add(ImageRequest $request)
     {
         $data = (new Image())->addImage(
+            $request->get('uid'),
             $request->get('module'),
             $request->get('path'),
             $request->get('type'),
