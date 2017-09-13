@@ -49,7 +49,9 @@ class LuckController extends Controller
 
     public function indexView()
     {
-        return view('lucky.index');
+        $user = session('user');
+        $uid = array_get($user,'id','');
+        return view('lucky.index',['uid'=>$uid]);
     }
 
     public function shareWallView(){

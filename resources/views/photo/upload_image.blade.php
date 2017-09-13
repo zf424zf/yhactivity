@@ -124,7 +124,7 @@
                             $.ajax({
                                 url:'/api/image/add',
                                 type:'post',
-                                data:{module:module,path:rightUrl,type:1,label:rightLabel,origin:originId},
+                                data:{module:module,path:rightUrl,type:1,label:rightLabel,origin:originId,uid:'{{$uid}}'},
                                 success:function(ret){
                                     if(ret.code == 0){
                                         window.location.href = '/photo/upload/success/'+ret.data.id;
