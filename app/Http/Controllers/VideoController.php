@@ -84,13 +84,13 @@ class VideoController extends Controller
         $uid = session('user')['id'];
         $child = Input::get('child',VideoChild::VIDEO_SS);
         $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'like',$child,'desc',$uid);
-        return $data;
+        return view('video.rank',['data'=>$data]);
     }
 
     public function listNewView(){
         $uid = session('user')['id'];
         $child = Input::get('child',VideoChild::VIDEO_SS);
         $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'new',$child,'desc',$uid);
-        return $data;
+        return view('video.new',['data'=>$data]);
     }
 }
