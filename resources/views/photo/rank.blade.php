@@ -62,7 +62,7 @@
                     <ul>
                         @foreach($data as $item)
                         <li class="on">
-                            <a href="./active-pic-details.html">
+                            <a href="{{urls('/photo/detail/'.$item->id)}}">
                                 <p class="pic">
                                     <img src="{{stripslashes($item->originInfo['path'])}}" alt="nan">
                                     <img src="{{$item->path}}" alt="nv">

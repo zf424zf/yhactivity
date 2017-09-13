@@ -130,13 +130,15 @@ class ImageController extends Controller
 
     public function uploadImageView($module)
     {
+        $user = session('user');
+        $uid = $user['id'];
         $isUpload = \Request::get('isUpload');
         if ($isUpload == 1) {
             $path = \Request::get('path');
             if (empty($path)) {
                 abort(404);
             }
-            return view('photo.upload_image', ['path' => $path, 'module' => $module]);
+            return view('photo.upload_image', ['path' => $path, 'uid'=>$uid,'module' => $module]);
         } else if ($isUpload == 2) {
             $origin = \Request::get('origin');
             if (empty($origin)) {
@@ -146,7 +148,7 @@ class ImageController extends Controller
             if (empty($image)) {
                 abort(404);
             }
-            return view('photo.other', ['image' => $image, 'module' => $module]);
+            return view('photo.other', ['image' => $image,'uid'=>$uid, 'module' => $module]);
         } else {
             abort(404);
         }

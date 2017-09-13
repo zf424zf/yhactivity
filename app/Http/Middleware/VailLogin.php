@@ -32,7 +32,7 @@ class VailLogin
 //            $visitUrl = $request->fullUrl();
 //            session(['visit'=>$visitUrl]);
             //若uid不存在 请求nice接口
-            $url = urls('http://localhost/1.php?redirect_uri=' . urls('/getNiceUser'));
+            $url = urls('http://m.oneniceapp.com/go/redirectOpen?redirect_uri=' . urls('/getNiceUser'));
             return redirect($url);
         }
         return $next($request);

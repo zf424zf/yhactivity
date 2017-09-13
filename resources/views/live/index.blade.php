@@ -35,7 +35,7 @@
                     <span class="time">
 						{{$item['date']}}
 					</span>
-                    <a href="{{urls('/live/'.$item['id'])}}" class="btn">
+                    <a @if($item['status'] == 'living' ||$item['status'] == 'end') href="{{urls('/live/'.$item['id'])}}" @else href="javascript:void(0)" @endif class="btn">
                         @if($item['status'] == 'living')
                             <img src="{{staticFile('images/active/live-list-on-btn.png')}}" alt="正在直播">
                         @elseif($item['status'] == 'ready')

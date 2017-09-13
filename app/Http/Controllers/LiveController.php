@@ -16,12 +16,13 @@ class LiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin', ['except' => ['listLive']]);
+        $this->middleware('isLogin',['expect'=>['liveListView','listLive']]);
+
     }
 
     public function liveListView()
     {
-        return $list = (new Live())->getLiveList();
+        $list = (new Live())->getLiveList();
         return view('live.index', ['list' => json_decode($list, true)]);
     }
 
@@ -32,10 +33,12 @@ class LiveController extends Controller
 
     public function detail($id)
     {
+        $user = session('user');
+        $uid = array_get($user,'id');
         $detailStr = (new Live())->getLiveList(['id' => $id]);
         $detail = json_decode($detailStr, true);
         $data = current(array_get($detail, 'data', []));
         $message = (new Message())->getMessage(array_get($data, 'id'));
-        return view('live.detail', ['data' => $data, 'message' => $message]);
+        return view('live.detail', ['data' => $data,'uid'=>$uid,'message' => $message]);
     }
 }

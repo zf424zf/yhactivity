@@ -13,7 +13,7 @@ class ImageModel extends BaseModel
 {
     protected $table = 'image';
     public function users(){
-        return $this->belongsTo('App\Http\Models\UserModel','uid','uid');
+        return $this->belongsTo('App\Http\Models\UserModel','uid','id');
     }
 
     public function originInfo(){

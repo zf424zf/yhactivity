@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">
+{{--    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">--}}
     <div class="body-index">
         <div class="show">
             <!-- 背景 -->
@@ -35,10 +35,10 @@
             <img src="{{staticFile('images/index/index-change-1.png')}}" alt="雅哈" class="index-change-1">
             <img src="{{staticFile('images/index/index-btm.png')}}" alt="雅哈" class="index-change-2">
             <!-- 4个按钮 -->
-            <a href="" class="index-link index-link-1">&nbsp;</a>
-            <a href="" class="index-link index-link-2">&nbsp;</a>
-            <a href="" class="index-link index-link-3">&nbsp;</a>
-            <a href="" class="index-link index-link-4">&nbsp;</a>
+            <a href="{{urls('/photo')}}" class="index-link index-link-1">&nbsp;</a>
+            <a href="{{urls('/video')}}" class="index-link index-link-2">&nbsp;</a>
+            <a href="{{urls('/live')}}" class="index-link index-link-3">&nbsp;</a>
+            <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
         </div>
         {{--<p class="copy">本次活动所有解释权归雅哈咖啡所有</p>--}}
     </div>

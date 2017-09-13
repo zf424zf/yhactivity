@@ -131,7 +131,7 @@
                 $.ajax({
                     url:'/api/image/add',
                     type:'post',
-                    data:{type:9,module:9,path:path,},
+                    data:{type:9,module:9,path:path,uid:'{{$uid}}'},
                     success:function(ret){
                         if(ret.data.haveChance == 1){
                             location.href = '/lucky/prize?image_id='+ret.data.id;

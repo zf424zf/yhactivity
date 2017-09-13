@@ -1,6 +1,7 @@
 @extends('layout.main')
 @section('title','选择问题')
 @section('resource')
+    <script src="{{staticFile('js/video-detail.js')}}"></script>
 @endsection
 @section('content')
     <div class="bg">
@@ -29,17 +30,18 @@
                 <span class="user-name">
 						{{$data['users']['nickname']}}
 					</span>
-                <span class="user-like-number">
+                <span class="user-like-number" data-like-cnt="{{$data['likeCnt']}}">
 						{{$data['likeCnt']}}
 					</span>
-                <span class="user-like">
+                <span class="user-like" data-child="{{$data['module']}}" data-target="{{$data['id']}}" data-can-like="{{$data['canLike']}}">
 						<img src="{{staticFile('images/active/love.png')}}" alt="love">
 					</span>
             </p>
         </div>
         <p class="question-next video-details-next">
-            <a href="../active/gift-index.html"><img src="{{staticFile('images/active/question-btn-jion.png')}}" alt="我要参加"></a>
-            <a href="../active/gift-index.html"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
+            <a href="{{urls('/video')}}"><img src="{{staticFile('images/active/question-btn-jion.png')}}" alt="我要参加"></a>
+            <a href="{{urls('/')}}"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
         </p>
     </div>
+
 @endsection

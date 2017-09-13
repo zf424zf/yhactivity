@@ -327,7 +327,7 @@ html,body{background-color: #fff;height: 100%}
 .world-rank-list li.on:nth-child(2):after{content: "";background: url(../images/active/world-rank-two.png) no-repeat scroll center center;background-size: cover;height: 1.525rem;width: 1.975rem;position: absolute;left: 0;top: 0;-webkit-transform: translate(-20%,-90%);transform: translate(-20%,-90%);}
 .world-rank-list li.on:nth-child(3):after{content: "";background: url(../images/active/world-rank-three.png) no-repeat scroll center center;background-size: cover;height: 1.475rem;width: 1.975rem;position: absolute;left: 0;top: 0;-webkit-transform: translate(-20%,-90%);transform: translate(-20%,-90%);}
 .world-rank-list .vid-show{width: 100%;-webkit-box-sizing: border-box;box-sizing: border-box;border: 0.1rem solid #000;position: relative;}
-.world-rank-list .vid-show .bg{width: 100%}
+.world-rank-list .vid-show .bg{width: 7.9rem;height:10.7rem }
 .world-rank-list .vid-show .btn{position: absolute;width: 1.75rem;height: 1.75rem;top: 50%;left: 50%;-webkit-transform: translate(-50%,-80%);transform: translate(-50%,-80%);}
 .world-rank-list .vid-show .tip{position: absolute;bottom: 0.625rem;left: 2%;width: 96%;}
 .world-rank-list .vid-show .info{position: absolute;bottom: 0.7rem;right: 5%;width: 10.6rem;font-size: 0.9rem;line-height: 1rem;height: 2.2rem;box-sizing: border-box;padding: 0.1rem 0;font-weight: bolder;overflow: hidden;display: inline-block;transform: scale(.5) translate(45%,10%);transform-origin:center;}
