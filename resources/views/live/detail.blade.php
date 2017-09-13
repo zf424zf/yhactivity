@@ -18,7 +18,7 @@
 					<i class="top">本场嘉宾：</i><i class="btm">{{$data['kol_user_name']}}</i>
 				</span>
                 <span class="user-like-number">
-					{{$data['audience_num'] or 0}}&nbsp;在线
+					{{array_get($data,'audience_num',0)}}&nbsp;在线
 				</span>
                 <span class="user-like">
 					<img src="{{staticFile('images/active/love.png')}}" alt="love">
