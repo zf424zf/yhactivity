@@ -35,7 +35,7 @@ class LiveController extends Controller
         $user = session('user');
         $uid = array_get($user,'id');
         $detailStr = (new Live())->getLiveList(['id' => $id]);
-        return $detail = json_decode($detailStr, true);
+        $detail = json_decode($detailStr, true);
         $data = current(array_get($detail, 'data', []));
         $message = (new Message())->getMessage(array_get($data, 'id'));
         return view('live.detail', ['data' => $data,'uid'=>$uid,'message' => $message]);
