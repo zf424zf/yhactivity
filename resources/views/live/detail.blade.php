@@ -33,7 +33,7 @@
             {{--<div id="a1" class="live-on-videos"></div>--}}
             <video playsinline
                    src="@if($data['status'] == 'end') {{$data['rtmp']}} @elseif($data['status'] == 'living') {{$data['hls']}} @endif"
-                   class="live-on-video">
+                   class="live-on-video" id="video">
 
                 {{--            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">--}}
                 你的浏览器版本太低\(^o^)/~
@@ -57,7 +57,19 @@
             </form>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
+        if(Hls.isSupported()) {
+            var video = document.getElementById('video');
+            var hls = new Hls();
+            var path = $('.live-on-video').attr('src');
+            console.log(path)
+            hls.loadSource(path);
+            hls.attachMedia(video);
+            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+                video.play();
+            });
+        }
         var lastId = '{{last($message)['id']}}'
         $(function () {
             $(document).on('click', '#submit', function () {
