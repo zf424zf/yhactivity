@@ -17,7 +17,7 @@
 					<i class="top">本场嘉宾：</i><i class="btm">{{$data['kol_user_name']}}</i>
 				</span>
                 <span class="user-like-number">
-					56518&nbsp;在线
+					{{$data['audience_num']}}&nbsp;在线
 				</span>
                 <span class="user-like">
 					<img src="{{staticFile('images/active/love.png')}}" alt="love">
@@ -25,7 +25,7 @@
 
             </p>
             <span class="btm-plu">
-				主持人：我是主持人ID
+				主持人：{{$data['anchor_user_name']}}
 			</span>
         </div>
         <!-- live-on -->
@@ -63,7 +63,6 @@
             var video = document.getElementById('video');
             var hls = new Hls();
             var path = $('.live-on-video').attr('src');
-            console.log(path)
             hls.loadSource(path);
             hls.attachMedia(video);
             hls.on(Hls.Events.MANIFEST_PARSED,function() {
