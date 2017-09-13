@@ -16,7 +16,8 @@ class LiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin',['expect'=>['liveListView']]);
+        $this->middleware('isLogin',['except'=>['liveListView','listLive']]);
+
     }
 
     public function liveListView()
