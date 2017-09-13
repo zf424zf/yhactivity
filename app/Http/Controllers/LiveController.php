@@ -14,9 +14,14 @@ use App\Http\Service\Message;
 
 class LiveController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('isLogin', ['except' => ['listLive']]);
+    }
+
     public function liveListView()
     {
-        return  $list = (new Live())->getLiveList();
+        return $list = (new Live())->getLiveList();
         return view('live.index', ['list' => json_decode($list, true)]);
     }
 
