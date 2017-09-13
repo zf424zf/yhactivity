@@ -55,7 +55,7 @@ class LuckController extends Controller
     }
 
     public function shareWallView(){
-        $data =  (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+         $data =  (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
         return view('lucky.wall',['data'=>$data]);
     }
 
