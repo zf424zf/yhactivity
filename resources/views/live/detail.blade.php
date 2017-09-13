@@ -1,7 +1,8 @@
 @extends('layout.main')
 @section('title','首页')
 @section('resource')
-
+    <link href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
 @endsection
 @section('content')
     <div class="bg">
@@ -30,14 +31,28 @@
         </div>
         <!-- live-on -->
         <div class="live-on-con">
+            <video
+                    id="my-player"
+                    class="video-js live-on-video"
+                    controls
+                    preload="auto"
+                    poster="//vjs.zencdn.net/v/oceans.png"
+                    data-setup='{}'>
+                <source src="@if($data['status'] == 'end') {{$data['rtmp']}} @elseif($data['status'] == 'living') {{$data['hls']}} @endif" type="video/m3u8"></source>
+                <p class="vjs-no-js">
+                    To view this video please enable JavaScript, and consider upgrading to a
+                    web browser that
+                    <a href="http://videojs.com/html5-video-support/" target="_blank">
+                        supports HTML5 video
+                    </a>
+                </p>
+            </video>
             {{--<div id="a1" class="live-on-videos"></div>--}}
-            <video playsinline
-                   src="@if($data['status'] == 'end') {{$data['rtmp']}} @elseif($data['status'] == 'living') {{$data['hls']}} @endif"
-                   class="live-on-video" id="video">
+            {{--<video playsinline src="" class="live-on-video" id="video">--}}
 
                 {{--            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">--}}
-                你的浏览器版本太低\(^o^)/~
-            </video>
+                {{--你的浏览器版本太低\(^o^)/~--}}
+            {{--</video>--}}
         </div>
         <div class="live-on-comment-list">
             <img src="{{staticFile('images/active/like-live-on.png')}}" alt="like" class="like-live-on">
@@ -59,18 +74,27 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script>
-        if(Hls.isSupported()) {
-            var video = document.getElementById('video');
-            var hls = new Hls();
-            var path = $('.live-on-video').attr('src');
-            hls.loadSource(path);
-            hls.attachMedia(video);
-            hls.on(Hls.Events.MANIFEST_PARSED,function() {
-                video.play();
-            });
-        }
+//        if(Hls.isSupported()) {
+//            var video = document.getElementById('video');
+//            var hls = new Hls();
+//            var path = $('.live-on-video').attr('src');
+//            hls.loadSource(path);
+//            hls.attachMedia(video);
+//            hls.on(Hls.Events.MANIFEST_PARSED,function() {
+//                video.play();
+//            });
+//        }
         var lastId = '{{last($message)['id']}}'
         $(function () {
+            var options = {};
+            var player = videojs('my-player', options, function onPlayerReady() {
+                videojs.log('Your player is ready!');
+                // In this context, `this` is the player that was created by Video.js.
+                this.play();
+                this.on('ended', function() {
+                    videojs.log('Awww...over so soon?!');
+                });
+            });
             $(document).on('click', '#submit', function () {
                 var content = $('#content').val();
                 var id = $(this).data('live-id');
