@@ -117,7 +117,7 @@
                 $.ajax({
                     url:'/api/image/add',
                     type:'post',
-                    data:{module:module,path:leftUrl,type:0,label:leftLabel},
+                    data:{module:module,path:leftUrl,type:0,label:leftLabel,uid:'{{$uid}}'},
                     success:function(ret){
                         if(ret.code == 0){
                             var originId = ret.data.id;
