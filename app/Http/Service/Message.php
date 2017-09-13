@@ -34,7 +34,7 @@ class Message
 
     public function getMessage($channel, $msgId = '')
     {
-        $model = CommentModel::with('users')->where('channel', $channel)->orderBy('id', 'desc');
+        $model = CommentModel::with('users')->where('channel', $channel)->orderBy('id', 'asc');
         if (!empty($msgId)) {
             $model->where('id', '>', $msgId);
         }

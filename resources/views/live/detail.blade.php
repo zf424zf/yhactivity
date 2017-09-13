@@ -33,33 +33,12 @@
         </div>
         <!-- live-on -->
         <div class="live-on-con">
-            <video id="example-video" width="600" height="300" class="live-on-video video-js vjs-default-skin" controls>
+            <video playsinline id="example-video" width="600" height="300" class="live-on-video video-js vjs-default-skin" controls>
                 <source
                         src="@if($data['status'] == 'end') {{$data['rtmp']}} @elseif($data['status'] == 'living') {{$data['hls']}} @endif"
                         type="application/x-mpegURL">
             </video>
-            {{--<video--}}
-                    {{--id="my-player"--}}
-                    {{--class="video-js live-on-video"--}}
-                    {{--controls--}}
-                    {{--preload="auto"--}}
-                    {{--poster="//vjs.zencdn.net/v/oceans.png"--}}
-                    {{--data-setup='{}'>--}}
-                {{--<source src="" type="video/m3u8"></source>--}}
-                {{--<p class="vjs-no-js">--}}
-                    {{--To view this video please enable JavaScript, and consider upgrading to a--}}
-                    {{--web browser that--}}
-                    {{--<a href="http://videojs.com/html5-video-support/" target="_blank">--}}
-                        {{--supports HTML5 video--}}
-                    {{--</a>--}}
-                {{--</p>--}}
-            {{--</video>--}}
-            {{--<div id="a1" class="live-on-videos"></div>--}}
-            {{--<video playsinline src="" class="live-on-video" id="video">--}}
 
-                {{--            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">--}}
-                {{--你的浏览器版本太低\(^o^)/~--}}
-            {{--</video>--}}
         </div>
         <div class="live-on-comment-list">
             <img src="{{staticFile('images/active/like-live-on.png')}}" alt="like" class="like-live-on">
@@ -81,23 +60,9 @@
     </div>
     {{--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>--}}
     <script>
-        var player = videojs('example-video');
-        player.play();
-//        if(Hls.isSupported()) {
-//            var video = document.getElementById('video');
-//            var hls = new Hls();
-//            var path = $('.live-on-video').attr('src');
-//            hls.loadSource(path);
-//            hls.attachMedia(video);
-//            hls.on(Hls.Events.MANIFEST_PARSED,function() {
-//                video.play();
-//            });
-//        }
         var lastId = '{{last($message)['id']}}'
-
-
         $(function () {
-
+            $('#comments').scrollTop($('#comments')[0].scrollHeight);
             $(document).on('click', '#submit', function () {
                 var content = $('#content').val();
                 var id = $(this).data('live-id');
@@ -110,6 +75,8 @@
                         $('#content').val('')
                         if (ret.code != 0) {
                             alert('发送失败，请稍后再试');
+                        }else{
+                            getComment();
                         }
                     }
                 })
@@ -133,11 +100,14 @@
 
                         }
                         $("#comments").append(li);
+                        $('#comments').scrollTop($('#comments')[0].scrollHeight);
                     }
                 }
             })
         }
         setInterval("getComment()", 5000)
+        var player = videojs('example-video');
+        player.play();
     </script>
     {{--<script type="text/javascript" src="{{staticFile('/js/ckplayer/ckplayer.js')}}" charset="utf-8"></script>--}}
     {{--<script type="text/javascript">--}}
