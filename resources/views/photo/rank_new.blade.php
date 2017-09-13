@@ -53,7 +53,7 @@
                 <a href="{{'/photo/list/rank'}}">
                     排行榜
                 </a>
-                <a href="/" class="on">
+                <a href="{{urls('/photo/list/new')}}" class="on">
                     最新
                 </a>
             </p>
@@ -62,7 +62,7 @@
                     <ul>
                         @foreach($data as $item)
                             <li>
-                                <a href="./active-pic-details.html">
+                                <a href="{{urls('/photo/detail/'.$item->id)}}">
                                     <p class="pic">
                                         <img src="{{stripslashes($item->originInfo['path'])}}" alt="nan">
                                         <img src="{{$item->path}}" alt="nv">
