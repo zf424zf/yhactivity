@@ -32,7 +32,7 @@
         <div class="live-on-con">
             {{--<div id="a1" class="live-on-videos"></div>--}}
             <video playsinline
-                   src="@if($data['status'] == 'end') {{$data['rtmp']}} @else {{$data['hls']}} @endif"
+                   src="@if($data['status'] == 'end') {{$data['rtmp']}} @elseif($data['status'] == 'living') {{$data['hls']}} @endif"
                    class="live-on-video">
 
                 {{--            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">--}}
