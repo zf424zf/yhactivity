@@ -50,6 +50,7 @@ class UserController extends Controller
     }
 
     public function niceUser(){
+        \Log::error(\Request::get('uid'),\Request::get('name'),\Request::get('avatar'));
        return (new User())->redirectByUser(\Request::get('uid'),\Request::get('name'),\Request::get('avatar'));
     }
 
