@@ -25,6 +25,11 @@ class LiveController extends Controller
         return view('live.index', ['list' => json_decode($list, true)]);
     }
 
+    public function listLive($id)
+    {
+        return $list = (new Live())->liveList($id);
+    }
+
     public function detail($id)
     {
         $user = session('user');
