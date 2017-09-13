@@ -32,7 +32,7 @@
         <div class="live-on-con">
             {{--<div id="a1" class="live-on-videos"></div>--}}
             <video playsinline
-                   src="http://media.oneniceapp.com/recordings/z1.nicelive.178258685826433034/178258685826433034.m3u8"
+                   src="@if($data['status'] == 'end') {{$data['rtmp']}} @else {{$data['hls']}} @endif"
                    class="live-on-video">
 
                 {{--            <video src="@if($data['status'] == 'living') {{$data['hdl']}} @elseif($data['status'] == 'end') {{$data['rtmp']}} @endif" class="live-on-video">--}}
