@@ -54,9 +54,10 @@
     </div>
     <script>
         var player = videojs('example-video');
-        player.play();
+//        player.play();
         $(function () {
             $(document).on('click', '.play', function () {
+                $(this).hide();
                 player.play();
             })
         })
