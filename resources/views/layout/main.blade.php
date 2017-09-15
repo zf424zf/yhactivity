@@ -22,7 +22,7 @@
         })(document, window);
     </script>
     <script type="text/javascript" src="{{staticFile('js/zepto.js')}}"></script>
-    <script type="text/javascript" src="{{staticFile('js/zepto.data.js')}}"></script>
+{{--    <script type="text/javascript" src="{{staticFile('js/zepto.data.js')}}"></script>--}}
     <script type="text/javascript" src="{{staticFile('js/zepto.callbacks.js')}}"></script>
     <script type="text/javascript" src="{{staticFile('js/zepto.deferred.js')}}"></script>
     <script type="text/javascript" src="{{staticFile('js/touch.js')}}"></script>

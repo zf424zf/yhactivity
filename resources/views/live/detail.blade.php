@@ -65,7 +65,7 @@
             $('#comments').scrollTop($('#comments')[0].scrollHeight);
             $(document).on('click', '#submit', function () {
                 var content = $('#content').val();
-                var id = $(this).data('live-id');
+                var id = $(this).data('liveId');
                 var uid = '{{$uid}}';
                 $.ajax({
                     url: '/api/comment/submit',

@@ -40,7 +40,7 @@
 					</span>
                 </p>
                 <p class="act-beg-user-name">
-                    <img src="{{staticFile('images/active/user.png')}}" alt="user" class="act-beg-lis-pic">
+                    <img src="{{$first->headicon}}" alt="user" class="act-beg-lis-pic">
                     <span class="act-beg-lis-name">{{$first->nickname}}</span>
                 </p>
                 <p class="act-beg-lis-group">
@@ -58,7 +58,7 @@
 					</span>
                 </p>
                 <p class="act-beg-user-name">
-                    <img src="{{staticFile('images/active/user.png')}}" alt="user" class="act-beg-lis-pic">
+                    <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
                     <span class="act-beg-lis-name">{{$end->nickname}}</span>
                 </p>
                 @endforeach
@@ -144,6 +144,13 @@
             $(document).on('click','.active-begin-more',function(){
                 location.href = '/photo/list/rank?module=1&child=1'
             });
+            // 活动说明遮罩层
+            $("#show-mask").on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            });
+            $('.active-translate-mask-bg').on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            })
         })
     </script>
 @endsection

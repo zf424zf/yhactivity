@@ -46,7 +46,7 @@
     <script>
         $(function(){
             $(document).on('click','.remake',function(){
-                var id = $(this).data('image-id');
+                var id = $(this).data('imageId');
                 $.ajax({
                     type:'delete',
                     url:'/api/file/del',

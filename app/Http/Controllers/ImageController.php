@@ -90,8 +90,10 @@ class ImageController extends Controller
         $uid = $user['id'];
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
+        $page = Input::get('page',1);
+        $pagesize = Input::get('pagesize',6);
         $sort = 'new';
-        $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid);
+        $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid,$page,$pagesize);
         return view('photo.rank_new', ['data' => $data]);
     }
 
