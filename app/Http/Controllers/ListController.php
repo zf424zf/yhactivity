@@ -27,6 +27,8 @@ class ListController extends Controller
             $request->get('sort'),
             $request->get('child',''),
             $request->get('order','desc'),
-            $request->get('uid'));
+            $request->get('uid'),
+            $request->get('page'),
+            $request->get('pagesize'));
     }
 }

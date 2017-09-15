@@ -1,9 +1,10 @@
 $(function(){
     $(document).on('click','.user-like',function(){
         var self = $(this);
-        var canLike = self.data('can-like');
+        var canLike = self.data('like');
         var child = self.data('child');
         var target = self.data('target');
+        console.log(canLike);
         if (canLike == 1) {
             $.ajax({
                 url: '/api/like',
@@ -11,13 +12,13 @@ $(function(){
                 data: {uid: 1, module: 2, target: target, child: child},
                 success: function (ret) {
                     if (ret.code == 1009) {
-                        self.data('can-like', 0)
+                        self.data('like', 0)
                         alert(ret.message);
                     } else if (ret.code == 0) {
                         var $likeNum = $('.user-like-number');
-                        var origin = $likeNum.data('like-cnt');
-                        $likeNum.data('like-cnt', origin + 1);
-                        $likeNum.html($likeNum.data('like-cnt'))
+                        var origin = $likeNum.data('cnt');
+                        $likeNum.data('cnt', origin + 1);
+                        $likeNum.html($likeNum.data('cnt'))
                     }
                 }
             })

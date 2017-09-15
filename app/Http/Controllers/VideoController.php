@@ -22,7 +22,8 @@ class VideoController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin',['except'=>['addVideo','info','getQuestionList','questionDetail']]);
+        $this->middleware('isLogin',
+            ['except'=>['addVideo','info','getQuestionList','questionDetail']]);
     }
 
     public function addVideo(VideoRequest $request)

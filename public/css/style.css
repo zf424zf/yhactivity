@@ -269,7 +269,8 @@ html,body{background-color: #fff;height: 100%}
 .live-on-header .user-like{display: inline-block;width: 0.9rem;height: 1.5rem;vertical-align: middle;}
 .live-on-header .user-like img{width: 0.9rem;float: right;margin-top: 0.3rem}
 .live-on-con{margin-top: 0.3rem;background: url(../images/active/live-on-con-bg.png) no-repeat scroll center center;background-size: 12.825rem 17.075rem;height: 17.075rem;}
-.live-on-video{width: 12.2rem!important;height: 16.5rem!important;margin-left: 3.15rem;margin-top: 0.2rem;}
+/*.live-on-video{width: 12.2rem!important;height: 16.5rem!important;margin-left: 3.15rem;margin-top: 0.2rem;}*/
+.live-on-video{width: 12.2rem!important;height: 16.1rem!important;margin-left: 3.2rem;margin-top: 0.2rem;}
 .live-on-comment-list{background: #fef5ee;width: 16.75rem;height: 5.55rem;position: relative;border: 0.1rem solid #000;border-radius: 0.75rem;margin:0.55rem auto 0;-webkit-box-sizing: border-box;box-sizing: border-box;font-size: 0.675rem}
 .like-live-on{width: 2.2rem;height: 2.2rem;position: absolute;right: -0.15rem;top: 0;transform: translateY(-42%);}
 .live-on-comment-list ul{width: 15.0rem;margin: 0.625rem auto 0;line-height: 0.8rem;height: 4.4rem;overflow: auto;}

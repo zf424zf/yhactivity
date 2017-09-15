@@ -2,6 +2,9 @@
 @section('title','选择问题')
 @section('resource')
     <script src="{{staticFile('js/video-detail.js')}}"></script>
+    <link href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
+    <script src="{{staticFile('js/videojs-contrib-hls.min.js')}}"></script>
 @endsection
 @section('content')
     <div class="bg">
@@ -18,7 +21,11 @@
             <img src="{{staticFile('images/active/question-h-r.png')}}" alt="img" class="question-h-r">
         </div>
         <div class="world-video">
-            <a href="" class="play">
+            <video playsinline poster="{{$data['cover']}}" id="example-video" width="600" height="280"
+                   class="live-on-video video-js vjs-default-skin" controls>
+                <source src="{{$data['path']}}" type="application/x-mpegURL">
+            </video>
+            <a href="javascript:void(0)" class="play">
                 <img src="{{staticFile('images/active/world-video-play.png')}}" alt="下一个视屏">
             </a>
         </div>
@@ -30,18 +37,28 @@
                 <span class="user-name">
 						{{$data['users']['nickname']}}
 					</span>
-                <span class="user-like-number" data-like-cnt="{{$data['likeCnt']}}">
+                <span class="user-like-number" data-cnt="{{$data['likeCnt']}}">
 						{{$data['likeCnt']}}
 					</span>
-                <span class="user-like" data-child="{{$data['module']}}" data-target="{{$data['id']}}" data-can-like="{{$data['canLike']}}">
+                <span class="user-like" data-child="{{$data['module']}}" data-target="{{$data['id']}}"
+                      data-like="{{$data['canLike']}}">
 						<img src="{{staticFile('images/active/love.png')}}" alt="love">
 					</span>
             </p>
         </div>
         <p class="question-next video-details-next">
-            <a href="{{urls('/video')}}"><img src="{{staticFile('images/active/question-btn-jion.png')}}" alt="我要参加"></a>
+            <a href="{{urls('/video')}}"><img src="{{staticFile('images/active/question-btn-jion.png')}}"
+                                              alt="我要参加"></a>
             <a href="{{urls('/')}}"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
         </p>
     </div>
-
+    <script>
+        var player = videojs('example-video');
+        player.play();
+        $(function () {
+            $(document).on('click', '.play', function () {
+                player.play();
+            })
+        })
+    </script>
 @endsection

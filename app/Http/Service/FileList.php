@@ -24,26 +24,26 @@ class FileList
         $this->endTimestamp = Carbon::now()->endOfDay()->timestamp;
     }
 
-    public function videoList($module, $sort, $child = '', $order = 'desc', $uid = '')
+    public function videoList($module, $sort, $child = '', $order = 'desc', $uid = '',$page = 1,$pagesize = 6)
     {
-
+        $count = ($page - 1) * $pagesize;
         //todo 统一到listController
         switch ($sort) {
             case 'like':
-                $data = $this->getListSortByLike($module, $child, $order);
+                $data = $this->getListSortByLike($module, $child, $order,$count,$pagesize);
                 break;
             case 'new':
-                $data = $this->getListSortByNew($module, $child, $order);
+                $data = $this->getListSortByNew($module, $child, $order,$count,$pagesize);
                 break;
             default:
-                return $data = $this->getImageListSortByModule($order);
+                return $data = $this->getImageListSortByModule($order,$count,$pagesize);
                 break;
         }
         return $this->formatCanLike($module, $data, $uid);
     }
 
 
-    public function getListSortByNew($module, $child, $order)
+    public function getListSortByNew($module, $child, $order,$count,$pagesize)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $likeWhere = '';
@@ -80,7 +80,7 @@ class FileList
                 ) t2 ON t1.id = t2.target_id 
                 left join yh_users t3 on t3.id = t1.uid" . $left . $where . "
                 ORDER BY
-                    t1.id $order";
+                    t1.id $order limit $pagesize offset $count";
         $data = \DB::select($sql);
         if ($module == Module::PHOTO_MODULE) {
             return $this->formatOriginForImageList($data);
@@ -88,7 +88,7 @@ class FileList
         return $data;
     }
 
-    public function getListSortByLike($module, $child = 1, $order = 'desc')
+    public function getListSortByLike($module, $child = 1, $order = 'desc',$count,$pagesize)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $where = ' where 1=1';
@@ -126,7 +126,7 @@ class FileList
                 ) t2 ON t1.id = t2.target_id 
                 left join yh_users t3 on t3.id = t1.uid" . $left . $where . "
                 ORDER BY
-                    t2.cnt $order";
+                    t2.cnt $order limit $pagesize offset $count";
         $data = \DB::select($sql);
         if ($module == Module::PHOTO_MODULE) {
             return $this->formatOriginForImageList($data);
@@ -134,7 +134,7 @@ class FileList
         return $data;
     }
 
-    public function getImageListSortByModule($order = 'desc')
+    public function getImageListSortByModule($order = 'desc',$count,$pagesize)
     {
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
@@ -158,7 +158,7 @@ class FileList
                 left join yh_users t3 on t3.id = t1.uid
                 where t1.type = 1
                 ORDER BY
-                    t2.cnt $order";
+                    t2.cnt $order limit $pagesize offset $count";
         $data = \DB::select($sql);
 
         $data = $this->formatOriginForImageList($data);

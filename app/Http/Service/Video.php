@@ -14,15 +14,16 @@ use App\Http\Models\LikeModel;
 use App\Http\Models\QuestionModel;
 use App\Http\Models\UserModel;
 use App\Http\Models\VideoModel;
+use Carbon\Carbon;
 
 class Video
 {
 
-    public function add($uid,$niceUid, $module, $path, $info, $qid, $cover)
+    public function add($uid, $niceUid, $module, $path, $info, $qid, $cover)
     {
-        if(!empty($niceUid)){
-            $user = UserModel::where('uid',$niceUid)->first();
-            if($user){
+        if (!empty($niceUid)) {
+            $user = UserModel::where('uid', $niceUid)->first();
+            if ($user) {
                 $uid = $user->id;
             }
         }
@@ -46,11 +47,8 @@ class Video
             api_exception(Service::VIDEO_NOT_FOUND);
         }
         if (!empty($uid)) {
-            $likeCount = LikeModel::where('uid', $uid)
-                ->where('module', Module::VIDEO_MODULE)
-                ->where('child', $data->module)
-                ->where('target_id', $data->id)
-                ->count();
+            $like = new Like();
+            $likeCount = $like->userLikeCount($uid, Module::VIDEO_MODULE, $id);
             if ($likeCount < 5) {
                 $canLike = 1;
             }

@@ -101,8 +101,10 @@ class ImageController extends Controller
         $uid = $user['id'];
         $module = Input::get('module', Module::PHOTO_MODULE);
         $child = Input::get('child', PhotoChild::PHOTO_BS);
+        $page = Input::get('page',1);
+        $pagesize = Input::get('pagesize',6);
         $sort = 'like';
-        $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid);
+         $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid,$page,$pagesize);
         return view('photo.rank', ['data' => $data]);
     }
 
@@ -124,7 +126,7 @@ class ImageController extends Controller
         if (!in_array($module, [1, 2, 3, 4])) {
             abort(404);
         }
-        $data = (new Image())->challengeList($module, \Request::get('page', 1), \Request::get('pagesize', 12));
+        $data = (new Image())->challengeList($module, \Request::get('page', 1), \Request::get('pagesize', 9));
         return view('photo.challenge', ['data' => $data, 'module' => $module]);
     }
 
