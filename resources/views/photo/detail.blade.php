@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','异次元合拍-详情')
 @section('resource')
     <script src="{{staticFile('js/photo-detail.js')}}"></script>
 @endsection

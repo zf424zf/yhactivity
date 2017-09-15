@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','照片墙-最新')
 @section('resource')
     <script src="{{staticFile('/js/rank.js')}}"></script>
     <style>

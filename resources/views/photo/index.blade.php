@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','异次元合拍')
 @section('resource')
 @endsection
 @section('content')
@@ -75,7 +75,7 @@
             <ul>
                 <li>
                     <h1 class="active-translate-mask-tit">
-                        活动时间
+                        活动时间：
                     </h1>
                     <p class="active-translate-mask-info">
                         2017年9月25日至2017年10月25日
@@ -83,18 +83,18 @@
                 </li>
                 <li>
                     <h1 class="active-translate-mask-tit">
-                        活动内容
+                        活动内容:
                     </h1>
                     <p class="active-translate-mask-info">
-                        参与雅哈“异次元合拍”拼图互动环节，赢大奖！
+                        参与雅哈咖啡“异次元合拍”创意拼图互动环节，赢大奖！
                     </p>
                 </li>
                 <li>
                     <h1 class="active-translate-mask-tit">
-                        参与方式
+                        参与方式：
                     </h1>
                     <p class="active-translate-mask-info">
-                        选择要挑战的原图，上传自己的图片来完成创意拼图。
+                        用户选择要挑战的原图并上传自己的照片来完成创意拼图，或自行上传照片来挑战拼图。上传照片完成拼图后，获得点赞最高的用户，将获得雅哈咖啡送出的奖励。
                     </p>
                 </li>
                 <li>
@@ -102,13 +102,15 @@
                         奖励机制
                     </h1>
                     <p class="active-translate-mask-info">
-                        （1） 截止10月2日、10月10日、10月18日、10月25日24点各擂台被点赞数排名TOP10用户，可获得雅哈×nice定制对杯
+                        （1）每周奖励： 截止10月2日、10月10日、10月18日、10月25日24点，各擂台点赞数排名TOP10用户，可获得雅哈咖啡×nice定制对杯各一份，每个获奖ID限一份。
                     </p>
                     <p class="active-translate-mask-info">
-                        （2） 截止10月25日24点各擂台被点赞数排名TOP1用户可获得该擂台大奖
+                        （2） 月度冠军： 截止10月25日24点，各擂台点赞数排名TOP1用户，可获得雅哈咖啡送出的擂台大奖，4个擂台各一份。
                     </p>
                     <p class="active-translate-mask-info">
-                        （3）中奖名单在“邂逅有礼”版块公布，可关注雅哈微博微信同步获取获奖信息
+                        （3）中奖名单在“邂逅有礼”版块公布，可关注雅哈微博微信同步获取获奖信息。
+                        雅哈微信ID：雅合愉快聊
+                        雅哈微博ID：雅哈咖啡
                     </p>
                 </li>
                 <li>
@@ -116,24 +118,25 @@
                         奖品
                     </h1>
                     <p class="active-translate-mask-info">
-                        雅哈×nice定制对杯，共160套
+                        雅哈×nice定制对杯
                     </p>
                     <p class="active-translate-mask-info">
-                        最潮擂台大奖-卡西欧自拍神器，共1台
+                        最潮擂台大奖-卡西欧自拍神器
                     </p>
                     <p class="active-translate-mask-info">
-                        冒险擂台大奖-Rimowa旅行箱，共1份
+                        冒险擂台大奖-Rimowa旅行箱
                     </p>
                     <p class="active-translate-mask-info">
-                        吃货擂台大奖-当地米其林/顶级餐厅双人畅吃，共1份
+                        吃货擂台大奖-当地米其林/顶级餐厅双人畅吃
                     </p>
                     <p class="active-translate-mask-info">
-                        变身擂台大奖-日本yaman美容仪，共1台
+                        变身擂台大奖-日本yaman美容仪
                     </p>
                 </li>
                 <li>
                     <p class="active-translate-mask-info">
-                        本活动解释权归雅哈所有
+                        奖品以实物为准。
+                        参与活动的照片请确保真实，自主创作或经过权利人合法授权。
                     </p>
                 </li>
             </ul>

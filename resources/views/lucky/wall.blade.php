@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','晒单照片墙')
 @section('resource')
 
 @endsection

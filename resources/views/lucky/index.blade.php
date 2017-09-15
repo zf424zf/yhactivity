@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','首页')
+@section('title','邂逅有礼')
 @section('resource')
 @endsection
 @section('content')
@@ -45,7 +45,7 @@
                         活动内容
                     </h1>
                     <p class="active-translate-mask-info">
-                        晒出雅哈产品，赢大奖！
+                        参与晒雅哈，赢大奖！
                     </p>
                 </li>
                 <li>
@@ -53,7 +53,7 @@
                         参与方式
                     </h1>
                     <p class="active-translate-mask-info">
-                        凡购买雅哈产品，并晒单，即可抽取奖品
+                        凡购买雅哈产品，并晒出你与雅哈的合影，即可获得抽奖机会
                     </p>
                 </li>
                 <li>
@@ -61,29 +61,35 @@
                         奖励机制
                     </h1>
                     <p class="active-translate-mask-info">
-                        （1）9月25日-10月2日、10月3日-10月10日、10月11日-10月18日、10月19日-10月25日每个时间段抽取10份雅哈咖啡四联装礼盒，10套雅哈×nice定制对杯，1份888现金大奖
+                        （1）以下每个时间段将送出各种奖品：
+                        9月25日-10月02日
+                        10月03日-10月10日
+                        10月11日-10月18日
+                        10月19日-10月25日
                     </p>
                     <p class="active-translate-mask-info">
-                        （2）中奖名单在“邂逅有礼”版块公布，可关注雅哈咖啡微博微信同步获取获奖信息
+                        （2）抽到奖品后请在中奖弹出框中填写有效联系方式，中奖名单会在“邂逅有礼”版块公布，并可关注雅哈咖啡微博微信同步获取获奖信息，工作人员会在72小时内审核上传照片，联系获奖者派发奖品。
+                        雅哈微信ID：雅哈愉快聊
+                        雅哈微博ID：统一雅哈咖啡
                     </p>
                 </li>
                 <li>
                     <h1 class="active-translate-mask-tit">
-                        奖品总数量
+                        奖品
                     </h1>
                     <p class="active-translate-mask-info">
-                        雅哈咖啡四联装礼盒，共40份
+                        雅哈咖啡产品礼盒：每周抽取10份，共40份
                     </p>
                     <p class="active-translate-mask-info">
-                        雅哈咖啡×nice定制对杯，共40套
+                        雅哈咖啡×nice定制对杯：每周抽取10套，共40套，80个杯子
                     </p>
                     <p class="active-translate-mask-info">
-                        现金红包888元，共4份
+                        888现金大奖：每周抽取一个，共4个
                     </p>
                 </li>
                 <li>
                     <p class="active-translate-mask-info">
-                        本活动解释权归雅哈所有
+                        奖品以实物为准
                     </p>
                 </li>
             </ul>

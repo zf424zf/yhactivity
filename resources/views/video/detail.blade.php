@@ -1,5 +1,5 @@
 @extends('layout.main')
-@section('title','选择问题')
+@section('title','视频详情')
 @section('resource')
     <script src="{{staticFile('js/video-detail.js')}}"></script>
     <link href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet">
