@@ -34,8 +34,8 @@
             </p>
         </div>
         <p class="world-video-next">
-            <a href="./select-question.html" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
-            <a href="./world-rank.html" class="btn"><img src="{{staticFile('images/active/world-video-hot.png')}}" alt=""></a>
+            <a href="{{urls('/video/question')}}" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
+            <a href="{{urls('/video/rank')}}" class="btn"><img src="{{staticFile('images/active/world-video-hot.png')}}" alt=""></a>
         </p>
     </div>
     <!-- mask -->
