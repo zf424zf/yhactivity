@@ -28,7 +28,7 @@
                 </li>
                     @endforeach
             </ul>
-            <a href="./question.html" class="select-question-next">
+            <a href="http://m.oneniceapp.com/go/toNice?action=storyPublish?lens_id=10" class="select-question-next">
                 <img src="{{staticFile('images/active/select-question-next.png')}}" alt="next">
             </a>
         </form>
