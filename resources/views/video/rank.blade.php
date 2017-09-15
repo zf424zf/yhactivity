@@ -66,8 +66,8 @@
                         @foreach($data as $item)
                             <li class="on">
                                 <p class="vid-show">
-                                    <a href="./video-detail.html">
-                                        <img src="{{thumb($item->cover)}}" alt="video" class="bg">
+                                    <a href="{{urls('/video/detail/'.$item->id)}}">
+                                        <img src="{{$item->cover}}" alt="video" class="bg">
                                         <img src="{{staticFile('images/active/world-video-play.png')}}" alt="btn" class="btn">
                                         <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">
                                         <span class="info">
