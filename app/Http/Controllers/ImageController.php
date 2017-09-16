@@ -28,7 +28,7 @@ class ImageController extends Controller
     public function __construct()
     {
         $this->middleware('isLogin', ['except' => ['add', 'info', 'challengeList',
-            'challengeDetail', 'shareImage', 'rankView', 'newView', 'detailView','indexView']]);
+            'challengeDetail', 'shareImage', 'rankView', 'newView', 'detailView']]);
     }
 
     public function add(ImageRequest $request)
