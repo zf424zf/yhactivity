@@ -63,7 +63,7 @@ class Luck
         }
         $expire = Carbon::now()->endOfDay()->timestamp - Carbon::now()->timestamp;
 
-        $user_count = rand(0, 10);
+        $user_count = rand(0, 10000);
         switch ($user_count) {
             case ($user_count <= $this->cashChance):
                 $level = $this->checkLuck(1);
