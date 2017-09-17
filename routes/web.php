@@ -23,7 +23,7 @@ Route::get('/mn', function () {
 
 });
 Route::group(['prefix' => 'video'], function () {
-    Route::get('/', 'VideoController@videoIndexView');
+    Route::get('/{id}', 'VideoController@videoIndexView');
     Route::get('question', 'VideoController@questionListView');
     Route::get('detail/{id}', 'VideoController@detailView');
     Route::get('rank', 'VideoController@listView');

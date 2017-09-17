@@ -14,16 +14,20 @@
             </a>
         </div>
         <div class="world-video">
-            <video src="{{staticFile('videos/test.ogg')}}" class="video" autoplay="autoplay">
+            <video src="{{$data['path']}}" class="video" autoplay="autoplay">
                 您的浏览器版本过低
             </video>
-            <a href="" class="btn prev"><img src="{{staticFile('images/active/world-video-prev.png')}}" alt="上一个视屏"></a>
-            <a href="" class="btn next"><img src="{{staticFile('images/active/world-video-next.png')}}" alt="下一个视屏"></a>
+            @if($id > 1)
+            <a  href="javascript:void(0)" class="btn prev"><img src="{{staticFile('images/active/world-video-prev.png')}}" alt="上一个视屏"></a>
+            @endif
+            @if($id < $count)
+            <a href="javascript:void(0)" class="btn next"><img src="{{staticFile('images/active/world-video-next.png')}}" alt="下一个视屏"></a>
 {{--            <a href="" class="play"><img src="{{staticFile('images/active/world-video-play.png')}}" alt="下一个视屏"></a>--}}
+            @endif
             <p class="user">
-                <span class="user-pic"><img src="{{staticFile('images/active/user.png')}}" alt="user-pic"></span>
+                <span class="user-pic"><img src="{{thumb($data['headicon'])}}" alt="user-pic"></span>
                 <span class="user-name">
-					我是用户ID
+					{{$data['nickname']}}
 				</span>
             </p>
             <p class="info">
@@ -128,6 +132,16 @@
                }else{
                    $(this)[0].pause();
                }
+            })
+            $(document).on('click','.next',function(){
+                var curId = '{{$id}}';
+                var id = parseInt(curId) + 1;
+                window.location.href = '/video/'+id;
+            })
+            $(document).on('click','.prev',function(){
+                var curId = '{{$id}}';
+                var id = parseInt(curId) - 1;
+                window.location.href = '/video/'+id;
             })
         })
     </script>

@@ -72,9 +72,21 @@ class VideoController extends Controller
         return view('video.question', ['question' => $data]);
     }
 
-    public function videoIndexView()
+    public function videoIndexView($id)
     {
-        return view('video.index');
+        $datas = (new Video())->indexList();
+        $data = current($datas);
+        foreach ($datas as$key => $item){
+            if($key + 1 == $id){
+                $data = $item;
+                break;
+            }
+            if($id < 0 || $id > count($datas)){
+                $data = current($datas);
+                break;
+            }
+        }
+        return view('video.index',['id'=>$id,'data'=>$data,'count'=>count($datas)]);
     }
 
     public function detailView($id)
