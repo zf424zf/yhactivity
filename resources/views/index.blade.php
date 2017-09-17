@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-{{--    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">--}}
+    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">
     <div class="body-index">
         <div class="show">
             <!-- 背景 -->
@@ -40,6 +40,13 @@
             <a href="{{urls('/live')}}" class="index-link index-link-3">&nbsp;</a>
             <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
         </div>
-        {{--<p class="copy">本次活动所有解释权归雅哈咖啡所有</p>--}}
     </div>
+    <script>
+        $(function(){
+            //初始化页面
+            setTimeout(function(){
+                $(".begin-index").hide();
+            },3000)
+        })
+    </script>
 @endsection

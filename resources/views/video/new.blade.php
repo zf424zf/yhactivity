@@ -29,16 +29,6 @@
                         @endif
                     </a>
                 </li>
-                <li @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_MZ ) class="on" @endif>
-                    <a href="{{'/video/new?module=2&child='.\App\Http\Api\VideoChild::VIDEO_MZ}}">
-                        @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_MZ )
-                            <img class="on" src="{{staticFile('images/active/world-rank3-h-on.png')}}" alt="标题">
-                        @else
-                            <img class="default" src="{{staticFile('images/active/world-rank3-h-default.png')}}"
-                                 alt="标题">
-                        @endif
-                    </a>
-                </li>
                 <li @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_NS ) class="on" @endif>
                     <a href="{{'/video/new?module=2&child='.\App\Http\Api\VideoChild::VIDEO_NS}}">
                         @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_NS )
@@ -49,14 +39,24 @@
                         @endif
                     </a>
                 </li>
+                <li @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_MZ ) class="on" @endif>
+                    <a href="{{'/video/new?module=2&child='.\App\Http\Api\VideoChild::VIDEO_MZ}}">
+                        @if(\Request::get('child')== \App\Http\Api\VideoChild::VIDEO_MZ )
+                            <img class="on" src="{{staticFile('images/active/world-rank3-h-on.png')}}" alt="标题">
+                        @else
+                            <img class="default" src="{{staticFile('images/active/world-rank3-h-default.png')}}"
+                                 alt="标题">
+                        @endif
+                    </a>
+                </li>
             </ul>
         </div>
         <div class="world-rank-content">
             <p class="world-rank-top">
-                <a href="{{urls('/video/rank')}}">
+                <a href="{{urls('/video/rank?module=2&child='.\Request::get('child'))}}">
                     排行榜
                 </a>
-                <a href="{{urls('/video/new')}}" class="on">
+                <a href="{{urls('/video/new?module=2&child='.\Request::get('child'))}}" class="on">
                     最新
                 </a>
             </p>
@@ -68,8 +68,10 @@
                                 <p class="vid-show">
                                     <a href="{{urls('/video/detail/'.$item->id)}}">
                                         <img src="{{$item->cover}}" alt="video" class="bg">
-                                        <img src="{{staticFile('images/active/world-video-play.png')}}" alt="btn" class="btn">
-                                        <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">
+                                        <img src="{{staticFile('images/active/world-video-play.png')}}" alt="btn"
+                                             class="btn">
+                                        <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip"
+                                             class="tip">
                                         <span class="info">
 											{{$item->qname}}
 										</span>

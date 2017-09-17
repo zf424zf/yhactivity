@@ -12,6 +12,7 @@ namespace App\Http\Service;
 use App\Http\Api\Module;
 use App\Http\Models\LikeModel;
 use App\Http\Models\QuestionModel;
+use App\Http\Models\SelfVideoModel;
 use App\Http\Models\UserModel;
 use App\Http\Models\VideoModel;
 use Carbon\Carbon;
@@ -66,5 +67,13 @@ class Video
     {
 
         return QuestionModel::where('id', $id)->first();
+    }
+
+    public function indexList($id = ''){
+        $model = SelfVideoModel::orderBy('id','asc');
+        if(!empty($id)){
+            $model->where('id',$id);
+        }
+        return $model->get()->toArray();
     }
 }

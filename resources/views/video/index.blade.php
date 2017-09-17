@@ -34,7 +34,7 @@
             </p>
         </div>
         <p class="world-video-next">
-            <a href="{{urls('/video/question')}}" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
+            <a href="http://m.oneniceapp.com/go/toNice?action=storyPublish?lens_id=10" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
             <a href="{{urls('/video/rank')}}" class="btn"><img src="{{staticFile('images/active/world-video-hot.png')}}" alt=""></a>
         </p>
     </div>

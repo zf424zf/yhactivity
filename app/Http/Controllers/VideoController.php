@@ -23,7 +23,7 @@ class VideoController extends Controller
     public function __construct()
     {
         $this->middleware('isLogin',
-            ['except'=>['addVideo','info','getQuestionList','questionDetail']]);
+            ['except' => ['addVideo', 'info', 'getQuestionList', 'questionDetail','indexList']]);
     }
 
     public function addVideo(VideoRequest $request)
@@ -46,6 +46,12 @@ class VideoController extends Controller
             $request->get('id'),
             $request->get('uid')
         );
+    }
+
+    public function indexList()
+    {
+        $data = (new Video)->indexList(\Request::get('id'));
+        return api_response(Service::SUCCESS, $data);
     }
 
     public function getQuestionList()
@@ -74,24 +80,26 @@ class VideoController extends Controller
     public function detailView($id)
     {
         $uid = session('user')['id'];
-         $video = (new Video())->info($id, $uid);
+        $video = (new Video())->info($id, $uid);
         if (empty($video)) {
             abort(404);
         }
         return view('video.detail', ['data' => $video]);
     }
 
-    public function listView(){
+    public function listView()
+    {
         $uid = session('user')['id'];
-        $child = Input::get('child',VideoChild::VIDEO_SS);
-        $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'like',$child,'desc',$uid);
-        return view('video.rank',['data'=>$data]);
+        $child = Input::get('child', VideoChild::VIDEO_SS);
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'like', $child, 'desc', $uid);
+        return view('video.rank', ['data' => $data]);
     }
 
-    public function listNewView(){
+    public function listNewView()
+    {
         $uid = session('user')['id'];
-        $child = Input::get('child',VideoChild::VIDEO_SS);
-        $data =  (new FileList())->videoList(Module::VIDEO_MODULE,'new',$child,'desc',$uid);
-        return view('video.new',['data'=>$data]);
+        $child = Input::get('child', VideoChild::VIDEO_SS);
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'new', $child, 'desc', $uid);
+        return view('video.new', ['data' => $data]);
     }
 }

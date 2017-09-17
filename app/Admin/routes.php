@@ -15,4 +15,6 @@ Route::group([
     $router->resource('setting', 'SettingController');
     $router->resource('section', 'SectionController');
     $router->resource('lucky', 'LuckyController');
+    $router->resource('video', 'SelfVideoController');
+
 });

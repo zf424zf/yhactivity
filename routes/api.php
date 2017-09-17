@@ -42,6 +42,7 @@ Route::group(['prefix' => 'image'], function () {
 Route::group(['prefix' => 'video'], function () {
     Route::post('/add', 'VideoController@addVideo');
     Route::get('/info', 'VideoController@info');
+    Route::get('/indexList', 'VideoController@indexList');
 });
 Route::get('/wall', 'VideoController@getList');
 Route::post('upload', 'UploadController@upload');

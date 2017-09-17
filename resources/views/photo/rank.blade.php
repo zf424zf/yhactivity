@@ -21,33 +21,26 @@
             </a>
             <div class="active-rank">
                 <ul class="tab">
-                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS ) class="on" @endif>
-                        <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_BS}}">
-                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS )
-                                <img class="on" src="{{staticFile('images/active/h2-on.png')}}" alt="标题">
-                            @else
-                                <img class="default" src="{{staticFile('images/active/h2-default.png')}}" alt="标题">
-                            @endif
-                        </a>
-                    </li>
-                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child'))) class="on" @endif>
-                        <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_MX}}">
-                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child')))
-                                <img class="on" src="{{staticFile('images/active/h1-on.png')}}" alt="标题">
-                            @else
-                                <img class="default" src="{{staticFile('images/active/h1-default.png')}}" alt="标题">
-                            @endif
-                        </a>
-                    </li>
-                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_ZC ) class="on" @endif>
+
+                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_ZC || empty(Request::get('child') )) class="on" @endif>
                         <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_ZC}}">
-                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_ZC )
+                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_ZC || empty(Request::get('child')))
                                 <img class="on" src="{{staticFile('images/active/h3-on.png')}}" alt="标题">
                             @else
                                 <img class="default" src="{{staticFile('images/active/h3-default.png')}}" alt="标题">
                             @endif
                         </a>
                     </li>
+                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX)) class="on" @endif>
+                        <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_MX}}">
+                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX )
+                                <img class="on" src="{{staticFile('images/active/h1-on.png')}}" alt="标题">
+                            @else
+                                <img class="default" src="{{staticFile('images/active/h1-default.png')}}" alt="标题">
+                            @endif
+                        </a>
+                    </li>
+
                     <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_CH ) class="on" @endif >
                         <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_CH}}">
                             @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_CH )
@@ -57,14 +50,23 @@
                             @endif
                         </a>
                     </li>
+                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS ) class="on" @endif>
+                        <a href="{{'/photo/list/rank?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_BS}}">
+                            @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_BS )
+                                <img class="on" src="{{staticFile('images/active/h2-on.png')}}" alt="标题">
+                            @else
+                                <img class="default" src="{{staticFile('images/active/h2-default.png')}}" alt="标题">
+                            @endif
+                        </a>
+                    </li>
                 </ul>
             </div>
             <div class="active-rank-content">
                 <p class="active-rank-top">
-                    <a href="{{urls('/')}}" class="on">
+                    <a  class="on" href="{{urls('/photo/list/rank?module=1&child='.\Request::get('child'))}}">
                         排行榜
                     </a>
-                    <a href="{{urls('/photo/list/new')}}">
+                    <a href="{{urls('/photo/list/new?module=1&child='.\Request::get('child'))}}" >
                         最新
                     </a>
                 </p>
