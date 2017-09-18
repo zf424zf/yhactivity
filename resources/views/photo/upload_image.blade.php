@@ -94,7 +94,14 @@
                     $(this).blur();
                 }
             });
-
+            $(document).on('input propertychange','.ipt-left',function(){
+                var value = $(this).val();
+                $('.left-image-label i').html(value);
+            })
+            $(document).on('input propertychange','.ipt-right',function(){
+                var value = $(this).val();
+                $('.right-image-label i').html(value);
+            })
             $(document).on('click', '#submit', function () {
                 $(this).css('display','none');
                 var left = $('.upload-imga-left img');

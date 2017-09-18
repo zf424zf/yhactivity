@@ -24,7 +24,7 @@
                     <!--  上传图片展示 -->
                     <img  alt="upload-img-show" class="show-img upload-image" style="display: none">
                     <img id="upload" src="{{staticFile('images/active/upload-imga-up-btn.png')}}" alt="upload-imga-btn" class="btn">
-                    <em class="upload-imga-info">
+                    <em class="upload-imga-info right-label">
                         <i>邂逅爱聊咖</i>
                     </em>
                 </label>
@@ -87,6 +87,10 @@
                     $(this).blur();
                 }
             });
+            $(document).on('input propertychange','.ipt',function(){
+                var value = $(this).val();
+                $('.right-label i').html(value);
+            })
             $(document).on('click', '#submit', function () {
                 $(this).css('display','none');
                 var left = $('.left-img');
