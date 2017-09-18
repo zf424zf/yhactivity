@@ -62,9 +62,10 @@
                     <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
                     <span class="act-beg-lis-name">{{$end->nickname}}</span>
                 </p>
-                @endforeach
             </li>
                 @endif
+            @endforeach
+
         </ul>
         <p class="active-begin-more">
             <img src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
