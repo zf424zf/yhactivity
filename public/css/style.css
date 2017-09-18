@@ -276,8 +276,8 @@ html,body{background-color: #fff;height: 100%}
 .live-on-comment-list ul{width: 15.0rem;margin: 0.625rem auto 0;line-height: 0.8rem;height: 4.4rem;overflow: auto;}
 .live-on-comment-list ul li{margin-bottom: 0.7rem}
 .live-over{padding-bottom: 2.5rem}
-.live-on-comment-in{background: #fef5ee;-webkit-box-sizing: border-box;box-sizing: border-box;width: 16.75rem;margin: 0.45rem auto 2.5rem;border-radius: 0.65rem;border: 0.1rem solid #000;overflow: hidden;}
-.live-on-comment-in input[type="text"]{width: 12.25rem;background: transparent;font-size: 0.7rem;color: #4b4b4b;float: left;line-height: 2.25rem;border: 0;padding: 0 1.0rem;-webkit-box-sizing: border-box;box-sizing: border-box;}
+.live-on-comment-in{background: #fef5ee;-webkit-box-sizing: border-box;box-sizing: border-box;width: 16.75rem;margin: 0.45rem auto 2.5rem;height: 2.25rem;line-height: 2.25rem;border-radius: 0.65rem;border: 0.1rem solid #000;overflow: hidden;}
+.live-on-comment-in input[type="text"]{width: 12.25rem;background: transparent;font-size: 0.7rem;color: #4b4b4b;float: left;border: 0;padding: 0.6rem 1.0rem;-webkit-box-sizing: border-box;box-sizing: border-box;}
 .live-on-comment-in input[type="submit"]{border-left: 0.1rem solid #000;display: inline-block;width: 4.3rem;border-right: 0;border-bottom: 0;border-top: 0;background: #ffdc37;font-size: 0.8rem;font-weight: bold;line-height: 2.25rem;float: left;}
 /*world-index*/
 .world-index-bg{width: 96%;margin: 0 auto;padding-top: 0.6rem;display: block;}
