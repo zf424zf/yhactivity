@@ -92,11 +92,23 @@
                         奖品以实物为准
                     </p>
                 </li>
+                <li>
+                    <p class="active-translate-mask-info">
+                        <img style="width: 300px" src="{{staticFile('images/xiehouyouli_jiangpin.png')}}">
+                    </p>
+                </li>
             </ul>
         </div>
     </div>
     <script>
         $(function(){
+            // 活动说明遮罩层
+            $("#show-mask").on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            });
+            $('.active-translate-mask-bg').on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            })
             var uploader = WebUploader.create({
                 auto: true,
                 fileNumLimit: 9,

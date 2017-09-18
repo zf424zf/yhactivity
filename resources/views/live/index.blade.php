@@ -102,6 +102,11 @@
                         奖品以实物为准
                     </p>
                 </li>
+                <li>
+                    <p class="active-translate-mask-info">
+                        <img style="width: 300px" src="{{staticFile('images/dakayouhuashuo_jiangpin.png')}}">
+                    </p>
+                </li>
             </ul>
         </div>
     </div>

@@ -113,6 +113,11 @@
                         参与活动的视频请确保真实，自主创作或经过权利人合法授权。
                     </p>
                 </li>
+                <li>
+                    <p class="active-translate-mask-info">
+                        <img style="width: 300px" src="{{staticFile('images/zhenxinhua_jiangpin.png')}}">
+                    </p>
+                </li>
             </ul>
         </div>
     </div>
