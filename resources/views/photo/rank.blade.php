@@ -86,7 +86,7 @@
                                         </a>
                                         <p class="user">
 									<span class="user-photo">
-										<img src="{{staticFile('images/active/user.png')}}" alt="photo">
+										<img src="{{thumb($item->headicon)}}" alt="photo">
 									</span>
                                             <span class="user-title">
 										{{$item->nickname}}
