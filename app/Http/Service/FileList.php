@@ -161,8 +161,8 @@ class FileList
                     t2.cnt $order limit $pagesize offset $count";
         $data = \DB::select($sql);
 
-         $data = $this->formatOriginForImageList($data);
-        $newArr = [1=>[],2=>[],3=>[],4=>[]];
+        $data = $this->formatOriginForImageList($data);
+        $newArr = [];
         foreach ($data as $item) {
             if (array_key_exists($item->module, $newArr)) {
                 if(count($newArr[$item->module]) < 2){
