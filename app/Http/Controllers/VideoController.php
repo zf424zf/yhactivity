@@ -50,7 +50,7 @@ class VideoController extends Controller
 
     public function indexList()
     {
-        return  $data = (new Video)->indexList(\Request::get('id'));
+          $data = (new Video)->indexList(\Request::get('id'));
         return api_response(Service::SUCCESS, $data);
     }
 

@@ -36,7 +36,7 @@
             <img src="{{staticFile('images/index/index-btm.png')}}" alt="雅哈" class="index-change-2">
             <!-- 4个按钮 -->
             <a href="{{urls('/photo')}}" class="index-link index-link-1">&nbsp;</a>
-            <a href="{{urls('/video')}}" class="index-link index-link-2">&nbsp;</a>
+            <a href="{{urls('/video/1')}}" class="index-link index-link-2">&nbsp;</a>
             <a href="{{urls('/live')}}" class="index-link index-link-3">&nbsp;</a>
             <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
         </div>
