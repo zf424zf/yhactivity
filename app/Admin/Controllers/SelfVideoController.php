@@ -88,10 +88,10 @@ class SelfVideoController extends Controller
         return Admin::form(SelfVideoModel::class, function (Form $form) {
             $form->text('order', '排序')->rules('required|integer');
             $form->text('nickname', '昵称')->rules('required');
-            $form->text('headicon', '头像')->rules('required');
-            $form->text('path', '视频地址')->rules('required');
+            $form->text('headicon', '头像');
+            $form->text('path', '视频地址');
             $form->text('cover', '封面图');
-            $form->select('module', '模块')->options($this->sections);
+            $form->select('module', '模块')->rules('required')->options($this->sections);
         });
     }
 }
