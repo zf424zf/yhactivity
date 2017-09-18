@@ -16,7 +16,7 @@ html,body{background-color: #fff;height: 100%}
 /*init*/
 .body-index{position: relative;height: 91.725rem;width: 18.75rem;background: url(../images/index/index-bg-btm.png) no-repeat scroll center top;background-size: 18.75rem 91.725rem;}
 .show{width: 100%;height: 100%;}
-.index-bg{position: absolute;top: 0;left: 0;z-index: 10;height: 100%;width: 100%;background: url(../images/index/index-bg.png) no-repeat scroll center top;background-size: 18.75rem 91.725rem;}
+.index-bg{position: absolute;top: 0;left: 0;z-index: 10;height: 100%;width: 100%;background: url(../images/index/index-bg.back.png) no-repeat scroll center top;background-size: 18.75rem 91.725rem;}
 .boy-arm{width: 3.75rem;height: 6.75rem;position: absolute;top: 12.8rem;right: 4.85rem;z-index: 9}
 .girl-arm{width: 3.5rem;height: 5.5rem;position: absolute;top: 11.725rem;left: 6.41rem;z-index: 9}
 .index-change-1{width: 8.125rem;height: 7.25rem;position: absolute;z-index: 8;top: 0.82rem;left: -0.25rem}

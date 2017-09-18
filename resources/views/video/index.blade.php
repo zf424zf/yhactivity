@@ -30,12 +30,12 @@
 					{{$data['nickname']}}
 				</span>
             </p>
-            <p class="info">
-                <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip">
-                <span class="text">
-					<b>如果你非要参加前任的结婚宴，你会穿什么颜色的衣服？</b>
-				</span>
-            </p>
+            {{--<p class="info">--}}
+                {{--<img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip">--}}
+                {{--<span class="text">--}}
+					{{--<b>如果你非要参加前任的结婚宴，你会穿什么颜色的衣服？</b>--}}
+				{{--</span>--}}
+            {{--</p>--}}
         </div>
         <p class="world-video-next">
             <a href="http://m.oneniceapp.com/go/toNice?action=storyPublish?lens_id=10" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
