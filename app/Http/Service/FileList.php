@@ -160,7 +160,7 @@ class FileList
                 ORDER BY
                     t2.cnt $order limit $pagesize offset $count";
         $data = \DB::select($sql);
-
+        \Log::error($sql);
         $data = $this->formatOriginForImageList($data);
         $newArr = [];
         foreach ($data as $item) {
