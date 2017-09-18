@@ -69,6 +69,8 @@
                     </h1>
                     <p class="active-translate-mask-info">
                         用户选择要挑战的短视频问题，根据问题录制一段12秒以内的视频并上传，可分享朋友圈为自己拉票点赞。获得点赞最高的用户，将获得雅哈咖啡送出的奖励。
+                    </p>
+                    <p class="active-translate-mask-info">
                         参与活动的视频请确保真实，自主创作或经过权利人合法授权。
                     </p>
                 </li>
@@ -84,7 +86,9 @@
                     </p>
                     <p class="active-translate-mask-info">
                         （3）中奖名单在“邂逅有礼”版块公布，可关注雅哈微博微信同步获取获奖信息。
-                        雅哈微信ID：雅哈愉快聊
+                    </p>
+                    <p class="active-translate-mask-info">
+                        雅哈微信ID：雅哈愉快聊<br/>
                         雅哈微博ID：统一雅哈咖啡
                     </p>
                 </li>

@@ -99,6 +99,8 @@
                     </h1>
                     <p class="active-translate-mask-info">
                         用户选择要挑战的原图并上传自己的照片来完成创意拼图，或自行上传照片来挑战拼图。上传照片完成拼图后，获得点赞最高的用户，将获得雅哈咖啡送出的奖励。
+                    </p>
+                    <p class="active-translate-mask-info">
                         参与活动的照片请确保真实，自主创作或经过权利人合法授权。
                     </p>
                 </li>
@@ -114,7 +116,9 @@
                     </p>
                     <p class="active-translate-mask-info">
                         （3）中奖名单在“邂逅有礼”版块公布，可关注雅哈微博微信同步获取获奖信息。
-                        雅哈微信ID：雅合愉快聊
+                    </p>
+                    <p class="active-translate-mask-info">
+                        雅哈微信ID：雅合愉快聊<br/>
                         雅哈微博ID：雅哈咖啡
                     </p>
                 </li>
