@@ -19,10 +19,11 @@
                     $first = current($value);
                     $end = end($value);
                 ?>
-            @if(!empty($value))
+
             <li>
                 <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台"></div>
                 <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
+                @if(!empty($value))
                 <p class="act-beg-lis-tip">
                     本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
                 </p>
@@ -62,8 +63,8 @@
                     <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
                     <span class="act-beg-lis-name">{{$end->nickname}}</span>
                 </p>
-            </li>
                 @endif
+            </li>
             @endforeach
 
         </ul>
