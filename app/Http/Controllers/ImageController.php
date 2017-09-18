@@ -81,7 +81,7 @@ class ImageController extends Controller
     public function indexView()
     {
          $data = (new FileList())->videoList(1, '');
-        $newData = [3=>array_get($data,3,[]),
+       return $newData = [3=>array_get($data,3,[]),
             2=>array_get($data,2,[]),
             4=>array_get($data,4,[]),
             1=>array_get($data,1,[])];
