@@ -158,7 +158,7 @@
     <script>
         $(function(){
             $(document).on('click','.active-begin-more',function(){
-                location.href = '/photo/list/rank?module=1&child=1'
+                location.href = '/photo/list/rank?module=1&child=3'
             });
             // 活动说明遮罩层
             $("#show-mask").on('tap',function(){
