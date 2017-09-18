@@ -11,11 +11,11 @@
         <form class="upload-imga">
             <p class="container">
                 <label class="upload-imga-left">
-                    <input class="file" type="file">
+                    {{--<input class="file" type="file">--}}
                     <!--  上传图片展示 -->
                     <img data-path="{{$path}}" src="{{thumb($path,143,202)}}" alt="upload-img-show" class="show-img">
                     {{--<img src="../images/active/upload-imga-up-btn.png" alt="upload-imga-up-btn" class="btn">--}}
-                    <em class="upload-imga-info">
+                    <em class="upload-imga-info left-image-label">
                         <i>邂逅爱聊咖</i>
                     </em>
                 </label>
@@ -25,7 +25,7 @@
                     <img data-path="" src="" alt="upload-img-show" class="show-img upload-image" style="display: none">
                     <img src="{{staticFile('images/active/upload-imga-up-btn.png')}}" id="upload" alt="upload-imga-btn"
                          class="btn upload-bg">
-                    <em class="upload-imga-info">
+                    <em class="upload-imga-info right-image-label">
                         <i>邂逅爱聊咖</i>
                     </em>
                 </label>
@@ -68,7 +68,8 @@
                 // 内部根据当前运行是创建，可能是input元素，也可能是flash.
                 pick: '#upload',
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
-                resize: false
+                resize: false,
+                formData:{upload_type:1}
             });
             uploader.on('uploadSuccess', function (file, response) {
                 var url = response.data.url;

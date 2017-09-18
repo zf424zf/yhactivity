@@ -71,7 +71,7 @@ class SelfVideoController extends Controller
     {
         return Admin::grid(SelfVideoModel::class, function (Grid $grid) {
             $grid->order('排序')->sortable();
-            $grid->nickname('问题');
+            $grid->nickname('昵称');
             $grid->path('视频地址');
             $grid->cover('封面图');
             $grid->moduleCN('模块');

@@ -35,7 +35,7 @@
         <div class="active-pic-details video-details">
             <p class="user-details">
 					<span class="user-pic">
-						<img src="{{staticFile('images/active/user.png')}}" alt="user-pic">
+						<img src="{{$data['users']['headicon']}}" alt="user-pic">
 					</span>
                 <span class="user-name">
 						{{$data['users']['nickname']}}
@@ -50,7 +50,7 @@
             </p>
         </div>
         <p class="question-next video-details-next">
-            <a href="{{urls('/video')}}"><img src="{{staticFile('images/active/question-btn-jion.png')}}"
+            <a href="http://m.oneniceapp.com/go/toNice?action=storyPublish?lens_id=10"><img src="{{staticFile('images/active/question-btn-jion.png')}}"
                                               alt="我要参加"></a>
             <a href="{{urls('/')}}"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
         </p>

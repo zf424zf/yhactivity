@@ -7,6 +7,7 @@
     {{--<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">--}}
     <link rel="stylesheet" href="{{staticFile('css/style.css')}}">
     <script type="text/javascript">
+
         (function (doc, win) {
             var docEl = doc.documentElement,
                 resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
@@ -37,6 +38,14 @@
 
 <script type="text/javascript">
     $(function(){
+        window.alert = function(name){
+            var iframe = document.createElement("IFRAME");
+            iframe.style.display="none";
+            iframe.setAttribute("src", 'data:text/plain,');
+            document.documentElement.appendChild(iframe);
+            window.frames[0].window.alert(name);
+            iframe.parentNode.removeChild(iframe);
+        }
         $(".select-question-list li").click(function(){
             $(this).find('input[type="radio"]').get(0).checked = true;
             $(".select-question-list li").each(function(){

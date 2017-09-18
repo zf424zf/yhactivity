@@ -22,7 +22,7 @@ class UploadController extends Controller
     public function upload()
     {
         //todo request文件验证
-       return (new Upload())->upload(Input::get('type',Module::PHOTO_MODULE));
+       return (new Upload())->upload(Input::get('upload_type',Module::PHOTO_MODULE));
     }
 
     public function removeFile(RemoveRequest $request){
