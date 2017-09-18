@@ -126,7 +126,7 @@ html,body{background-color: #fff;height: 100%}
 .upload-imga-title{width: 17.25rem;margin: 0 auto;padding-top: 2.35rem;overflow: hidden;}
 .upload-imga-title .left , .upload-imga-title .right{width: 50%;float: left;}
 .upload-imga-small-title{display: inline-block;width: 100%;text-align: center;font-size: 0.8rem;color: #000;margin-bottom: 0.75rem}
-.upload-imga-title .ipt{color: #5e5e5e;background: transparent url(../images/active/upload-imga-ipt-bg.png) no-repeat scroll center center;background-size: 8.2rem 2.575rem;line-height: 2.575rem;width: 8.2rem;border: 0;display: inline-block;-webkit-box-sizing: border-box;box-sizing: border-box;padding: 0 0.3rem;text-align: center;font-size: 0.75rem;}
+.upload-imga-title .ipt{color: #5e5e5e;background: transparent url(../images/active/upload-imga-ipt-bg.png) no-repeat scroll center center;background-size: 8.2rem 2.575rem;width: 8.2rem;border: 0;display: inline-block;-webkit-box-sizing: border-box;box-sizing: border-box;padding: 1.6rem 0.3rem;text-align: center;font-size: 0.75rem;}
 .upload-imga-title .ipt::-webkit-input-placeholder { /* WebKit browsers */
 　　color:#5e5e5e;
 　　}
