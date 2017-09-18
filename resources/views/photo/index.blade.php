@@ -19,6 +19,7 @@
                     $first = current($value);
                     $end = end($value);
                 ?>
+            @if(!empty($value))
             <li>
                 <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台"></div>
                 <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
@@ -63,6 +64,7 @@
                 </p>
                 @endforeach
             </li>
+                @endif
         </ul>
         <p class="active-begin-more">
             <img src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
