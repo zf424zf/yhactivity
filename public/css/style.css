@@ -24,7 +24,7 @@ html,body{background-color: #fff;height: 100%}
 .boy-face{width: 1.25rem;height: 1.75rem;position: absolute;top: 14.5rem;right: 3.7rem;z-index: 11}
 .girl-face{width: 1.25rem;height: 1.75rem;position: absolute;top: 12.9rem;left: 4.85rem;z-index: 11}
 .index-down{top: 24.5rem;left: 2.5rem;height: 4.0rem;width: 1.875rem;position: absolute;z-index: 9}
-.begin-index{-webkit-transition: all 3s;transition: all 3s;width: 18.75rem;top: 50%;left: 50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);z-index: 999;opacity: 1;}
+.begin-index{-webkit-transition: all 3s;transition: all 3s;width: 18.75rem;position: absolute;top: 50%;left: 50%;-webkit-transform: translate(-50%,-50%);transform: translate(-50%,-50%);z-index: 999;opacity: 1;}
 .begin-index.hide{opacity: 0;}
 .plus-1{position: absolute;width: 6.75rem;height: 1.25rem;right: 2.675rem;top: 3rem;z-index: 11}
 .index-link{position: absolute;z-index: 12;}
