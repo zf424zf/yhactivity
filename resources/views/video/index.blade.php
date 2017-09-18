@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="world-video">
-            <video playsinline src="{{$data['path']}}" class="video" autoplay="autoplay">
+            <video width="620" playsinline src="{{$data['path']}}" class="video" autoplay="autoplay">
                 您的浏览器版本过低
             </video>
             @if($id > 1)

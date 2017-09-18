@@ -86,13 +86,16 @@
                 window.location.href = '/photo/uploadImage/' + module + '?isUpload=1&path=' + url
             });
             uploader.on('uploadError', function (file, response) {
+                $.hidePreloader();
             });
 
             uploader.on('uploadComplete', function (file, response) {
+                $.hidePreloader();
             });
             uploader.on('fileQueued', function (file, response) {
             });
             uploader.on('uploadProgress', function (file, percentage) {
+                $.showPreloader('上传中')
             });
 
             $(document).on("pageInit", ".page", function (e, id, page) {

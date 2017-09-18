@@ -80,13 +80,17 @@
                 $('#upload').css('display', 'none');
             });
             uploader.on('uploadError', function (file, response) {
+                $.hidePreloader();
+                alert('上传失败，请稍后再试')
             });
 
             uploader.on('uploadComplete', function (file, response) {
+                $.hidePreloader();
             });
             uploader.on('fileQueued', function (file, response) {
             });
             uploader.on('uploadProgress', function (file, percentage) {
+                $.showPreloader('上传中')
             });
 
             $('.ipt-left,.ipt-right').bind('keydown',function(event){
@@ -128,11 +132,13 @@
                     $(this).css('display','');
                     return false;
                 }
+                $.showPreloader('上传中')
                 $.ajax({
                     url:'/api/image/add',
                     type:'post',
                     data:{module:module,path:leftUrl,type:0,label:leftLabel,uid:'{{$uid}}'},
                     success:function(ret){
+                        $.hidePreloader();
                         if(ret.code == 0){
                             var originId = ret.data.id;
                             $.ajax({
