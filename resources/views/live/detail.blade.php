@@ -64,6 +64,7 @@
         $(function () {
             $('#comments').scrollTop($('#comments')[0].scrollHeight);
             $(document).on('click', '#submit', function () {
+                $('#content').blur();
                 var content = $('#content').val();
                 var id = $(this).data('liveId');
                 var uid = '{{$uid}}';
@@ -80,6 +81,11 @@
                         }
                     }
                 })
+            });
+            $('#content').bind('keydown',function(event){
+                if(event.keyCode == "13") {
+                    $(this).blur();
+                }
             });
         })
         function getComment() {
