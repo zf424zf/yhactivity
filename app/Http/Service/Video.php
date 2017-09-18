@@ -26,6 +26,8 @@ class Video
             $user = UserModel::where('uid', $niceUid)->first();
             if ($user) {
                 $uid = $user->id;
+            }else{
+                $uid = 0;
             }
         }
         $info = is_array($info) ? implode(',', $info) : $info;
