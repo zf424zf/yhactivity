@@ -24,9 +24,10 @@ class User
         $user = UserModel::where('unionId', $unionid)->first();
         if (!$user) {
             $userData = [
-                'unionid'  => $unionid,
+                'unionid' => $unionid,
                 'nickname' => $userinfo['nickName'],
                 'profile' => json_encode($userinfo),
+                'headicon' => $userinfo['avatarUrl'],
             ];
             $user = new UserModel($userData);
             $user->save();
@@ -34,16 +35,17 @@ class User
         $user = $user->toArray();
         $profile = json_decode($user['profile']);
         $data = [
-            'id'       => $user['id'],
+            'id' => $user['id'],
             'nickname' => $user['nickname'],
             'img' => $profile->avatarUrl,
         ];
         return $data;
     }
 
-    public function redirectByUser($uid, $nickName, $avatar){
+    public function redirectByUser($uid, $nickName, $avatar)
+    {
         $this->niceUser($uid, $nickName, $avatar);
-       return  redirect()->action('IndexController@index');
+        return redirect()->action('IndexController@index');
     }
 
     public function niceUser($uid, $nickName, $avatar)
@@ -56,7 +58,7 @@ class User
             $user->nickname = $nickName;
             $user->save();
         }
-        session(['user'=>$user]);
+        session(['user' => $user]);
     }
 
 }
