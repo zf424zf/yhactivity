@@ -134,7 +134,7 @@ class FileList
         return $data;
     }
 
-    public function getImageListSortByModule($order = 'desc',$count,$pagesize)
+    public function getImageListSortByModule($order = 'desc')
     {
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
@@ -160,7 +160,6 @@ class FileList
                 ORDER BY
                     t2.cnt $order";
         $data = \DB::select($sql);
-        \Log::error($sql);
         $data = $this->formatOriginForImageList($data);
         $newArr = [];
         foreach ($data as $item) {
