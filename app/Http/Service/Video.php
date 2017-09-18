@@ -72,9 +72,9 @@ class Video
     }
 
     public function indexList($id = ''){
-        $model = SelfVideoModel::orderBy('id','asc');
+        $model = SelfVideoModel::orderBy('order','asc');
         if(!empty($id)){
-            $model->where('id',$id);
+            $model->where('order',$id);
         }
         return $model->get()->toArray();
     }

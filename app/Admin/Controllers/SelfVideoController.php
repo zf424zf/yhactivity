@@ -70,7 +70,7 @@ class SelfVideoController extends Controller
     protected function grid()
     {
         return Admin::grid(SelfVideoModel::class, function (Grid $grid) {
-            $grid->id('ID')->sortable();
+            $grid->order('排序')->sortable();
             $grid->nickname('问题');
             $grid->path('视频地址');
             $grid->cover('封面图');
@@ -86,6 +86,7 @@ class SelfVideoController extends Controller
     protected function form()
     {
         return Admin::form(SelfVideoModel::class, function (Form $form) {
+            $form->text('order', '排序')->rules('required|integer');
             $form->text('nickname', '昵称')->rules('required');
             $form->text('headicon', '头像')->rules('required');
             $form->text('path', '视频地址')->rules('required');
