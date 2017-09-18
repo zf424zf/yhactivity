@@ -80,7 +80,7 @@ class ImageController extends Controller
 
     public function indexView()
     {
-         return $data = (new FileList())->videoList(1, '');
+         $data = (new FileList())->videoList(1, '');
         $newData = [3=>$data[3],2=>$data[2],4=>$data[4],1=>$data[1]];
         return view('photo.index', ['data' => $newData]);
     }
