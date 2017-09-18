@@ -89,6 +89,12 @@
             uploader.on('uploadProgress', function (file, percentage) {
             });
 
+            $('.ipt-left,.ipt-right').bind('keydown',function(event){
+                if(event.keyCode == "13") {
+                    $(this).blur();
+                }
+            });
+
             $(document).on('click', '#submit', function () {
                 $(this).css('display','none');
                 var left = $('.upload-imga-left img');

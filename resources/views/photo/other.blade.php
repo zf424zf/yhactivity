@@ -8,7 +8,7 @@
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
-        <form class="upload-imga">
+        <div class="upload-imga">
             <p class="container">
                 <label class="upload-imga-left">
                     {{--<input class="file" type="file">--}}
@@ -48,7 +48,7 @@
                 </a>
             </p>
 
-        </form>
+        </div>
         <input type="hidden" data-module="{{$image['module']}}" id="module">
     </div>
     <script>
@@ -82,7 +82,11 @@
             });
             uploader.on('uploadProgress', function (file, percentage) {
             });
-
+            $('.ipt').bind('keydown',function(event){
+                if(event.keyCode == "13") {
+                    $(this).blur();
+                }
+            });
             $(document).on('click', '#submit', function () {
                 $(this).css('display','none');
                 var left = $('.left-img');
