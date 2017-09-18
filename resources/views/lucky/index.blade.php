@@ -69,6 +69,8 @@
                     </p>
                     <p class="active-translate-mask-info">
                         （2）抽到奖品后请在中奖弹出框中填写有效联系方式，中奖名单会在“邂逅有礼”版块公布，并可关注雅哈咖啡微博微信同步获取获奖信息，工作人员会在72小时内审核上传照片，联系获奖者派发奖品。
+                    </p>
+                    <p class="active-translate-mask-info">
                         雅哈微信ID：雅哈愉快聊
                         雅哈微博ID：统一雅哈咖啡
                     </p>
@@ -92,11 +94,23 @@
                         奖品以实物为准
                     </p>
                 </li>
+                <li>
+                    <p class="active-translate-mask-info">
+                        <img style="width: 300px" src="{{staticFile('images/xiehouyouli_jiangpin.png')}}">
+                    </p>
+                </li>
             </ul>
         </div>
     </div>
     <script>
         $(function(){
+            // 活动说明遮罩层
+            $("#show-mask").on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            });
+            $('.active-translate-mask-bg').on('tap',function(){
+                $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
+            })
             var uploader = WebUploader.create({
                 auto: true,
                 fileNumLimit: 9,

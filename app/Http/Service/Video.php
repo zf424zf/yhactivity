@@ -12,6 +12,7 @@ namespace App\Http\Service;
 use App\Http\Api\Module;
 use App\Http\Models\LikeModel;
 use App\Http\Models\QuestionModel;
+use App\Http\Models\SelfVideoModel;
 use App\Http\Models\UserModel;
 use App\Http\Models\VideoModel;
 use Carbon\Carbon;
@@ -25,6 +26,8 @@ class Video
             $user = UserModel::where('uid', $niceUid)->first();
             if ($user) {
                 $uid = $user->id;
+            }else{
+                $uid = 0;
             }
         }
         $info = is_array($info) ? implode(',', $info) : $info;
@@ -66,5 +69,13 @@ class Video
     {
 
         return QuestionModel::where('id', $id)->first();
+    }
+
+    public function indexList($id = ''){
+        $model = SelfVideoModel::orderBy('order','asc');
+        if(!empty($id)){
+            $model->where('order',$id);
+        }
+        return $model->get()->toArray();
     }
 }

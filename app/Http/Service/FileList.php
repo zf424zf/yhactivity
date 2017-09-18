@@ -36,7 +36,7 @@ class FileList
                 $data = $this->getListSortByNew($module, $child, $order,$count,$pagesize);
                 break;
             default:
-                return $data = $this->getImageListSortByModule($order,$count,$pagesize);
+                return $data = $this->getImageListSortByModule($order);
                 break;
         }
         return $this->formatCanLike($module, $data, $uid);
@@ -134,7 +134,7 @@ class FileList
         return $data;
     }
 
-    public function getImageListSortByModule($order = 'desc',$count,$pagesize)
+    public function getImageListSortByModule($order = 'desc')
     {
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
@@ -158,9 +158,8 @@ class FileList
                 left join yh_users t3 on t3.id = t1.uid
                 where t1.type = 1
                 ORDER BY
-                    t2.cnt $order limit $pagesize offset $count";
+                    t2.cnt $order";
         $data = \DB::select($sql);
-
         $data = $this->formatOriginForImageList($data);
         $newArr = [];
         foreach ($data as $item) {

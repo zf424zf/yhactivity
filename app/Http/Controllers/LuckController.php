@@ -76,6 +76,7 @@ class LuckController extends Controller
     public function luckView(){
         $imageId = \Request::get('image_id');
         $uid = session('user')['id'];
+        \Log::error($uid);
         $flag = (new Luck())->checkUserTodayLuck($uid);
         return view('lucky.luck',['uid'=>$uid,'flag'=>$flag,'image'=>$imageId]);
     }

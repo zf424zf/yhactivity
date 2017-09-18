@@ -19,9 +19,11 @@
                     $first = current($value);
                     $end = end($value);
                 ?>
+
             <li>
                 <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台"></div>
                 <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
+                @if(!empty($value))
                 <p class="act-beg-lis-tip">
                     本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
                 </p>
@@ -61,8 +63,10 @@
                     <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
                     <span class="act-beg-lis-name">{{$end->nickname}}</span>
                 </p>
-                @endforeach
+                @endif
             </li>
+            @endforeach
+
         </ul>
         <p class="active-begin-more">
             <img src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
@@ -96,6 +100,9 @@
                     <p class="active-translate-mask-info">
                         用户选择要挑战的原图并上传自己的照片来完成创意拼图，或自行上传照片来挑战拼图。上传照片完成拼图后，获得点赞最高的用户，将获得雅哈咖啡送出的奖励。
                     </p>
+                    <p class="active-translate-mask-info">
+                        参与活动的照片请确保真实，自主创作或经过权利人合法授权。
+                    </p>
                 </li>
                 <li>
                     <h1 class="active-translate-mask-tit">
@@ -109,7 +116,9 @@
                     </p>
                     <p class="active-translate-mask-info">
                         （3）中奖名单在“邂逅有礼”版块公布，可关注雅哈微博微信同步获取获奖信息。
-                        雅哈微信ID：雅合愉快聊
+                    </p>
+                    <p class="active-translate-mask-info">
+                        雅哈微信ID：雅合愉快聊<br/>
                         雅哈微博ID：雅哈咖啡
                     </p>
                 </li>
@@ -121,22 +130,26 @@
                         雅哈×nice定制对杯
                     </p>
                     <p class="active-translate-mask-info">
-                        最潮擂台大奖-卡西欧自拍神器
+                        最潮擂台大奖-Casio自拍相机
                     </p>
                     <p class="active-translate-mask-info">
                         冒险擂台大奖-Rimowa旅行箱
                     </p>
                     <p class="active-translate-mask-info">
-                        吃货擂台大奖-当地米其林/顶级餐厅双人畅吃
+                        吃货擂台大奖-当地米其林/顶级餐厅双人套餐
                     </p>
                     <p class="active-translate-mask-info">
-                        变身擂台大奖-日本yaman美容仪
+                        变身擂台大奖-日本Yaman美容仪
                     </p>
                 </li>
                 <li>
                     <p class="active-translate-mask-info">
                         奖品以实物为准。
-                        参与活动的照片请确保真实，自主创作或经过权利人合法授权。
+                    </p>
+                </li>
+                <li>
+                    <p class="active-translate-mask-info">
+                        <img style="width: 300px" src="{{staticFile('images/pintu_jiangpin.png')}}">
                     </p>
                 </li>
             </ul>
@@ -145,7 +158,7 @@
     <script>
         $(function(){
             $(document).on('click','.active-begin-more',function(){
-                location.href = '/photo/list/rank?module=1&child=1'
+                location.href = '/photo/list/rank?module=1&child=3'
             });
             // 活动说明遮罩层
             $("#show-mask").on('tap',function(){
