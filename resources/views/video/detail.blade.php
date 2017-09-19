@@ -26,7 +26,7 @@
         <div class="world-video">
             <video playsinline poster="{{$data['cover']}}" id="example-video" width="600" height="280"
                    class="live-on-video video-js vjs-default-skin" controls>
-                <source src="{{$data['path']}}" type="application/x-mpegURL">
+                <source src="{{$data['path']}}" type="video/mp4">
             </video>
             <a href="javascript:void(0)" class="play">
                 <img src="{{staticFile('images/active/world-video-play.png')}}" alt="下一个视屏">
