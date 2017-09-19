@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="world-video">
-            <video controls  x5-video-player-type="h5" width="200" playsinline  class="video" autoplay="autoplay">
+            <video   x5-video-player-type="h5" width="200" playsinline  class="video" autoplay="autoplay">
                 <source src="{{$data['path']}}" type="video/mp4">
             </video>
             @if($id > 1)
