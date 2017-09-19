@@ -383,7 +383,7 @@ html,body{background-color: #fff;height: 100%}
 .gift-wall-content .over{margin: 0 auto;width: 16.25rem;overflow: hidden;}
 .gift-wall-content ul{margin-right: -.75rem;}
 .gift-wall-content li{float: left;width: 7.75rem;margin-right: .75rem;margin-bottom: 1.25rem}
-.gift-wall-content .photo{border: 0.1rem solid #000;}
+.gift-wall-content .photo{border: 0.1rem solid #000;height: 10.44rem}
 .gift-wall-content .photo img{width: 100%}
 .gift-wall-content .info{padding: 0.65rem 0;vertical-align: middle;}
 .gift-wall-content .user{width: 2.05rem;height: 2.05rem;border-radius: 50%;border: 0.1rem solid #000;}

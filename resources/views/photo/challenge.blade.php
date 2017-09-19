@@ -81,6 +81,7 @@
                 resize: true
             });
             uploader.on('uploadSuccess', function (file, response) {
+                $.hidePreloader();
                 var url = response.data.url;
                 var module = $('#module').data('module');
                 window.location.href = '/photo/uploadImage/' + module + '?isUpload=1&path=' + url
