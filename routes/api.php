@@ -51,7 +51,7 @@ Route::get('luck', 'LuckController@luck');
 Route::get('luckList', 'LuckController@luckList');
 Route::get('lucky', 'LuckController@sectionLucky');
 Route::post('luck/contact', 'LuckController@luckyContact');
-
+Route::get('luck/check', 'LuckController@checkUserLuck');
 Route::get('question', 'VideoController@getQuestionList');
 Route::get('questionDetail', 'VideoController@questionDetail');
 

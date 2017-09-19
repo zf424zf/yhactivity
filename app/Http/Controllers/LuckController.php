@@ -10,6 +10,7 @@ namespace App\Http\Controllers;
 
 
 use App\Http\Models\SectionModel;
+use App\Http\Request\LuckCheckRequest;
 use App\Http\Request\LuckContactRequest;
 use App\Http\Request\LuckRequest;
 use App\Http\Request\SectionLuckRequest;
@@ -21,7 +22,7 @@ class LuckController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin',['except'=>['luck','luckList','sectionLucky','luckyContact']]);
+        $this->middleware('isLogin', ['except' => ['checkUserLuck','luck', 'luckList', 'sectionLucky', 'luckyContact']]);
     }
 
     public function luck(LuckRequest $request)
@@ -37,8 +38,8 @@ class LuckController extends Controller
 
     public function sectionLucky(SectionLuckRequest $request)
     {
-        $data =  (new Luck())->getLuckyBySection($request->get('section'));
-        return api_response(Service::SUCCESS,$data);
+        $data = (new Luck())->getLuckyBySection($request->get('section'));
+        return api_response(Service::SUCCESS, $data);
     }
 
     public function luckyContact(LuckContactRequest $request)
@@ -50,35 +51,45 @@ class LuckController extends Controller
     public function indexView()
     {
         $user = session('user');
-        $uid = array_get($user,'id','');
-        return view('lucky.index',['uid'=>$uid]);
+        $uid = array_get($user, 'id', '');
+        return view('lucky.index', ['uid' => $uid]);
     }
 
-    public function shareWallView(){
-         $data =  (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
-        return view('lucky.wall',['data'=>$data]);
+    public function shareWallView()
+    {
+        $data = (new Luck())->luckList(\Request::get('page', 1), \Request::get('pagesize', 12));
+        return view('lucky.wall', ['data' => $data]);
     }
 
-    public function shareDetailView($id){
+    public function shareDetailView($id)
+    {
         $user = session('user');
-        $data = (new Image())->imageInfo($id,array_get($user,'id',''));
-        return view('lucky.detail',['data'=>$data]);
-    }
-    public function shareRankView($section){
-        $sections = SectionModel::pluck('name','id');
-         if(empty($sections)){
-             abort(404);
-         }
-         $data = (new Luck())->getLuckyBySection($section);
-         return view('lucky.rank',['data'=>$data,'sections'=>$sections,'curSection'=>$section]);
+        $data = (new Image())->imageInfo($id, array_get($user, 'id', ''));
+        return view('lucky.detail', ['data' => $data]);
     }
 
-    public function luckView(){
+    public function shareRankView($section)
+    {
+        $sections = SectionModel::pluck('name', 'id');
+        if (empty($sections)) {
+            abort(404);
+        }
+        $data = (new Luck())->getLuckyBySection($section);
+        return view('lucky.rank', ['data' => $data, 'sections' => $sections, 'curSection' => $section]);
+    }
+
+    public function luckView()
+    {
         $imageId = \Request::get('image_id');
         $uid = session('user')['id'];
-        \Log::error($uid);
         $flag = (new Luck())->checkUserTodayLuck($uid);
-        \Log::error($flag);
-        return view('lucky.luck',['uid'=>$uid,'flag'=>$flag,'image'=>$imageId]);
+        return view('lucky.luck', ['uid' => $uid, 'flag' => $flag, 'image' => $imageId]);
+    }
+
+    public function checkUserLuck(LuckCheckRequest $request)
+    {
+        $data = (new Luck())->checkUserTodayLuck($request->get('uid'));
+        $count = $data ? 1 : 0;
+        return api_response(Service::SUCCESS, ['count' => $count]);
     }
 }

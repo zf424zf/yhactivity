@@ -42,9 +42,7 @@ class Luck
 
     public function checkUserTodayLuck($uid){
          $userLuckCountKey = cache_key('user.luck.count', $uid);
-        if (!empty(cache()->get($userLuckCountKey))) {
-            \Log::error(cache()->get($userLuckCountKey));
-            \Log::error($userLuckCountKey);
+        if (empty($uid)|| !empty(cache()->get($userLuckCountKey))) {
             return false;
         }
         return true;
