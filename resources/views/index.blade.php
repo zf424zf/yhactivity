@@ -20,11 +20,16 @@
             <img src="{{staticFile('images/index/index-boy-arm.gif')}}" alt="boy-hand" class="index-2-boy-hand">
             <img src="{{staticFile('images/index/index-2-boy.png')}}" alt="boy-hand" class="index-2-boy">
             <img src="{{staticFile('images/index/index-2-hand.gif')}}" alt="girl-hand" class="index-2-girl-hand">
-            <img src="{{staticFile('images/index/index-2-girl-mouth.gif')}}" alt="girl-mouth" class="index-2-girl-mouth">
+            <img src="{{staticFile('images/index/index-2-girl-mouth.gif')}}" alt="girl-mouth"
+                 class="index-2-girl-mouth">
             <img src="{{staticFile('images/index/index-2-mouth.gif')}}" alt="boy-mouth" class="index-2-boy-mouth">
             <!-- 第三幅画面 -->
             <img src="{{staticFile('images/index/index-3-face.gif')}}" alt="boy-face" class="index-3-face">
-            <img src="{{staticFile('images/index/yaha-phone.png')}}" alt="雅哈" class="yaha-phone">
+            @if(!empty($data))
+                <img src="{{$data['kol_user_avatar']}}" alt="雅哈" class="yaha-phone">
+            @else
+                <img src="{{staticFile('images/index/yaha-phone.png')}}" alt="雅哈" class="yaha-phone">
+            @endif
             <img src="{{staticFile('images/index/index-3-hand.gif')}}" alt="hand" class="index-3-hand">
             <img src="{{staticFile('images/index/index-3-boy.png')}}" alt="hand" class="index-3-boy">
             <img src="{{staticFile('images/index/index-3-have.gif')}}" alt="hand" class="index-3-have">
@@ -42,11 +47,11 @@
         </div>
     </div>
     <script>
-        $(function(){
+        $(function () {
             //初始化页面
-            setTimeout(function(){
+            setTimeout(function () {
                 $(".begin-index").hide();
-            },3000)
+            }, 3000)
         })
     </script>
 @endsection

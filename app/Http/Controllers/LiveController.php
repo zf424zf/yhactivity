@@ -44,16 +44,7 @@ class LiveController extends Controller
     }
 
     public function getLivingUser(){
-        $data = (new Live())->liveList();
-        $living = null;
-        if($data['code'] == 0){
-            foreach ($data['data'] as $item){
-                if($item['status'] == 'living'){
-                    $living = $item;
-                    break;
-                }
-            }
-        }
-        return api_response(Service::SUCCESS,['living'=>$living]);
+        $data = (new Live())->getLiving();
+        return api_response(Service::SUCCESS,['living'=>$data]);
     }
 }

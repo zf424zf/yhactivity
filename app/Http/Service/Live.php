@@ -16,7 +16,7 @@ class Live
     public function getLiveList($param = [])
     {
         $url = env('NICE_LIVE_LIST_URL');
-        return (new Upload())->get($url,$param);
+        return (new Upload())->get($url, $param);
     }
 
     public function liveList($id = 0)
@@ -33,5 +33,18 @@ class Live
         return $response;
     }
 
-
+    public function getLiving()
+    {
+        $data = $this->liveList();
+        $living = null;
+        if ($data['code'] == 0) {
+            foreach ($data['data'] as $item) {
+                if ($item['status'] == 'living') {
+                    $living = $item;
+                    break;
+                }
+            }
+        }
+        return $living;
+    }
 }

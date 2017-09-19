@@ -9,9 +9,12 @@
 namespace App\Http\Controllers;
 
 
+use App\Http\Service\Live;
+
 class IndexController
 {
     public function index(){
-        return view('index');
+         $living = (new Live())->getLiving();
+        return view('index',['data'=>$living]);
     }
 }
