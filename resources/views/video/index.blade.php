@@ -14,8 +14,8 @@
             </a>
         </div>
         <div class="world-video">
-            <video width="620" playsinline src="{{$data['path']}}" class="video" autoplay="autoplay">
-                您的浏览器版本过低
+            <video width="620" playsinline  class="video" autoplay="autoplay">
+                <source src="{{$data['path']}}" type="video/mp4">
             </video>
             @if($id > 1)
             <a  href="javascript:void(0)" class="btn prev"><img src="{{staticFile('images/active/world-video-prev.png')}}" alt="上一个视屏"></a>
