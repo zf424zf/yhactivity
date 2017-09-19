@@ -282,7 +282,7 @@ html,body{background-color: #fff;height: 100%}
 /*world-index*/
 .world-index-bg{width: 96%;margin: 0 auto;padding-top: 0.6rem;display: block;}
 .world-video{position: relative;background: url(../images/active/world-video-bg.png) no-repeat scroll center center;background-size: 9.4rem 16.45rem;height: 16.45rem}
-.world-video .video{width: 12rem;height: 15.875rem;margin-left: 3.25rem;margin-top: .15rem;}
+.world-video .video{width: 9rem;height: 15.875rem;margin-left: 4.75rem;margin-top: .15rem;}
 .world-video .btn{position: absolute;width: 1.95rem;height: 1.725rem;top: 50%;-webkit-transform: translateY(-50%);transform: translateY(-50%);}
 .world-video .btn img{width: 100%}
 .world-video .prev{left: 0.75rem}
