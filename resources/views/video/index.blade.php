@@ -127,6 +127,7 @@
     </div>
     <script type="text/javascript">
         $(function(){
+            $('.video').play();
 //            document.addEventListener("WeixinJSBridgeReady", function (){
 //                video.play();
 //                video.pause();
