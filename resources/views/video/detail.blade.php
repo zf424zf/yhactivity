@@ -8,6 +8,11 @@
     <style>
         .video-js.vjs-default-skin .vjs-big-play-button { display: none; }
     </style>
+    <style>
+        .video-js .vjs-control{
+            width: 3em!important;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="bg">
