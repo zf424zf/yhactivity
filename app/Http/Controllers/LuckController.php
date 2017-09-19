@@ -78,6 +78,7 @@ class LuckController extends Controller
         $uid = session('user')['id'];
         \Log::error($uid);
         $flag = (new Luck())->checkUserTodayLuck($uid);
+        \Log::error($flag);
         return view('lucky.luck',['uid'=>$uid,'flag'=>$flag,'image'=>$imageId]);
     }
 }
