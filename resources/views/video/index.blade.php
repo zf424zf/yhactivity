@@ -127,6 +127,10 @@
     </div>
     <script type="text/javascript">
         $(function(){
+            document.addEventListener("WeixinJSBridgeReady", function (){
+                video.play();
+                video.pause();
+            }, false)
             // 活动说明遮罩层
             $("#show-mask").on('tap',function(){
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
