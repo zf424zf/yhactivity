@@ -1,14 +1,9 @@
 @extends('layout.main')
 @section('title','视频详情')
 @section('resource')
-    <script src="{{staticFile('js/video-detail.js')}}"></script>
     <link href="//vjs.zencdn.net/5.19/video-js.min.css" rel="stylesheet">
-    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
-    <script src="{{staticFile('js/videojs-contrib-hls.min.js')}}"></script>
     <style>
         .video-js.vjs-default-skin .vjs-big-play-button { display: none; }
-    </style>
-    <style>
         .video-js .vjs-control{
             width: 3em!important;
         }
@@ -60,13 +55,19 @@
             <a href="{{urls('/')}}"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
         </p>
     </div>
+    <script src="{{staticFile('js/video-detail.js')}}"></script>
+    <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
+    <script src="{{staticFile('js/videojs-contrib-hls.min.js')}}"></script>
     <script>
         var player = videojs('example-video');
-//        player.play();
         $(function () {
             $(document).on('click', '.play', function () {
                 $(this).hide();
                 player.play();
+            })
+
+            player.on("ended", function(){
+                $('.play').show();
             })
         })
     </script>
