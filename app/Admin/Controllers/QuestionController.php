@@ -77,7 +77,7 @@ class QuestionController extends Controller
     {
         return Admin::form(QuestionModel::class, function (Form $form) {
             $form->text('question', '问题')->rules('required');
-            $form->select('module', '时间段')->options($this->module)->rules('required');
+            $form->select('module', '板块')->options($this->module)->rules('required');
         });
     }
 }

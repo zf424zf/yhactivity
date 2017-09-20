@@ -47,4 +47,13 @@ class Live
         }
         return $living;
     }
+
+    public function getViewCount($kolId)
+    {
+        $count = setting('living_view_count_' . $kolId);
+        if (empty($count)) {
+            $count = 0;
+        }
+        return $count;
+    }
 }

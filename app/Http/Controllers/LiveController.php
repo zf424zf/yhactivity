@@ -17,7 +17,7 @@ class LiveController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('isLogin',['except'=>['getLivingUser','listLive']]);
+        $this->middleware('isLogin',['except'=>['getViewCount','getLivingUser','listLive']]);
 
     }
 
@@ -46,5 +46,11 @@ class LiveController extends Controller
     public function getLivingUser(){
         $data = (new Live())->getLiving();
         return api_response(Service::SUCCESS,['living'=>$data]);
+    }
+
+    public function getViewCount(){
+        $kolId = \Request::get('kol_id');
+         $data = (new Live())->getViewCount($kolId);
+        return api_response(Service::SUCCESS,$data);
     }
 }
