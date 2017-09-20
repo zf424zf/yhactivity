@@ -60,9 +60,13 @@ class Video
         return $data;
     }
 
-    public function question()
+    public function question($module = '')
     {
-        return QuestionModel::orderBy('id')->get();
+        $model =  QuestionModel::orderBy('id');
+        if(!empty($module)){
+            return $model->where('module',$module)->get();
+        }
+        return $model->get();
     }
 
     public function questionDetail($id)

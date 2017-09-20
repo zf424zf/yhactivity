@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Admin\Controllers;
+use App\Http\Api\VideoChild;
 use App\Http\Controllers\Controller;
 use App\Http\Models\QuestionModel;
 use Encore\Admin\Facades\Admin;
@@ -13,6 +14,12 @@ class QuestionController extends Controller
 {
     use ModelForm;
 
+    public $module = [
+        VideoChild::VIDEO_SS=>'时尚话题',
+        VideoChild::VIDEO_LX=>'旅行话题',
+        VideoChild::VIDEO_MZ=>'美妆话题',
+        VideoChild::VIDEO_NS=>'美食话题',
+        ];
     public function index()
     {
         return Admin::content(function (Content $content) {
@@ -57,7 +64,7 @@ class QuestionController extends Controller
         return Admin::grid(QuestionModel::class, function (Grid $grid) {
             $grid->id('ID')->sortable();
             $grid->question('问题');
-            $grid->order('排序');
+            $grid->moduleCN('模块');
         });
     }
 
@@ -70,8 +77,7 @@ class QuestionController extends Controller
     {
         return Admin::form(QuestionModel::class, function (Form $form) {
             $form->text('question', '问题')->rules('required');
-            $form->text('order', '排名(可选)')->help('如果不填，则按问题填写的顺序排名');
-
+            $form->select('module', '时间段')->options($this->module)->rules('required');
         });
     }
 }

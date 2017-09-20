@@ -56,7 +56,8 @@ class VideoController extends Controller
 
     public function getQuestionList()
     {
-        $data = (new Video())->question();
+        $module = \Request::get('module');
+        $data = (new Video())->question($module);
         return api_response(Service::SUCCESS, $data);
     }
 
