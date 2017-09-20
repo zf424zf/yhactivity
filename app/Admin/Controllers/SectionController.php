@@ -15,6 +15,7 @@ use Encore\Admin\Controllers\ModelForm;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Layout\Content;
+
 class SectionController extends Controller
 {
     use ModelForm;
@@ -37,7 +38,7 @@ class SectionController extends Controller
     {
         return Admin::content(function (Content $content) use ($id) {
             $content->header('编辑问题');
-            $content->body($this->form()->edit($id));
+            $content->body($this->form(1)->edit($id));
         });
     }
 
@@ -53,6 +54,7 @@ class SectionController extends Controller
             $content->body($this->form());
         });
     }
+
     /**
      * Make a grid builder.
      *
@@ -72,10 +74,14 @@ class SectionController extends Controller
      *
      * @return Form
      */
-    protected function form()
+    protected function form($isUpdate = 0)
     {
-        return Admin::form(SectionModel::class, function (Form $form) {
-            $form->text('name', '板块名')->rules('required');
+        return Admin::form(SectionModel::class, function (Form $form) use ($isUpdate) {
+            if($isUpdate == 1){
+                $form->text('name', '板块名')->readOnly()->rules('required');
+            }else{
+                $form->text('name', '板块名')->rules('required');
+            }
             $form->text('remark', '备注(可选)');
         });
     }
