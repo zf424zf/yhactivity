@@ -66,6 +66,7 @@
                 formData:{upload_type:1}
             });
             uploader.on('uploadSuccess', function (file, response) {
+                $.hidePreloader();
                 var url = response.data.url;
                 var uploadImage = $('.upload-image');
                 uploadImage.attr('src', url);
