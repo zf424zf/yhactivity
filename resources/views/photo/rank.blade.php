@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('title','照片墙-排行榜')
 @section('resource')
-    <script src="{{staticFile('/js/rank.js')}}"></script>
     <style>
         .content {
             position: absolute;
@@ -112,6 +111,7 @@
             </div>
         </div>
     </div>
+    <script src="{{staticFile('/js/rank.js')}}"></script>
     <script>
         $(function () {
             $(document).on("pageInit", ".page", function (e, id, page) {

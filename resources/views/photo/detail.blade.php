@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('title','异次元合拍-详情')
 @section('resource')
-    <script src="{{staticFile('js/photo-detail.js')}}"></script>
 @endsection
 @section('content')
     <div class="bg">
@@ -28,7 +27,7 @@
             <div class="active-pic-details">
                 <p class="user-details" data-child="{{$data->module}}" data-target="{{$data->id}}" data-can-like="{{$data->canLike}}">
 					<span class="user-pic">
-						<img src="{{staticFile('images/active/user.png')}}" alt="user-pic">
+						<img src="{{$data->users->headicon}}" alt="user-pic">
 					</span>
                     <span class="user-name">
 						{{$data->users->nickname}}
@@ -49,4 +48,5 @@
 
         </div>
     </div>
+    <script src="{{staticFile('js/photo-detail.js')}}"></script>
 @endsection
