@@ -31,9 +31,10 @@
 					<span class="act-lis-group-left">
 						<img src="{{thumb(array_get($first->originInfo,'path'))}}" alt="phone">
 						<em class="act-beg-lis-group-info">
-							<b>{{isset($first->originInfo->label) ?  $first->originInfo->label : '邂逅爱聊咖' }}</b>
+							<b>{{isset($first->originInfo['label']) ?  $first->originInfo['label'] : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
+
                     <span class="act-lis-group-right">
 						<img src="{{thumb($first->path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
@@ -49,7 +50,7 @@
 					<span class="act-lis-group-left">
 						<img src="{{thumb(array_get($end->originInfo,'path'))}}" alt="phone">
 						<em class="act-beg-lis-group-info">
-							<b>{{isset($end->originInfo->label) ? $end->originInfo->label : '邂逅爱聊咖' }}</b>
+							<b>{{isset($end->originInfo['label']) ? $end->originInfo['label'] : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
                     <span class="act-lis-group-right">
