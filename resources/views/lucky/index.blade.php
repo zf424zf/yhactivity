@@ -22,7 +22,7 @@
             <input type="button"  value="" class="submit gift-index-submit">
 
         </form>
-        <span style="font-size: 1rem;width: 10rem;margin: .5rem auto;display: block;line-height: .8rem">晒出你与雅哈咖啡的合影，即可参与抽奖，每人每日限一次机会！</span>
+        <span style="font-size: .5rem;width: 10rem;margin: .5rem auto;display: block;line-height: .8rem">晒出你与雅哈咖啡的合影，即可参与抽奖，每人每日限一次机会！</span>
         <p class="gift-index-more">
             <a href="{{urls('lucky/rank/1')}}" class="l"><img src="{{staticFile('images/active/gift-goodluck-next.png')}}" alt="btn"></a>
             <a href="{{urls('lucky/wall')}}" class="r"><img src="{{staticFile('images/active/gift-photo-next.png')}}" alt="btn"></a>
