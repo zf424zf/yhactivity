@@ -27,7 +27,7 @@
                                 src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
                     @if(!empty($value))
                         <p class="act-beg-lis-tip">
-                            本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
+                            本周超人气擂主{{$first->trueName}}，目前已获赞{{$first->trueCnt}}
                         </p>
                         <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">

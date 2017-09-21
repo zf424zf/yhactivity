@@ -17,7 +17,7 @@ use PhpParser\Node\Expr\Cast\Object_;
 
 class FileList
 {
-    public $startTimestamp ;
+    public $startTimestamp;
     public $endTimestamp;
 
     public function __construct()
@@ -27,25 +27,45 @@ class FileList
         $this->endTimestamp = Carbon::now()->endOfDay()->timestamp;
     }
 
-    public function videoList($module, $sort, $child = '', $order = 'desc', $uid = '',$page = 1,$pagesize = 6)
+    public function videoList($module, $sort, $child = '', $order = 'desc', $uid = '', $page = 1, $pagesize = 6)
     {
         $count = ($page - 1) * $pagesize;
         //todo 统一到listController
         switch ($sort) {
             case 'like':
-                $data = $this->getListSortByLike($module, $child, $order,$count,$pagesize);
+                $data = $this->getListSortByLike($module, $child, $order, $count, $pagesize);
                 break;
             case 'new':
-                $data = $this->getListSortByNew($module, $child, $order,$count,$pagesize);
+                $data = $this->getListSortByNew($module, $child, $order, $count, $pagesize);
                 break;
             default:
-                return $data = $this->getIndexLists();
+                return $data = $this->getIndexLists($order);
                 break;
         }
         return $this->formatCanLike($module, $data, $uid);
     }
 
-    public function getIndexLists(){
+    public function getIndexLists($order)
+    {
+        $trues = $this->getImageListSortByModule($order);
+
+        $trueBs = current(array_get($trues, PhotoChild::PHOTO_BS, []));
+        $bsName = empty($trueBs) ? '':$trueBs->nickname;
+        $bsCnt = empty($trueBs) ? '' : $trueBs->cnt;
+
+        $trueMx = current(array_get($trues, PhotoChild::PHOTO_MX, []));
+        $mxName = empty($trueMx) ? '':$trueMx->nickname;
+        $mxCnt = empty($trueMx) ? '' : $trueMx->cnt;
+
+        $trueZc = current(array_get($trues, PhotoChild::PHOTO_ZC, []));
+        $zcName = empty($trueZc) ? '':$trueZc->nickname;
+        $zcCnt = empty($trueZc) ? '' : $trueZc->cnt;
+
+        $trueCh = current(array_get($trues, PhotoChild::PHOTO_CH, []));
+        $chName = empty($trueCh) ? '':$trueCh->nickname;
+        $chCnt = empty($trueCh) ? '' : $trueCh->cnt;
+
+
         $zcArr = [];
         $zc2 = new PhotoIndexModel();
         $zc2->id = 99999;
@@ -57,11 +77,11 @@ class FileList
         $zc2->created_at = '';
         $zc2->updated_at = '';
         $zc2->label = '美不美，看大腿';
-        $zc2->origin =99999;
-        $zc2->cnt =99999;
-        $zc2->nickname ='徐峰立';
-        $zc2->headicon ='http://img08.oneniceapp.com/upload/avatar/2015/02/05/cc6b8f241fd5c5263443492f6017a6b6.jpg';
-        $zc2->profile ='';
+        $zc2->origin = 99999;
+        $zc2->cnt = 99999;
+        $zc2->nickname = '徐峰立';
+        $zc2->headicon = 'http://img08.oneniceapp.com/upload/avatar/2015/02/05/cc6b8f241fd5c5263443492f6017a6b6.jpg';
+        $zc2->profile = '';
         $zc1 = new PhotoIndexModel();
         $zc1->id = 99999;
         $zc1->uid = 99999;
@@ -72,13 +92,15 @@ class FileList
         $zc1->created_at = '';
         $zc1->updated_at = '';
         $zc1->label = '你的腿毛露出来了';
-        $zc1->origin =99999;
-        $zc1->cnt =99999;
-        $zc1->nickname ='6孙六六6';
-        $zc1->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/03/19/d3515486d4a4155a591568eaec91e9dc.jpg';
-        $zc1->profile ='';
-        $zc1->originInfo =$zc2;
-        array_push($zcArr,$zc1);
+        $zc1->origin = 99999;
+        $zc1->cnt = 99999;
+        $zc1->nickname = '6孙六六6';
+        $zc1->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/03/19/d3515486d4a4155a591568eaec91e9dc.jpg';
+        $zc1->profile = '';
+        $zc1->originInfo = $zc2;
+        $zc1->trueName = $zcName;
+        $zc1->trueCnt = $zcCnt;
+        array_push($zcArr, $zc1);
 
         $zc3 = new PhotoIndexModel();
         $zc3->id = 99999;
@@ -90,11 +112,11 @@ class FileList
         $zc3->created_at = '';
         $zc3->updated_at = '';
         $zc3->label = '美不美，看大腿';
-        $zc3->origin =99999;
-        $zc3->cnt =99999;
-        $zc3->nickname ='江南BoyNam';
-        $zc3->headicon ='http://img08.oneniceapp.com/upload/avatar/2016/03/26/5c1e88462c8367785a9957eb4da0ef2c.jpg';
-        $zc3->profile ='';
+        $zc3->origin = 99999;
+        $zc3->cnt = 99999;
+        $zc3->nickname = '江南BoyNam';
+        $zc3->headicon = 'http://img08.oneniceapp.com/upload/avatar/2016/03/26/5c1e88462c8367785a9957eb4da0ef2c.jpg';
+        $zc3->profile = '';
         $zc4 = new PhotoIndexModel();
         $zc4->id = 99999;
         $zc4->uid = 99999;
@@ -105,13 +127,13 @@ class FileList
         $zc4->created_at = '';
         $zc4->updated_at = '';
         $zc4->label = '你的腿毛露出来了';
-        $zc4->origin =99999;
-        $zc4->cnt =99999;
-        $zc4->nickname ='6孙六六6';
-        $zc4->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/03/19/d3515486d4a4155a591568eaec91e9dc.jpg';
-        $zc4->profile ='';
-        $zc4->originInfo =$zc3;
-        array_push($zcArr,$zc4);
+        $zc4->origin = 99999;
+        $zc4->cnt = 99999;
+        $zc4->nickname = '6孙六六6';
+        $zc4->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/03/19/d3515486d4a4155a591568eaec91e9dc.jpg';
+        $zc4->profile = '';
+        $zc4->originInfo = $zc3;
+        array_push($zcArr, $zc4);
 
         $mxArr = [];
         $mx2 = new PhotoIndexModel();
@@ -124,11 +146,11 @@ class FileList
         $mx2->created_at = '';
         $mx2->updated_at = '';
         $mx2->label = '这是我爱的形状';
-        $mx2->origin =99999;
-        $mx2->cnt =99999;
-        $mx2->nickname ='Changledick长乐的';
-        $mx2->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/05/27/969ddaa082303824fb4809c75818377f.jpg';
-        $mx2->profile ='';
+        $mx2->origin = 99999;
+        $mx2->cnt = 99999;
+        $mx2->nickname = 'Changledick长乐的';
+        $mx2->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/05/27/969ddaa082303824fb4809c75818377f.jpg';
+        $mx2->profile = '';
         $mx1 = new PhotoIndexModel();
         $mx1->id = 99999;
         $mx1->uid = 99999;
@@ -139,13 +161,15 @@ class FileList
         $mx1->created_at = '';
         $mx1->updated_at = '';
         $mx1->label = '这是我要弹你脑门的形状';
-        $mx1->origin =99999;
-        $mx1->cnt =99999;
-        $mx1->nickname ='王露茜LucyW';
-        $mx1->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/07/20/c5a152a3465a93cea384f15367b27991.jpg';
-        $mx1->profile ='';
-        $mx1->originInfo =$mx2;
-        array_push($mxArr,$mx1);
+        $mx1->origin = 99999;
+        $mx1->cnt = 99999;
+        $mx1->nickname = '王露茜LucyW';
+        $mx1->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/07/20/c5a152a3465a93cea384f15367b27991.jpg';
+        $mx1->profile = '';
+        $mx1->originInfo = $mx2;
+        $mx1->trueName = $mxName;
+        $mx1->trueCnt = $mxCnt;
+        array_push($mxArr, $mx1);
 
         $mx3 = new PhotoIndexModel();
         $mx3->id = 99999;
@@ -157,11 +181,11 @@ class FileList
         $mx3->created_at = '';
         $mx3->updated_at = '';
         $mx3->label = '这是我爱的形状';
-        $mx3->origin =99999;
-        $mx3->cnt =99999;
-        $mx3->nickname ='Changledick长乐的';
-        $mx3->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/05/27/969ddaa082303824fb4809c75818377f.jpg';
-        $mx3->profile ='';
+        $mx3->origin = 99999;
+        $mx3->cnt = 99999;
+        $mx3->nickname = 'Changledick长乐的';
+        $mx3->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/05/27/969ddaa082303824fb4809c75818377f.jpg';
+        $mx3->profile = '';
 
         $mx4 = new PhotoIndexModel();
         $mx4->id = 99999;
@@ -173,13 +197,13 @@ class FileList
         $mx4->created_at = '';
         $mx4->updated_at = '';
         $mx4->label = '这是我要弹你脑门的形状';
-        $mx4->origin =99999;
-        $mx4->cnt =99999;
-        $mx4->nickname ='丁丁丁timo';
-        $mx4->headicon ='http://img08.oneniceapp.com/upload/avatar/2016/01/16/9867580490307229034752275fd808f7.jpg';
-        $mx4->profile ='';
-        $mx4->originInfo =$mx3;
-        array_push($mxArr,$mx4);
+        $mx4->origin = 99999;
+        $mx4->cnt = 99999;
+        $mx4->nickname = '丁丁丁timo';
+        $mx4->headicon = 'http://img08.oneniceapp.com/upload/avatar/2016/01/16/9867580490307229034752275fd808f7.jpg';
+        $mx4->profile = '';
+        $mx4->originInfo = $mx3;
+        array_push($mxArr, $mx4);
 
         $bsArr = [];
         $bs2 = new PhotoIndexModel();
@@ -192,11 +216,11 @@ class FileList
         $bs2->created_at = '';
         $bs2->updated_at = '';
         $bs2->label = '高难度花式秀恩爱';
-        $bs2->origin =99999;
-        $bs2->cnt =99999;
-        $bs2->nickname ='叶河林';
-        $bs2->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/08/30/46eb6a64c95b674e499adea1ae3601f0.jpg';
-        $bs2->profile ='';
+        $bs2->origin = 99999;
+        $bs2->cnt = 99999;
+        $bs2->nickname = '叶河林';
+        $bs2->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/46eb6a64c95b674e499adea1ae3601f0.jpg';
+        $bs2->profile = '';
         $bs1 = new PhotoIndexModel();
         $bs1->id = 99999;
         $bs1->uid = 99999;
@@ -207,13 +231,16 @@ class FileList
         $bs1->created_at = '';
         $bs1->updated_at = '';
         $bs1->label = '秀恩爱得看你的腰力噢';
-        $bs1->origin =99999;
-        $bs1->cnt =99999;
-        $bs1->nickname ='李舒雯WENDY';
-        $bs1->headicon ='http://img08.oneniceapp.com/upload/avatar/2015/08/08/2bc83f4f32932eab5fd92707e58b082b.jpg';
-        $bs1->profile ='';
-        $bs1->originInfo =$bs2;
-        array_push($bsArr,$bs1);
+        $bs1->origin = 99999;
+        $bs1->cnt = 99999;
+        $bs1->nickname = '李舒雯WENDY';
+        $bs1->headicon = 'http://img08.oneniceapp.com/upload/avatar/2015/08/08/2bc83f4f32932eab5fd92707e58b082b.jpg';
+        $bs1->profile = '';
+        $bs1->originInfo = $bs2;
+
+        $bs1->trueName = $bsName;
+        $bs1->trueCnt = $bsCnt;
+        array_push($bsArr, $bs1);
 
         $bs3 = new PhotoIndexModel();
         $bs3->id = 99999;
@@ -225,11 +252,11 @@ class FileList
         $bs3->created_at = '';
         $bs3->updated_at = '';
         $bs3->label = '高难度花式秀恩爱';
-        $bs3->origin =99999;
-        $bs3->cnt =99999;
-        $bs3->nickname ='叶河林';
-        $bs3->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/08/30/46eb6a64c95b674e499adea1ae3601f0.jpg';
-        $bs3->profile ='';
+        $bs3->origin = 99999;
+        $bs3->cnt = 99999;
+        $bs3->nickname = '叶河林';
+        $bs3->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/08/30/46eb6a64c95b674e499adea1ae3601f0.jpg';
+        $bs3->profile = '';
 
         $bs4 = new PhotoIndexModel();
         $bs4->id = 99999;
@@ -241,13 +268,13 @@ class FileList
         $bs4->created_at = '';
         $bs4->updated_at = '';
         $bs4->label = '秀恩爱得看你的腰力噢';
-        $bs4->origin =99999;
-        $bs4->cnt =99999;
-        $bs4->nickname ='申珊申珊';
-        $bs4->headicon ='http://img08.oneniceapp.com/upload/avatar/2017/09/02/71dca730b1e1205e69c557bec62de1fd.jpg';
-        $bs4->profile ='';
-        $bs4->originInfo =$bs3;
-        array_push($bsArr,$bs4);
+        $bs4->origin = 99999;
+        $bs4->cnt = 99999;
+        $bs4->nickname = '申珊申珊';
+        $bs4->headicon = 'http://img08.oneniceapp.com/upload/avatar/2017/09/02/71dca730b1e1205e69c557bec62de1fd.jpg';
+        $bs4->profile = '';
+        $bs4->originInfo = $bs3;
+        array_push($bsArr, $bs4);
 
         $chArr = [];
         $ch2 = new PhotoIndexModel();
@@ -260,11 +287,11 @@ class FileList
         $ch2->created_at = '';
         $ch2->updated_at = '';
         $ch2->label = '爱我的请举手';
-        $ch2->origin =99999;
-        $ch2->cnt =99999;
-        $ch2->nickname ='JungSukin';
-        $ch2->headicon ='http://img08.oneniceapp.com/upload/avatar/2016/12/31/0aa35471eb2f26aa569160212e37fd95.jpg';
-        $ch2->profile ='';
+        $ch2->origin = 99999;
+        $ch2->cnt = 99999;
+        $ch2->nickname = 'JungSukin';
+        $ch2->headicon = 'http://img08.oneniceapp.com/upload/avatar/2016/12/31/0aa35471eb2f26aa569160212e37fd95.jpg';
+        $ch2->profile = '';
         $ch1 = new PhotoIndexModel();
         $ch1->id = 99999;
         $ch1->uid = 99999;
@@ -275,13 +302,15 @@ class FileList
         $ch1->created_at = '';
         $ch1->updated_at = '';
         $ch1->label = '服务员，买单~';
-        $ch1->origin =99999;
-        $ch1->cnt =99999;
-        $ch1->nickname ='lucizi';
-        $ch1->headicon ='http://img08.oneniceapp.com/upload/avatar/2015/03/14/abe2fdab96aad4b51384937e0839cb6c.jpg';
-        $ch1->profile ='';
-        $ch1->originInfo =$ch2;
-        array_push($chArr,$ch1);
+        $ch1->origin = 99999;
+        $ch1->cnt = 99999;
+        $ch1->nickname = 'lucizi';
+        $ch1->headicon = 'http://img08.oneniceapp.com/upload/avatar/2015/03/14/abe2fdab96aad4b51384937e0839cb6c.jpg';
+        $ch1->profile = '';
+        $ch1->originInfo = $ch2;
+        $ch1->trueName = $chName;
+        $ch1->trueCnt = $chCnt;
+        array_push($chArr, $ch1);
 
         $ch3 = new PhotoIndexModel();
         $ch3->id = 99999;
@@ -293,11 +322,11 @@ class FileList
         $ch3->created_at = '';
         $ch3->updated_at = '';
         $ch3->label = '爱我的请举手';
-        $ch3->origin =99999;
-        $ch3->cnt =99999;
-        $ch3->nickname ='JungSukin';
-        $ch3->headicon ='http://img08.oneniceapp.com/upload/avatar/2016/12/31/0aa35471eb2f26aa569160212e37fd95.jpg';
-        $ch3->profile ='';
+        $ch3->origin = 99999;
+        $ch3->cnt = 99999;
+        $ch3->nickname = 'JungSukin';
+        $ch3->headicon = 'http://img08.oneniceapp.com/upload/avatar/2016/12/31/0aa35471eb2f26aa569160212e37fd95.jpg';
+        $ch3->profile = '';
 
         $ch4 = new PhotoIndexModel();
         $ch4->id = 99999;
@@ -309,17 +338,17 @@ class FileList
         $ch4->created_at = '';
         $ch4->updated_at = '';
         $ch4->label = '服务员，买单~';
-        $ch4->origin =99999;
-        $ch4->cnt =99999;
-        $ch4->nickname ='施沛岑carol';
-        $ch4->headicon ='http://img08.oneniceapp.com/upload/avatar/sina/2014/02/14/350781_1402812361.jpg';
-        $ch4->profile ='';
-        $ch4->originInfo =$ch3;
-        array_push($chArr,$ch4);
-        return [PhotoChild::PHOTO_ZC=>$zcArr,PhotoChild::PHOTO_MX=>$mxArr,PhotoChild::PHOTO_BS=>$bsArr,PhotoChild::PHOTO_CH=>$chArr];
+        $ch4->origin = 99999;
+        $ch4->cnt = 99999;
+        $ch4->nickname = '施沛岑carol';
+        $ch4->headicon = 'http://img08.oneniceapp.com/upload/avatar/sina/2014/02/14/350781_1402812361.jpg';
+        $ch4->profile = '';
+        $ch4->originInfo = $ch3;
+        array_push($chArr, $ch4);
+        return [PhotoChild::PHOTO_ZC => $zcArr, PhotoChild::PHOTO_MX => $mxArr, PhotoChild::PHOTO_BS => $bsArr, PhotoChild::PHOTO_CH => $chArr];
     }
 
-    public function getListSortByNew($module, $child, $order,$count,$pagesize)
+    public function getListSortByNew($module, $child, $order, $count, $pagesize)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $likeWhere = '';
@@ -364,7 +393,7 @@ class FileList
         return $data;
     }
 
-    public function getListSortByLike($module, $child = 1, $order = 'desc',$count,$pagesize)
+    public function getListSortByLike($module, $child = 1, $order = 'desc', $count, $pagesize)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $where = ' where 1=1';
@@ -440,7 +469,7 @@ class FileList
         $newArr = [];
         foreach ($data as $item) {
             if (array_key_exists($item->module, $newArr)) {
-                if(count($newArr[$item->module]) < 2){
+                if (count($newArr[$item->module]) < 2) {
                     array_push($newArr[$item->module], $item);
                 }
                 continue;
