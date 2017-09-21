@@ -125,12 +125,12 @@
                 formData:{upload_type:1}
             });
             uploader.on( 'uploadSuccess', function( file,response) {
+                $.hidePreloader();
                 var url = response.data.url;
                 var upload = $('#upload');
                 upload.data('url',url);
                 upload.attr('src',url);
 
-//                var module = $('#module').data('module');
 //                window.location.href = '/photo/uploadImage/'+module+'?isUpload=1&path='+url
             });
             uploader.on( 'uploadError', function( file,response ) {
