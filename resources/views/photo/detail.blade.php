@@ -13,7 +13,7 @@
                     <!--  上传图片展示 -->
                     <img src="{{thumb($data->originInfo->path,250,324)}}" alt="upload-img-show" class="show-img">
                     <em class="upload-imga-info">
-                        <i>{{$data->origin_info->label or '邂逅爱聊咖'}}</i>
+                        <i>{{$data->originInfo->label or '邂逅爱聊咖'}}</i>
                     </em>
                 </label>
                 <label class="upload-imga-right">
