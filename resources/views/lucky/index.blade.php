@@ -146,6 +146,10 @@
             });
             uploader.on( 'fileQueued', function( file,response ) {
             });
+            uploader.on( 'uploadProgress', function( file, percentage ) {
+                $.showPreloader('上传中')
+            });
+
             $(document).on('click','.submit',function(){
                 var upload = $('#upload');
                 var path = upload.data('url');
