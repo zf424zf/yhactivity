@@ -133,6 +133,10 @@
 
 //                window.location.href = '/photo/uploadImage/'+module+'?isUpload=1&path='+url
             });
+            uploader.on( 'uploadComplete', function( file,response) {
+                $.hidePreloader();
+            });
+
             uploader.on( 'uploadError', function( file,response ) {
                 $.hidePreloader();
             });
