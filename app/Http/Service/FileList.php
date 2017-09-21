@@ -226,7 +226,7 @@ class FileList
         $bs1->uid = 99999;
         $bs1->module = PhotoChild::PHOTO_BS;
         $bs1->type = 1;
-        $bs1->path = 'http:\/\/img08.oneniceapp.com\/upload\/show\/2017\/09\/21\/0e9ff0f93ec6273ce8c2c0ac9ffabc5c.jpg-t1080';
+        $bs1->path = 'http://img08.oneniceapp.com/upload/show/2017/09/21/0e9ff0f93ec6273ce8c2c0ac9ffabc5c.jpg-t1080';
         $bs1->picInfo = '';
         $bs1->created_at = '';
         $bs1->updated_at = '';
@@ -263,7 +263,7 @@ class FileList
         $bs4->uid = 99999;
         $bs4->module = PhotoChild::PHOTO_BS;
         $bs4->type = 1;
-        $bs4->path = 'http:\/\/img08.oneniceapp.com\/upload\/show\/2017\/09\/21\/b92c958f558a3709a238217c441bf204.jpg-t1080';
+        $bs4->path = 'http://img08.oneniceapp.com/upload/show/2017/09/21/b92c958f558a3709a238217c441bf204.jpg-t1080';
         $bs4->picInfo = '';
         $bs4->created_at = '';
         $bs4->updated_at = '';
@@ -297,7 +297,7 @@ class FileList
         $ch1->uid = 99999;
         $ch1->module = PhotoChild::PHOTO_CH;
         $ch1->type = 1;
-        $ch1->path = 'http:\/\/img08.oneniceapp.com\/upload\/show\/2017\/09\/21\/13088ef13d315c85c1863f611ac1e724.jpg-t1080';
+        $ch1->path = 'http://img08.oneniceapp.com/upload/show/2017/09/21/13088ef13d315c85c1863f611ac1e724.jpg-t1080';
         $ch1->picInfo = '';
         $ch1->created_at = '';
         $ch1->updated_at = '';
@@ -333,7 +333,7 @@ class FileList
         $ch4->uid = 99999;
         $ch4->module = PhotoChild::PHOTO_CH;
         $ch4->type = 1;
-        $ch4->path = 'http:\/\/img08.oneniceapp.com\/upload\/show\/2017\/09\/21\/aeac7c949d24a4a7e101349e254dd441.jpg-t1080';
+        $ch4->path = 'http://img08.oneniceapp.com/upload/show/2017/09/21/aeac7c949d24a4a7e101349e254dd441.jpg-t1080';
         $ch4->picInfo = '';
         $ch4->created_at = '';
         $ch4->updated_at = '';
