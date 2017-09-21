@@ -252,7 +252,7 @@ html,body{background-color: #fff;height: 100%}
 .live-list-con{float: right;width: 9.125rem;-webkit-box-sizing: border-box;box-sizing: border-box;padding: 1.125rem 0.45rem 0 0;}
 .live-list-con .title{display: inline-block;width: 100%;font-size: 0.7rem;font-weight: bold;padding: 0.3rem 0;}
 .live-list-con .name{display: inline-block;width: 100%;font-size: 0.85rem;font-weight: bold;}
-.live-list-con .bardian{display: inline-block;font-size: 0.7rem;font-weight: bold;line-height: .5rem;background: #ffd731;}
+.live-list-con .bardian{display: inline-block;font-size: 0.7rem;font-weight: bold;line-height: 1rem;background: #ffd731;}
 .live-list-con .time{display: inline-block;width: 100%;font-size: 0.65rem;font-weight: bold;padding: 0.3rem 0;}
 .live-list-con .btn{display: inline-block;width: 100%;padding-top: .3rem;}
 .live-list-con .btn img{width: 5.7rem;height: 1.875rem}
