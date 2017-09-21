@@ -16,56 +16,66 @@
         <ul class="active-begin-list">
             @foreach($data as $key=>$value)
                 <?php
-                    $first = current($value);
-                    $end = end($value);
+                $first = current($value);
+                $end = end($value);
                 ?>
 
-            <li>
-                <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台"></div>
-                <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
-                @if(!empty($value))
-                <p class="act-beg-lis-tip">
-                    本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
-                </p>
-                <p class="act-beg-lis-group">
+                <li>
+                    <div class="act-beg-lis-tit"><img src="../images/active/act-beg-lis-tit{{$key}}.png" alt="变身擂台">
+                    </div>
+                    <a href="{{urls('/photo/challenge/'.$key)}}" class="act-beg-lis-link"><img
+                                src="{{staticFile('images/active/act-beg-lis-link.png')}}" alt="进入擂台"></a>
+                    @if(!empty($value))
+                        <p class="act-beg-lis-tip">
+                            本周超人气擂主{{$first->nickname}}，目前已获赞{{$first->cnt}}
+                        </p>
+                        <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{thumb(array_get($first->originInfo,'path'))}}" alt="phone">
+						<img src="{{$first->originInfo->path}}" alt="phone">
 						<em class="act-beg-lis-group-info">
-							<b>{{isset($first->originInfo['label']) ?  $first->originInfo['label'] : '邂逅爱聊咖' }}</b>
+							<b>{{isset($first->originInfo->label) ?  $first->originInfo->label: '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
 
-                    <span class="act-lis-group-right">
+                            <span class="act-lis-group-right">
 						<img src="{{thumb($first->path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{empty($first->label) ? '邂逅爱聊咖' : $first->label}}</b>
 						</em>
 					</span>
-                </p>
-                <p class="act-beg-user-name">
-                    <img src="{{$first->headicon}}" alt="user" class="act-beg-lis-pic">
-                    <span class="act-beg-lis-name">{{$first->nickname}}</span>
-                </p>
-                <p class="act-beg-lis-group">
+                        </p>
+                        <p class="act-beg-user-name">
+                            <img src="{{$first->originInfo->headicon}}" alt="user" class="act-beg-lis-pic">
+                            <span class="act-beg-lis-name">{{$first->originInfo->nickname}}</span>
+                        </p>
+                        <p class="act-beg-user-name" style="margin: -2rem 0 0 0;padding-left: 9rem;">
+                            <img src="{{$first->headicon}}" alt="user" class="act-beg-lis-pic">
+                            <span class="act-beg-lis-name">{{$first->nickname}}</span>
+                        </p>
+                        <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{thumb(array_get($end->originInfo,'path'))}}" alt="phone">
+						<img src="{{$end->originInfo->path}}" alt="phone">
 						<em class="act-beg-lis-group-info">
-							<b>{{isset($end->originInfo['label']) ? $end->originInfo['label'] : '邂逅爱聊咖' }}</b>
+							<b>{{isset($end->originInfo->label) ? $end->originInfo->label : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
-                    <span class="act-lis-group-right">
+                            <span class="act-lis-group-right">
 						<img src="{{thumb($end->path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
-							<b>{{isset($end->label) ? '邂逅爱聊咖' : $end->label}}</b>
+							<b>{{!isset($end->label) ? '邂逅爱聊咖' : $end->label}}</b>
 						</em>
 					</span>
-                </p>
-                <p class="act-beg-user-name">
-                    <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
-                    <span class="act-beg-lis-name">{{$end->nickname}}</span>
-                </p>
-                @endif
-            </li>
+                        </p>
+                        <p class="act-beg-user-name" >
+                            <img src="{{$end->originInfo->headicon}}" alt="user" class="act-beg-lis-pic">
+                            <span class="act-beg-lis-name">{{$end->originInfo->nickname}}</span>
+                        </p>
+                        <p class="act-beg-user-name" style="margin: -2rem 0 0 0;padding-left: 9rem;">
+                            <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic" >
+                            <span class="act-beg-lis-name">{{$end->nickname}}</span>
+                        </p>
+                    @endif
+                </li>
             @endforeach
 
         </ul>
@@ -99,7 +109,7 @@
                         参与方式：
                     </h1>
                     <p class="active-translate-mask-info">
-                        用户选择要挑战的原图并上传自己的照片来完成创意拼图，或自行上传照片来挑战拼图。上传照片完成拼图后，获得点赞最高的用户，将获得雅哈咖啡送出的奖励。                    </p>
+                        用户选择要挑战的原图并上传自己的照片来完成创意拼图，或自行上传照片来挑战拼图。上传照片完成拼图后，获得点赞最高的用户，将获得雅哈咖啡送出的奖励。 </p>
                     <p class="active-translate-mask-info">
                         参与活动的照片请确保真实，自主创作或经过权利人合法授权。
                     </p>
@@ -156,15 +166,15 @@
         </div>
     </div>
     <script>
-        $(function(){
-            $(document).on('click','.active-begin-more',function(){
+        $(function () {
+            $(document).on('click', '.active-begin-more', function () {
                 location.href = '/photo/list/rank?module=1&child=3'
             });
             // 活动说明遮罩层
-            $("#show-mask").on('tap',function(){
+            $("#show-mask").on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             });
-            $('.active-translate-mask-bg').on('tap',function(){
+            $('.active-translate-mask-bg').on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             })
         })
