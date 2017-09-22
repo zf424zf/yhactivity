@@ -42,10 +42,11 @@ class User
         return $data;
     }
 
-    public function redirectByUser($uid, $nickName, $avatar)
+    public function redirectByUser($uid, $nickName, $avatar, $back)
     {
         $this->niceUser($uid, $nickName, $avatar);
-        return redirect()->action('IndexController@index');
+        $back = empty($back) ? '/' : $back;
+        return redirect($back);
     }
 
     public function niceUser($uid, $nickName, $avatar)
