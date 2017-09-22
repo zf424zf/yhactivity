@@ -31,14 +31,14 @@
                         </p>
                         <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{$first->originInfo->path}}" alt="phone">
+						<img src="{{$first->originInfo->cut_path}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{isset($first->originInfo->label) ?  $first->originInfo->label: '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
 
                             <span class="act-lis-group-right">
-						<img src="{{thumb($first->path)}}" alt="phone">
+						<img src="{{thumb($first->cut_path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{empty($first->label) ? '邂逅爱聊咖' : $first->label}}</b>
 						</em>
@@ -54,13 +54,13 @@
                         </p>
                         <p class="act-beg-lis-group">
 					<span class="act-lis-group-left">
-						<img src="{{$end->originInfo->path}}" alt="phone">
+						<img src="{{$end->originInfo->cut_path}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{isset($end->originInfo->label) ? $end->originInfo->label : '邂逅爱聊咖' }}</b>
 						</em>
 					</span>
                             <span class="act-lis-group-right">
-						<img src="{{thumb($end->path)}}" alt="phone">
+						<img src="{{thumb($end->cut_path)}}" alt="phone">
 						<em class="act-beg-lis-group-info">
 							<b>{{!isset($end->label) ? '邂逅爱聊咖' : $end->label}}</b>
 						</em>
