@@ -24,7 +24,7 @@ class Image
         if ($type == 1) {
             if (!empty($originId)) {
                 //查找左图
-                $left = ImageModel::where('id', $originId)->where('type', 0)->first();
+                $left = ImageModel::where('id', $originId)->whereIn('type', [0,99])->first();
                 if (!$left) {
                     api_exception(Service::IMAGE_LEFT_PIC_NOT_FOUND);
                 }
