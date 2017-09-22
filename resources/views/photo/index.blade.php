@@ -165,7 +165,16 @@
             </ul>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
     <script>
+        var opt = {
+            name:"timeline, friend, qq, qzone, weibo",
+            title:"嘿嘿，这件事一个人做，不如两个人做！",
+            description:"合不合拍，试了才知道！",
+            url: window.location.href,
+            icon: ''
+        }
+        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
             $(document).on('click', '.active-begin-more', function () {
                 location.href = '/photo/list/rank?module=1&child=3'

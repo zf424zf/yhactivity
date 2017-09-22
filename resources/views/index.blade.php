@@ -46,7 +46,16 @@
             <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
     <script>
+        var opt = {
+            name:"timeline, friend, qq, qzone, weibo",
+            title:"我们爱聊荤段子〜",
+            description:"我要下车！这根本不是去幼儿园的路！",
+            url: window.location.href,
+            icon: ''
+        }
+        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
             //初始化页面
             setTimeout(function () {

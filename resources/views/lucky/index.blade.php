@@ -103,7 +103,16 @@
             </ul>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
     <script>
+        var opt = {
+            name:"timeline, friend, qq, qzone, weibo",
+            title:"来，拿个红包压压惊!",
+            description:"不砸得你哈哈大笑算我输〜",
+            url: window.location.href,
+            icon: ''
+        }
+        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function(){
             // 活动说明遮罩层
             $("#show-mask").on('tap',function(){

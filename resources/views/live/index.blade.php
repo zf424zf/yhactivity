@@ -110,7 +110,16 @@
             </ul>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
     <script type="text/javascript">
+        var opt = {
+            name:"timeline, friend, qq, qzone, weibo",
+            title:"这个直播尺度太大，再不看一会可能就被河蟹了~",
+            description:"Aha ha ha ha ha ha ha ha…",
+            url: window.location.href,
+            icon: ''
+        }
+        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
             // 活动说明遮罩层
             $("#show-mask").on('tap', function () {
