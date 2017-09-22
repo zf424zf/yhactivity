@@ -113,6 +113,7 @@
 </head>
 <body>
 <script type="text/javascript" src="{{staticFile('js/zepto.js')}}"></script>
+<script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
 {{--    <script type="text/javascript" src="{{staticFile('js/zepto.data.js')}}"></script>--}}
 <script type="text/javascript" src="{{staticFile('js/zepto.callbacks.js')}}"></script>
 <script type="text/javascript" src="{{staticFile('js/zepto.deferred.js')}}"></script>

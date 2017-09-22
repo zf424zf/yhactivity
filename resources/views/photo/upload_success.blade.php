@@ -1,7 +1,6 @@
 @extends('layout.main')
 @section('title','上传成功')
 @section('resource')
-    <script src="http://www.oneniceapp.com/webapp-open-static/js/main.js"></script>
 @endsection
 @section('content')
     <div class="bg">
@@ -48,10 +47,26 @@
         </div>
         <input class="photo-module" type="hidden" data-module="{{$image['module']}}">
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
     <script>
+        var opt = {
+            name:"timeline, friend, qq, qzone, weibo",
+            title:"我已拼赢整个世界，不服就来看看呗",
+            description:"专治不服三百年！",
+            url: window.location.href,
+            icon: ''
+        }
+        window.hybridBridge.headerBar.setShareConfig(opt);
+
         $(function () {
             $(document).on('click','.share',function(){
-                call_share();
+                window.hybridBridge.system.share({
+                    name: 'timeline,friend,qq,qzone,weibo',
+                    title: "我已拼赢整个世界，不服就来看看呗",
+                    description: "专治不服三百年！",
+                    url: window.location.href,
+                    icon: ''
+                });
             })
             $(document).on('click', '.remake', function () {
                 var id = $(this).data('imageId');
@@ -72,16 +87,6 @@
         })
     </script>
     <script>
-        function call_share() {
-            require(['open/nice-sdk-1.0'], function (nicesdk) {
-                nicesdk.systemShare({
-                    name: "friend",//这是分享到哪里  例如:timeline 表示分享到微信朋友圈，friend表示分享到微信好友
-                    title: "nicer",
-                    description: "nice",
-                    url: "http://activity.dev/photo/upload/success/92",
-                    icon: ""
-                });
-            });
-        }
+
     </script>
 @endsection
