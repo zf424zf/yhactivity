@@ -55,7 +55,7 @@
         $(function () {
             var uploader = WebUploader.create({
                 auto: true,
-                fileNumLimit: 9,
+                fileNumLimit: 1,
                 // 文件接收服务端。
                 server: '/api/upload',
                 // 选择文件的按钮。可选。
@@ -63,7 +63,12 @@
                 pick: '#upload',
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
                 resize: false,
-                formData:{upload_type:1}
+                formData:{upload_type:1},
+                accept: {
+                    title: 'Images',
+                    extensions: 'gif,jpg,jpeg,bmp,png',
+                    mimeTypes: 'image/*'
+                }
             });
             uploader.on('uploadSuccess', function (file, response) {
                 $.hidePreloader();
