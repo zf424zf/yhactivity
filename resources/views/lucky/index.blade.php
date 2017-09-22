@@ -140,10 +140,6 @@
             uploader.on( 'uploadError', function( file,response ) {
                 $.hidePreloader();
             });
-
-            uploader.on( 'uploadComplete', function( file ,response) {
-                $.hidePreloader();
-            });
             uploader.on( 'fileQueued', function( file,response ) {
             });
             uploader.on( 'uploadProgress', function( file, percentage ) {

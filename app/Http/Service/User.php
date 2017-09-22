@@ -44,9 +44,6 @@ class User
 
     public function redirectByUser($uid, $nickName, $avatar)
     {
-        \Log::error('current uid=====>'.$uid);
-        \Log::error('current nickname=====>'.$nickName);
-        \Log::error('current avatar=====>'.$avatar);
         $this->niceUser($uid, $nickName, $avatar);
         return redirect()->action('IndexController@index');
     }
