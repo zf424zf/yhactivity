@@ -96,7 +96,7 @@ class Image
     public function challengeList($module, $page, $pagesize)
     {
 
-        $data = ImageModel::orderBy('type','desc')->orderBy('id','asc')->with('users')->whereIn('type', [0,99])
+        $data = ImageModel::orderBy('type','desc')->orderBy('id','desc')->with('users')->whereIn('type', [0,99])
             ->where('module', $module)
             ->paginate($pagesize)->toArray();
         return $data;
