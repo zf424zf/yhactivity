@@ -73,6 +73,7 @@ class Upload
         if ($resultArr['code'] != 0) {
             api_exception(Service::UPLOAD_FAIL);
         }
+        \Log::error($result);
         return $result;
     }
 
