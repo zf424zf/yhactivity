@@ -335,7 +335,7 @@ html,body{background-color: #fff;height: 100%}
 .world-rank-list .user{padding: 0.625rem 0 1.375rem;overflow: hidden;}
 .world-rank-list .user-photo{float: left;margin-right: 0.6rem;border-radius: 50%;width: 2.125rem;height: 2.125rem;border: 0.1rem solid #000;display: inline-block;overflow: hidden;}
 .world-rank-list .user-photo img{width: 100%}
-.world-rank-list .user-title{float: left;display: inline-block;line-height: 1rem;font-size: 0.7rem;font-weight: bold;margin-bottom: 0.15rem;overflow: hidden;width: 4rem;text-overflow: ellipsis;white-space: nowrap;}
+.world-rank-list .user-title{float: left;display: inline-block;line-height: 1rem;font-size: 0.7rem;font-weight: bold;margin-bottom: 0.15rem;overflow: hidden;width: 4rem;text-overflow: ellipsis;white-space: nowrap;height: 1rem}
 .world-rank-list .user-like{float: left;display: inline-block;line-height: 1.3rem;width: 4.0rem;height: 1.3rem;-webkit-box-sizing: border-box;box-sizing: border-box;border: .1rem solid #dcdcdc;border-radius: .2rem;font-size: .5rem}
 .world-rank-list .user-like img{vertical-align: sub;width: 0.675rem;margin-left: 0.3rem;margin-right: 0.5rem}
 /*select-question*/
