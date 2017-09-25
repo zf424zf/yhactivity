@@ -111,7 +111,8 @@ class ImageController extends Controller
         $pagesize = Input::get('pagesize',6);
         $sort = 'like';
          $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid,$page,$pagesize);
-        return view('photo.rank', ['data' => $data]);
+        \Log::error(count($data));
+         return view('photo.rank', ['data' => $data]);
     }
 
     public function detailView($id)
