@@ -80,7 +80,8 @@
 
         </ul>
         <p class="active-begin-more">
-            <img src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
+            <img class="rank" src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
+            <img class="back" src="{{staticFile('images/photo_back.png')}}" alt="more">
         </p>
     </div>
     <!-- mask -->
@@ -202,8 +203,11 @@
             });
         })
         $(function () {
-            $(document).on('click', '.active-begin-more', function () {
+            $(document).on('click', '.rank', function () {
                 location.href = '/photo/list/rank?module=1&child=3'
+            });
+            $(document).on('click', '.back', function () {
+                location.href = '/'
             });
             // 活动说明遮罩层
             $("#show-mask").on('tap', function () {
