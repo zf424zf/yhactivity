@@ -101,7 +101,11 @@
                 var value = $(this).val();
                 $('.right-label i').html(value);
             })
+            var uploading = false;
             $(document).on('click', '#submit', function () {
+                if(uploading){
+                    return false;
+                }
                 $(this).css('display','none');
                 var left = $('.left-img');
                 var right = $('.upload-image');
@@ -119,12 +123,18 @@
                     $(this).css('display','');
                     return false;
                 }
+                uploading = true;
                 $.ajax({
                     url:'/api/image/add',
                     type:'post',
                     data:{module:module,path:rightUrl,type:1,label:rightLabel,origin:originId,uid:'{{$uid}}'},
                     success:function(ret){
+                        uploading = false;
                         window.location.href = '/photo/upload/success/'+ret.data.id;
+                    },
+                    error:function () {
+                        uploading = false;
+                        alert('上传失败，请稍后再试');
                     }
                 })
             });

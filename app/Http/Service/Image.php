@@ -12,6 +12,7 @@ namespace App\Http\Service;
 use App\Http\Api\Module;
 use App\Http\Models\ImageModel;
 use App\Http\Models\LikeModel;
+use App\Http\Models\UserModel;
 
 class Image
 {
@@ -55,6 +56,28 @@ class Image
                 $data->haveChance = 0;
             }
             $data->haveChance = 1;
+        }else if($type == 1){
+            $token = '36d9a31df1d6721cc52715946103434a';
+            $user = UserModel::where('id',$uid)->first();
+            if(!empty($user) && !empty($left)){
+                $left = $left->path;
+                $right = $path;
+                $params = '?token='.$token.'&images[0]='.$left.'&images[1]='.$right;
+                if(!empty($user->uid)){
+                    $params .= '&uid='.$user->uid;
+                }else if(!empty($user->unionid)){
+                    $params .= '&unionid='.$user->unionid;
+                }else{
+                    return $data;
+                }
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, 'http://m.oneniceapp.com/open/pubShow'.$params);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                $output = curl_exec($ch);
+                curl_close($ch);
+                \Log::error('tong bu xin xi:'.$output);
+            }
         }
         return $data;
     }
