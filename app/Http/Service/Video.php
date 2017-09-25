@@ -27,8 +27,8 @@ class Video
             if ($user) {
                 $uid = $user->id;
             }else{
-                $name = \Input::get('name');
-                $avatar = \Input::get('avatar');
+                $name = \Request::get('name');
+                $avatar = \Request::get('avatar');
                 $user = new UserModel();
                 $user->uid = $niceUid;
                 $user->nickname=$name;
