@@ -26,6 +26,7 @@
         <p class="gift-index-more">
             <a href="{{urls('lucky/rank/1')}}" class="l"><img src="{{staticFile('images/active/gift-goodluck-next.png')}}" alt="btn"></a>
             <a href="{{urls('lucky/wall')}}" class="r"><img src="{{staticFile('images/active/gift-photo-next.png')}}" alt="btn"></a>
+            <a href="{{urls('/')}}" class="r"><img src="{{staticFile('images/luck_back.png')}}" alt="btn"></a>
         </p>
     </div>
     <!-- mask -->

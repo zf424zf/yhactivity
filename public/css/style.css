@@ -375,7 +375,7 @@ html,body{background-color: #fff;height: 100%}
 .gift-index-more{font-size: 0;text-align: center;padding-bottom: 5.0rem}
 .gift-index-more a img{width: 100%}
 .gift-index-more a.l{display: inline-block;width: 7.9rem;height: 2.375rem;margin-right: 0.9rem}
-.gift-index-more a.r{display: inline-block;width: 7.125rem;height: 2.375rem}
+.gift-index-more a.r{display: inline-block;width: 7.125rem;height: 2.375rem;margin-bottom: .6rem}
 /*gift-wall*/
 .gift-wall-h{width: 9.9rem;margin: auto;padding: 1.75rem 0 1.25rem}
 .gift-wall-h img{width: 100%}
