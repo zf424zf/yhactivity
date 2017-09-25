@@ -16,6 +16,7 @@ use App\Http\Request\VideoRequest;
 use App\Http\Service\FileList;
 use App\Http\Service\Service;
 use App\Http\Service\Video;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 
 class VideoController extends Controller
@@ -23,7 +24,7 @@ class VideoController extends Controller
     public function __construct()
     {
         $this->middleware('isLogin',
-            ['except' => ['addVideo', 'info', 'getQuestionList', 'questionDetail','indexList']]);
+            ['except' => ['addVideo', 'info', 'getQuestionList', 'questionDetail', 'indexList']]);
     }
 
     public function addVideo(VideoRequest $request)
@@ -50,7 +51,7 @@ class VideoController extends Controller
 
     public function indexList()
     {
-          $data = (new Video)->indexList(\Request::get('id'));
+        $data = (new Video)->indexList(\Request::get('id'));
         return api_response(Service::SUCCESS, $data);
     }
 
@@ -77,17 +78,34 @@ class VideoController extends Controller
     {
         $datas = (new Video())->indexList();
         $data = current($datas);
-        foreach ($datas as$key => $item){
-            if($key + 1 == $id){
+        foreach ($datas as $key => $item) {
+            if ($key + 1 == $id) {
                 $data = $item;
                 break;
             }
-            if($id < 0 || $id > count($datas)){
+            if ($id < 0 || $id > count($datas)) {
                 $data = current($datas);
                 break;
             }
         }
-        return view('video.index',['id'=>$id,'data'=>$data,'count'=>count($datas)]);
+        $day = Carbon::now()->day;
+        $hour = Carbon::now()->hour;
+        if ($day >= 25 || ($day <= 2 && $hour < 12)) {
+            if ($hour < 12) {
+                $jtId = 45;
+            } else {
+                $jtId = 46;
+            }
+        } elseif (($day >= 2 && $hour >= 12) && ($day <= 9 && $hour < 12)) {
+            $jtId = 46;
+        } elseif (($day >= 9 && $hour >= 12) && ($day <= 16 && $hour < 12)) {
+            $jtId = 47;
+        } elseif (($day >= 16 && $hour >= 12) && ($day <= 23 && $hour < 12)) {
+            $jtId = 49;
+        } else {
+            $jtId = 49;
+        }
+        return view('video.index', ['id' => $id,'jtId'=>$jtId, 'data' => $data, 'count' => count($datas)]);
     }
 
     public function detailView($id)
@@ -104,9 +122,9 @@ class VideoController extends Controller
     {
         $uid = session('user')['id'];
         $child = Input::get('child', VideoChild::VIDEO_SS);
-        $page = Input::get('page',1);
-        $pagesize = Input::get('pagesize',6);
-        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'like', $child, 'desc', $uid,$page,$pagesize);
+        $page = Input::get('page', 1);
+        $pagesize = Input::get('pagesize', 6);
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'like', $child, 'desc', $uid, $page, $pagesize);
         return view('video.rank', ['data' => $data]);
     }
 
@@ -114,9 +132,9 @@ class VideoController extends Controller
     {
         $uid = session('user')['id'];
         $child = Input::get('child', VideoChild::VIDEO_SS);
-        $page = Input::get('page',1);
-        $pagesize = Input::get('pagesize',6);
-        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'new', $child, 'desc', $uid,$page,$pagesize);
+        $page = Input::get('page', 1);
+        $pagesize = Input::get('pagesize', 6);
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'new', $child, 'desc', $uid, $page, $pagesize);
         return view('video.new', ['data' => $data]);
     }
 }
