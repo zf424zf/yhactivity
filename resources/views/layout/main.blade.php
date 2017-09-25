@@ -118,8 +118,8 @@
 <script type="text/javascript" src="{{staticFile('js/zepto.callbacks.js')}}"></script>
 <script type="text/javascript" src="{{staticFile('js/zepto.deferred.js')}}"></script>
 <script type="text/javascript" src="{{staticFile('js/touch.js')}}"></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
-<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/??sm.min.js,sm-extend.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://img.guoshish.com/aha/h5/sm.min.js' charset='utf-8'></script>
+<script type='text/javascript' src='http://img.guoshish.com/aha/h5/sm-extend.min.js' charset='utf-8'></script>
 <script type="text/javascript" src="{{staticFile('js/webuploader.html5only.min.js')}}"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
