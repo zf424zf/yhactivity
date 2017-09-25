@@ -57,7 +57,7 @@ html,body{background-color: #fff;height: 100%}
 .act-beg-hea-link{width: 3.175rem;height: 2.975rem;position: absolute;text-align: center;display: inline-block;right: 0.25rem;top: 0.5rem;background: url(../images/active/active-begin-link.png) no-repeat scroll center center;background-size: cover;line-height: 3.5rem}
 .act-beg-hea-link span{width: 1.5rem;height: 1.5rem;font-size: 0.65rem;display: inline-block;line-height: 0.75rem}
 .active-begin-list{margin-bottom: 2.5rem;}
-.active-begin-list li{position: relative;margin-top: 2.5rem;height: 36.375rem;background: url(../images/active/active-begin-list-bg.png) no-repeat scroll center top;background-size: 18.75rem 100%;}
+.active-begin-list li{position: relative;margin-top: 2.5rem;height: 36.375rem;background: url(../images/active/active-begin-list-bg-1.png) no-repeat scroll center top;background-size: 18.75rem 100%;}
 .act-beg-lis-tit{position: absolute;height: 2.2rem;width: 6.025rem;top: -1.25rem;left: 1.25rem}
 .act-beg-lis-link{position: absolute;top: -1.4rem;right: 1.35rem;width: 7.675rem;height: 2.55rem;text-align: right;}
 .act-beg-lis-tit img,.act-beg-lis-link img{width: 100%}
@@ -437,3 +437,4 @@ html,body{background-color: #fff;height: 100%}
 	.trailer-con-ip4{width: 100%;display: block;}
 	.trailer-con,.trailer-btm{display: none;}
 }
+.act-beg-user-name img{border: .1rem black solid}
