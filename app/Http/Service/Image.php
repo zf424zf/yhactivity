@@ -13,6 +13,7 @@ use App\Http\Api\Module;
 use App\Http\Models\ImageModel;
 use App\Http\Models\LikeModel;
 use App\Http\Models\UserModel;
+use App\Jobs\SyncImage;
 
 class Image
 {
@@ -70,12 +71,7 @@ class Image
                 }else{
                     return $data;
                 }
-                $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, 'http://m.oneniceapp.com/open/pubShow'.$params);
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-                curl_setopt($ch, CURLOPT_HEADER, 0);
-                $output = curl_exec($ch);
-                curl_close($ch);
+                dispatch(new SyncImage($params));
             }
         }
         return $data;
