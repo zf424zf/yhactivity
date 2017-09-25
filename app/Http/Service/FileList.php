@@ -366,7 +366,7 @@ class FileList
         return [PhotoChild::PHOTO_ZC => $zcArr, PhotoChild::PHOTO_MX => $mxArr, PhotoChild::PHOTO_BS => $bsArr, PhotoChild::PHOTO_CH => $chArr];
     }
 
-    public function getListSortByNew($module, $child, $order, $count, $pagesize)
+    public function getListSortByNew($module, $child, $order, $count, $pagesize=6)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $likeWhere = '';
@@ -412,7 +412,7 @@ class FileList
         return $data;
     }
 
-    public function getListSortByLike($module, $child = 1, $order = 'desc', $count, $pagesize)
+    public function getListSortByLike($module, $child = 1, $order = 'desc', $count, $pagesize=6)
     {
         $table = $module == Module::VIDEO_MODULE ? 'yh_video' : 'yh_image';
         $where = ' where 1=1';
