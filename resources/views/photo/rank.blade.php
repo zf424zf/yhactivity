@@ -140,12 +140,14 @@
                             if ($(html).find('.no_data').length > 0) {
                                 $('.infinite-scroll-preloader').remove();
                                 $.detachInfiniteScroll($('.infinite-scroll'));
+                                console.log(1)
                             }
                             else {
                                 $('.list-container').append($(html).find('.list-container').html());
                                 $('.infinite-scroll-preloader').hide();
                                 loading = false;
                                 currentPage++;
+                                console.log(2)
                             }
                         }
                     });

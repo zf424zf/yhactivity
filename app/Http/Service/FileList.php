@@ -450,7 +450,6 @@ class FileList
                 left join yh_users t3 on t3.id = t1.uid" . $left . $where . "
                 ORDER BY
                     t2.cnt $order limit $pagesize offset $count";
-        \Log::error($sql);
         $data = \DB::select($sql);
         if ($module == Module::PHOTO_MODULE) {
             return $this->formatOriginForImageList($data);
