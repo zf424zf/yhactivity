@@ -54,7 +54,7 @@ class Upload
      */
     public function upload($type = Module::PHOTO_MODULE)
     {
-        if ($type == Module::PHOTO_MODULE) {
+        if ($type == Module::PHOTO_MODULE || $type == Module::SHARE_MODULE) {
             return $this->uploadImage();
         } else {
             return $this->uploadVideo();
