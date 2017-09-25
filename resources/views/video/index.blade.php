@@ -40,7 +40,7 @@
         <p class="world-video-next">
             <a href="http://m.oneniceapp.com/go/toNice?action=storyPublish?lens_id=10" class="btn mar"><img src="{{staticFile('images/active/world-video-recoding.png')}}" alt=""></a>
             <a href="{{urls('/video/rank')}}" class="btn"><img src="{{staticFile('images/active/world-video-hot.png')}}" alt=""></a>
-            <a href="{{urls('/')}}" class="btn"><img src="{{staticFile('images/active/video_back.png')}}" alt=""></a>
+            <a href="{{urls('/')}}" class="btn"><img src="{{staticFile('images/video_back.png')}}" alt=""></a>
         </p>
     </div>
     <!-- mask -->
