@@ -81,10 +81,10 @@
                                         <a href="{{urls('/video/detail/'.$item->id)}}">
                                             <img src="{{$item->cover}}" alt="video" class="bg">
                                             <img src="{{staticFile('images/active/world-video-play.png')}}" alt="btn" class="btn">
-                                            <img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">
-                                            <span class="info">
-											{{$item->qname}}
-										</span>
+                                            {{--<img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">--}}
+                                            {{--<span class="info">--}}
+											{{--{{$item->qname}}--}}
+										{{--</span>--}}
                                         </a>
                                     </p>
                                     <p class="user">
