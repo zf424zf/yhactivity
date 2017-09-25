@@ -11,7 +11,7 @@ $(function(){
                 data: {uid: 1, module: 1, target: target, child: child},
                 success: function (ret) {
                     if (ret.code == 1009) {
-                        self.data('can-like', 0)
+                        self.data('canLike', 0)
                         alert(ret.message);
                     } else if (ret.code == 0) {
                         var $likeNum = self.find('.user-like-number');
