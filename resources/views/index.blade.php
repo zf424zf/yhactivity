@@ -5,7 +5,7 @@
 @section('content')
     <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">
     <div class="body-index">
-        <div class="show">
+        <div class="show page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
             <!-- 背景 -->
             <div class="index-bg">&nbsp;</div>
             <!-- 第一幅画面 -->
@@ -61,6 +61,32 @@
             setTimeout(function () {
                 $(".begin-index").hide();
             }, 3000)
+        })
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '我们爱聊荤段子〜', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '', // 分享图标
+                desc: '我要下车！这根本不是去幼儿园的路！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '我们爱聊荤段子〜', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '', // 分享图标
+                desc: '我要下车！这根本不是去幼儿园的路！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
         })
     </script>
 @endsection

@@ -178,6 +178,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Encore\Admin\Providers\AdminServiceProvider::class,
         App\Providers\ApiRequestServiceProvider::class,
+        Overtrue\LaravelWechat\ServiceProvider::class,
     ],
 
     /*
