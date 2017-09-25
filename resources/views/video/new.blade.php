@@ -94,7 +94,7 @@
 										<img src="{{thumb($item->headicon)}}" alt="photo">
 									</span>
                                         <span class="user-title">
-										{{thumb($item->nickname)}}
+										{{$item->nickname}}
 									</span>
                                         <span class="user-like">
 										<img src="{{staticFile('images/active/like.png')}}" alt="like">
