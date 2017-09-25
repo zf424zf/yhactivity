@@ -16,7 +16,7 @@
                     <img data-id="{{$image['id']}}" src="{{thumb($image['path'])}}" alt="upload-img-show" class="show-img left-img">
                     <!-- <img src="../images/active/upload-imga-up-btn.png" alt="upload-imga-up-btn" class="btn"> -->
                     <em class="upload-imga-info">
-                        <i>{{thumb($image['label'])}}</i>
+                        <i>{{$image['label']}}</i>
                     </em>
                 </label>
                 <label class="upload-imga-right">
