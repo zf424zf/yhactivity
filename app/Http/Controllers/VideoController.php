@@ -110,12 +110,29 @@ class VideoController extends Controller
 
     public function detailView($id)
     {
+        $day = Carbon::now()->day;
+        $hour = Carbon::now()->hour;
+        if ($day >= 25 || ($day <= 2 && $hour < 12)) {
+            if ($hour < 12) {
+                $jtId = 45;
+            } else {
+                $jtId = 46;
+            }
+        } elseif (($day >= 2 && $hour >= 12) && ($day <= 9 && $hour < 12)) {
+            $jtId = 46;
+        } elseif (($day >= 9 && $hour >= 12) && ($day <= 16 && $hour < 12)) {
+            $jtId = 47;
+        } elseif (($day >= 16 && $hour >= 12) && ($day <= 23 && $hour < 12)) {
+            $jtId = 49;
+        } else {
+            $jtId = 49;
+        }
         $uid = session('user')['id'];
         $video = (new Video())->info($id, $uid);
         if (empty($video)) {
             abort(404);
         }
-        return view('video.detail', ['data' => $video]);
+        return view('video.detail', ['data' => $video,'jtId'=>$jtId]);
     }
 
     public function listView()
