@@ -1,7 +1,7 @@
 $(function(){
     $(document).on('click','.user-details',function(){
         var self = $(this);
-        var canLike = self.data('can-like');
+        var canLike = self.data('canLike');
         var child = self.data('child');
         var target = self.data('target');
         if (canLike == 1) {
