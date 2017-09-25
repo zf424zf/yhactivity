@@ -131,7 +131,9 @@
                         url: '/photo/list/new/?{{http_build_query($params,"","amp;")}}',
                         type: 'GET',
                         data: {
-                            page: currentPage + 1
+                            page: currentPage + 1,
+                            module:'{{\Request::get('module')}}',
+                            child:'{{\Request::get('child')}}'
                         },
                         dataType: 'html',
                         cache: false,
