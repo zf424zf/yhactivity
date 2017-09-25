@@ -61,6 +61,12 @@
             setTimeout(function () {
                 $(".begin-index").hide();
             }, 3000)
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
         })
         wx.ready(function () {
             wx.onMenuShareTimeline({

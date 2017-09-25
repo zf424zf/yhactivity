@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="active-begin-header">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -113,6 +113,33 @@
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
+
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '来，拿个红包压压惊!', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '不砸得你哈哈大笑算我输〜',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '来，拿个红包压压惊!', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '不砸得你哈哈大笑算我输〜',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
         $(function(){
             // 活动说明遮罩层
             $("#show-mask").on('tap',function(){
@@ -121,6 +148,12 @@
             $('.active-translate-mask-bg').on('tap',function(){
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             })
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
             var uploader = WebUploader.create({
                 auto: true,
                 fileNumLimit: 9,

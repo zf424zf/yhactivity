@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="active-begin-header">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -66,12 +66,12 @@
 						</em>
 					</span>
                         </p>
-                        <p class="act-beg-user-name" >
+                        <p class="act-beg-user-name">
                             <img src="{{$end->originInfo->headicon}}" alt="user" class="act-beg-lis-pic">
                             <span class="act-beg-lis-name">{{$end->originInfo->nickname}}</span>
                         </p>
                         <p class="act-beg-user-name" style="margin: -2rem 0 0 0;padding-left: 9rem;">
-                            <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic" >
+                            <img src="{{$end->headicon}}" alt="user" class="act-beg-lis-pic">
                             <span class="act-beg-lis-name">{{$end->nickname}}</span>
                         </p>
                     @endif
@@ -168,13 +168,39 @@
     <script src="{{staticFile('js/share.js')}}"></script>
     <script>
         var opt = {
-            name:"timeline, friend, qq, qzone, weibo",
-            title:"嘿嘿，这件事一个人做，不如两个人做！",
-            description:"合不合拍，试了才知道！",
+            name: "timeline, friend, qq, qzone, weibo",
+            title: "嘿嘿，这件事一个人做，不如两个人做！",
+            description: "合不合拍，试了才知道！",
             url: window.location.href,
-            icon: ''
+            icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '嘿嘿，这件事一个人做，不如两个人做！', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '合不合拍，试了才知道！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '嘿嘿，这件事一个人做，不如两个人做！', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '合不合拍，试了才知道！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
         $(function () {
             $(document).on('click', '.active-begin-more', function () {
                 location.href = '/photo/list/rank?module=1&child=3'
@@ -186,6 +212,12 @@
             $('.active-translate-mask-bg').on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             })
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
 @endsection

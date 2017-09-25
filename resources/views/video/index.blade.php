@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="active-begin-header">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -135,6 +135,32 @@
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '想听真心话？呵呵，请开始你的表演〜', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '够不够real你说了算！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '想听真心话？呵呵，请开始你的表演〜', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '够不够real你说了算！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
         $(function(){
 //            $('.video').play();
 //            document.addEventListener("WeixinJSBridgeReady", function (){
@@ -169,6 +195,12 @@
                 var id = parseInt(curId) - 1;
                 window.location.href = '/video/'+id;
             })
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
 @endsection

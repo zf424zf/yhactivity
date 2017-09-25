@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -58,7 +58,32 @@
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
-
+        wx.ready(function () {
+            wx.onMenuShareTimeline({
+                title: '我已拼赢整个世界，不服就来看看呗', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '专治不服三百年！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+            wx.onMenuShareAppMessage({
+                title: '我已拼赢整个世界，不服就来看看呗', // 分享标题
+                link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
+                desc: '专治不服三百年！',
+                success: function () {
+                    // 用户确认分享后执行的回调函数
+                },
+                cancel: function () {
+                    // 用户取消分享后执行的回调函数
+                }
+            });
+        })
         $(function () {
             var imageId = $('.photo-id').data('id');
             $(document).on('click','.share',function(){
@@ -86,6 +111,12 @@
                     }
                 })
             })
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
     <script>
