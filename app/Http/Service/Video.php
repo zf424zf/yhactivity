@@ -34,7 +34,7 @@ class Video
                 $user->nickname=$name;
                 $user->headicon = $avatar;
                 $user->save();
-                $uid = $user->uid;
+                $uid = $user->id;
             }
         }
         $info = is_array($info) ? implode(',', $info) : $info;
