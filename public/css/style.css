@@ -301,7 +301,7 @@ html,body{background-color: #fff;height: 100%}
 .world-video .info .text b{font-weight: bolder;font-size: 1.1rem;-webkit-transform: scale(.5) translate(-50%,-50%);transform: scale(.5) translate(-50%,-50%);display: inline-block;width: 16rem;height: 4.2rem;line-height: 1.4rem;padding: .7rem 0;-webkit-box-sizing: border-box;box-sizing: border-box;}
 .world-video .info img{width: 11.625rem;padding-left: 3.4rem;}
 .world-video-next{font-size: 0;text-align: center;padding-top: 0.3rem;padding-bottom: 4rem}
-.world-video-next .btn{width: 7.675rem;height: 2.55rem;display: inline-block;}
+.world-video-next .btn{width: 7.675rem;height: 2.55rem;display: inline-block;margin-bottom: 1rem}
 .world-video-next .mar{margin-right: 0.75rem}
 .world-video-next .btn img{width: 100%}
 /*world-rank*/
