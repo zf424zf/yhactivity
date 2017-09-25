@@ -117,7 +117,7 @@
             title:"这个直播尺度太大，再不看一会可能就被河蟹了~",
             description:"Aha ha ha ha ha ha ha ha…",
             url: window.location.href,
-            icon: ''
+            icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {

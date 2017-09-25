@@ -110,7 +110,7 @@
             title:"来，拿个红包压压惊!",
             description:"不砸得你哈哈大笑算我输〜",
             url: window.location.href,
-            icon: ''
+            icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
         $(function(){

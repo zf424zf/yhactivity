@@ -55,7 +55,7 @@
             title:"我已拼赢整个世界，不服就来看看呗",
             description:"专治不服三百年！",
             url: window.location.href,
-            icon: ''
+            icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
 
@@ -67,7 +67,7 @@
                     title: "我已拼赢整个世界，不服就来看看呗",
                     description: "专治不服三百年！",
                     url: '/image/detail/'+imageId,
-                    icon: ''
+                    icon: '{{staticFile('images/active/share.jpg')}}'
                 });
             })
             $(document).on('click', '.remake', function () {

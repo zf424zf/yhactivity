@@ -53,7 +53,7 @@
             title:"我们爱聊荤段子〜",
             description:"我要下车！这根本不是去幼儿园的路！",
             url: window.location.href,
-            icon: ''
+            icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
@@ -66,7 +66,7 @@
             wx.onMenuShareTimeline({
                 title: '我们爱聊荤段子〜', // 分享标题
                 link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
-                imgUrl: '', // 分享图标
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
                 desc: '我要下车！这根本不是去幼儿园的路！',
                 success: function () {
                     // 用户确认分享后执行的回调函数
@@ -78,7 +78,7 @@
             wx.onMenuShareAppMessage({
                 title: '我们爱聊荤段子〜', // 分享标题
                 link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
-                imgUrl: '', // 分享图标
+                imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
                 desc: '我要下车！这根本不是去幼儿园的路！',
                 success: function () {
                     // 用户确认分享后执行的回调函数
