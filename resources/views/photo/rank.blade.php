@@ -79,7 +79,7 @@
                                             <p class="pic">
                                                 <img src="{{stripslashes($item->originInfo['path'])}}" alt="nan">
                                                 <img src="{{$item->path}}" alt="nv">
-                                                <span class="tip l">{{isset($item->originInfo->label) ?  $item->originInfo->label : '邂逅爱聊咖' }}</span>
+                                                <span class="tip l">{{isset($item->originInfo['label']) ?  $item->originInfo['label'] : '邂逅爱聊咖' }}</span>
                                                 <span class="tip r">{{isset($item->label) ?  $item->label : '邂逅爱聊咖' }}</span>
                                             </p>
                                         </a>
