@@ -48,5 +48,6 @@
 
         </div>
     </div>
+    <input type="hidden" class="niced" data-nice="{{$uid}}">
     <script src="{{staticFile('js/photo-detail.js')}}"></script>
 @endsection

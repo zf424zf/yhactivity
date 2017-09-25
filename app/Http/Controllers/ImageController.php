@@ -123,7 +123,7 @@ class ImageController extends Controller
         } catch (\Exception $e) {
             abort(404);
         }
-        return view('photo.detail', ['data' => $data]);
+        return view('photo.detail', ['data' => $data,'uid'=>$uid]);
     }
 
     public function challengeView($module)
