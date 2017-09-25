@@ -27,7 +27,14 @@ class Video
             if ($user) {
                 $uid = $user->id;
             }else{
-                $uid = 0;
+                $name = \Input::get('name');
+                $avatar = \Input::get('avatar');
+                $user = new UserModel();
+                $user->uid = $niceUid;
+                $user->nickname=$name;
+                $user->headicon = $avatar;
+                $user->save();
+                $uid = $user->uid;
             }
         }
         $info = is_array($info) ? implode(',', $info) : $info;
