@@ -55,14 +55,14 @@
             name:"timeline, friend, qq, qzone, weibo",
             title:"我已拼赢整个世界，不服就来看看呗",
             description:"专治不服三百年！",
-            url: '/photo/detail/'+id,
+            url: 'http://aha.oiily.com/photo/detail/'+id,
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
         window.hybridBridge.headerBar.setShareConfig(opt);
         wx.ready(function () {
             wx.onMenuShareTimeline({
                 title: '我已拼赢整个世界，不服就来看看呗', // 分享标题
-                link: '/photo/detail/'+id, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                link: 'http://aha.oiily.com/photo/detail/'+id, // 分享链接,将当前登录用户转为puid,以便于发展下线
                 imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
                 desc: '专治不服三百年！',
                 success: function () {
@@ -74,7 +74,7 @@
             });
             wx.onMenuShareAppMessage({
                 title: '我已拼赢整个世界，不服就来看看呗', // 分享标题
-                link: '/photo/detail/'+id, // 分享链接,将当前登录用户转为puid,以便于发展下线
+                link: 'http://aha.oiily.com/photo/detail/'+id, // 分享链接,将当前登录用户转为puid,以便于发展下线
                 imgUrl: '{{staticFile('images/active/share.jpg')}}', // 分享图标
                 desc: '专治不服三百年！',
                 success: function () {
@@ -92,7 +92,7 @@
                     name: 'timeline,friend,qq,qzone,weibo',
                     title: "我已拼赢整个世界，不服就来看看呗",
                     description: "专治不服三百年！",
-                    url: '/photo/detail/'+imageId,
+                    url: 'http://aha.oiily.com/photo/detail/'+imageId,
                     icon: '{{staticFile('images/active/share.jpg')}}'
                 });
             })
