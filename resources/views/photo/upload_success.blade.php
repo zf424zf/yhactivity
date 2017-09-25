@@ -39,7 +39,7 @@
                 <li><a data-image-id="{{$image['id']}}" href="javascript:void(0)" class="remake"><img
                                 src="{{staticFile('images/active/upload-success-list1.png')}}" alt=""></a></li>
                 <li class="share"><a href="javascript:void(0)"><img src="{{staticFile('images/active/upload-success-list2.png')}}" alt=""></a></li>
-                <li><a href="{{urls('/photo/list/rank')}}"><img
+                <li><a href="{{urls('/photo/list/new?module='.$image['module'].'&child='.$image['child'])}}"><img
                                 src="{{staticFile('images/active/upload-success-list3.png')}}" alt=""></a></li>
                 <li><a href="{{urls('/')}}"><img src="{{staticFile('images/active/upload-success-list4.png')}}" alt=""></a>
                 </li>
