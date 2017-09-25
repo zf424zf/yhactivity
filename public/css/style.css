@@ -292,7 +292,7 @@ html,body{background-color: #fff;height: 100%}
 .world-video .video-zend{width: 12rem;height: 15.8rem;position: absolute;top: .2rem;left: 3.2rem;z-index: 3}
 .world-video .tip-next{display: inline-block;width: 9.75rem;height: 3.05rem;bottom: 2.6rem;left: 50%;transform: translateX(-50%);position: absolute;z-index: 3}
 .world-video .tip-next img{width: 100%;}
-.world-video .user{position: absolute;top: 0;left: 0;vertical-align: middle;-webkit-box-sizing: border-box;box-sizing: border-box;width: 100%;padding-left: 3.75rem;padding-top: 0.5rem}
+.world-video .user{position: absolute;top: 0;left: 0;vertical-align: middle;-webkit-box-sizing: border-box;box-sizing: border-box;width: 100%;padding-left: 5.1rem;padding-top: 0.5rem}
 .world-video .user-pic{width: 1.875rem;height: 1.875rem;float: left;display: inline-block;overflow: hidden;-webkit-box-sizing: border-box;box-sizing: border-box;border: 0.1rem solid #000;border-radius: 50%;}
 .world-video .user-pic img{width: 100%}
 .world-video .user-name{float: left;margin-top: 0.25rem;margin-left: -1.45rem;width: 7rem;line-height:1.7rem;display: inline-block;background: rgba(0,0,0,82);color: #fff;overflow: hidden;height: 1.7rem;border-radius: 0.5rem;font-size: 1.1rem;text-align: center;-webkit-transform: scale(.5);transform: scale(.5);}
