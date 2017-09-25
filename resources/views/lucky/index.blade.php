@@ -168,6 +168,7 @@
             });
             uploader.on( 'uploadSuccess', function( file,response) {
                 $.hidePreloader();
+                hideAlert();
                 var url = response.data.url;
                 var upload = $('#upload');
                 upload.data('url',url);
@@ -177,10 +178,12 @@
             });
             uploader.on( 'uploadComplete', function( file,response) {
                 $.hidePreloader();
+                hideAlert();
             });
 
             uploader.on( 'uploadError', function( file,response ) {
                 $.hidePreloader();
+                hideAlert();
             });
             uploader.on( 'fileQueued', function( file,response ) {
             });

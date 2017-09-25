@@ -72,6 +72,7 @@
             });
             uploader.on('uploadSuccess', function (file, response) {
                 $.hidePreloader();
+                hideAlert();
                 var url = response.data.url;
                 var uploadImage = $('.upload-image');
                 uploadImage.attr('src', url);
@@ -81,11 +82,13 @@
             });
             uploader.on('uploadError', function (file, response) {
                 $.hidePreloader();
+                hideAlert();
                 alert('上传失败，请稍后再试')
             });
 
             uploader.on('uploadComplete', function (file, response) {
                 $.hidePreloader();
+                hideAlert();
             });
             uploader.on('fileQueued', function (file, response) {
             });
@@ -139,5 +142,6 @@
                 })
             });
         })
+
     </script>
 @endsection

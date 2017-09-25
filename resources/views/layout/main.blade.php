@@ -158,16 +158,11 @@
         doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
 </script>
-{{--<script>--}}
-    {{--$(function(){--}}
-        {{--$(document).on('pageInit','.page',function(e,id,page){--}}
-            {{--if($('#'+id).data('config')){--}}
-                {{--wx.config(JSON.parse($('#'+id).data('config')))--}}
-            {{--}--}}
-        {{--})--}}
-        {{--$.init();--}}
-    {{--})--}}
-{{--</script>--}}
+<script>
+    function hideAlert() {
+        $('.modal').css('display','none');
+    }
+</script>
 @yield('content')
 </body>
 </html>
