@@ -46,6 +46,7 @@
             </ul>
         </div>
         <input class="photo-module" type="hidden" data-module="{{$image['module']}}">
+        <input class="photo-id" type="hidden" data-id="{{$image['id']}}">
     </div>
     <script src="{{staticFile('js/share.js')}}"></script>
     <script>
@@ -59,12 +60,13 @@
         window.hybridBridge.headerBar.setShareConfig(opt);
 
         $(function () {
+            var imageId = $('.photo-id').data('id');
             $(document).on('click','.share',function(){
                 window.hybridBridge.system.share({
                     name: 'timeline,friend,qq,qzone,weibo',
                     title: "我已拼赢整个世界，不服就来看看呗",
                     description: "专治不服三百年！",
-                    url: window.location.href,
+                    url: '/image/detail/'+imageId,
                     icon: ''
                 });
             })

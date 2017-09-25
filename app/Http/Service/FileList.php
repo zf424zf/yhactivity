@@ -451,9 +451,6 @@ class FileList
                 ORDER BY
                     t2.cnt $order limit $pagesize offset $count";
         $data = \DB::select($sql);
-        \Log::error($sql);
-        \Log::error(count($data));
-        \Log::error($module.'-----'. $child.'-----'.'desc'.'-----'. $count.'-----'.$pagesize);
         if ($module == Module::PHOTO_MODULE) {
             return $this->formatOriginForImageList($data);
         }

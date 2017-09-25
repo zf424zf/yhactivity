@@ -128,7 +128,7 @@
                            unset($params['page']);
                        ?>
                     $.ajax({
-                        url: '/photo/list/new/?{{http_build_query($params)}}',
+                        url: '/photo/list/new/?{{http_build_query($params,"","amp;")}}',
                         type: 'GET',
                         data: {
                             page: currentPage + 1

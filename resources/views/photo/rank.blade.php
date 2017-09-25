@@ -129,10 +129,12 @@
                            unset($params['page']);
                        ?>
                     $.ajax({
-                        url: '/photo/list/rank/?{{http_build_query($params)}}',
+                        url: '/photo/list/rank/',
                         type: 'GET',
                         data: {
-                            page: currentPage + 1
+                            page: currentPage + 1,
+                            module:'{{\Request::get('module')}}',
+                            child:'{{\Request::get('child')}}'
                         },
                         dataType: 'html',
                         cache: false,
@@ -140,14 +142,12 @@
                             if ($(html).find('.no_data').length > 0) {
                                 $('.infinite-scroll-preloader').remove();
                                 $.detachInfiniteScroll($('.infinite-scroll'));
-                                console.log(1)
                             }
                             else {
                                 $('.list-container').append($(html).find('.list-container').html());
                                 $('.infinite-scroll-preloader').hide();
                                 loading = false;
                                 currentPage++;
-                                console.log(2)
                             }
                         }
                     });
