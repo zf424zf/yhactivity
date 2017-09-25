@@ -165,6 +165,7 @@
                 wx.config(JSON.parse($('#'+id).data('config')))
             }
         })
+        $.init();
     })
 </script>
 @yield('content')
