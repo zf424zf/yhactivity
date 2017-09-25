@@ -15,9 +15,9 @@ $(function(){
                         alert(ret.message);
                     } else if (ret.code == 0) {
                         var $likeNum = self.find('.user-like-number');
-                        var origin = $likeNum.data('like-cnt');
-                        $likeNum.data('like-cnt', origin + 1);
-                        $likeNum.html($likeNum.data('like-cnt'))
+                        var origin = $likeNum.data('likeCnt');
+                        $likeNum.data('likeCnt', origin + 1);
+                        $likeNum.html($likeNum.data('likeCnt'))
                     }
                 }
             })
