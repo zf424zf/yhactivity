@@ -114,4 +114,48 @@
             </div>
         </div>
     </div>
+    <script>
+        $(function () {
+            $(document).on("pageInit", ".page", function (e, id, page) {
+                var loading = false;
+                var currentPage = 1;
+                $('.infinite-scroll-preloader').hide();
+                $(document).on('infinite', '.infinite-scroll-bottom', function () {
+                    if (loading) {
+                        return;
+                    }
+                    loading = true;
+                    $('.infinite-scroll-preloader').show();
+                    <?php
+                           $params = \Request::all();
+                           unset($params['page']);
+                       ?>
+                    $.ajax({
+                        url: '/video/rank/',
+                        type: 'GET',
+                        data: {
+                            page: currentPage + 1,
+                            module:'{{\Request::get('module')}}',
+                            child:'{{\Request::get('child')}}'
+                        },
+                        dataType: 'html',
+                        cache: false,
+                        success: function (html) {
+                            if ($(html).find('.no_data').length > 0) {
+                                $('.infinite-scroll-preloader').remove();
+                                $.detachInfiniteScroll($('.infinite-scroll'));
+                            }
+                            else {
+                                $('.list-container').append($(html).find('.list-container').html());
+                                $('.infinite-scroll-preloader').hide();
+                                loading = false;
+                                currentPage++;
+                            }
+                        }
+                    });
+                })
+            });
+            $.init();
+        })
+    </script>
 @endsection

@@ -104,7 +104,9 @@ class VideoController extends Controller
     {
         $uid = session('user')['id'];
         $child = Input::get('child', VideoChild::VIDEO_SS);
-        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'like', $child, 'desc', $uid);
+        $page = Input::get('page');
+        $pagesize = Input::get('pagesize');
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'like', $child, 'desc', $uid,$page,$pagesize);
         return view('video.rank', ['data' => $data]);
     }
 
@@ -112,7 +114,9 @@ class VideoController extends Controller
     {
         $uid = session('user')['id'];
         $child = Input::get('child', VideoChild::VIDEO_SS);
-        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'new', $child, 'desc', $uid);
+        $page = Input::get('page');
+        $pagesize = Input::get('pagesize');
+        $data = (new FileList())->videoList(Module::VIDEO_MODULE, 'new', $child, 'desc', $uid,$page,$pagesize);
         return view('video.new', ['data' => $data]);
     }
 }
