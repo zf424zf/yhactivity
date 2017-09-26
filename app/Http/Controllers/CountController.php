@@ -20,7 +20,6 @@ class CountController extends Controller
         $activityStart = Carbon::createFromDate(2017, 9, 25)->startOfDay()->timestamp;
         $activityEnd = Carbon::createFromDate(2017, 10, 23)->endOfDay()->timestamp;
         $yesterdayStart = Carbon::yesterday()->startOfDay()->timestamp;
-        $yesterdayEnd = Carbon::yesterday()->endOfDay()->timestamp;
         $start = \Request::get('start');
         $end = \Request::get('end');
         if (!empty($start)) {
@@ -38,7 +37,7 @@ class CountController extends Controller
                 $e = $activityEnd;
             }
         } else {
-            $e = $yesterdayEnd;
+            $e = $s + 86399;
         }
         $imageSql = "select count(*) as cnt from yh_image where type =1 and created_at >= $s and created_at <= $e ";
         $videoSql = "select count(*) as cnt from yh_video where created_at >= $s and created_at <= $e";
