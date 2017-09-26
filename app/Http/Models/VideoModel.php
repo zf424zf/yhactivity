@@ -17,7 +17,7 @@ class VideoModel extends BaseModel
 
     protected $appends = ['likeCnt'];
     public function users(){
-        return $this->hasOne('App\Http\Models\UserModel','uid','uid');
+        return $this->hasOne('App\Http\Models\UserModel','id','uid');
     }
 
     public function question(){
