@@ -79,7 +79,7 @@ html,body{background-color: #fff;height: 100%}
 .act-beg-lis-pic{height: 1.7rem;width: 1.7rem;border-radius: 50%;margin-left: 1.45rem}
 .act-beg-lis-name{font-size: 0.7rem;color: #000;font-weight: bolder;}
 .active-begin-more{text-align: center;padding-bottom: 2.3rem}
-.active-begin-more img{width: 8.25rem}
+.active-begin-more img{width: 8.25rem;height: 3.41rem;}
 /*冒险擂台:enge-title*/
 .active-enge-title{padding-top: 1.5rem;position: relative;}
 .active-enge-title-h{font-size: 2.025rem;text-align: center;color: #ffdc37;position: absolute;line-height: 2.25rem;top: 1.75rem;width: 100%;left: 0;-webkit-text-stroke:2px #000;font-weight: bolder;}
@@ -246,9 +246,9 @@ html,body{background-color: #fff;height: 100%}
 .active-pic-details .user-like img{width: 100%;vertical-align: baseline;}
 /*live-list*/
 .live-list{margin: 1.0rem auto 0;overflow: hidden;width: 18.3rem;}
-.live-list li{margin-bottom: 1.0rem;background: url(../images/active/live-list-bg.png) no-repeat scroll center center;background-size: 18.3rem 9.0rem;height: 9.0rem;position: relative;}
+.live-list li{margin-bottom: 1.0rem;background: url(../images/active/live-list-bg.png) no-repeat scroll center center;background-size: 18.3rem 10rem;height: 10rem;position: relative;}
 .live-list-logo{position: absolute;right: 0.9rem;top: 0.5rem;width: 1.65rem;height: 2.1rem;z-index: 2}
-.live-list-user{width: 5.45rem;height: 5.55rem;margin-top: 1.7rem;margin-left: 1.8rem}
+.live-list-user{width: 5.45rem;height: 6.2rem;margin-top: 1.9rem;margin-left: 1.8rem}
 .live-list-con{float: right;width: 9.125rem;-webkit-box-sizing: border-box;box-sizing: border-box;padding: 1.125rem 0.45rem 0 0;}
 .live-list-con .title{display: inline-block;width: 100%;font-size: 0.7rem;font-weight: bold;padding: 0.3rem 0;}
 .live-list-con .name{display: inline-block;width: 100%;font-size: 0.85rem;font-weight: bold;}
@@ -328,7 +328,7 @@ html,body{background-color: #fff;height: 100%}
 .world-rank-list li.on:nth-child(2):after{content: "";background: url(../images/active/world-rank-two.png) no-repeat scroll center center;background-size: cover;height: 1.525rem;width: 1.975rem;position: absolute;left: 0;top: 0;-webkit-transform: translate(-20%,-90%);transform: translate(-20%,-90%);}
 .world-rank-list li.on:nth-child(3):after{content: "";background: url(../images/active/world-rank-three.png) no-repeat scroll center center;background-size: cover;height: 1.475rem;width: 1.975rem;position: absolute;left: 0;top: 0;-webkit-transform: translate(-20%,-90%);transform: translate(-20%,-90%);}
 .world-rank-list .vid-show{width: 100%;-webkit-box-sizing: border-box;box-sizing: border-box;border: 0.1rem solid #000;position: relative;}
-.world-rank-list .vid-show .bg{width: 7.9rem;height:10.7rem }
+.world-rank-list .vid-show .bg{width: 7.82rem;height:10.6rem }
 .world-rank-list .vid-show .btn{position: absolute;width: 1.75rem;height: 1.75rem;top: 50%;left: 50%;-webkit-transform: translate(-50%,-80%);transform: translate(-50%,-80%);}
 .world-rank-list .vid-show .tip{position: absolute;bottom: 0.625rem;left: 2%;width: 96%;}
 .world-rank-list .vid-show .info{position: absolute;bottom: 0.7rem;right: 5%;width: 10.6rem;font-size: 0.9rem;line-height: 1rem;height: 2.2rem;box-sizing: border-box;padding: 0.1rem 0;font-weight: bolder;overflow: hidden;display: inline-block;transform: scale(.5) translate(45%,10%);transform-origin:center;}

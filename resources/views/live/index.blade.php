@@ -48,6 +48,9 @@
             </li>
                 @endforeach
         </ul>
+        <p class="active-begin-more">
+            <img class="back" src="{{staticFile('images/photo_back.png')}}" alt="more">
+        </p>
     </div>
     <!-- mask -->
     <div class="active-translate-mask-bg">&nbsp;</div>
@@ -147,6 +150,9 @@
         })
         window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
+            $(document).on('click','.back',function () {
+                location.href = "/";
+            })
             // 活动说明遮罩层
             $("#show-mask").on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');

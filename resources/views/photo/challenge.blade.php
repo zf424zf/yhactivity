@@ -70,7 +70,7 @@
         $(function () {
             var uploader = WebUploader.create({
                 auto: true,
-                fileNumLimit: 9,
+//                fileNumLimit: 9,
                 // 文件接收服务端。
                 server: '/api/upload',
                 formData:{upload_type:1},
