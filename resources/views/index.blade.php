@@ -3,7 +3,7 @@
 @section('resource')
 @endsection
 @section('content')
-    <img src="{{staticFile('images/index/begin-index.gif')}}" alt="face" class="begin-index">
+    <img src="http://img.guoshish.com/aha/h5/begin-index.gif" alt="face" class="begin-index">
     <div class="body-index">
         <div class="show page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
             <!-- 背景 -->
