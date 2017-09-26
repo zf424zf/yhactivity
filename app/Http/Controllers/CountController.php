@@ -40,6 +40,9 @@ class CountController extends Controller
         } else {
             $e = $yesterdayEnd;
         }
+        var_dump($s);
+        var_dump($e);
+        return;
         $imageSql = "select count(*) as cnt from yh_image where type =1 and created_at >= $s and created_at <= $e ";
         $videoSql = "select count(*) as cnt from yh_video where created_at >= $s and created_at <= $e";
         $imageUser = "select count(t1.cnt) as cnt from (select count(uid) as cnt from yh_image where type = 1 and created_at >= $s and created_at <= $e group by uid ) t1";
