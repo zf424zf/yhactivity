@@ -122,6 +122,8 @@
             url: window.location.href,
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
+        window.hybridBridge.headerBar.setShareConfig(opt);
+
         wx.ready(function () {
             wx.onMenuShareTimeline({
                 title: '这个直播尺度太大，再不看一会可能就被河蟹了~', // 分享标题
@@ -148,7 +150,6 @@
                 }
             });
         })
-        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
             $(document).on('click','.back',function () {
                 location.href = "/";
