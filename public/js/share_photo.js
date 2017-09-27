@@ -1,3 +1,4 @@
+
 var opt = {
         name: "timeline, friend, qq, qzone, weibo",
         title: "嘿嘿，这件事一个人做，不如两个人做！",
