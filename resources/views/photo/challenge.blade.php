@@ -13,7 +13,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="page">
+    <div class="page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="bg content infinite-scroll infinite-scroll-bottom">
             <div class="active-enge-title">
                 <a href="">
@@ -135,6 +135,11 @@
                     });
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
             $.init();
         })
     </script>

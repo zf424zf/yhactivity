@@ -4,7 +4,7 @@
 
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -163,6 +163,12 @@
                     }
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
     <script src="{{staticFile('js/share.js')}}"></script>
