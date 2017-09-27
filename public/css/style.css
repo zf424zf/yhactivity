@@ -246,14 +246,14 @@ html,body{background-color: #fff;height: 100%}
 .active-pic-details .user-like img{width: 100%;vertical-align: baseline;}
 /*live-list*/
 .live-list{margin: 1.0rem auto 0;overflow: hidden;width: 18.3rem;}
-.live-list li{margin-bottom: 1.0rem;background: url(../images/active/live-list-bg.png) no-repeat scroll center center;background-size: 18.3rem 10rem;height: 10rem;position: relative;}
+.live-list li{margin-bottom: 1.0rem;background: url(../images/active/live-list-bg.png) no-repeat scroll center center;background-size: 18.3rem 9rem;height: 9rem;position: relative;}
 .live-list-logo{position: absolute;right: 0.9rem;top: 0.5rem;width: 1.65rem;height: 2.1rem;z-index: 2}
-.live-list-user{width: 5.45rem;height: 6.2rem;margin-top: 1.9rem;margin-left: 1.8rem}
+.live-list-user{width: 5.45rem;height: 5.55rem;margin-top: 1.7rem;margin-left: 1.8rem}
 .live-list-con{float: right;width: 9.125rem;-webkit-box-sizing: border-box;box-sizing: border-box;padding: 1.125rem 0.45rem 0 0;}
-.live-list-con .title{display: inline-block;width: 100%;font-size: 0.7rem;font-weight: bold;padding: 0.3rem 0;}
+.live-list-con .title{display: inline-block;width: 100%;font-size: 0.7rem;font-weight: bold;}
 .live-list-con .name{display: inline-block;width: 100%;font-size: 0.85rem;font-weight: bold;}
 .live-list-con .bardian{display: inline-block;font-size: 0.7rem;font-weight: bold;line-height: 1rem;background: #ffd731;}
-.live-list-con .time{display: inline-block;width: 100%;font-size: 0.65rem;font-weight: bold;padding: 0.3rem 0;}
+.live-list-con .time{display: inline-block;width: 100%;font-size: 0.65rem;font-weight: bold;}
 .live-list-con .btn{display: inline-block;width: 100%;padding-top: .3rem;}
 .live-list-con .btn img{width: 5.7rem;height: 1.875rem}
 /*live-on*/
