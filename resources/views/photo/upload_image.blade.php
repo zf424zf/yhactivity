@@ -165,4 +165,6 @@
             });
         })
     </script>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_photo.js')}}"></script>
 @endsection

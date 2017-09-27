@@ -50,4 +50,6 @@
     </div>
     <input type="hidden" class="niced" data-nice="{{$uid}}">
     <script src="{{staticFile('js/photo-detail.js')}}"></script>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_photo.js')}}"></script>
 @endsection
