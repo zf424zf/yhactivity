@@ -13,7 +13,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="page">
+    <div class="page"  data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="bg content  infinite-scroll infinite-scroll-bottom">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -116,6 +116,8 @@
             </div>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_video.js')}}"></script>
     <script>
         $(function () {
             $(document).on("pageInit", ".page", function (e, id, page) {
@@ -157,6 +159,11 @@
                     });
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
             $.init();
         })
     </script>

@@ -13,7 +13,8 @@
     </style>
 @endsection
 @section('content')
-    <div class="page">
+    <div class="page"
+         data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="bg content  infinite-scroll infinite-scroll-bottom">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -74,38 +75,39 @@
                 <div class="world-rank-over">
                     <div class="world-rank-list">
                         @if(isset($data) && !empty($data))
-                        <ul>
-                            @foreach($data as $item)
-                                <li class="on">
-                                    <p class="vid-show">
-                                        <a href="{{urls('/video/detail/'.$item->id)}}">
-                                            <img src="{{$item->cover}}" alt="video" class="bg">
-                                            <img src="{{staticFile('images/active/world-video-play.png')}}" alt="btn" class="btn">
-                                            {{--<img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">--}}
-                                            {{--<span class="info">--}}
-											{{--{{$item->qname}}--}}
-										{{--</span>--}}
-                                        </a>
-                                    </p>
-                                    <p class="user">
+                            <ul>
+                                @foreach($data as $item)
+                                    <li class="on">
+                                        <p class="vid-show">
+                                            <a href="{{urls('/video/detail/'.$item->id)}}">
+                                                <img src="{{$item->cover}}" alt="video" class="bg">
+                                                <img src="{{staticFile('images/active/world-video-play.png')}}"
+                                                     alt="btn" class="btn">
+                                                {{--<img src="{{staticFile('images/active/world-video-info.png')}}" alt="tip" class="tip">--}}
+                                                {{--<span class="info">--}}
+                                                {{--{{$item->qname}}--}}
+                                                {{--</span>--}}
+                                            </a>
+                                        </p>
+                                        <p class="user">
 									<span class="user-photo">
 										<img src="{{thumb($item->headicon)}}" alt="photo">
 									</span>
-                                        <span class="user-title">
+                                            <span class="user-title">
 										{{$item->nickname}}
 									</span>
-                                        <span class="user-like">
+                                            <span class="user-like">
 										<img src="{{staticFile('images/active/like.png')}}" alt="like">
-                                            {{$item->cnt}}
+                                                {{$item->cnt}}
 									</span>
-                                    </p>
-                                </li>
-                            @endforeach
-                        </ul>
-                        <div class="infinite-scroll-preloader">
-                            <div class="preloader">
+                                        </p>
+                                    </li>
+                                @endforeach
+                            </ul>
+                            <div class="infinite-scroll-preloader">
+                                <div class="preloader">
+                                </div>
                             </div>
-                        </div>
                         @else
                             <div class="no_data"></div>
                         @endif
@@ -114,6 +116,8 @@
             </div>
         </div>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_video.js')}}"></script>
     <script>
         $(function () {
             $(document).on("pageInit", ".page", function (e, id, page) {
@@ -135,8 +139,8 @@
                         type: 'GET',
                         data: {
                             page: currentPage + 1,
-                            module:'{{\Request::get('module')}}',
-                            child:'{{\Request::get('child')}}'
+                            module: '{{\Request::get('module')}}',
+                            child: '{{\Request::get('child')}}'
                         },
                         dataType: 'html',
                         cache: false,
@@ -155,6 +159,11 @@
                     });
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
             $.init();
         })
     </script>
