@@ -4,6 +4,7 @@
 @endsection
 @section('content')
     <img src="http://img.guoshish.com/aha/h5/begin-index.gif" alt="face" class="begin-index">
+    @include('layout.music_60')
     <div class="body-index">
         <div class="show page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
             <!-- 背景 -->
