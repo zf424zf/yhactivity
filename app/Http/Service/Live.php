@@ -30,9 +30,7 @@ class Live
         $http = new Client();
         $result = $http->get($url, $id ? $get : []);
         $response = json_decode($result->getBody()->__toString(), true);
-        foreach ($response as $key=>$value){
-            $response[$key]['rtmp'] = $value['hls'];
-        }
+       
         return $response;
     }
 
