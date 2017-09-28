@@ -69,6 +69,18 @@
                         最新
                     </a>
                 </p>
+                <div class="photo_rank_explain">
+                    @if(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_BS)
+                        <p class="prize">点赞最高的月冠军得Yaman美容仪</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_MX)
+                        <p class="prize">点赞最高的月冠军得Rimowa旅行箱</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_ZC)
+                        <p class="prize">点赞最高的月冠军得casio自拍相机</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_CH)
+                        <p class="prize">点赞最高的月冠军得顶级餐厅双人套餐</p>
+                    @endif
+                    <p class="rule">（每个用户每天最多为单张照片点赞10次）</p>
+                </div>
                 <div class="active-rank-over">
                     <div class="active-rank-list">
                         @if(isset($data) && !empty($data))

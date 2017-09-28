@@ -516,7 +516,7 @@ class FileList
                             yh_like" . $where . "
                         GROUP BY
                             target_id
-                        having cnt >= 5";
+                        having cnt >= 10";
             $likes = \DB::select($sql);
             $canLike = collect($likes)->keyBy('target_id')->all();
         }

@@ -38,6 +38,6 @@ class Message
         if (!empty($msgId)) {
             $model->where('id', '>', $msgId);
         }
-        return $model->take(10)->get()->toArray();
+        return $model->get()->toArray();
     }
 }

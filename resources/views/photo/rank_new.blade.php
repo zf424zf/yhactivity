@@ -13,7 +13,8 @@
     </style>
 @endsection
 @section('content')
-    <div class="page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
+    <div class="page"
+         data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="bg content infinite-scroll infinite-scroll-bottom">
             <a href="{{urls('/photo')}}">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -29,7 +30,7 @@
                             @endif
                         </a>
                     </li>
-                        <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child'))) class="on" @endif>
+                    <li @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child'))) class="on" @endif>
                         <a href="{{'/photo/list/new?module=1&child='.\App\Http\Api\PhotoChild::PHOTO_MX}}">
                             @if(\Request::get('child')== \App\Http\Api\PhotoChild::PHOTO_MX || empty(Request::get('child')))
                                 <img class="on" src="{{staticFile('images/active/h1-on.png')}}" alt="标题">
@@ -68,6 +69,18 @@
                         最新
                     </a>
                 </p>
+                <div class="photo_rank_explain">
+                    @if(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_BS)
+                        <p class="prize">点赞最高的月冠军得Yaman美容仪</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_MX)
+                        <p class="prize">点赞最高的月冠军得Rimowa旅行箱</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_ZC)
+                        <p class="prize">点赞最高的月冠军得casio自拍相机</p>
+                    @elseif(\Request::get('child')==\App\Http\Api\PhotoChild::PHOTO_CH)
+                        <p class="prize">点赞最高的月冠军得顶级餐厅双人套餐</p>
+                    @endif
+                        <p class="rule">（每个用户每天最多为单张照片点赞10次）</p>
+                </div>
                 <div class="active-rank-over">
                     <div class="active-rank-list">
                         @if(isset($data) && !empty($data))
@@ -132,8 +145,8 @@
                         type: 'GET',
                         data: {
                             page: currentPage + 1,
-                            module:'{{\Request::get('module')}}',
-                            child:'{{\Request::get('child')}}'
+                            module: '{{\Request::get('module')}}',
+                            child: '{{\Request::get('child')}}'
                         },
                         dataType: 'html',
                         cache: false,

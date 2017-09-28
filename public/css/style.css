@@ -438,3 +438,6 @@ html,body{background-color: #fff;height: 100%}
 	.trailer-con,.trailer-btm{display: none;}
 }
 .act-beg-user-name img{border: .1rem black solid}
+.photo_rank_explain p{text-align: center}
+.photo_rank_explain .prize{font-size: .8rem}
+.photo_rank_explain .rule{font-size: .5rem}

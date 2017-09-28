@@ -30,7 +30,7 @@ class Like
     {
 
          $likeCount = $this->userLikeCount($uid,$module,$target);
-        if ($likeCount >= 5) {
+        if ($likeCount >= 10) {
             api_exception(Service::LK_USER_HAS_BEEN_LIKE, '一天只能点赞5次哦');
         }
         $model = Module::getModuleModel($module);
