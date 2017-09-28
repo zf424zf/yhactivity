@@ -4,9 +4,9 @@
 @endsection
 @section('content')
     <img src="http://img.guoshish.com/aha/h5/begin-index.gif" alt="face" class="begin-index">
-    @include('layout.music_60')
     <div class="body-index">
-        <div class="show page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
+        <div class="show page"
+             data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
             <!-- 背景 -->
             <div class="index-bg">&nbsp;</div>
             <!-- 第一幅画面 -->
@@ -50,9 +50,9 @@
     <script src="{{staticFile('js/share.js')}}"></script>
     <script>
         var opt = {
-            name:"timeline, friend, qq, qzone, weibo",
-            title:"我们爱聊荤段子〜",
-            description:"我要下车！这根本不是去幼儿园的路！",
+            name: "timeline, friend, qq, qzone, weibo",
+            title: "我们爱聊荤段子〜",
+            description: "我要下车！这根本不是去幼儿园的路！",
             url: window.location.href,
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
@@ -62,14 +62,15 @@
             setTimeout(function () {
                 $(".begin-index").hide();
             }, 3000)
-            $(document).on('pageInit','.page',function(e,id,page){
-                if($('#'+id).data('config')){
-                    wx.config(JSON.parse($('#'+id).data('config')))
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
                 }
             })
             $.init();
         })
         wx.ready(function () {
+
             wx.onMenuShareTimeline({
                 title: '我们爱聊荤段子〜', // 分享标题
                 link: window.location.href, // 分享链接,将当前登录用户转为puid,以便于发展下线
@@ -94,6 +95,15 @@
                     // 用户取消分享后执行的回调函数
                 }
             });
+        })
+    </script>
+    @include('layout.music_60')
+@endsection
+@section('music')
+    <script>
+        wx.ready(function () {
+            var media = document.getElementById("music");
+            media.play();
         })
     </script>
 @endsection

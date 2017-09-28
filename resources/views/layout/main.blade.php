@@ -174,6 +174,6 @@
         s.parentNode.insertBefore(mta, s);
     })();
 </script>
-
+@yield('music')
 </body>
 </html>
