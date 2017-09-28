@@ -174,6 +174,13 @@
         s.parentNode.insertBefore(mta, s);
     })();
 </script>
-@yield('music')
+<script>
+    wx.ready(function () {
+        var media = document.getElementById("music");
+        if(media){
+            media.play();
+        }
+    })
+</script>
 </body>
 </html>

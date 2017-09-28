@@ -34,4 +34,5 @@
             $.init();
         })
     </script>
+    @include('layout.music_30')
 @endsection

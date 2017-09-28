@@ -152,4 +152,5 @@
     </script>
     <script src="{{staticFile('js/share.js')}}"></script>
     <script src="{{staticFile('js/share_photo.js')}}"></script>
+    @include('layout.music_30')
 @endsection

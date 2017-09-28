@@ -99,11 +99,4 @@
     </script>
     @include('layout.music_60')
 @endsection
-@section('music')
-    <script>
-        wx.ready(function () {
-            var media = document.getElementById("music");
-            media.play();
-        })
-    </script>
-@endsection
+

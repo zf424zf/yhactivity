@@ -120,7 +120,5 @@
             $.init();
         })
     </script>
-    <script>
-
-    </script>
+    @include('layout.music_30')
 @endsection

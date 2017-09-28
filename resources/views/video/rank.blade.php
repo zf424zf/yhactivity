@@ -167,4 +167,5 @@
             $.init();
         })
     </script>
+    @include('layout.music_60')
 @endsection

@@ -134,4 +134,5 @@
     </script>
     <script src="{{staticFile('js/share.js')}}"></script>
     <script src="{{staticFile('js/share_luck.js')}}"></script>
+    @include('layout.music_60')
 @endsection
