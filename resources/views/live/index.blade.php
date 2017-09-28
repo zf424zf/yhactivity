@@ -48,6 +48,9 @@
             </li>
                 @endforeach
         </ul>
+        <p class="active-begin-more">
+            <img class="back" src="{{staticFile('images/photo_back.png')}}" alt="more">
+        </p>
     </div>
     <!-- mask -->
     <div class="active-translate-mask-bg">&nbsp;</div>
@@ -119,6 +122,8 @@
             url: window.location.href,
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
+        window.hybridBridge.headerBar.setShareConfig(opt);
+
         wx.ready(function () {
             wx.onMenuShareTimeline({
                 title: '这个直播尺度太大，再不看一会可能就被河蟹了~', // 分享标题
@@ -145,8 +150,10 @@
                 }
             });
         })
-        window.hybridBridge.headerBar.setShareConfig(opt);
         $(function () {
+            $(document).on('click','.back',function () {
+                location.href = "/";
+            })
             // 活动说明遮罩层
             $("#show-mask").on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
@@ -163,5 +170,5 @@
         })
 
     </script>
-
+    @include('layout.music_60')
 @endsection

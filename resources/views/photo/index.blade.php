@@ -81,7 +81,7 @@
         </ul>
         <p class="active-begin-more">
             <img class="rank" src="{{staticFile('images/active/active-begin-more.png')}}" alt="more">
-            <img class="back" src="{{staticFile('images/photo_back.png')}}" alt="more">
+            <img class="back" style="height: 3.29rem" src="{{staticFile('images/photo_back.png')}}" alt="more">
         </p>
     </div>
     <!-- mask -->
@@ -224,4 +224,5 @@
             $.init();
         })
     </script>
+    @include('layout.music_60')
 @endsection

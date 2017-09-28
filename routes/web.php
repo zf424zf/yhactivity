@@ -12,9 +12,10 @@
 */
 
 Route::get('/haha', function () {
-    \Request::session()->flush();
-     $userLuckCountKey = cache_key('user.luck.count', 13);
-     return cache()->forget($userLuckCountKey);
+    var_dump(cache());
+//    \Request::session()->flush();
+//     $userLuckCountKey = cache_key('user.luck.count', 13);
+//     return cache()->forget($userLuckCountKey);
 //    return (new \App\Http\Service\live())->getLiveList();
 });
 

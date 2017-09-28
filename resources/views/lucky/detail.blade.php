@@ -4,7 +4,7 @@
 
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -22,4 +22,17 @@
             <a href="{{urls('/')}}"><img src="{{staticFile('images/active/gift-details-btn2.png')}}" alt="回到首页"></a>
         </p>
     </div>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_luck.js')}}"></script>
+    <script>
+        $(function(){
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
+        })
+    </script>
+    @include('layout.music_30')
 @endsection

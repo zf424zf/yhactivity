@@ -7,7 +7,7 @@
 
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -59,6 +59,8 @@
         </div>
     </div>
     {{--<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>--}}
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_live.js')}}"></script>
     <script>
         var lastId = '{{last($message)['id']}}'
         $(function () {
@@ -87,6 +89,12 @@
                     $(this).blur();
                 }
             });
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
         })
         function getComment() {
             $.ajax({

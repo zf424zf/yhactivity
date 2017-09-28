@@ -112,15 +112,14 @@
     @yield('resource')
 </head>
 <body>
-<script type="text/javascript" src="{{staticFile('js/zepto.js')}}"></script>
+<script type="text/javascript" src="http://img.guoshish.com/aha/h5/zepto.js"></script>
 <script src="http://apps.bdimg.com/libs/underscore.js/1.7.0/underscore-min.js"></script>
-{{--    <script type="text/javascript" src="{{staticFile('js/zepto.data.js')}}"></script>--}}
-<script type="text/javascript" src="{{staticFile('js/zepto.callbacks.js')}}"></script>
-<script type="text/javascript" src="{{staticFile('js/zepto.deferred.js')}}"></script>
+<script type="text/javascript" src="http://img.guoshish.com/aha/h5/zepto.callbacks.js"></script>
+<script type="text/javascript" src="http://img.guoshish.com/aha/h5/zepto.deferred.js"></script>
 <script type="text/javascript" src="{{staticFile('js/touch.js')}}"></script>
 <script type='text/javascript' src='http://img.guoshish.com/aha/h5/sm.min.js' charset='utf-8'></script>
 <script type='text/javascript' src='http://img.guoshish.com/aha/h5/sm-extend.min.js' charset='utf-8'></script>
-<script type="text/javascript" src="{{staticFile('js/webuploader.html5only.min.js')}}"></script>
+<script type="text/javascript" src="http://img.guoshish.com/aha/h5/webuploader.html5only.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
     $(function(){
@@ -164,5 +163,24 @@
     }
 </script>
 @yield('content')
+<script>
+    var _mtac = {};
+    (function() {
+        var mta = document.createElement("script");
+        mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
+        mta.setAttribute("name", "MTAH5");
+        mta.setAttribute("sid", "500528860");
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(mta, s);
+    })();
+</script>
+<script>
+    wx.ready(function () {
+        var media = document.getElementById("music");
+        if(media){
+            media.play();
+        }
+    })
+</script>
 </body>
 </html>

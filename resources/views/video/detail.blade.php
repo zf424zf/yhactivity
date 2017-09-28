@@ -10,7 +10,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page"  data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -58,6 +58,8 @@
     <script src="{{staticFile('js/video-detail.js')}}"></script>
     <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
     <script src="{{staticFile('js/videojs-contrib-hls.min.js')}}"></script>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_video.js')}}"></script>
     <script>
         var player = videojs('example-video');
         $(function () {
@@ -69,6 +71,12 @@
             player.on("ended", function(){
                 $('.play').show();
             })
+            $(document).on('pageInit','.page',function(e,id,page){
+                if($('#'+id).data('config')){
+                    wx.config(JSON.parse($('#'+id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
 @endsection

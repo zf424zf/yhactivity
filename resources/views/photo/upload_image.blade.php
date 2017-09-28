@@ -4,7 +4,7 @@
 
 @endsection
 @section('content')
-    <div class="bg">
+    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <a href="">
             <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
         </a>
@@ -61,7 +61,7 @@
         $(function () {
             var uploader = WebUploader.create({
                 auto: true,
-                fileNumLimit: 9,
+//                fileNumLimit: 9,
                 // 文件接收服务端。
                 server: '/api/upload',
                 // 选择文件的按钮。可选。
@@ -163,6 +163,15 @@
                     }
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
+            $.init();
         })
     </script>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_photo.js')}}"></script>
+    @include('layout.music_30')
 @endsection

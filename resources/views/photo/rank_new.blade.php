@@ -13,7 +13,7 @@
     </style>
 @endsection
 @section('content')
-    <div class="page">
+    <div class="page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="bg content infinite-scroll infinite-scroll-bottom">
             <a href="{{urls('/photo')}}">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
@@ -152,7 +152,15 @@
                     });
                 })
             });
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
+                }
+            })
             $.init();
         })
     </script>
+    <script src="{{staticFile('js/share.js')}}"></script>
+    <script src="{{staticFile('js/share_photo.js')}}"></script>
+    @include('layout.music_60')
 @endsection
