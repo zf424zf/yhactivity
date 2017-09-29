@@ -45,7 +45,7 @@
             <a href="{{urls('/video/1')}}" class="index-link index-link-2">&nbsp;</a>
             <a href="{{urls('/live')}}" class="index-link index-link-3">&nbsp;</a>
             <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
-            <img style="height: 1.75rem;width: 1.75rem" src="http://img.guoshish.com/aha/h5/music_on.png" alt="arm" class="music_controller">
+            <img style="z-index: 20;height: 1.75rem;width: 1.75rem" src="http://img.guoshish.com/aha/h5/music_on.png" alt="arm" class="music_controller">
         </div>
     </div>
     <script src="{{staticFile('js/share.js')}}"></script>
