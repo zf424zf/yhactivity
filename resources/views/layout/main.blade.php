@@ -181,6 +181,12 @@
             media.play();
         }
     })
+    $(function(){
+        var media = document.getElementById("music");
+        if(media && (media.paused)){
+            media.play();
+        }
+    })
 </script>
 </body>
 </html>
