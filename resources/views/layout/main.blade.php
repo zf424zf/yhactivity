@@ -177,7 +177,7 @@
 <script>
     wx.ready(function () {
         var media = document.getElementById("music");
-        if(media){
+        if(media && (media.paused)){
             media.play();
         }
     })
