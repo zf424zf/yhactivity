@@ -205,10 +205,12 @@
             if (data == null || data == 'open') {
                 $(this).find('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
                 sessionStorage.setItem('music_controller','close');
+                data = 'close'
                 media.pause();
             }else{
                 $(this).find('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_on.png')
                 sessionStorage.setItem('music_controller','open');
+                data = 'open'
                 media.play();
             }
         })

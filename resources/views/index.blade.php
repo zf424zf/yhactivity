@@ -4,6 +4,10 @@
 @endsection
 @section('content')
     <img src="http://img.guoshish.com/aha/h5/begin-index.gif" alt="face" class="begin-index">
+    <div class="music_controller_div" style="position:absolute;z-index: 200;height: 1.75rem;width: 1.75rem">
+    <img style="z-index: 200;height: 1.75rem;width: 1.75rem" src="http://img.guoshish.com/aha/h5/music_on.png" alt="arm"
+         class="music_controller">
+    </div>
     <div class="body-index">
         <div class="show page"
              data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
@@ -45,9 +49,7 @@
             <a href="{{urls('/video/1')}}" class="index-link index-link-2">&nbsp;</a>
             <a href="{{urls('/live')}}" class="index-link index-link-3">&nbsp;</a>
             <a href="{{urls('/lucky')}}" class="index-link index-link-4">&nbsp;</a>
-            <div class="music_controller_div" style="z-index: 200;height: 1.75rem;width: 1.75rem"">
-                <img style="z-index: 200;height: 1.75rem;width: 1.75rem" src="http://img.guoshish.com/aha/h5/music_on.png" alt="arm" class="music_controller">
-            </div>
+
         </div>
     </div>
     <script src="{{staticFile('js/share.js')}}"></script>
