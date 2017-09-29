@@ -12,9 +12,10 @@
             opacity: 1;
             -webkit-transition-duration: .4s;
             transition-duration: .4s;
-            -webkit-transform: translate3d(0,0,0) scale(1);
-            transform: translate3d(0,0,0) scale(1);
+            -webkit-transform: translate3d(0, 0, 0) scale(1);
+            transform: translate3d(0, 0, 0) scale(1);
         }
+
         .modal {
             width: 13.5rem;
             position: absolute;
@@ -26,13 +27,14 @@
             text-align: center;
             border-radius: .35rem;
             opacity: 0;
-            -webkit-transform: translate3d(0,0,0) scale(1.185);
-            transform: translate3d(0,0,0) scale(1.185);
-            -webkit-transition-property: -webkit-transform,opacity;
-            transition-property: transform,opacity;
+            -webkit-transform: translate3d(0, 0, 0) scale(1.185);
+            transform: translate3d(0, 0, 0) scale(1.185);
+            -webkit-transition-property: -webkit-transform, opacity;
+            transition-property: transform, opacity;
             color: #3d4145;
             display: none;
         }
+
         .modal-no-buttons .modal-inner {
             border-radius: .35rem;
         }
@@ -43,57 +45,66 @@
             position: relative;
             background: #e8e8e8;
         }
+
         .modal-title {
             font-weight: 500;
             font-size: .9rem;
             text-align: center;
         }
-        .modal-title+.modal-text {
+
+        .modal-title + .modal-text {
             margin-top: .25rem;
         }
+
         .modal .preloader {
             width: 1.7rem;
             height: 1.7rem;
         }
+
         .modal .preloader {
             width: 1.7rem;
             height: 1.7rem;
         }
+
         .preloader {
             display: inline-block;
             width: 1rem;
             height: 1rem;
             -webkit-transform-origin: 50%;
             transform-origin: 50%;
-            -webkit-animation: preloader-spin 1s steps(12,end) infinite;
-            animation: preloader-spin 1s steps(12,end) infinite;
+            -webkit-animation: preloader-spin 1s steps(12, end) infinite;
+            animation: preloader-spin 1s steps(12, end) infinite;
         }
+
         .preloader {
             display: inline-block;
             width: 1rem;
             height: 1rem;
             -webkit-transform-origin: 50%;
             transform-origin: 50%;
-            -webkit-animation: preloader-spin 1s steps(12,end) infinite;
-            animation: preloader-spin 1s steps(12,end) infinite;
+            -webkit-animation: preloader-spin 1s steps(12, end) infinite;
+            animation: preloader-spin 1s steps(12, end) infinite;
         }
+
         .modal-overlay.modal-overlay-visible, .popup-overlay.modal-overlay-visible, .preloader-indicator-overlay.modal-overlay-visible {
             visibility: visible;
             opacity: 1;
         }
+
         .modal-overlay, .popup-overlay, .preloader-indicator-overlay {
             position: absolute;
             left: 0;
             top: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,.4);
+            background: rgba(0, 0, 0, .4);
             z-index: 10600;
             visibility: hidden;
             opacity: 0;
             -webkit-transition-duration: .4s;
             transition-duration: .4s;
         }
+
         .preloader:after {
             display: block;
             content: "";
@@ -104,10 +115,13 @@
             background-size: 100%;
             background-repeat: no-repeat;
         }
-        @keyframes preloader-spin{100% {
-            -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-        }}
+
+        @keyframes preloader-spin {
+            100% {
+                -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+            }
+        }
     </style>
     @yield('resource')
 </head>
@@ -122,20 +136,20 @@
 <script type="text/javascript" src="http://img.guoshish.com/aha/h5/webuploader.html5only.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-    $(function(){
-        window.alert = function(name){
+    $(function () {
+        window.alert = function (name) {
             var iframe = document.createElement("IFRAME");
-            iframe.style.display="none";
+            iframe.style.display = "none";
             iframe.setAttribute("src", 'data:text/plain,');
             document.documentElement.appendChild(iframe);
             window.frames[0].window.alert(name);
             iframe.parentNode.removeChild(iframe);
         }
-        $(".select-question-list li").click(function(){
+        $(".select-question-list li").click(function () {
             $(this).find('input[type="radio"]').get(0).checked = true;
-            $(".select-question-list li").each(function(){
+            $(".select-question-list li").each(function () {
                 $(this).removeClass('on');
-                if($(this).find('input[type="radio"]').get(0).checked){
+                if ($(this).find('input[type="radio"]').get(0).checked) {
                     $(this).addClass('on');
                 }
             });
@@ -159,13 +173,13 @@
 </script>
 <script>
     function hideAlert() {
-        $('.modal').css('display','none');
+        $('.modal').css('display', 'none');
     }
 </script>
 @yield('content')
 <script>
     var _mtac = {};
-    (function() {
+    (function () {
         var mta = document.createElement("script");
         mta.src = "http://pingjs.qq.com/h5/stats.js?v2.0.2";
         mta.setAttribute("name", "MTAH5");
@@ -177,15 +191,29 @@
 <script>
     wx.ready(function () {
         var media = document.getElementById("music");
-        if(media && (media.paused)){
+        if (media && (media.paused)) {
             media.play();
         }
     })
-    $(function(){
+    $(function () {
+        var data = sessionStorage.getItem('music_controller');
         var media = document.getElementById("music");
-        if(media && (media.paused)){
+        if ((data == 'open' || data == null) && media && (media.paused)) {
             media.play();
         }
+
+        $(document).on('.music_controller', 'click', function () {
+            if (data == null || data == 'open') {
+                $(this).prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
+                sessionStorage.setItem('music_controller','close');
+                media.pause();
+            }else{
+                $(this).prop('src', 'http://img.guoshish.com/aha/h5/music_on.png')
+                sessionStorage.setItem('music_controller','open');
+                media.play();
+            }
+        })
+
     })
 </script>
 </body>
