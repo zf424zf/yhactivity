@@ -202,7 +202,7 @@
             media.play();
         }
 
-        $(document).on('.music_controller', 'click', function () {
+        $(document).on('click','.music_controller',  function () {
             if (data == null || data == 'open') {
                 $(this).prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
                 sessionStorage.setItem('music_controller','close');
