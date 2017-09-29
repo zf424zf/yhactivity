@@ -197,6 +197,9 @@
         }
     })
     $(function () {
+        if(data == 'close'){
+            $('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
+        }
         var media = document.getElementById("music");
         if ((data == 'open' || data == null) && media && (media.paused)) {
             media.play();
