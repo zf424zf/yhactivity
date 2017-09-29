@@ -189,19 +189,18 @@
     })();
 </script>
 <script>
+    var data = sessionStorage.getItem('music_controller');
     wx.ready(function () {
-        var media = document.getElementById("music");
-        if (media && (media.paused)) {
-            media.play();
-        }
-    })
-    $(function () {
-        var data = sessionStorage.getItem('music_controller');
         var media = document.getElementById("music");
         if ((data == 'open' || data == null) && media && (media.paused)) {
             media.play();
         }
-
+    })
+    $(function () {
+        var media = document.getElementById("music");
+        if ((data == 'open' || data == null) && media && (media.paused)) {
+            media.play();
+        }
         $(document).on('click','.music_controller_div',  function () {
             if (data == null || data == 'open') {
                 $(this).find('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
