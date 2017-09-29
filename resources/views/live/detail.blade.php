@@ -66,7 +66,7 @@
         $(function () {
             $('#comments').scrollTop($('#comments')[0].scrollHeight);
             $(document).on('click', '#submit', function () {
-                $('#content').blur();
+//                $('#content').blur();
                 var content = $('#content').val();
                 var id = $(this).data('liveId');
                 var uid = '{{$uid}}';
@@ -75,7 +75,7 @@
                     type: 'post',
                     data: {content: content, channel: id, uid: uid},
                     success: function (ret) {
-                        $('#content').val('')
+//                        $('#content').val('')
                         if (ret.code != 0) {
                             alert('发送失败，请稍后再试');
                         }else{
@@ -85,9 +85,9 @@
                 })
             });
             $('#content').bind('keydown',function(event){
-                if(event.keyCode == "13") {
-                    $(this).blur();
-                }
+//                if(event.keyCode == "13") {
+//                    $(this).blur();
+//                }
             });
             $(document).on('pageInit','.page',function(e,id,page){
                 if($('#'+id).data('config')){
