@@ -202,13 +202,13 @@
             media.play();
         }
 
-        $(document).on('click','.music_controller',  function () {
+        $(document).on('click','.music_controller_div',  function () {
             if (data == null || data == 'open') {
-                $(this).prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
+                $(this).find('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_off.png');
                 sessionStorage.setItem('music_controller','close');
                 media.pause();
             }else{
-                $(this).prop('src', 'http://img.guoshish.com/aha/h5/music_on.png')
+                $(this).find('.music_controller').prop('src', 'http://img.guoshish.com/aha/h5/music_on.png')
                 sessionStorage.setItem('music_controller','open');
                 media.play();
             }
