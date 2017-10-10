@@ -3,31 +3,36 @@
 @section('resource')
 @endsection
 @section('content')
-    <div class="bg page" data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
+    <div class="bg page"
+         data-config='<?php echo app('wechat')->js->config(array('onMenuShareTimeline', 'onMenuShareAppMessage')) ?>'>
         <div class="active-begin-header">
             <a href="">
                 <img src="{{staticFile('images/active/act-beg-hea-logo.png')}}" alt="logo" class="active-logo">
             </a>
-            <img src="{{staticFile('images/active/gift-index-top.png')}}" alt="bg" class="act-beg-hea-bg gift-index-top">
+            <img src="{{staticFile('images/active/gift-index-top.png')}}" alt="bg"
+                 class="act-beg-hea-bg gift-index-top">
             <a href="javascript:;" class="act-beg-hea-link">
                 <span id="show-mask">活动说明</span>
             </a>
         </div>
         <form class="gift-index">
             <label class="select-photo">
-                {{--<input type="file">--}}
-                <!-- show img -->
+            {{--<input type="file">--}}
+            <!-- show img -->
                 <img id="upload" src="{{staticFile('images/active/demo.png')}}" alt="pic" class="select-photo-show">
             </label>
-            <input type="button"  value="" class="submit gift-index-submit">
+            <input type="button" value="" class="submit gift-index-submit">
 
         </form>
         <span style="font-size: .5rem;width: 10rem;margin: .5rem auto;display: block;line-height: .8rem">晒出你与雅哈咖啡的合影，即可参与抽奖，每人每日限一次机会！</span>
         <p class="gift-index-more">
-            <a href="{{urls('lucky/rank/1')}}" class="l"><img src="{{staticFile('images/active/gift-goodluck-next.png')}}" alt="btn"></a>
-            <a href="{{urls('lucky/wall')}}" class="r"><img src="{{staticFile('images/active/gift-photo-next.png')}}" alt="btn"></a>
+            <a href="{{urls('lucky/rank/1')}}" class="l"><img
+                        src="{{staticFile('images/active/gift-goodluck-next.png')}}" alt="btn"></a>
+            <a href="{{urls('lucky/wall')}}" class="r"><img src="{{staticFile('images/active/gift-photo-next.png')}}"
+                                                            alt="btn"></a>
             <a href="{{urls('/')}}" class="r"><img src="{{staticFile('images/luck_back.png')}}" alt="btn"></a>
         </p>
+        <p style="font-size: .5rem;text-align: center;">雅哈咖啡活动热线：021-22158440</p>
     </div>
     <!-- mask -->
     <div class="active-translate-mask-bg">&nbsp;</div>
@@ -107,9 +112,9 @@
     <script src="{{staticFile('js/share.js')}}"></script>
     <script>
         var opt = {
-            name:"timeline, friend, qq, qzone, weibo",
-            title:"来，拿个红包压压惊!",
-            description:"不砸得你哈哈大笑算我输〜",
+            name: "timeline, friend, qq, qzone, weibo",
+            title: "来，拿个红包压压惊!",
+            description: "不砸得你哈哈大笑算我输〜",
             url: window.location.href,
             icon: '{{staticFile('images/active/share.jpg')}}'
         }
@@ -141,17 +146,17 @@
                 }
             });
         })
-        $(function(){
+        $(function () {
             // 活动说明遮罩层
-            $("#show-mask").on('tap',function(){
+            $("#show-mask").on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             });
-            $('.active-translate-mask-bg').on('tap',function(){
+            $('.active-translate-mask-bg').on('tap', function () {
                 $(".active-translate-mask-bg,.active-translate-mask").toggleClass('on');
             })
-            $(document).on('pageInit','.page',function(e,id,page){
-                if($('#'+id).data('config')){
-                    wx.config(JSON.parse($('#'+id).data('config')))
+            $(document).on('pageInit', '.page', function (e, id, page) {
+                if ($('#' + id).data('config')) {
+                    wx.config(JSON.parse($('#' + id).data('config')))
                 }
             })
             $.init();
@@ -165,48 +170,48 @@
                 pick: '#upload',
                 // 不压缩image, 默认如果是jpeg，文件上传前会压缩一把再上传！
                 resize: false,
-                formData:{upload_type:1}
+                formData: {upload_type: 1}
             });
-            uploader.on( 'uploadSuccess', function( file,response) {
+            uploader.on('uploadSuccess', function (file, response) {
                 $.hidePreloader();
                 hideAlert();
                 var url = response.data.url;
                 var upload = $('#upload');
-                upload.data('url',url);
-                upload.attr('src',url);
+                upload.data('url', url);
+                upload.attr('src', url);
 
 //                window.location.href = '/photo/uploadImage/'+module+'?isUpload=1&path='+url
             });
-            uploader.on( 'uploadComplete', function( file,response) {
+            uploader.on('uploadComplete', function (file, response) {
                 $.hidePreloader();
                 hideAlert();
             });
 
-            uploader.on( 'uploadError', function( file,response ) {
+            uploader.on('uploadError', function (file, response) {
                 $.hidePreloader();
                 hideAlert();
             });
-            uploader.on( 'fileQueued', function( file,response ) {
+            uploader.on('fileQueued', function (file, response) {
             });
-            uploader.on( 'uploadProgress', function( file, percentage ) {
+            uploader.on('uploadProgress', function (file, percentage) {
                 $.showPreloader('上传中')
             });
 
-            $(document).on('click','.submit',function(){
+            $(document).on('click', '.submit', function () {
                 var upload = $('#upload');
                 var path = upload.data('url');
-                if(path == '' || path == undefined){
+                if (path == '' || path == undefined) {
                     alert('您还没有上传图片');
                     return false;
                 }
                 $.ajax({
-                    url:'/api/image/add',
-                    type:'post',
-                    data:{type:9,module:9,path:path,uid:'{{$uid}}'},
-                    success:function(ret){
-                        if(ret.data.haveChance == 1){
-                            location.href = '/lucky/prize?image_id='+ret.data.id;
-                        }else{
+                    url: '/api/image/add',
+                    type: 'post',
+                    data: {type: 9, module: 9, path: path, uid: '{{$uid}}'},
+                    success: function (ret) {
+                        if (ret.data.haveChance == 1) {
+                            location.href = '/lucky/prize?image_id=' + ret.data.id;
+                        } else {
                             location.href = '/lucky/wall'
                         }
                     }

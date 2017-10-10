@@ -372,7 +372,7 @@ html,body{background-color: #fff;height: 100%}
 .select-photo-show{width: 6.59rem;position: absolute !important;max-height: 7.725rem;top: 72%;left: 50%;transform: translate(-51%,-50%);}
 .gift-index .select-photo input{visibility: hidden;}
 .gift-index-submit{border: 0;margin-top: 2.6rem;background: transparent url(../images/active/gift-submit.png) no-repeat scroll center center;background-size: 6.125rem 2.375rem;display: inline-block;width: 7.125rem;height: 2.375rem;line-height: 2.375rem}
-.gift-index-more{font-size: 0;text-align: center;padding-bottom: 5.0rem}
+.gift-index-more{font-size: 0;text-align: center;padding-bottom: 2.0rem}
 .gift-index-more a img{width: 100%}
 .gift-index-more a.l{display: inline-block;width: 7.9rem;height: 2.375rem;margin-right: 0.9rem}
 .gift-index-more a.r{display: inline-block;width: 7.125rem;height: 2.375rem;margin-bottom: .6rem}

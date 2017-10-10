@@ -45,6 +45,7 @@
                 <div class="bar-swiper" id="bar-go"><img src="{{staticFile('images/active/bar-swiper.png')}}" alt="bar"></div>
             </div>
         </div>
+        <p style="font-size: .5rem;text-align: center;padding-top: 2rem;">雅哈咖啡活动热线：021-22158440</p>
         <p class="gift-height">&nbsp;</p>
     </div>
     <script type="text/javascript">
