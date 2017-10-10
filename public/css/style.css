@@ -412,9 +412,9 @@ html,body{background-color: #fff;height: 100%}
 .gift-rank-h h1{padding-top: 0.6rem;font-size: 1.0rem;font-weight: bolder;padding-bottom: 0.2rem}
 .gift-rank-h p{font-size: 0.85rem;font-weight: bolder;}
 .gift-rank-list{width: 11.25rem;margin: auto;line-height: 1.5rem;font-size: 0.7rem;padding: 1.25rem 0;overflow: hidden;}
-.gift-rank-list  span{width: 50%;float: left;display: inline-block;}
-.gift-rank-list  span.l{text-align: left;}
-.gift-rank-list  span.r{text-align: right;}
+.gift-rank-list  span{text-align: center;width: 100%;float: left;display: inline-block;}
+/*.gift-rank-list  span.l{text-align: left;}*/
+/*.gift-rank-list  span.r{text-align: right;}*/
 #scrollbar{position: absolute;right: 0.625rem;width: 0.125rem;height: 92%;border-radius: 0.05rem;background: #cecece;top: 2%;}
 .bar-swiper{width: 0.525rem;height: 1.675rem;top: 0%;right: -0.125rem;position: absolute;}
 .bar-swiper img{width: 100%}
