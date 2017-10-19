@@ -385,7 +385,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt, 0)+10 AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -431,7 +431,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt, 0)+10 AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
