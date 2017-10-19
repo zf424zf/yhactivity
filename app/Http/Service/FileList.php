@@ -462,7 +462,7 @@ class FileList
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile
+                    t1.*, IFNULL(t2.cnt, 0)+10 AS cnt,t3.nickname,t3.headicon,t3.profile
                 FROM
                     $table t1
                 LEFT JOIN (
