@@ -16,15 +16,20 @@ class VideoModel extends BaseModel
     protected $table = 'video';
 
     protected $appends = ['likeCnt'];
-    public function users(){
-        return $this->hasOne('App\Http\Models\UserModel','id','uid');
+
+    public function users()
+    {
+        return $this->hasOne('App\Http\Models\UserModel', 'id', 'uid');
     }
 
-    public function question(){
-        return $this->hasOne('App\Http\Models\QuestionModel','id','qid');
+    public function question()
+    {
+        return $this->hasOne('App\Http\Models\QuestionModel', 'id', 'qid');
     }
 
-    public function getLikeCntAttribute(){
-        return LikeModel::where('module',Module::VIDEO_MODULE)->where('target_id',$this->id)->count();
+    public function getLikeCntAttribute()
+    {
+        $like = LikeModel::where('module', Module::VIDEO_MODULE)->where('target_id', $this->id)->count();
+        return ($like + 10);
     }
 }

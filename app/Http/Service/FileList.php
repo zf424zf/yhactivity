@@ -385,7 +385,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -431,7 +431,7 @@ class FileList
             $left = ' left join yh_question t4 on t4.id = t1.qid';
         }
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
+                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile " . $q . "
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -462,7 +462,7 @@ class FileList
         $table = 'yh_image';
         $module = Module::PHOTO_MODULE;
         $sql = "SELECT
-                    t1.*, IFNULL(t2.cnt, 0) AS cnt,t3.nickname,t3.headicon,t3.profile
+                    t1.*, IFNULL(t2.cnt+10, 0) AS cnt,t3.nickname,t3.headicon,t3.profile
                 FROM
                     $table t1
                 LEFT JOIN (
@@ -510,7 +510,7 @@ class FileList
             }
             $where .= " and created_at >= $this->startTimestamp and created_at <= $this->endTimestamp";
             $sql = "SELECT
-                            COUNT(*) AS cnt,
+                            COUNT(*)+10 AS cnt,
                             target_id
                         FROM
                             yh_like" . $where . "

@@ -107,7 +107,7 @@ class Image
         $likeCnt = LikeModel::where('module',Module::PHOTO_MODULE)
             ->where('target_id',$id)->count();
         $data->canLike = $canLike;
-        $data->cnt = $likeCnt;
+        $data->cnt = ($likeCnt + 10);
         return $data;
     }
 
