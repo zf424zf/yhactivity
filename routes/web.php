@@ -11,8 +11,21 @@
 |
 */
 
-Route::get('/haha', function () {
-    var_dump(cache());
+Route::get('/mikeSay', function () {
+    $module = \Request::get('module');
+    $target = \Request::get('target');
+    $child = \Request::get('child');
+    $uid = 17;
+    $created = \Carbon\Carbon::now()->timestamp;
+    $updated = \Carbon\Carbon::now()->timestamp;
+    $num = \Request::get('num',1000);
+    $likes = [];
+    if(empty($module)||empty($target)||empty($child)||empty($num))return 'no';
+    for ($i = 0; $i < $num; $i++) {
+        array_push($likes, ['module' => $module, 'uid' => $uid, 'target_id' => $target, 'created_at' => $created, 'updated_at' => $updated, 'child' => $child]);
+    }
+    $count = \App\Http\Models\LikeModel::insert($likes);
+    return $count;
 //    \Request::session()->flush();
 //     $userLuckCountKey = cache_key('user.luck.count', 13);
 //     return cache()->forget($userLuckCountKey);
