@@ -42,10 +42,11 @@ class LikeController extends Controller
     }
 
     public function likeView(){
+        $uid = session('user')['id'];
         return (
         new Like())
             ->pointLike(
-                \Request::get('uid'),
+                $uid,
                 \Request::get('module'),
                 \Request::get('child'),
                 \Request::get('target')
