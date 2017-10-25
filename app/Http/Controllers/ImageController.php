@@ -98,7 +98,7 @@ class ImageController extends Controller
         $pagesize = Input::get('pagesize',6);
         $sort = 'new';
         $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid,$page,$pagesize);
-        return view('photo.rank_new', ['data' => $data]);
+        return view('photo.rank_new', ['data' => $data,'uid'=>$uid]);
     }
 
     public function rankView()
@@ -111,7 +111,7 @@ class ImageController extends Controller
         $pagesize = Input::get('pagesize',6);
         $sort = 'like';
          $data = (new FileList())->videoList($module, $sort, $child, 'desc', $uid,$page,$pagesize);
-         return view('photo.rank', ['data' => $data]);
+         return view('photo.rank', ['data' => $data,'uid'=>$uid]);
     }
 
     public function detailView($id)

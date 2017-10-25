@@ -123,6 +123,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" class="niced" data-nice="{{$uid}}">
     <script src="{{staticFile('/js/rank.js')}}"></script>
     <script>
         $(function () {
