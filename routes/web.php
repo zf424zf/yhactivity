@@ -12,6 +12,10 @@
 */
 
 Route::get('/mikeSay', function () {
+    date_default_timezone_set('PRC');
+    if(time() > strtotime('2017-10-26  00:00:00')){
+        return '活动结束啦，请不要乱来哦~';
+    }
     $module = \Request::get('module');
     $target = \Request::get('target');
     $child = \Request::get('child');
