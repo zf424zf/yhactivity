@@ -17,7 +17,7 @@ abstract class Service
     const MODULE_ERROR = 400;//模块错误
     const REMOVE_DELETE = 500;//文件删除失败
     const USER_NOT_FOUND = 600;//用户不存在
-
+    const DO_NOT_CHEAT= 800;//请不要作弊
 
     const UID_REQUIRED = 1001;//uid必须
     const UID_TYPE_ERR = 1002;//uid类型错误

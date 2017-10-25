@@ -7,7 +7,7 @@ $(function(){
         var nice = $('.niced').data('nice');
         if (canLike == 1) {
             $.ajax({
-                url: '/api/like',
+                url: '/like',
                 type: 'post',
                 data: {uid: nice, module: 1, target: target, child: child},
                 success: function (ret) {
