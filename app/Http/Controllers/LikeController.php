@@ -25,6 +25,8 @@ class LikeController extends Controller
     public function like(LikeRequest $request){
         $h = $request->header('Referer');
         \Log::error($h);
+        \Log::error('target====>'.$request->get('target'));
+        \Log::error('uid====>'.$request->get('uid'));
         if(isset($h) && str_contains($h,'https://servicewechat.com/wxe0e00ed5e74706e2'))
         {
             return (
