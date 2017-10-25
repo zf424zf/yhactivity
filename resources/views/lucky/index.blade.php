@@ -210,8 +210,10 @@
                     data: {type: 9, module: 9, path: path, uid: '{{$uid}}'},
                     success: function (ret) {
                         if (ret.data.haveChance == 1) {
-                            location.href = '/lucky/prize?image_id=' + ret.data.id;
+                            alert('抽奖活动已结束，感谢您的参与！');
+                            location.href = '/lucky/wall'
                         } else {
+                            alert('抽奖活动已结束，感谢您的参与！');
                             location.href = '/lucky/wall'
                         }
                     }
