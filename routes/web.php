@@ -65,4 +65,4 @@ Route::get('getNiceUser', 'UserController@niceUser');
 Route::get('/live', 'LiveController@liveListView');
 Route::get('/live/{id}', 'LiveController@detail');
 Route::get('/', 'IndexController@index');
-Route::post('/like','LikeController@likeView');
+Route::get('/like','LikeController@likeView');

@@ -8,7 +8,7 @@ $(function(){
         if (canLike == 1) {
             $.ajax({
                 url: '/like',
-                type: 'post',
+                type: 'get',
                 data: {uid: nice, module: 1, target: target, child: child},
                 success: function (ret) {
                     if (ret.code == 1009) {
