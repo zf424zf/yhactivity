@@ -16,7 +16,11 @@ use App\Http\Service\Service;
 
 class LikeController extends Controller
 {
-
+    public function __construct()
+    {
+        $this->middleware('isLogin',
+            ['except' => ['like', 'likeView']]);
+    }
 
     public function like(LikeRequest $request){
         $h = apache_request_headers();
