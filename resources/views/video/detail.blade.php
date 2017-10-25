@@ -55,6 +55,7 @@
             <a href="{{urls('/')}}"><img src="{{staticFile('images/active/question-btn-4.png')}}" alt="返回首页"></a>
         </p>
     </div>
+    <input type="hidden" class="niced" data-nice="{{$uid}}">
     <script src="{{staticFile('js/video-detail.js')}}"></script>
     <script src="//vjs.zencdn.net/5.19/video.min.js"></script>
     <script src="{{staticFile('js/videojs-contrib-hls.min.js')}}"></script>

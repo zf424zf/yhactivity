@@ -4,12 +4,12 @@ $(function(){
         var canLike = self.data('like');
         var child = self.data('child');
         var target = self.data('target');
-        console.log(canLike);
+        var nice = $('.niced').data('nice');
         if (canLike == 1) {
             $.ajax({
-                url: '/api/like',
-                type: 'post',
-                data: {uid: 1, module: 2, target: target, child: child},
+                url: '/like',
+                type: 'get',
+                data: {uid: nice, module: 2, target: target, child: child},
                 success: function (ret) {
                     if (ret.code == 1009) {
                         self.data('like', 0)
