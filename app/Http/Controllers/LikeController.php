@@ -23,8 +23,9 @@ class LikeController extends Controller
     }
 
     public function like(LikeRequest $request){
-        $h = apache_request_headers();
-        if(isset($h['Referer']) && str_contains($h['Referer'],'https://servicewechat.com/wxe0e00ed5e74706e2'))
+        $h = $request->header('Referer');
+        \Log::error($h);
+        if(isset($h) && str_contains($h,'https://servicewechat.com/wxe0e00ed5e74706e2'))
         {
             return (
             new Like())
